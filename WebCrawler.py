@@ -1,6 +1,7 @@
 #encoding=utf-8
 
 import threading
+import requests
 import GetUrl
 import urllib2
 import os
@@ -11,12 +12,15 @@ import re
 
 g_mutex = threading.Lock()   #互斥锁
 g_pages = []        #下载的页面
+g_pages_dict = {}
 g_dledUrl = []      #下载过的页面
 g_toDlUrl = []        #当前要下载的页面
 g_failedUrl = []       #下载失败的页面
+g_crawledUrl = []      #爬过的Url
 g_totalcount = 0    #下载过的页面数量
 
 PREFIX = dirname(abspath(__file__))          #当前绝对路径
+DOWN_PREFIX = PREFIX+'/down/'
 
 RE_CN = re.compile(ur'[\u4e00-\u9fa5]+')     #匹配中文
 RE_MOVIE = None                              #匹配视频 电影
@@ -33,9 +37,10 @@ class WebCrawler:
         print self.logfile
 
     def download(self, url, fileName):
-        print 'download==============='
-        print 'url',url
-        print 'fileName',fileName
+        #print 'url',url
+        #print 'fileName',fileName
+        global g_crawledUrl
+
         Cth = CrawlerThread(url, fileName)
         self.threadPool.append(Cth)                   #加入到线程池
         Cth.start()
@@ -51,7 +56,7 @@ class WebCrawler:
             while j < self.thNumber and i + j < len(g_toDlUrl):
                 g_totalcount += 1    #进入循环则下载页面数加1
                 self.download(g_toDlUrl[i+j], os.getcwd()+'/' + 'down_html'+ '/' + str(g_totalcount)+'.htm')
-                print 'Thread started:', i+j, '--File number = ', g_totalcount, '\n'
+                #print 'Thread started:', i+j, '--File number = ', g_totalcount, '\n'
                 j += 1
             i += j
             for th in self.threadPool:
@@ -63,45 +68,137 @@ class WebCrawler:
         global g_toDlUrl
         global g_dledUrl
         newUrlList = []
-        for s in g_pages:
-            newUrlList += GetUrl.GetUrl(s)   #######TODO GetUrl要具体实现
+        #for s in g_pages:
+        #    newUrlList += GetUrl.GetUrl(s)   #######TODO GetUrl要具体实现
         g_toDlUrl = list(set(newUrlList) - set(g_dledUrl))    #提示unhashable
+        print 'to dl url updated .....'
+        print 'after updated ,size',len(g_toDlUrl)
 
     def Craw(self, entryUrl):    #这是一个深度搜索，到g_toDlUrl为空时结束
         g_toDlUrl.append(entryUrl)
         depth = 0
         while len(g_toDlUrl) != 0:
             depth += 1
-            print 'Searching depth ', depth, '...\n\n'
+            print '\n'
+            print 'Searching depth ', depth, '...'
+            print 'to Dl Url size', len(g_toDlUrl)
             #download all
             self.downloadAll()
             #update to download
-            #self.updateToDl()
+            self.updateToDl()
             self.parseAll()
             #------------------------------------------------------------------#
-            content = '\n>>>Depth ' + str(depth)+':\n'
+            #content = '\n>>>Depth ' + str(depth)+':\n'
             #write log                        ##（该标记表示此语句用于写文件记录）
-            self.logfile.write(content)                                        ##
-            i = 0                                                              ##
-            while i < len(g_toDlUrl):                                          ##
-                content = str(g_totalcount + i) + '->' + g_toDlUrl[i] + '\n'   ##
-                self.logfile.write(content)                                    ##
-                i += 1
+            #self.logfile.write(content)                                        ##
+            #i = 0                                                              ##
+            #while i < len(g_toDlUrl):                                          ##
+            #    content = str(g_totalcount + i) + '->' + g_toDlUrl[i] + '\n'   ##
+            #    self.logfile.write(content)                                    ##
+            #    i += 1
+
+            print 'craw Once -----------------------------------------'
             #------------------------------------------------------------------#
     def parseAll(self):
         global g_pages
-        for html_doc in g_pages:
-            self.parse(html_doc)
-        print 'parse all'
+        global g_pages_dict
+        global g_crawledUrl
+        #TODO 启动线程
 
-    def parse(self, html_doc):
-        print 'parse'
-        soup = BeautifulSoup(html_doc, fromEncoding="gb18030")  #解决中文乱码问题
-        #soup = BeautifulSoup(html_doc)
-        for link in soup.find_all('a',{"href":re.compile(".html")}):
-            print(link)  #TODO 加入到 to Download 列表
-            type(link)
+        #for html_doc in g_pages:
+        #    #self.parse_link(html_doc)
+        #    self.parse_img(html_doc)
+        #   self.parse_link(html_doc)
+        print 'parse All'
+        for key in g_pages_dict.keys():
 
+            print 'parse Url :',key
+            self.parse_img(key, g_pages_dict[key])
+            self.parse_link(key, g_pages_dict[key])
+            #TODO 删除
+            g_crawledUrl.append(key)
+            del(g_pages_dict[key])
+        #print 'parse all'
+
+#查找链接
+    def parse_link(self, key, html_doc):
+        global g_toDlUrl
+        print 'parse link'
+        soup = BeautifulSoup(html_doc, from_encoding="gb18030")  #解决中文乱码问题
+        #for link in soup.find_all('a',{"href":re.compile(".html")}):
+        for link in soup.find_all('a'):
+            hurl = link['href']
+            #patten_1 = re.compile(r'http')
+            #match_1 = patten_1.match(hurl)
+            #if(not match_1):
+            #    if key[-1] == '/':
+                #key_new = key[:-1]
+                #    hurl = key_new + hurl
+                #else:
+                #    hurl = key + hurl
+            hurl = self.getUrl(key, hurl)
+            print '--++--',hurl
+            #print(hurl)  #TODO 加入到 to Download 列表
+            #if(len(g_toDlUrl) >=5):
+            #    break
+            g_toDlUrl.append(hurl)
+            print 'after parse link, size of to dl url',len(g_toDlUrl)
+            #判断 以 http,www 开头 or no
+            #append to list
+
+# 查找图片
+    def parse_img(self, key, html_doc):
+        print 'parse_img'
+        soup = BeautifulSoup(html_doc, from_encoding="gb18030")
+        #print 'charset',soup.originalEncoding()
+        result = soup.findAll(name='img')
+
+        with open("%s/down.sh"%DOWN_PREFIX, "a") as down:
+            #for link in result:
+                #link = unicode(link)
+                #print 'hello'
+
+                #print(link['src2'])
+
+                #if(link['src2']):
+                #    print(link['src2'])
+                #    continue
+                #if(link['src']):
+                #    print(link['src'])
+                #    continue
+
+            #imgss = []
+            #for tt in result:
+            #    if(tt['src']):
+            #          imgss.append(tt['src'])
+
+            imgs = set(tag['src'] for tag in result)
+
+            for img_path in imgs:
+                #patten_img = re.compile('.jpg')
+
+                #match_img = patten_img.match(img_path)
+                #if(match_img):
+                    #print 'img match'
+                if(str(img_path).endswith('jpg')):
+                    img_path = self.getUrl(key, img_path)
+                    down.write('wget %s \n' % img_path)
+            #down.write('wget %s -O "%s"\n' % (img_path,img_title)
+            #down.write('wget %s' % img_path)
+            print 'parse_img sucess==='
+
+    #转换 Url 绝对路径变相对路径
+    def getUrl(self, key, hurl):
+        hurl = hurl
+        patten_1 = re.compile(r'http')
+        match_1 = patten_1.match(hurl)
+        if(not match_1):
+            if key[-1] == '/':
+                key_new = key[:-1]
+                hurl = key_new + hurl
+            else:
+                hurl = key + hurl
+        return hurl
 
 
 
@@ -112,24 +209,29 @@ class CrawlerThread(threading.Thread):
         self.fileName = fileName
 
     def run(self):
-        print 'Thread run============ \n'
         global g_mutex
         global g_failedUrl
         global g_dledUrl
+        global g_pages
+        global g_pages_dict
 
         try:
             print 'Thread run== \n'
-            #print 'url',self.url
-            f = urllib2.urlopen(self.url)
-            #f=f.decode(f.headers.getparam("charset") ).encode('utf-8')
-            print 'url open sucess-----'
-            s = f.read()
-            #ParsUrl.getUrl(s)
-            print 'url read sucess-----'
-            fout = file(self.fileName, 'w')
-            fout.write(s)
-            print 'url content write sucess-----'
-            fout.close()
+
+            r = requests.get(self.url)
+            if r.status_code == 200:
+                f = urllib2.urlopen(self.url)
+                #print 'url open sucess-----'
+                s = f.read()
+                #ParsUrl.getUrl(s)
+                print 'url read sucess-----', self.url
+                fout = file(self.fileName, 'w')
+                fout.write(s)
+                #print 'url content write sucess-----'
+                if(s):
+                       g_pages.append(s)     #加入到列表 中
+                       g_pages_dict[self.url]=s
+                fout.close()
         except:
             g_mutex.acquire()
             g_dledUrl.append(self.url)
@@ -138,8 +240,9 @@ class CrawlerThread(threading.Thread):
             print 'Failed downloading and saving', self.url
             return None
 
+
         g_mutex.acquire()
-        g_pages.append(s)     #加入到列表 中
+
         g_dledUrl.append(self.url)
         g_mutex.release()
 
