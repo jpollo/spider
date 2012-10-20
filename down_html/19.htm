@@ -1,146 +1,1701 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>æ²æµ´ä¸­çš„ç¾Žå¥³ é‡‘ç¾Žè¾› - ç¾Žå¥³é—¨</title>
-    <meta name="keywords" content="NEMONæ‘„å½±,é‡‘ç¾Žè¾›" />
-    <meta name="description" content="" />
-    <link href="/css/style.css" rel="stylesheet" media="screen" type="text/css" />
-  </head>
-  
-  <body>
-    <div id="header">
-      <ul class="nav">
-        <li><a href='http://www.mmeinv.com/' class='index'>ç¾Žå¥³å›¢</a></li>
-        <li><a href='/xiezhen/' title="ç¾Žå¥³å†™çœŸ">ç¾Žå¥³å†™çœŸ</a></li>
-        <li><a href='/nemon/' title="æ€§æ„Ÿç¾Žå¥³" class='active'>æ€§æ„Ÿç¾Žå¥³</a></li>
-        <li><a href='/mingxing/' title="æ˜Žæ˜Ÿå†™çœŸ">æ˜Žæ˜Ÿå†™çœŸ</a></li>
-        <li><a href='/hongren/' title="ç½‘ç»œçº¢äºº">ç½‘ç»œçº¢äºº</a></li>
-        <li><a href='http://weibo.com/u/2895647092' title="ç¾Žå¥³å¾®åš" target='_blank'>ç¾Žå¥³å¾®åš</a></li>
-      </ul>
+<!doctype html>
+<html>
+<head>
+  <meta charset="gbk"> 
+  <title>¡¾ZOLÊÓÆµ¡¿¿Æ¼¼½ÚÄ¿_Ê±ÉÐÐÂÆ·_IT´óÊÂ¼þ_·çÔÆÈËÎï-ZOLÖÐ¹Ø´åÔÚÏß</title>
+  <meta name="keywords" content="ZOLÊÓÆµ£¬¿Æ¼¼½ÚÄ¿£¬Ê±ÉÐÐÂÆ·£¬IT´óÊÂ¼þ£¬·çÔÆÈËÎï"/>
+  <meta name="description" content="ZOLÊÓÆµÌá¹©´óÁ¿ZOLÔ­´´ÊÓÆµ£¬°üÀ¨¿Æ¼¼½ÚÄ¿ÊÓÆµ¡¢Ê±ÉÐÐÂÆ·ÊÓÆµ¡¢IT´óÊÂ¼þÊÓÆµ¡¢·çÔÆÈËÎïÊÓÆµ¡¢Õ¹»á»î¶¯ÊÓÆµ¡¢Ð£Ô°ÐÐ¡¢ÍøÓÑ¾Û»áµÈÔ­´´ÊÓÆµ£¬ÖÜÖÜÐÂÄÚÈÝ£¬ÆÚÆÚ¶¼¾«²Ê¾¡ÔÚZOLÊÓÆµÆµµÀ"/>
+  <link type="text/css" href="http://icon.zol-img.com.cn/ishow/css/style.css" rel="stylesheet">
+  <script type="text/javascript"  src="http://p.zol-img.com.cn/ishow/index.js"></script>
+  <script type="text/javascript"  src="http://icon.zol-img.com.cn/ishow/js/jquery-1.4.4.min.js"></script>
+  <script type="text/javascript"  src="http://icon.zol-img.com.cn/public/js/swfobject.js"></script>
+  <script type="text/javascript"  src="http://icon.zol-img.com.cn/ishow/js/full_screen.js"></script>
+  <script>
+  //¡°Ö±²¥Á´¡± START
+  var living_arr = ['ÍÆ¼ö','ÍÆ¼ö','ÍÆ¼ö','ÍÆ¼ö']; //ÓÃÓÚ´æ·ÅÖ±²¥Á´ µÄ±êÇ©
+  var living_key = 1; //Ö±²¥Á´±êÇ©µÄkeyÖµ»òÕß flag
+  var living_time = 8000; //¹ö¶¯Ê±¼ä ºÁÃë
+  var line_height = 28;	//ul.living ÏÂµÄliµÄ¸ß¶È
+  function newsScroll(){ //¿ØÖÆ¡°Ö±²¥Á´¡±¹ö¶¯µÄ
+		if(living_key >= living_arr.length){
+			living_key = 0; 
+		}
+		$("#living_label").text(living_arr[living_key]);
+		living_key++;  
+
+		var p_0 = parseInt($(".live ul.living").eq(0).css("bottom")) + line_height;
+		var p_1 = parseInt($(".live ul.living").eq(1).css("bottom")) + line_height;
+		//alert("0:"+p_0+"\n1:"+p_1);
+		
+		$(".live ul.living").eq(0).animate({bottom:"" + p_0 + "px"}, 1000,
+				function(){
+					if (p_0 >= living_arr.length * line_height) {
+						$(this).css({bottom:"-" + (living_arr.length * line_height) + "px"});
+					}
+				});
+		$(".live ul.living").eq(1).animate({bottom:"" + p_1 + "px"}, 1000,
+				function(){
+					if (p_1 >= (2 * living_arr.length) * line_height) {
+						$(this).css({bottom: "0px"});
+					}
+				});
+  };
+  $(document).ready(function() {
+  $("#living_label").text(living_arr[0]); 
+  var myar = setInterval(newsScroll, living_time); 
+  $(".live .living li").mouseover(function() { clearInterval(myar); });
+  $(".live .living li").mouseout(function() {myar = setInterval("newsScroll()",living_time); }); 
+  })
+  //¡°Ö±²¥Á´¡± END
+  </script>
+  <base target="_blank" />
+</head>
+<body>
+<script language="JavaScript" src="http://icon.zol-img.com.cn/getcook.js" type="text/javascript"></script>
+<script language="JavaScript" src="http://icon.zol-img.com.cn/public/js/web_head.js" type="text/javascript"></script><script>write_ad("index_top_tonglan");</script><div class="header">
+  <div class="logo_search">
+    <a href="/" class="logo">ZOLÊÓÆµ</a>
+    <div class="s_box clearfix">
+      <table class="text_nav" cellpadding="0" cellspacing="0">
+            	<tr>
+      	          <td><a href="http://v.zol.com.cn/topic/2470175.html" style="color:#000000;">Ð¡Ã×ÊÖ»ú</a></td>
+                  <td><a href="http://v.zol.com.cn/pubdate/2-31-1.html" style="color:#CC0000;">Ì¨±±µçÄÔÕ¹</a></td>
+                  <td><a href="http://v.zol.com.cn/video117577.html">Galaxy S3</a></td>
+                  <td><a href="http://v.zol.com.cn/control/search.php?kword=NEW" style="color:#CC0000;">New iPad</a></td>
+                  <td><a href="http://v.zol.com.cn/week_hits/4-82686-1.html">Ã¿ÈÕ¼ÑÈí</a></td>
+                  <td><a href="http://v.zol.com.cn/week_hits/1-3-1.html"></a></td>
+                </tr>
+            	<tr>
+      	          <td><a href="http://v.zol.com.cn/control/search.php?kword=windows8" style="color:#CC0000;">Windows8 </a></td>
+                  <td><a href="http://v.zol.com.cn/video117822.html" style="color:#000000;">5Dmark3</a></td>
+                  <td><a href="http://v.zol.com.cn/week_hits/4-29514-1.html">Æ½°åµçÄÔ</a></td>
+                  <td><a href="http://v.zol.com.cn/pubdate/2-48-1.html" style="color:#CC0000;">ÊÖ»úÐÂÆ·</a></td>
+                  <td><a href="http://v.zol.com.cn/control/search.php?kword=%B3%AC%BC%AB%B1%BE">³¬¼«±¾</a></td>
+                </tr>
+            </table>
+     <form action="/control/search.php" method="get" name="searchform" class="searchform" target="_self">
+      <div id="search" class="search">
+        <input type="text" class="s_text" name="kword"  id="kword" value="¿Æ¼¼"  onclick="JavaScript:if(this.value=='¿Æ¼¼'){this.value='';this.style.color='#000'};" autocomplete="off">
+        <input type="submit" class="s_btn" value="ËÑË÷">
+      </div>
+     </form>
+     <script type="text/javascript">
+	     $(document).ready(function(){
+	         var search_url = top.location.href; 
+	         var index_url = 'http://v.zol.com.cn/'; //Ê×Ò³µØÖ·
+	         var substr_str = search_url.substr(index_url.length, 9);
+	         if ( !substr_str || 'index.php' == substr_str ) { //Èç¹ûÊÇÊ×Ò³ËÑË÷µ¼º½¶¼ÊÇÐÂ´ò¿ª
+	        	 $('form.searchform').attr('target','_blank');  
+	        	 $('ul.nav a.ar').attr('target','_blank'); 
+	         }
+	         //ÅÐ¶ÎËÑË÷ÎÄ±¾¿òÊÇ·ñ¸Ä±äÑÕÉ«
+	         var key_word = document.getElementById('kword'); 
+	         if(key_word.value != '¿Æ¼¼') {
+	             $('form.searchform .s_text').css('color','#000'); 
+	         } 
+	     })
+     </script>
     </div>
-    <script type="text/javascript">/*960*90*/ var cpro_id = 'u855165';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script>
-    <div id="container">
-      <div class="box">
-        <h1>æ²æµ´ä¸­çš„ç¾Žå¥³ é‡‘ç¾Žè¾›</h1>
-        <div class="info">
-        <script type="text/javascript">/*468*15*/ var cpro_id = 'u1001849';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script>
-          å›¾ç‰‡æ¥æº:NEMONæ‘„å½±&nbsp;&nbsp;
-          äººæ°”:<script src="/plus/count.php?view=yes&aid=195&mid=1" type='text/javascript' language="javascript"></script>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          æ¨¡ç‰¹: <a href='/jinmeixin/'>é‡‘ç¾Žè¾›</a>
-        </div>
-        <div class="pic">
-          <a href='/uploads/allimg/201112/1-11122Z20003.jpg' ><a href='195_2.html'><img alt="æ²æµ´ä¸­çš„ç¾Žå¥³ é‡‘ç¾Žè¾›" src='/uploads/allimg/201112/1-11122Z20003.jpg'  border='0' /></a></a>
-          <script src='/plus/ad_js.php?aid=2' language='javascript'></script>
-          <div class="page">
-            <ul class="pagelist">
-              <li><a>å…±12é¡µ: </a></li><li><a href='#'>ä¸Šä¸€é¡µ</a></li><li class="thisclass"><a href='#'>1</a></li><li><a href='195_2.html'>2</a></li><li><a href='195_3.html'>3</a></li><li><a href='195_4.html'>4</a></li><li><a href='195_5.html'>5</a></li><li><a href='195_6.html'>6</a></li><li><a href='195_7.html'>7</a></li><li><a href='195_8.html'>8</a></li><li><a href='195_9.html'>9</a></li><li><a href='195_10.html'>10</a></li><li><a href='195_11.html'>11</a></li><li><a href='195_12.html'>12</a></li><li><a href='195_2.html'>ä¸‹ä¸€é¡µ</a></li>
+  </div>
+  <ul class="nav clearfix">
+    <li  class="current"><H1><a id="vindex"  target="_self">ÊÓÆµÊ×Ò³</a></H1></li>
+    <li >
+       
+      <a class="ar" href="/week_hits/1-1-1.html" target="_self">¿Æ¼¼½ÚÄ¿</a>
+      <div class="sub_nav">
+        <table cellspacing="0">
+                                  <tr><td><a href="/week_hits/2-65-1.html" title="ÌìÏÂIT">ÌìÏÂIT</a></td>
+                                            	<td><a href="/week_hits/2-2-1.html" title="Í¬·½¾«Æ·±¾ÖÜÄ©">Í¬·½±¾ÖÜÄ©</a></td>
+          	                                	<td><a href="/week_hits/2-3-1.html" title="¹úÃÀÌØÔ¼µ¥·´ÑµÁ·Óª">µ¥·´ÑµÁ·Óª</a></td>
+          	                                	<td><a href="/week_hits/2-4-1.html" title="´ó´ÐÍæÊÖ»ú">´ó´ÐÍæÊÖ»ú</a></td>
+          	                                	<td><a href="/week_hits/2-9-1.html" title="Ó²¼þ¼±ÕïÊÒ">Ó²¼þ¼±ÕïÊÒ</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/2-10-1.html" title="ÓÎÎûÈ¦">ÓÎÎûÈ¦</a></td>
+                                            	<td><a href="/week_hits/2-7-1.html" title="iÊÖ»ú">°®ÊÖ»ú</a></td>
+          	                                	<td><a href="/week_hits/2-15-1.html" title="ÏÔÊ¾Æ÷´ïÈËÔÚÏß">ÏÔÊ¾Æ÷´ïÈË</a></td>
+          	                                	<td><a href="/week_hits/2-67-1.html" title="Ã¿ÈÕ¼ÑÈí">Ã¿ÈÕ¼ÑÈí</a></td>
+          	                                	<td><a href="/week_hits/2-13-1.html" title="Í¶Í¶ÊÇµÀ">Í¶Í¶ÊÇµÀ</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/2-12-1.html" title="¿áÆ·µç¾º">¿áÆ·µç¾º</a></td>
+                                            	<td><a href="/week_hits/2-11-1.html" title="¼ÒÌìÏÂ">¼ÒÌìÏÂ</a></td>
+          	                                	<td><a href="/week_hits/2-8-1.html" title="³¬»ú·ÃÎÊ">³¬»ú·ÃÎÊ</a></td>
+          	                                	<td><a href="/week_hits/2-68-1.html" title="IT¿ñÈËÓ¢ÐÛ´«">IT¿ñÈËÓ¢ÐÛ´«</a></td>
+          	                                	<td><a href="/week_hits/2-16-1.html" title="ITÅ£ÊÂ»ã">ITÅ£ÊÂ»ã</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/2-29-1.html" title="IT711">IT711</a></td>
+                                            	<td><a href="/week_hits/2-27-1.html" title="ITÂ·¿ö">ITÂ·¿ö</a></td>
+          	                                	<td><a href="/week_hits/2-28-1.html" title="IT·ç²¨">IT·ç²¨</a></td>
+          	                  </table>
+      </div>
+          </li>
+    <li >
+      <a class="ar" href="/week_hits/1-2-1.html" target="_self">Ê±ÉÐÐÂÆ·</a>
+      <div class="sub_nav vogue">
+        <dl class="vogue_dl">
+          <dt>·ÖÀà</dt>
+          <dd>
+            <table cellspadding="0">
+                                            <tr>
+                <td><a href="/week_hits/2-48-1.html" title="ÊÖ»ú">ÊÖ»ú</a></td>
+                                                              <td><a href="/week_hits/2-62-1.html" title="±Ê¼Ç±¾/µçÄÔ">±Ê¼Ç±¾µçÄÔ</a></td>
+                                                              <td><a href="/week_hits/2-52-1.html" title="ÊýÂëÏà»ú">ÊýÂëÏà»ú</a></td>
+              </tr>
+             	                                            <tr>
+                <td><a href="/week_hits/2-54-1.html" title="DIYÓ²¼þ">DIYÓ²¼þ</a></td>
+                                                              <td><a href="/week_hits/2-63-1.html" title="¼Òµç">¼Òµç</a></td>
+                                                              <td><a href="/week_hits/2-70-1.html" title="°²·À">°²·À</a></td>
+              </tr>
+             	                                            <tr>
+                <td><a href="/week_hits/2-69-1.html" title="Æ½°åµçÄÔ">Æ½°åµçÄÔ</a></td>
+                                                              <td><a href="/week_hits/2-61-1.html" title="Èí¼þ">Èí¼þ</a></td>
+                                                              <td><a href="/week_hits/2-59-1.html" title="×ÀÃæÍâÉè">×ÀÃæÍâÉè</a></td>
+              </tr>
+             	                                            <tr>
+                <td><a href="/week_hits/2-58-1.html" title="GPS">GPS</a></td>
+                                                              <td><a href="/week_hits/2-57-1.html" title="°ì¹«´òÓ¡">°ì¹«´òÓ¡</a></td>
+                                                              <td><a href="/week_hits/2-56-1.html" title="ÆóÒµÉÌÓÃ">ÆóÒµÉÌÓÃ</a></td>
+              </tr>
+             	                                            <tr>
+                <td><a href="/week_hits/2-53-1.html" title="Êý×ÖÒôÆµ">Êý×ÖÒôÆµ</a></td>
+                                                              <td><a href="/week_hits/2-76-1.html" title="ÓÎÏ·">ÓÎÏ·</a></td>
+                                          </table>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Æ·ÅÆ</dt>
+          <dd>
+            <table cellspadding="0">
+                                          <tr><td><a href="http://v.zol.com.cn/week_hits/6-160-1.html" title="ÁªÏë">ÁªÏë</a></td>
+                                                        <td><a href="http://v.zol.com.cn/week_hits/6-1191-1.html" title="ÉñÖÛ">ÉñÖÛ</a></td></tr>
+                                                        <tr><td><a href="http://v.zol.com.cn/week_hits/6-223-1.html" title="»ÝÆÕ">»ÝÆÕ</a></td>
+                                                        <td><a href="http://v.zol.com.cn/week_hits/6-227-1.html" title="»ªË¶">»ªË¶</a></td></tr>
+                                                        <tr><td><a href="http://v.zol.com.cn/week_hits/6-33080-1.html" title="HTC">HTC</a></td>
+                                                        <td><a href="http://v.zol.com.cn/week_hits/6-232-1.html" title="¼ÑÄÜ">¼ÑÄÜ</a></td></tr>
+                                                        <tr><td><a href="http://v.zol.com.cn/week_hits/6-167-1.html" title="Ë÷Äá">Ë÷Äá</a></td>
+                                                        <td><a href="http://v.zol.com.cn/week_hits/6-297-1.html" title="Åµ»ùÑÇ">Åµ»ùÑÇ</a></td></tr>
+                                                  </table>
+          </dd>
+        </dl>
+      </div>
+    </li>
+    <li >
+       
+      <a class="ar" href="/week_hits/1-4-1.html" target="_self">IT´óÊÂ¼þ</a>
+      <div class="sub_nav">
+        <table cellspacing="0">
+          <tr>
+                                  <tr><td><a href="/week_hits/2-39-1.html" title="·¢²¼»á">·¢²¼»á</a></td>
+                                            	<td><a href="/week_hits/2-31-1.html" title="COMPUTEXÌ¨±±µçÄÔÕ¹">Ì¨±±µçÄÔÕ¹</a></td>
+          	                                	<td><a href="/week_hits/2-35-1.html" title="CES">CES</a></td>
+          	                                	<td><a href="/week_hits/2-43-1.html" title="ZOL¿Í»§´ðÐ»»á">¿Í»§´ðÐ»»á</a></td>
+          	                                	<td><a href="/week_hits/2-32-1.html" title="Ó¢ÌØ¶ûIDF">Ó¢ÌØ¶ûIDF</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/2-40-1.html" title="Z¿áÐ£Ô°ÐÐ">Ð£Ô°ÐÐ</a></td>
+                                            	<td><a href="/week_hits/2-34-1.html" title="P&E">P&E</a></td>
+          	                                	<td><a href="/week_hits/2-36-1.html" title="Chinajoy">Chinajoy</a></td>
+          	                                	<td><a href="/week_hits/2-33-1.html" title="ÖÐ¹ú¹ú¼ÊÍ¨ÐÅÕ¹">Í¨ÐÅÕ¹</a></td>
+          	                                	<td><a href="/week_hits/2-41-1.html" title="Õ¾³¤´ó»á">Õ¾³¤´ó»á</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/2-38-1.html" title="·äÄñÄ£ÌØ´óÈü">Ä£ÌØ´óÈü</a></td>
+                                            	<td><a href="/week_hits/2-47-1.html" title="ZOLÊ®ÖÜÄêÇìµä">Ê®ÖÜÄêÇìµä</a></td>
+          	                                	<td><a href="/week_hits/2-37-1.html" title="Æ»¹û¿ª·¢Õß´ó»áWWDC">Æ»¹û¿ª·¢»á</a></td>
+          	                                	<td><a href="/week_hits/2-71-1.html" title="°²·ÀÕ¹">°²·ÀÕ¹</a></td>
+          	                                	<td><a href="/week_hits/2-77-1.html" title="»¥ÁªÍø´ó»á">»¥ÁªÍø´ó»á</a></td></tr>
+          	                    </tr>
+        </table>
+      </div>
+          </li>
+    <li >
+       
+      <a class="ar" href="/week_hits/1-3-1.html" target="_self">·çÔÆÈËÎï</a>
+      <div class="sub_nav other">
+        <table cellspacing="0">
+          <tr>
+                                  <tr><td><a href="/week_hits/4-90435-1.html" title="ÂíºêÉý">ÂíºêÉý</a></td>
+                                            	<td><a href="/week_hits/4-90434-1.html" title="Áø´«Ö¾">Áø´«Ö¾</a></td>
+          	                                	<td><a href="/week_hits/4-90436-1.html" title="ÑîÐð">ÑîÐð</a></td>
+          	                                	<td><a href="/week_hits/4-90437-1.html" title="»ÆÈÊÑ«">»ÆÈÊÑ«</a></td>
+          	                                	<td><a href="/week_hits/4-90438-1.html" title="ÁºÄî¼á">ÁºÄî¼á</a></td>
+          	                                	<td><a href="/week_hits/4-90439-1.html" title="ãÉÒã´ï">ãÉÒã´ï</a></td>
+          	                                	<td><a href="/week_hits/4-90440-1.html" title="ÕÅÑÇÇÚ">ÕÅÑÇÇÚ</a></td>
+          	                                	<td><a href="/week_hits/4-90441-1.html" title="µËÔªä]">µËÔªä]</a></td>
+          	                                	<td><a href="/week_hits/4-90442-1.html" title="Ã«¶«·ò">Ã«¶«·ò</a></td>
+          	                                	<td><a href="/week_hits/4-90443-1.html" title="Ò¶Åà³Ç">Ò¶Åà³Ç</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/4-90444-1.html" title="ÉòÕñÀ´">ÉòÕñÀ´</a></td>
+                                            	<td><a href="/week_hits/4-90445-1.html" title="ÕÅÎÄñ´">ÕÅÎÄñ´</a></td>
+          	                                	<td><a href="/week_hits/4-90446-1.html" title="Îâº£¾ü">Îâº£¾ü</a></td>
+          	                                	<td><a href="/week_hits/4-90447-1.html" title="Àú¾ü">Àú¾ü</a></td>
+          	                                	<td><a href="/week_hits/4-90448-1.html" title="ÄßÌìÒâ">ÄßÌìÒâ</a></td>
+          	                                	<td><a href="/week_hits/4-90449-1.html" title="ÈÎÎ°¹â">ÈÎÎ°¹â</a></td>
+          	                                	<td><a href="/week_hits/4-90450-1.html" title="ÐíÂ¡Â×">ÐíÂ¡Â×</a></td>
+          	                                	<td><a href="/week_hits/4-90451-1.html" title="¶­ÞÈ">¶­ÞÈ</a></td>
+          	                                	<td><a href="/week_hits/4-90452-1.html" title="µËÅàÖÇ">µËÅàÖÇ</a></td>
+          	                                	<td><a href="/week_hits/4-90453-1.html" title="°×ÅàÁØ">°×ÅàÁØ</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/4-90454-1.html" title="Ä²¹óÏÈ">Ä²¹óÏÈ</a></td>
+                                            	<td><a href="/week_hits/4-90455-1.html" title="³Â¾´ÐÂ">³Â¾´ÐÂ</a></td>
+          	                                	<td><a href="/week_hits/4-90456-1.html" title="³Â¾´ºê">³Â¾´ºê</a></td>
+          	                                	<td><a href="/week_hits/4-7319-1.html" title="·ë¾ü">·ë¾ü</a></td>
+          	                                	<td><a href="/week_hits/4-90457-1.html" title="À¶ìÇ">À¶ìÇ</a></td>
+          	                                	<td><a href="/week_hits/4-90458-1.html" title="Àî¿ª¸´">Àî¿ª¸´</a></td>
+          	                                	<td><a href="/week_hits/4-84411-1.html" title="ÅË³¤»ª">ÅË³¤»ª</a></td>
+          	                                	<td><a href="/week_hits/4-84764-1.html" title="Ð»ê»">Ð»ê»</a></td>
+          	                                	<td><a href="/week_hits/4-90460-1.html" title="ÕÔ½¡">ÕÔ½¡</a></td>
+          	                                	<td><a href="/week_hits/4-83799-1.html" title="ÁÖÇ¿">ÁÖÇ¿</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/4-83421-1.html" title="½­Õñ¹ú">½­Õñ¹ú</a></td>
+                                            	<td><a href="/week_hits/4-53314-1.html" title="ÁõÃ¯Æð">ÁõÃ¯Æð</a></td>
+          	                                	<td><a href="/week_hits/4-83119-1.html" title="ÐíÓÓ¼Î">ÐíÓÓ¼Î</a></td>
+          	                                	<td><a href="/week_hits/4-90461-1.html" title="Îâ·½È¨">Îâ·½È¨</a></td>
+          	                                	<td><a href="/week_hits/4-89360-1.html" title="³ÂÃñÁÁ">³ÂÃñÁÁ</a></td>
+          	                                	<td><a href="/week_hits/4-35471-1.html" title="ÍõÐ¡´¨">ÍõÐ¡´¨</a></td>
+          	                                	<td><a href="/week_hits/4-82036-1.html" title="ÁÖÒ«¶«">ÁÖÒ«¶«</a></td>
+          	                                	<td><a href="/week_hits/4-90462-1.html" title="ÐìÑ§ÓÂ">ÐìÑ§ÓÂ</a></td>
+          	                                	<td><a href="/week_hits/4-25808-1.html" title="ÀîÑåºê">ÀîÑåºê</a></td>
+          	                                	<td><a href="/week_hits/4-81946-1.html" title="ÖÜÇïê»">ÖÜÇïê»</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/4-81944-1.html" title="ÌÆ¾¢ËÉ">ÌÆ¾¢ËÉ</a></td>
+                                            	<td><a href="/week_hits/4-90463-1.html" title="ÐíÃ÷Á®">ÐíÃ÷Á®</a></td>
+          	                                	<td><a href="/week_hits/4-90464-1.html" title="Â¬ÈêÎÄ">Â¬ÈêÎÄ</a></td>
+          	                                	<td><a href="/week_hits/4-80959-1.html" title="·½Èð¿Ë">·½Èð¿Ë</a></td>
+          	                                	<td><a href="/week_hits/4-62792-1.html" title="Íõ·å">Íõ·å</a></td>
+          	                                	<td><a href="/week_hits/4-80957-1.html" title="ÓÚºéÓÂ">ÓÚºéÓÂ</a></td>
+          	                                	<td><a href="/week_hits/4-80953-1.html" title="Ñî·É">Ñî·É</a></td>
+          	                                	<td><a href="/week_hits/4-80924-1.html" title="ÍõÑå">ÍõÑå</a></td>
+          	                                	<td><a href="/week_hits/4-80909-1.html" title="ÁÎÀöÑÇ">ÁÎÀöÑÇ</a></td>
+          	                                	<td><a href="/week_hits/4-67184-1.html" title="ÀîÖÒ½ú">ÀîÖÒ½ú</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/4-80901-1.html" title="¹ùÁ¦Èº">¹ùÁ¦Èº</a></td>
+                                            	<td><a href="/week_hits/4-80899-1.html" title="ÏÄÎÄ¾ü">ÏÄÎÄ¾ü</a></td>
+          	                                	<td><a href="/week_hits/4-90465-1.html" title="´ú¾ü">´ú¾ü</a></td>
+          	                                	<td><a href="/week_hits/4-55221-1.html" title="ÕÔ¾ü">ÕÔ¾ü</a></td>
+          	                                	<td><a href="/week_hits/4-78261-1.html" title="Àµ½¨éÅ">Àµ½¨éÅ</a></td>
+          	                                	<td><a href="/week_hits/4-76557-1.html" title="ÌÆÍþ">ÌÆÍþ</a></td>
+          	                                	<td><a href="/week_hits/4-76529-1.html" title="Àî†´">Àî†´</a></td>
+          	                                	<td><a href="/week_hits/4-80905-1.html" title="ÎâÎÄÈª">ÎâÎÄÈª</a></td>
+          	                                	<td><a href="/week_hits/4-29667-1.html" title="³ÂÁ¢°×">³ÂÁ¢°×</a></td>
+          	                                	<td><a href="/week_hits/4-90466-1.html" title="ÇÇá½">ÇÇá½</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/4-90467-1.html" title="ºÎ¸Õ">ºÎ¸Õ</a></td>
+                                            	<td><a href="/week_hits/4-31555-1.html" title="Ð»Ã÷½Ü">Ð»Ã÷½Ü</a></td>
+          	                                	<td><a href="/week_hits/4-90468-1.html" title="Íõ¿¡ÈË">Íõ¿¡ÈË</a></td>
+          	                                	<td><a href="/week_hits/4-25237-1.html" title="Â¬ç÷Â¡">Â¬ç÷Â¡</a></td>
+          	                                	<td><a href="/week_hits/4-50688-1.html" title="ÁÖºÆ">ÁÖºÆ</a></td>
+          	                                	<td><a href="/week_hits/4-90469-1.html" title="¸ßº­Óî">¸ßº­Óî</a></td>
+          	                                	<td><a href="/week_hits/4-71485-1.html" title="ÓÚÕØÁÒ">ÓÚÕØÁÒ</a></td>
+          	                                	<td><a href="/week_hits/4-70183-1.html" title="Ö£Î°ÌÚ">Ö£Î°ÌÚ</a></td>
+          	                                	<td><a href="/week_hits/4-67185-1.html" title="ÕÔÈð½Ü">ÕÔÈð½Ü</a></td>
+          	                                	<td><a href="/week_hits/4-66898-1.html" title="Ò¶³É»Ô">Ò¶³É»Ô</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/4-65218-1.html" title="Àî½ú¿­">Àî½ú¿­</a></td>
+                                            	<td><a href="/week_hits/4-60423-1.html" title="Àîè´">Àîè´</a></td>
+          	                                	<td><a href="/week_hits/4-90470-1.html" title="Å·ÎÄ½Ü">Å·ÎÄ½Ü</a></td>
+          	                                	<td><a href="/week_hits/4-58332-1.html" title="×¯ÕýËÉ">×¯ÕýËÉ</a></td>
+          	                                	<td><a href="/week_hits/4-53163-1.html" title="ÐìÎ°·å">ÐìÎ°·å</a></td>
+          	                                	<td><a href="/week_hits/4-41547-1.html" title="ÕÅ»ª">ÕÅ»ª</a></td>
+          	                                	<td><a href="/week_hits/4-24734-1.html" title="Ñî¹â">Ñî¹â</a></td>
+          	                                	<td><a href="/week_hits/4-40716-1.html" title="Ò×Ã·">Ò×Ã·</a></td>
+          	                                	<td><a href="/week_hits/4-5521-1.html" title="ÕÅ½¨ÖÐ">ÕÅ½¨ÖÐ</a></td>
+          	                                	<td><a href="/week_hits/4-7315-1.html" title="³ÂÉÜÅô">³ÂÉÜÅô</a></td></tr>
+          	                                  <tr><td><a href="/week_hits/4-23586-1.html" title="ÍõÖÒ">ÍõÖÒ</a></td>
+                                            	<td><a href="/week_hits/4-23568-1.html" title="ÍôÉîº£">ÍôÉîº£</a></td>
+          	                                	<td><a href="/week_hits/4-23564-1.html" title="Æî¶«·ç">Æî¶«·ç</a></td>
+          	                                	<td><a href="/week_hits/4-23545-1.html" title="·¶ÔöÏé">·¶ÔöÏé</a></td>
+          	                                	<td><a href="/week_hits/4-22486-1.html" title="¸ðçæ">¸ðçæ</a></td>
+          	                                	<td><a href="/week_hits/4-85466-1.html" title="ÕÅêÍ">ÕÅêÍ</a></td>
+          	                    </tr>
+        </table>
+      </div>
+          </li>
+    <li style="display:none"">
+            <a href="#" target="_self">È«Çò¿Æ¼¼±¨µÀ</a>
+          </li>
+    <li style="display:none" >
+            <a href="#" target="_self">ÆäËû·ÖÀà</a>
+          </li>
+  </ul>
+</div>
+<script language="javascript">
+//Ä¿µÄ½â¾öipadµ¼º½À¸´ò¿ªÎÞ·¨¹Ø±ÕµÄÎÊÌâ
+$(document).ready(function(){
+	  var p1 = navigator.platform.search(/iPad/i);
+	  var p2 = navigator.platform.search(/iPhone/i);
+	  //Èç¹ûÊÇipad or iPhone 
+	  if((-1 != p1) || (-1 != p2)) {
+		  var class_name = 'ar';
+		  var classElements = [];
+		  var allElements = document.getElementsByTagName('a');
+		  var allElements_len = allElements.length;
+		  for (var i = 0; i < allElements_len; i++) {
+			  if (allElements[i].className == class_name) {
+				  classElements[classElements.length] = allElements[i];
+			  }
+		  }
+		  for (var j = 0; j < classElements.length; j++) {
+			  classElements[j].onclick = function(event){
+				  var $target=$(event.target);
+				  if ($target.is('.ar')) {
+					  var navblock = $(this).parent('li').children('div.sub_nav:visible');
+					  if (!navblock.length) {
+						$("ul.nav li").children('div.sub_nav').css('display','none'); 
+				  		$("ul.nav li").children('.ar').removeClass('hover');
+				  		  
+						$(this).addClass("hover");
+						$(this).parent('li').find(".sub_nav").show();
+						event.stopPropagation();
+						return false;
+					  } 
+				  }
+			  }
+		  }
+
+		  if(document.addEventListener){
+			  document.addEventListener('click',  function(){setTimeout(hiden,600);}, false); 
+		  }
+	 }else {
+		  $(".nav li").hover(
+			 function(){
+				 $(this).find(".ar").addClass("hover");
+				 $(this).find(".sub_nav").show();
+			 },function(){
+				 $(this).find(".ar").removeClass("hover");
+				 $(this).find(".sub_nav").hide();
+			 });
+	  }
+})
+
+function hiden() {
+	//navigator
+	  var nav_show = $("ul.nav li").children('div.sub_nav:visible'); 
+	  if (nav_show.length) {
+		  $("ul.nav li").children('div.sub_nav').css('display','none'); 
+		  $("ul.nav li").children('.ar').removeClass('hover');
+	  }
+	  //web header
+	  var top_l = $("ul.znav_list ul:visible").length;  
+	  if (top_l) {
+		  $("ul.znav_list ul").css('display','none'); 
+		  $("ul.znav_list").children('li').removeClass('zact'); 
+	  }
+}
+</script><div class="topic clearfix">
+    <div class="topic_item">
+    <a href="http://mobile.zol.com.cn/iphone/" class="pic"><img src="http://dg1.zol-img.com.cn/18_module_images/16/50568cc74837e.jpg" alt="Æ»¹û·¢²¼iPhone5" width="100" height="75"></a>
+    <div class="text">
+      <span></span>
+      <a href="http://mobile.zol.com.cn/iphone/" title="Æ»¹û·¢²¼iPhone5">Æ»¹û·¢²¼iPhone5</a>
+      <p>È«Ãæ½âÎöÈ«ÐÂ±ä»¯¡£</p>
+    </div>
+  </div>
+    <div class="topic_item">
+    <a href="http://nb.zol.com.cn/topic/3200882.html" class="pic"><img src="http://dg1.zol-img.com.cn/18_module_images/16/50611f527a471.jpg" alt="ÁªÏëÑïÌìÏµÁÐÐÂÆ··¢²¼" width="100" height="75"></a>
+    <div class="text">
+      <span></span>
+      <a href="http://nb.zol.com.cn/topic/3200882.html" title="ÁªÏëÑïÌìÏµÁÐÐÂÆ··¢²¼">ÁªÏëÑïÌìÏµÁÐÐÂÆ··¢²¼</a>
+      <p>ÑïÌìÊ×¿î³¬¼«±¾¡¢miniÌ¨Ê½»úÁÁÏà</p>
+    </div>
+  </div>
+    <div class="topic_item">
+    <a href="http://nb.zol.com.cn/topic/3219266.html" class="pic"><img src="http://dg1.zol-img.com.cn/18_module_images/16/50611f10a14a9.jpg" alt="»ÝÆÕ·¢²¼3999³¬¼«±¾" width="100" height="75"></a>
+    <div class="text">
+      <span></span>
+      <a href="http://nb.zol.com.cn/topic/3219266.html" title="»ÝÆÕ·¢²¼3999³¬¼«±¾">»ÝÆÕ·¢²¼3999³¬¼«±¾</a>
+      <p>Ïû·ÑÀà²úÆ·²ßÂÔ·¢²¼»á</p>
+    </div>
+  </div>
+  </div>
+<div class="wrapper clearfix">
+  <div id="FocusObj" class="img_focus">flash
+  </div>
+  <script type="text/javascript">
+      var focus_width=320;
+      var focus_height=270;
+      var pics="http://dg1.zol-img.com.cn/18_module_images/16/507e4bf5022d9.jpg###http://dg1.zol-img.com.cn/18_module_images/16/507ba17c5a088.jpg###http://dg1.zol-img.com.cn/18_module_images/16/5076485722d7d.jpg";
+      var links="http://v.zol.com.cn/video120063.html###http://v.zol.com.cn/video119793.html###http://v.zol.com.cn/video119978.html";
+      var texts="SurfaceÆ½°å###Ð¡Ã×ÊÖ»ú2###ÁªÏëIdeaPad Yoga";
+      var movies ="http://vs1.zol.com.cn/flv/121/afae6cf6.flv###http://vs1.zol.com.cn/flv/120/1188df05.flv###http://vs1.zol.com.cn/flv/120/fff684cd.flv"; 
+      var fo = new SWFObject("/flash/pixPlayer.swf", "FocusObj", focus_width, focus_height, "7","000000");
+      fo.addVariable("pics", pics);
+      fo.addVariable("links", links);
+      fo.addVariable("texts", texts); 
+      fo.addVariable("movies", movies); 
+      fo.addVariable("border_color", "#000000"); 
+      fo.addParam("allowFullScreen", "true");	  
+      fo.addParam("wmode","opaque"); 
+      fo.write("FocusObj");
+  </script>
+  <div class="news">
+    <div class="hotnews">
+      <a href="http://v.zol.com.cn/video120088.html" title="ÁªÏëIdeaPad Yoga">ÁªÏëIdeaPad Yoga</a>
+      <p>ÁªÏëIdeaPad Yoga×î´óµÄÌØµãÊÇÆÁÄ»¿ÉÒÔ×ÔÓÉÏòºó·­×ª£¬Ö±ÖÁÓëDÃæºÏÔÚÒ»Æð£¬Ò»°ãµÄ±Ê¼Ç±¾ÆÁÄ»£¬¡­</p>
+    </div>
+    <ul class="li_word">
+          <li><a href="http://v.zol.com.cn/video120027.html">¡¾ÊÖ»ú¡¿¼ÑÄÜµ¥·´¿ÎÌÃÖ®¼«ÏÞ»¬°åÅÄÉã</a></li>
+          <li><a href="http://v.zol.com.cn/video119997.html">¡¾ÊÖ»ú¡¿ÁªÏëÀÖPhone S720×ÔÅÄ½Ì³Ì</a></li>
+          <li><a href="http://v.zol.com.cn/video119889.html">¡¾ÊÖ»ú¡¿iPhone5ÍêÊ¤ÈýÐÇS3£¿  </a></li>
+          <li><a href="http://v.zol.com.cn/video119976.html">¡¾³¬¼«±¾¡¿ÁªÏëYOGAÆÀ²âÊÓÆµ2</a></li>
+          <li><a href="http://v.zol.com.cn/video119787.html">¡¾³¬¼«±¾¡¿ÉñÖÛ·ÉÌìUI43³¬¼«±¾</a></li>
+        </ul>
+    <div class="live">
+      <strong id="living_label">Ö±²¥</strong>
+      <ul class="living" style="bottom:0px;">
+            	<li><a href="http://v.zol.com.cn/video119966.html" title='µ±ÂíÀï°ÂÓöµ½·ßÅ­µÄÐ¡Äñ'>µ±ÂíÀï°ÂÓöµ½·ßÅ­µÄÐ¡Äñ</a></li>
+            	<li><a href="http://v.zol.com.cn/video118098.html" title='¹úÍâ°×¸»ÃÀ×î¹óË¤»ú'>¹úÍâ°×¸»ÃÀ×î¹óË¤»ú</a></li>
+            	<li><a href="http://v.zol.com.cn/video118746.html" title='ÑîÀöÆ¼Î¨ÃÀÑÝÒïÁªÏë³¬¼¶±¾´óÆ¬'>ÑîÀöÆ¼Î¨ÃÀÑÝÒïÁªÏë³¬¼¶±¾´óÆ¬</a></li>
+            	<li><a href="http://v.zol.com.cn/video118707.html" title='³Â¹ÚÏ£´úÑÔ´÷¶ûXPS 14³¬¼«±¾'>³Â¹ÚÏ£´úÑÔ´÷¶ûXPS 14³¬¼«±¾</a></li>
             </ul>
-          </div>
-          <script type="text/javascript">/*960*90*/ var cpro_id = 'u855165';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script>
-        </div>
+      <ul class="living" style="bottom:0px;">
+            	<li><a href="http://v.zol.com.cn/video119966.html" title='µ±ÂíÀï°ÂÓöµ½·ßÅ­µÄÐ¡Äñ'>µ±ÂíÀï°ÂÓöµ½·ßÅ­µÄÐ¡Äñ</a></li>
+            	<li><a href="http://v.zol.com.cn/video118098.html" title='¹úÍâ°×¸»ÃÀ×î¹óË¤»ú'>¹úÍâ°×¸»ÃÀ×î¹óË¤»ú</a></li>
+            	<li><a href="http://v.zol.com.cn/video118746.html" title='ÑîÀöÆ¼Î¨ÃÀÑÝÒïÁªÏë³¬¼¶±¾´óÆ¬'>ÑîÀöÆ¼Î¨ÃÀÑÝÒïÁªÏë³¬¼¶±¾´óÆ¬</a></li>
+            	<li><a href="http://v.zol.com.cn/video118707.html" title='³Â¹ÚÏ£´úÑÔ´÷¶ûXPS 14³¬¼«±¾'>³Â¹ÚÏ£´úÑÔ´÷¶ûXPS 14³¬¼«±¾</a></li>
+            </ul>
+    </div>
+  </div>
+  <dl class="v_guide">
+    <dt>½ÚÄ¿Ô¤¸æ</dt>
+    <dd>
+      <ul>
+            	<li><a href="http://mouse.zol.com.cn/topic/3270492.html" title="×¨·ÃÑªÊÖÓÄÁéÆ·ÅÆ¼¼Êõ¸ß¼¶¹ËÎÊÖ£Î°ÌÚ"><span>10ÔÂ18ÈÕ</span> ×¨·ÃÑªÊÖÓÄÁéÆ·ÅÆ¼¼Êõ¸ß¼¶¹ËÎÊ¡­</a></li>
+            	<li><a href="http://v.zol.com.cn/video120091.html" title="×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­ÀíÀîÖ¾Áú"><span>10ÔÂ17ÈÕ</span> ×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­ÀíÀîÖ¾Áú</a></li>
+            	<li><a href="http://mobile.zol.com.cn/topic/3252339.html" title="°ëÊý¹û·ÛÊ§Íû ½ÒÂ¶Æ»¹ûiPhone 5ÃÅÊÂ¼þ"><span>10ÔÂ10ÈÕ</span> °ëÊý¹û·ÛÊ§Íû ½ÒÂ¶Æ»¹ûiPhone ¡­</a></li>
+            	<li><a href="http://tv.zol.com.cn/topic/3186767.html" title="ÖÇÄÜµçÊÓÊÇÖÐ¹úÆóÒµ×î¼Ñ·´»÷»ú»á"><span>10ÔÂ09ÈÕ</span> ÖÇÄÜµçÊÓÊÇÖÐ¹úÆóÒµ×î¼Ñ·´»÷»ú»á</a></li>
+            	<li><a href="http://projector.zol.com.cn/topic/3231492.html" title="ºÃÂíÅäºÃ°° ÈçºÎÑ¡¹ºÍ¶Ó°Ä»"><span>10ÔÂ09ÈÕ</span> ºÃÂíÅäºÃ°° ÈçºÎÑ¡¹ºÍ¶Ó°Ä»</a></li>
+            	<li><a href="http://projector.zol.com.cn/topic/3231493.html" title="¹úÇìµµµçÓ°»ìÕ½"><span>09ÔÂ25ÈÕ</span> ¹úÇìµµµçÓ°»ìÕ½</a></li>
+            	<li><a href="http://jd.zol.com.cn/topic/3228026.html" title="¹úÇì³¤¼Ù¹ä¼ÒµçÂô³¡"><span>09ÔÂ25ÈÕ</span> ¹úÇì³¤¼Ù¹ä¼ÒµçÂô³¡</a></li>
+            	<li><a href="http://vga.zol.com.cn/topic/3212350.html" title="Æß²ÊºçGTX600Íæ×ªÖ÷Á÷ÓÎÏ·"><span>09ÔÂ17ÈÕ</span> Æß²ÊºçGTX600Íæ×ªÖ÷Á÷ÓÎÏ·</a></li>
+            	<li><a href="http://mobile.zol.com.cn/topic/3183085.html" title="´ÓIFA¿´ÖÇÄÜÊÖ»úËÄ´ó·¢Õ¹·½Ïò"><span>09ÔÂ05ÈÕ</span> ´ÓIFA¿´ÖÇÄÜÊÖ»úËÄ´ó·¢Õ¹·½Ïò</a></li>
+            </ul>
+    </dd>
+  </dl>
+</div>
+<div class="wrapper clearfix">
+  <div class="mt clearfix">
+    <div class="wrap_l latest">
+      <div class="title"><strong>×îÐÂÊÓÆµ</strong></div>
+      <ul class="v_list">
+              <li>
+          <div class="pic"><a href="/video120122.html" ><img src="http://v.zol-img.com.cn/video/1_120x90/54/ce2yjhWLzJEwI.jpg" alt="LG¡°³¬Õ­±ß¿ò¡±·¨±¦ÊÇÈçºÎÁ¶³É£¿" width="120" height="90"><span>²¥·Å</span></a></div>
+          <a href="/video120122.html" title="LG¡°³¬Õ­±ß¿ò¡±·¨±¦ÊÇÈçºÎÁ¶³É£¿">LG¡°³¬Õ­±ß¿ò¡±·¨±¦ÊÇÈçºÎÁ¶³É£¿</a>
+        </li>
+               <li>
+          <div class="pic"><a href="/video120121.html" ><img src="http://v.zol-img.com.cn/video/1_120x90/52/ceQA3Zt33XH0w.jpg" alt="ThinkPad X1" width="120" height="90"><span>²¥·Å</span></a></div>
+          <a href="/video120121.html" title="ThinkPad X1">ThinkPad X1</a>
+        </li>
+               <li>
+          <div class="pic"><a href="/video120107.html" ><img src="http://v.zol-img.com.cn/video/1_120x90/28/ceh56acevVgg.jpg" alt="×¨·ÃGarmin¼ÑÃ÷ÖÐ¹úÇø¸ß²ã" width="120" height="90"><span>²¥·Å</span></a></div>
+          <a href="/video120107.html" title="×¨·ÃGarmin¼ÑÃ÷ÖÐ¹úÇø¸ß²ã">×¨·ÃGarmin¼ÑÃ÷ÖÐ¹úÇø¸ß²ã</a>
+        </li>
+               <li>
+          <div class="pic"><a href="/video120102.html" ><img src="http://v.zol-img.com.cn/video/1_120x90/20/ceYRsGNNT8gQ.jpg" alt="´ó´ÐÍæÊÖ»ú¡ªFINDER ¶þÈËÊÀ½ç" width="120" height="90"><span>²¥·Å</span></a></div>
+          <a href="/video120102.html" title="´ó´ÐÍæÊÖ»ú¡ªFINDER ¶þÈËÊÀ½ç">´ó´ÐÍæÊÖ»ú¡ªFINDER ¶þÈËÊÀ½ç</a>
+        </li>
+               <li>
+          <div class="pic"><a href="/video120093.html" ><img src="http://v.zol-img.com.cn/video/1_120x90/2/ceFoAOBkUWJo.jpg" alt="Surface¹¦ÄÜÌØÐÔÑÝÊ¾ÊÓÆµ" width="120" height="90"><span>²¥·Å</span></a></div>
+          <a href="/video120093.html" title="Surface¹¦ÄÜÌØÐÔÑÝÊ¾ÊÓÆµ">Surface¹¦ÄÜÌØÐÔÑÝÊ¾ÊÓÆµ</a>
+        </li>
+               <li>
+          <div class="pic"><a href="/video120091.html" ><img src="http://v.zol-img.com.cn/video/1_120x90/0/cejzMfUR7Om3k.jpg" alt="×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­ÀíÀîÖ¾Áú" width="120" height="90"><span>²¥·Å</span></a></div>
+          <a href="/video120091.html" title="×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­ÀíÀîÖ¾Áú">×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­ÀíÀîÖ¾Áú</a>
+        </li>
+               <li>
+          <div class="pic"><a href="/video120088.html" ><img src="http://v.zol-img.com.cn/video/1_120x90/994/ceORWzCM5SKE.jpg" alt="Yoga·¢²¼»áÊÓÆµ" width="120" height="90"><span>²¥·Å</span></a></div>
+          <a href="/video120088.html" title="Yoga·¢²¼»áÊÓÆµ">Yoga·¢²¼»áÊÓÆµ</a>
+        </li>
+               <li>
+          <div class="pic"><a href="/video120087.html" ><img src="http://v.zol-img.com.cn/video/1_120x90/990/ceNljSJkf4PXY.jpg" alt="Ä¦ÍÐÂÞÀ­ DROID RAZR HD" width="120" height="90"><span>²¥·Å</span></a></div>
+          <a href="/video120087.html" title="Ä¦ÍÐÂÞÀ­ DROID RAZR HD">Ä¦ÍÐÂÞÀ­ DROID RAZR HD</a>
+        </li>
+             </ul>
+    </div>
+    <div class="wrap_r">
+      <div class="bd">
+        <div class="title"><strong>±¾ÖÜÊÓÆµÅÅÐÐ</strong></div>
+        <div class="top_t"> ÅÅÃû<b class="a">ÊÓÆµ</b><b class="b">±¾ÖÜ²¥·Å</b> Ç÷ÊÆ</div>
+        <ul id="w_rank" class="v_top">
+                            <li class="open">
+            <em class="n1">1</em>
+                      <a class="pic" href="/video112669.html" ><img src="http://v.zol-img.com.cn/video/1_60x45/477/ce6DL6L09xnlk.jpg" alt="Win8×îËÙÌåÑé01" width="60" height="45"></a>
+            <p class="text_l"><a href="/video112669.html" title="Win8×îËÙÌåÑé01">Win8×îËÙÌåÑé01</a></p>
+            <span class="text_s"><a href="/video112669.html"  title="Win8×îËÙÌåÑé01">Win8×îËÙÌåÑé01</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>3,071´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n1">2</em>
+                      <a class="pic" href="/video118922.html" ><img src="http://v.zol-img.com.cn/video/1_60x45/993/ce6ZcEeG0malg.jpg" alt="Office2013£¨½çÃæ½éÉÜ£©" width="60" height="45"></a>
+            <p class="text_l"><a href="/video118922.html" title="Office2013£¨½çÃæ½éÉÜ£©">Office2013£¨½çÃæ½éÉÜ£©</a></p>
+            <span class="text_s"><a href="/video118922.html"  title="Office2013£¨½çÃæ½éÉÜ£©">Office2013£¨½çÃæ½é¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>2,380´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n1">3</em>
+                      <a class="pic" href="/video119997.html" ><img src="http://v.zol-img.com.cn/video/1_60x45/852/ce2nBOSByNIqE.jpg" alt="ÁªÏëÀÖPhone S720×ÔÅÄ½Ì³Ì" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119997.html" title="ÁªÏëÀÖPhone S720×ÔÅÄ½Ì³Ì">ÁªÏëÀÖPhone S720×ÔÅÄ½Ì³Ì</a></p>
+            <span class="text_s"><a href="/video119997.html"  title="ÁªÏëÀÖPhone S720×ÔÅÄ½Ì³Ì">ÁªÏëÀÖPhone S720×Ô¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>2,369´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">4</em>
+                      <a class="pic" href="/video120015.html" ><img src="http://v.zol-img.com.cn/video/1_60x45/889/ceyuyKnYKIFFQ.jpg" alt="³¬»ú·ÃÎÊ£ºÖÐÐËU930Óë±±¾©ÇàÄê²»µÃ²»ËµµÄÊÂ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video120015.html" title="³¬»ú·ÃÎÊ£ºÖÐÐËU930Óë±±¾©ÇàÄê²»µÃ²»ËµµÄÊÂ">³¬»ú·ÃÎÊ£ºÖÐÐËU930Óë±±¾©ÇàÄê²»µÃ²»ËµµÄÊÂ</a></p>
+            <span class="text_s"><a href="/video120015.html"  title="³¬»ú·ÃÎÊ£ºÖÐÐËU930Óë±±¾©ÇàÄê²»µÃ²»ËµµÄÊÂ">³¬»ú·ÃÎÊ£ºÖÐÐËU93¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>2,349´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">5</em>
+                      <a class="pic" href="/video120063.html" ><img src="http://v.zol-img.com.cn/video/1_60x45/946/cedoKAYOjwiq.jpg" alt="SurfaceÆ½°åµçÊÓ¹ã¸æ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video120063.html" title="SurfaceÆ½°åµçÊÓ¹ã¸æ">SurfaceÆ½°åµçÊÓ¹ã¸æ</a></p>
+            <span class="text_s"><a href="/video120063.html"  title="SurfaceÆ½°åµçÊÓ¹ã¸æ">SurfaceÆ½°åµçÊÓ¹ã¸æ</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>2,319´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">6</em>
+                      <a class="pic" href="/video120040.html" ><img src="http://v.zol-img.com.cn/video/1_60x45/920/ceFoRxZNGvPU2.jpg" alt="Up£¡3D´òÓ¡»ú´òÓ¡ÑÝÊ¾" width="60" height="45"></a>
+            <p class="text_l"><a href="/video120040.html" title="Up£¡3D´òÓ¡»ú´òÓ¡ÑÝÊ¾">Up£¡3D´òÓ¡»ú´òÓ¡ÑÝÊ¾</a></p>
+            <span class="text_s"><a href="/video120040.html"  title="Up£¡3D´òÓ¡»ú´òÓ¡ÑÝÊ¾">Up£¡3D´òÓ¡»ú´òÓ¡ÑÝ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>2,096´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">7</em>
+                      <a class="pic" href="/video119973.html" ><img src="http://v.zol-img.com.cn/video/1_60x45/807/ceSDl2CSJhXuQ.jpg" alt="ÁªÏëIdeaPad YOGA·­×ªÊÀ½ç" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119973.html" title="ÁªÏëIdeaPad YOGA·­×ªÊÀ½ç">ÁªÏëIdeaPad YOGA·­×ªÊÀ½ç</a></p>
+            <span class="text_s"><a href="/video119973.html"  title="ÁªÏëIdeaPad YOGA·­×ªÊÀ½ç">ÁªÏëIdeaPad YOGA¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>1,919´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">8</em>
+                      <a class="pic" href="/video119793.html" ><img src="http://v.zol-img.com.cn/video/1_60x45/483/ceMprV3K1meSw.jpg" alt="Ð¡Ã×ÊÖ»ú2¹¤³Ì°æ¿ªÏäÊÓÆµ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119793.html" title="Ð¡Ã×ÊÖ»ú2¹¤³Ì°æ¿ªÏäÊÓÆµ">Ð¡Ã×ÊÖ»ú2¹¤³Ì°æ¿ªÏäÊÓÆµ</a></p>
+            <span class="text_s"><a href="/video119793.html"  title="Ð¡Ã×ÊÖ»ú2¹¤³Ì°æ¿ªÏäÊÓÆµ">Ð¡Ã×ÊÖ»ú2¹¤³Ì°æ¿ª¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>1,849´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">9</em>
+                      <a class="pic" href="/video119628.html" ><img src="http://v.zol-img.com.cn/video/1_60x45/209/ceXSgyN5FSyE.jpg" alt="ÈýÐÇGalaxy Note¶Ô±ÈNote 2" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119628.html" title="ÈýÐÇGalaxy Note¶Ô±ÈNote 2">ÈýÐÇGalaxy Note¶Ô±ÈNote 2</a></p>
+            <span class="text_s"><a href="/video119628.html"  title="ÈýÐÇGalaxy Note¶Ô±ÈNote 2">ÈýÐÇGalaxy Note¶Ô¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>1,837´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">10</em>
+                      <a class="pic" href="/video119271.html" ><img src="http://v.zol-img.com.cn/video/1_60x45/600/cejKOwxKyVAG.jpg" alt="ÁªÏëÀÖPhone K860ÆÀ²â" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119271.html" title="ÁªÏëÀÖPhone K860ÆÀ²â">ÁªÏëÀÖPhone K860ÆÀ²â</a></p>
+            <span class="text_s"><a href="/video119271.html"  title="ÁªÏëÀÖPhone K860ÆÀ²â">ÁªÏëÀÖPhone K860ÆÀ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>1,797´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                 </ul>
       </div>
     </div>
-    <script src='/plus/ad_js.php?aid=3' language='javascript'></script>
-    <div class="content">
-      <ul>
-	  <li>
-          <a href="/post/huangfulin/72.html" title="éžä¸»æµå¯çˆ±å¥³ç”Ÿ å°ç³å­"><img src="/uploads/litimg/72.jpg" alt='éžä¸»æµå¯çˆ±å¥³ç”Ÿ å°ç³å­' /></a>
-          <span><a href="/post/huangfulin/72.html" title="éžä¸»æµå¯çˆ±å¥³ç”Ÿ å°ç³å­"><strong>éžä¸»æµå¯çˆ±å¥³ç”Ÿ å°ç³å­</strong></a></span>
-          <p>æŸ¥çœ‹ï¼š13515æ¬¡</p>
-          <p>æ—¥æœŸï¼š2011å¹´11æœˆ22æ—¥</p>
-          <p>æ ‡ç­¾:
-          <a href='/huangfulin/'>é»„é¦¥ç³</a>  
-          </p>
-        </li>
-<li>
-          <a href="/post/shizijia/146.html" title="æ€§æ„Ÿçš„äºŒåä¸€å² è¯—æ¢“ä½³"><img src="/uploads/litimg/146.jpg" alt='æ€§æ„Ÿçš„äºŒåä¸€å² è¯—æ¢“ä½³' /></a>
-          <span><a href="/post/shizijia/146.html" title="æ€§æ„Ÿçš„äºŒåä¸€å² è¯—æ¢“ä½³"><strong>æ€§æ„Ÿçš„äºŒåä¸€å² è¯—æ¢“ä½³</strong></a></span>
-          <p>æŸ¥çœ‹ï¼š134096æ¬¡</p>
-          <p>æ—¥æœŸï¼š2011å¹´12æœˆ14æ—¥</p>
-          <p>æ ‡ç­¾:
-          <a href='/shizijia/'>è¯—æ¢“ä½³</a>  
-          </p>
-        </li>
-<li>
-          <a href="/post/liyingzhi/189.html" title="æ²™æ»©ä¸Šçš„æ¼‚äº®MM"><img src="/uploads/litimg/189.jpg" alt='æ²™æ»©ä¸Šçš„æ¼‚äº®MM' /></a>
-          <span><a href="/post/liyingzhi/189.html" title="æ²™æ»©ä¸Šçš„æ¼‚äº®MM"><strong>æ²™æ»©ä¸Šçš„æ¼‚äº®MM</strong></a></span>
-          <p>æŸ¥çœ‹ï¼š100728æ¬¡</p>
-          <p>æ—¥æœŸï¼š2011å¹´12æœˆ27æ—¥</p>
-          <p>æ ‡ç­¾:
-          <a href='/liyingzhi/'>æŽé¢–èŠ</a>  
-          </p>
-        </li>
-<li>
-          <a href="/post/liyingzhi/88.html" title="æ‹ä¸Šä½ çš„åºŠ"><img src="/uploads/litimg/88.jpg" alt='æ‹ä¸Šä½ çš„åºŠ' /></a>
-          <span><a href="/post/liyingzhi/88.html" title="æ‹ä¸Šä½ çš„åºŠ"><strong>æ‹ä¸Šä½ çš„åºŠ</strong></a></span>
-          <p>æŸ¥çœ‹ï¼š82471æ¬¡</p>
-          <p>æ—¥æœŸï¼š2011å¹´11æœˆ27æ—¥</p>
-          <p>æ ‡ç­¾:
-          <a href='/liyingzhi/'>æŽé¢–èŠ</a>  
-          </p>
-        </li>
-<li>
-          <a href="/post/linnabing/64.html" title="æ‹ä¸Šçª—è¾¹çš„ç¾Žå¥³"><img src="/uploads/litimg/64.jpg" alt='æ‹ä¸Šçª—è¾¹çš„ç¾Žå¥³' /></a>
-          <span><a href="/post/linnabing/64.html" title="æ‹ä¸Šçª—è¾¹çš„ç¾Žå¥³"><strong>æ‹ä¸Šçª—è¾¹çš„ç¾Žå¥³</strong></a></span>
-          <p>æŸ¥çœ‹ï¼š18041æ¬¡</p>
-          <p>æ—¥æœŸï¼š2011å¹´11æœˆ20æ—¥</p>
-          <p>æ ‡ç­¾:
-          <a href='/linnabing/'>æž—å¨œå†°</a>  
-          </p>
-        </li>
-
-      </ul>
+  </div>
+  <script>write_ad("index_meinv_top_tonglan");</script>  <div class="mt clearfix">
+    <div class="wrap_l v_cate">
+      <dl class="v_cate_nav">
+        <dt class="fashion"><a href="/week_hits/1-2-1.html" target="_blank"><H2>Ê±ÉÐÐÂÆ·</H2></a></dt>
+        <dd>
+          <table cellspacing="0" cellspadding="0">
+            <tr>
+              <th>×¨Çø£º</th>
+                                        <td><a href="/week_hits/2-48-1.html" title="ÊÖ»ú"  target="_blank">ÊÖ»ú</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-62-1.html" title="±Ê¼Ç±¾/µçÄÔ"  target="_blank">±Ê¼Ç±¾µçÄÔ</a></td>
+                                                      <td><a href="/week_hits/2-52-1.html" title="ÊýÂëÏà»ú"  target="_blank">ÊýÂëÏà»ú</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-54-1.html" title="DIYÓ²¼þ"  target="_blank">DIYÓ²¼þ</a></td>
+                                                      <td><a href="/week_hits/2-63-1.html" title="¼Òµç"  target="_blank">¼Òµç</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-70-1.html" title="°²·À"  target="_blank">°²·À</a></td>
+                                                      <td><a href="/week_hits/2-69-1.html" title="Æ½°åµçÄÔ"  target="_blank">Æ½°åµçÄÔ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-61-1.html" title="Èí¼þ"  target="_blank">Èí¼þ</a></td>
+                                                      <td><a href="/week_hits/2-59-1.html" title="×ÀÃæÍâÉè"  target="_blank">×ÀÃæÍâÉè</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-58-1.html" title="GPS"  target="_blank">GPS</a></td>
+                                                      <td><a href="/week_hits/2-57-1.html" title="°ì¹«´òÓ¡"  target="_blank">°ì¹«´òÓ¡</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-56-1.html" title="ÆóÒµÉÌÓÃ"  target="_blank">ÆóÒµÉÌÓÃ</a></td>
+                                                      <td><a href="/week_hits/2-53-1.html" title="Êý×ÖÒôÆµ"  target="_blank">Êý×ÖÒôÆµ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-76-1.html" title="ÓÎÏ·"  target="_blank">ÓÎÏ·</a></td>
+                                                    <td></td>
+            </tr>
+                      </table>
+        </dd>
+        <dd>
+          <table cellspacing="0" cellspadding="0">
+            <tr>
+              <th>ÍÆ¼ö£º</th>
+                                        <td><a href="http://v.zol.com.cn/week_hits/6-160-1.html" title="ÁªÏë"  target="_blank">ÁªÏë</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="http://v.zol.com.cn/week_hits/6-1191-1.html" title="ÉñÖÛ"  target="_blank">ÉñÖÛ</a></td>
+                                                      <td><a href="http://v.zol.com.cn/week_hits/6-223-1.html" title="»ÝÆÕ"  target="_blank">»ÝÆÕ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="http://v.zol.com.cn/week_hits/6-227-1.html" title="»ªË¶"  target="_blank">»ªË¶</a></td>
+                                                      <td><a href="http://v.zol.com.cn/week_hits/6-33080-1.html" title="HTC"  target="_blank">HTC</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="http://v.zol.com.cn/week_hits/6-232-1.html" title="¼ÑÄÜ"  target="_blank">¼ÑÄÜ</a></td>
+                                                      <td><a href="http://v.zol.com.cn/week_hits/6-167-1.html" title="Ë÷Äá"  target="_blank">Ë÷Äá</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="http://v.zol.com.cn/week_hits/6-297-1.html" title="Åµ»ùÑÇ"  target="_blank">Åµ»ùÑÇ</a></td>
+                                                    <td></td>
+            </tr>
+                      </table>
+        </dd>
+      </dl>
+      <div class="mod_v">
+        <div class="v_rec">
+          <div class="pic"><a href="http://v.zol.com.cn/video119793.html"><img src="http://dg1.zol-img.com.cn/18_module_images/16/506117880b0e7.jpg" alt="Ð¡Ã×ÊÖ»úM2¹¤³Ì°æ¿ªÏä" width="220" height="147"><span>²¥·Å</span></a></div>
+          <a class="vtit" href="http://v.zol.com.cn/video119793.html" title="Ð¡Ã×ÊÖ»úM2¹¤³Ì°æ¿ªÏä">Ð¡Ã×ÊÖ»úM2¹¤³Ì°æ¿ªÏä</a>
+          <p class="v_intro">¸üÕ­¸ü±¡£¬ÉãÏñÍ·¡¢µç³Ø¡¢´¦ÀíÆ÷¾ùÓÐÉý¼¶¡£</p>
+                    <p class="tag">À¸Ä¿£º<a href="/week_hits/2-48-1.html" title="ÊÖ»ú">ÊÖ»ú</a></p>
+                              <p class="tag">±êÇ©£º<a href="/week_hits/4-101650-1.html" title="Ð¡Ã×ÊÖ»ú2">Ð¡Ã×ÊÖ»ú2</a>
+          <a href="/week_hits/4-101651-1.html" title="Ð¡Ã×2">Ð¡Ã×2</a>
+                    </p>
+                  </div>
+        <ul class="v_list v_list_m ishow">
+                   <li>
+            <div class="pic">
+              <a href="/video120106.html"><img src="http://v.zol-img.com.cn/video/1_120x90/27/cem1Xr2JDIoF6.jpg" alt="¡¶¼«Æ··É³µ17£º×î¸ßÍ¨¼©¡·×îÐÂTVÊµÅÄÐû´«Æ¬" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video120106.html" title="¡¶¼«Æ··É³µ17£º×î¸ßÍ¨¼©¡·×îÐÂTVÊµÅÄÐû´«Æ¬">¡¶¼«Æ··É³µ17£º×î¸ßÍ¨¼©¡·×îÐÂTVÊµÅÄÐû´«Æ¬</a>
+            </div>
+                                    <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/2-76-1.html"></a></dt>
+                <dd><span>×Ü²¥·Å£º255</span> <span>×ÜÆÀÂÛ£º0</span></dd>
+                <dd><strong>½éÉÜ£º</strong>¡¶¼«Æ··É³µ17£º×î¸ßÍ¨¼©¡·×îÐÂTVÊµÅÄÐû´«Æ¬</dd>
+              </dl>
+            </div>
+          </li>
+                     <li>
+            <div class="pic">
+              <a href="/video120090.html"><img src="http://v.zol-img.com.cn/video/1_120x90/998/cedhPxv3RAWY.jpg" alt="¡¶Ä§ÊÞÊÀ½ç£ºÐÜÃ¨ÈËÖ®ÃÕ¡·Ð¡ÅØÏø¾çÇéÒôÆµ" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video120090.html" title="¡¶Ä§ÊÞÊÀ½ç£ºÐÜÃ¨ÈËÖ®ÃÕ¡·Ð¡ÅØÏø¾çÇéÒôÆµ">¡¶Ä§ÊÞÊÀ½ç£ºÐÜÃ¨ÈËÖ®ÃÕ¡·Ð¡ÅØÏø¾çÇéÒôÆµ</a>
+            </div>
+                                    <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/2-76-1.html"></a></dt>
+                <dd><span>×Ü²¥·Å£º73</span> <span>×ÜÆÀÂÛ£º0</span></dd>
+                <dd><strong>½éÉÜ£º</strong>¡¶Ä§ÊÞÊÀ½ç£ºÐÜÃ¨ÈËÖ®ÃÕ¡·Ð¡ÅØÏø¾çÇéÒôÆµ</dd>
+              </dl>
+            </div>
+          </li>
+                     <li>
+            <div class="pic">
+              <a href="/video120089.html"><img src="http://v.zol-img.com.cn/video/1_120x90/996/ceGxq6dpLkUGA.jpg" alt="¡¶Ä§ÊÞÊÀ½ç£ºÐÜÃ¨ÈËÖ®ÃÕ¡·5.1´ïÀ­È»ÒôÆµ" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video120089.html" title="¡¶Ä§ÊÞÊÀ½ç£ºÐÜÃ¨ÈËÖ®ÃÕ¡·5.1´ïÀ­È»ÒôÆµ">¡¶Ä§ÊÞÊÀ½ç£ºÐÜÃ¨ÈËÖ®ÃÕ¡·5.1´ïÀ­È»ÒôÆµ</a>
+            </div>
+                        <p class="tag">À¸Ä¿£º<a href="/week_hits/1-2-1.html" title="Ê±ÉÐÐÂÆ·">Ê±ÉÐÐÂÆ·</a></p>
+                                    <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/1-2-1.html">Ê±ÉÐÐÂÆ·</a></dt>
+                <dd><span>×Ü²¥·Å£º40</span> <span>×ÜÆÀÂÛ£º0</span></dd>
+                <dd><strong>½éÉÜ£º</strong>¡¶Ä§ÊÞÊÀ½ç£ºÐÜÃ¨ÈËÖ®ÃÕ¡·5.1´ïÀ­È»ÒôÆµ</dd>
+              </dl>
+            </div>
+          </li>
+                  </ul>
+        <ul class="li_word12">
+                  <li><a href="/video120086.html" title="È«ººÄ§ÍõµçÔ´">È«ººÄ§ÍõµçÔ´</a></li>
+                  <li><a href="/video120040.html" title="Up£¡3D´òÓ¡»ú´òÓ¡ÑÝÊ¾">Up£¡3D´òÓ¡»ú´òÓ¡ÑÝÊ¾</a></li>
+                  <li><a href="/video120001.html" title="Star Citizen Ê×¸öÐû´«Æ¬">Star Citizen Ê×¸öÐû´«Æ¬</a></li>
+                  <li><a href="/video119996.html" title="¡¶´ó»Ä´«Ææ¡·£ºÄýÀá">¡¶´ó»Ä´«Ææ¡·£ºÄýÀá</a></li>
+                  <li><a href="/video119980.html" title="Rabbids Rumble ·è¿ñÍÃ×Ó´ó»ìÕ½Ê×²¿Ô¤¸æÆ¬">Rabbids Rumble ·è¿ñÍÃ×Ó´ó»ìÕ½Ê×²¿¡­</a></li>
+                  <li><a href="/video119974.html" title="ÔÆÊÓÆµÀ¶¹â»ú ÊµÒæ´ïS610E">ÔÆÊÓÆµÀ¶¹â»ú ÊµÒæ´ïS610E</a></li>
+                  <li><a href="/video119968.html" title="·ÛË¿¼ô¼­°æEurogamer Exp CosPlayÉÍ">·ÛË¿¼ô¼­°æEurogamer Exp CosPlayÉÍ</a></li>
+                  <li><a href="/video119966.html" title="Íæ¼Ò¶ñ¸ã¶ÌÆ¬ µ±ÂíÀï°ÂÓöµ½·ßÅ­µÄÐ¡Äñ">Íæ¼Ò¶ñ¸ã¶ÌÆ¬ µ±ÂíÀï°ÂÓöµ½·ßÅ­µÄÐ¡¡­</a></li>
+                </ul>
+      </div>
     </div>
-    <div class="tags_list">
-      <dl class="tbox">
-        <dt>
-          <strong>æ›´å¤šç¾Žå¥³...</strong>
-          <dd>
-            <a href='http://www.mmeinv.com/jinmeixin/'>é‡‘ç¾Žè¾›</a>
-            <a href='http://www.mmeinv.com/liyingzhi/'>æŽé¢–èŠ</a>
-            <a href='http://www.mmeinv.com/sunxinya/'>å­™å¿ƒå¨…</a>
-            <a href='http://www.mmeinv.com/lvwanrou/'>å•å©‰æŸ”</a>
-            <a href='http://www.mmeinv.com/wangxinyi/'>çŽ‹é¦¨æ¼ª</a>
-            <a href='http://www.mmeinv.com/linnabing/'>æž—å¨œå†°</a>
-            <a href='http://www.mmeinv.com/shizijia/'>è¯—æ¢“ä½³</a>
-            <a href='http://www.mmeinv.com/huangfulin/'>é»„é¦¥ç³</a>
-            <a href='http://www.mmeinv.com/xujiayi/'>å¾å˜‰ä¾</a>
-            <a href='http://www.mmeinv.com/gangxiaoxi/'>åˆšå°å¸Œ</a>
-            <a href='http://www.meinvtuan.com/linketong/'>æž—æŸ¯å½¤</a>
-            <a href='http://www.meinvtuan.com/yangqihan/'>æ¨æ£‹æ¶µ</a>
-            <a href='http://www.meinvtuan.com/jiangyihan/'>æ±Ÿä¼Šæ¶µ</a>
-            <a href='http://www.meinvtuan.com/zengnuanxin/'>æ›¾æš–é¦¨</a>
-            <a href='http://www.meinvtuan.com/wangmuhua/'>çŽ‹æ…•éª…</a>
-            <a href='http://www.mmeinv.com/yezixuan/'>å¶æ¢“è±</a>
-            <a href='http://www.mmeinv.com/xuxier/'>å¾èŒœå„¿</a>
-            <a href='http://www.mmeinv.com/zhangyinghan/'>å¼ é¢–æ¶µ</a>
-            <a href='http://www.mmeinv.com/zhangxinyu/'>å¼ é¦¨äºˆ</a>
-            <a href='http://www.meinvtuan.com/zhangwanyou/'>å¼ å©‰æ‚ </a>
-            <a href='http://www.mmeinv.com/aiweier/'>è‰¾è–‡å„¿</a>
-            <a href='http://www.meinvtuan.com/manuo/'>é©¬è¯º</a>
-            <a href='http://www.meinvtuan.com/hanzhuoer/'>éŸ©å“å°”</a>
-            <a href='http://www.mmeinv.com/wangqiuzi/'>çŽ‹ç§‹ç´«</a>
-            <a href='http://www.mmeinv.com/liuzixi/'>åˆ˜å­å¸Œ</a>
-            <a href='http://www.mmeinv.com/liuweiwei/'>æŸ³ç‚œçŽ®</a>
-            <a href='http://www.mmeinv.com/panshuangshuang/'>æ½˜éœœéœœ</a>
-            <a href='http://www.mmeinv.com/wanglidan/'>çŽ‹æŽä¸¹</a>
-            <a href='http://www.meinvtuan.com/wanglidan/'>å†¯é›¨èŠ</a>
-            <a href='http://www.meinvtuan.com/leahdizon/'>èŽ‰äºšè¿ªæ¡‘</a>
-          </dd>
-        </dt>
+    <div class="wrap_r">
+      <dl class="visited bd">
+        <dt id="other_see"><strong>ÎÒÕýÔÚ¿´</strong> <a id="clear_all_cokie" class="empty" style='cursor:pointer'>Çå¿Õ</a></dt>
+        <dd class="clearfix">
+          <ul class="visit_list" id="i_see_now"></ul>
+        </dd>
+      </dl>
+      <dl class="special bd mt">
+        <dt class="title"><strong>ÌØÔ¼À¸Ä¿</strong><span class="tj">&nbsp;</span></dt>
+        <dd class="special_list">
+                    <div class="special_item">
+            <div class="pic"><a href="/week_hits/2-48-1.html"><img src="http://v.zol-img.com.cn/video/1_60x60/782/ce6AXZOu0kpT.jpg" alt="ÊÖ»úÐÂÆ·ÆÀ²â" width="60" height="60"></a></div>
+            <h4><a href="/week_hits/2-48-1.html" title="ÊÖ»úÐÂÆ·ÆÀ²â">ÊÖ»úÐÂÆ·ÆÀ²â</a></h4>
+            <ul>
+                          <li><a href="/video119868.html" title="iPhone5 ÖÐÎÄsiri´ó¿¼Ñé">iPhone5 ÖÐÎÄsiri´ó¿¼Ñé</a></li>
+                          <li><a href="/video119867.html" title="iPhone5ÏµÍ³ÌåÑé">iPhone5ÏµÍ³ÌåÑé</a></li>
+                        </ul>
+          </div>
+                    <div class="special_item">
+            <div class="pic"><a href="/week_hits/2-4-1.html"><img src="http://v.zol-img.com.cn/video/1_60x60/566/ceUKr3HK8X03s.jpg" alt="´ó´ÐÍæÊÖ»ú" width="60" height="60"></a></div>
+            <h4><a href="/week_hits/2-4-1.html" title="´ó´ÐÍæÊÖ»ú">´ó´ÐÍæÊÖ»ú</a></h4>
+            <ul>
+                          <li><a href="/video119663.html" title="´ó´ÐÍæÊÖ»úÖ®ÒæÖÇÓÎÏ·">´ó´ÐÍæÊÖ»úÖ®ÒæÖÇÓÎÏ·</a></li>
+                          <li><a href="/video119662.html" title="´ó´ÐÍæÊÖ»úÖ®ÎïÀíÓÎÏ·">´ó´ÐÍæÊÖ»úÖ®ÎïÀíÓÎÏ·</a></li>
+                        </ul>
+          </div>
+                    <div class="special_item">
+            <div class="pic"><a href="/week_hits/2-67-1.html"><img src="http://v.zol-img.com.cn/video/1_60x60/841/ceMECzBt5gg4s.jpg" alt="Ã¿ÈÕ¼ÑÈí" width="60" height="60"></a></div>
+            <h4><a href="/week_hits/2-67-1.html" title="Ã¿ÈÕ¼ÑÈí">Ã¿ÈÕ¼ÑÈí</a></h4>
+            <ul>
+                          <li><a href="/video119826.html" title="Ã¿ÈÕ¼ÑÈí¡ª¿ñÒ°ì­³µ7">Ã¿ÈÕ¼ÑÈí¡ª¿ñÒ°ì­³µ7</a></li>
+                          <li><a href="/video119473.html" title="Ã¿ÈÕ¼ÑÈí¡ªÑôÌ¨×ãÇò">Ã¿ÈÕ¼ÑÈí¡ªÑôÌ¨×ãÇò</a></li>
+                        </ul>
+          </div>
+                  </dd>
       </dl>
     </div>
-    <script type="text/javascript">/*120*270*/ var cpro_id = 'u855946';</script><script src="http://cpro.baidu.com/cpro/ui/f.js" type="text/javascript"></script>
-    <!-- Baidu Button BEGIN -->
-    <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=6&amp;uid=75093"></script>
-    <script type="text/javascript" id="bdshell_js"></script>
-    <script type="text/javascript">document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();</script>
-    <!-- Baidu Button END -->
-    <div class="copy">&copy; 2012 ç¾Žå¥³å›¢</div>
-    <div style="display:none;">
-      <script language="javascript" type="text/javascript" src="http://www.mmeinv.com/js/tongji.js"></script>
+  </div>
+  <script>write_ad("index_yule_under_pub_tonglan");</script>  <div class="mt clearfix">
+    <div class="wrap_l v_cate">
+      <dl class="v_cate_nav">
+        <dt class="tech"><a href="/week_hits/1-1-1.html" target="_blank"><H2>¿Æ¼¼½ÚÄ¿</H2></a></dt>
+        <dd>
+          <table cellspacing="0" cellspadding="0">
+            <tr>
+              <th>×¨Çø£º</th>
+                                        <td><a href="/week_hits/2-65-1.html" title="ÌìÏÂIT"  target="_blank">ÌìÏÂIT</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-2-1.html" title="Í¬·½¾«Æ·±¾ÖÜÄ©"  target="_blank">Í¬·½±¾ÖÜÄ©</a></td>
+                                                      <td><a href="/week_hits/2-3-1.html" title="¹úÃÀÌØÔ¼µ¥·´ÑµÁ·Óª"  target="_blank">µ¥·´ÑµÁ·Óª</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-4-1.html" title="´ó´ÐÍæÊÖ»ú"  target="_blank">´ó´ÐÍæÊÖ»ú</a></td>
+                                                      <td><a href="/week_hits/2-9-1.html" title="Ó²¼þ¼±ÕïÊÒ"  target="_blank">Ó²¼þ¼±ÕïÊÒ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-10-1.html" title="ÓÎÎûÈ¦"  target="_blank">ÓÎÎûÈ¦</a></td>
+                                                      <td><a href="/week_hits/2-7-1.html" title="iÊÖ»ú"  target="_blank">°®ÊÖ»ú</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-15-1.html" title="ÏÔÊ¾Æ÷´ïÈËÔÚÏß"  target="_blank">ÏÔÊ¾Æ÷´ïÈË</a></td>
+                                                      <td><a href="/week_hits/2-67-1.html" title="Ã¿ÈÕ¼ÑÈí"  target="_blank">Ã¿ÈÕ¼ÑÈí</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-13-1.html" title="Í¶Í¶ÊÇµÀ"  target="_blank">Í¶Í¶ÊÇµÀ</a></td>
+                                                      <td><a href="/week_hits/2-12-1.html" title="¿áÆ·µç¾º"  target="_blank">¿áÆ·µç¾º</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-11-1.html" title="¼ÒÌìÏÂ"  target="_blank">¼ÒÌìÏÂ</a></td>
+                                                      <td><a href="/week_hits/2-8-1.html" title="³¬»ú·ÃÎÊ"  target="_blank">³¬»ú·ÃÎÊ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-68-1.html" title="IT¿ñÈËÓ¢ÐÛ´«"  target="_blank">IT¿ñÈËÓ¢ÐÛ´«</a></td>
+                                                      <td><a href="/week_hits/2-16-1.html" title="ITÅ£ÊÂ»ã"  target="_blank">ITÅ£ÊÂ»ã</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-29-1.html" title="IT711"  target="_blank">IT711</a></td>
+                                                      <td><a href="/week_hits/2-27-1.html" title="ITÂ·¿ö"  target="_blank">ITÂ·¿ö</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-28-1.html" title="IT·ç²¨"  target="_blank">IT·ç²¨</a></td>
+                                                    <td></td>
+            </tr>
+                      </table>
+        </dd>
+        <dd>
+          <table cellspacing="0" cellspadding="0">
+            <tr>
+              <th>ÍÆ¼ö£º</th>
+                                        <td><a href="http://v.zol.com.cn/week_hits/2-15-1.html" title="ÏÔÊ¾Æ÷´ïÈË"  target="_blank">ÏÔÊ¾Æ÷´ïÈË</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="http://v.zol.com.cn/week_hits/2-4-1.html" title="´ó´ÐÍæÊÖ»ú"  target="_blank">´ó´ÐÍæÊÖ»ú</a></td>
+                                                      <td><a href="http://v.zol.com.cn/week_hits/2-5-1.html" title="±¾ÃûÌÃ"  target="_blank">±¾ÃûÌÃ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="http://v.zol.com.cn/week_hits/2-9-1.html" title="Ó²¼þ¼±ÕïÊÒ"  target="_blank">Ó²¼þ¼±ÕïÊÒ</a></td>
+                                                      <td><a href="http://v.zol.com.cn/week_hits/2-11-1.html" title="¼ÒÌìÏÂ"  target="_blank">¼ÒÌìÏÂ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="http://v.zol.com.cn/week_hits/2-12-1.html" title="¿áÆ·µç¾º"  target="_blank">¿áÆ·µç¾º</a></td>
+                                                    <td></td>
+            </tr>
+                      </table>
+        </dd>
+      </dl>
+      <div class="mod_v">
+        <div class="v_rec">
+          <div class="pic"><a href="http://v.zol.com.cn/video120000.html"><img src="http://dg1.zol-img.com.cn/18_module_images/16/507bb65006eac.jpg" alt="ÅÌµãiPhone 5 ¸÷ÖÖÈ±ÏÝÃÅ" width="220" height="147"><span>²¥·Å</span></a></div>
+          <a class="vtit" href="http://v.zol.com.cn/video120000.html" title="ÅÌµãiPhone 5 ¸÷ÖÖÈ±ÏÝÃÅ">ÅÌµãiPhone 5 ¸÷ÖÖÈ±ÏÝÃÅ</a>
+          <p class="v_intro">iphone5ÉÏÊÐÃ»¶à¾Ã£¬¾ÍÒòÎªÍâ¿Ç¼«Ò×ÊÜËð¶øÉîÏÝ¡°µôÆáÃÅ¡±¡£Ä¿Ç°£¬ÍøÉÏ³öÏÖ´óÁ¿iPhone 5µôÆá»òÊÇÍâ±íÊÜµ½ËðÉËµÄÕÕÆ¬ £¬Óë4SÏà±È£¬ÄÍÄ¥ÐÔ´ó´ó½µµÍ¡£</p>
+                    <p class="tag">À¸Ä¿£º<a href="/week_hits/2-7-1.html" title="°®ÊÖ»ú">°®ÊÖ»ú</a></p>
+                              <p class="tag">±êÇ©£º<a href="/week_hits/4-81967-1.html" title="iÊÖ»ú">iÊÖ»ú</a>
+          <a href="/week_hits/4-94907-1.html" title="iPhone5">iPhone5</a>
+                              </p>
+        </div>
+        <ul class="v_list v_list_m ishow">
+                   <li>
+            <div class="pic">
+              <a href="/video120122.html"><img src="http://v.zol-img.com.cn/video/1/54/ce2yjhWLzJEwI.jpg" alt="LG¡°³¬Õ­±ß¿ò¡±·¨±¦ÊÇÈçºÎÁ¶³É£¿" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video120122.html" title="LG¡°³¬Õ­±ß¿ò¡±·¨±¦ÊÇÈçºÎÁ¶³É£¿">LG¡°³¬Õ­±ß¿ò¡±·¨±¦ÊÇÈçºÎÁ¶³É£¿</a>
+            </div>
+                        <p class="tag">À¸Ä¿£º<a href="/week_hits/2-15-1.html" title="ÏÔÊ¾Æ÷´ïÈË">ÏÔÊ¾Æ÷´ïÈË</a></p>
+                                    <p class="tag">±êÇ©£º<a href='/week_hits/4-3526-1.html' title='LG'>LG</a><a href='/week_hits/4-3498-1.html' title='ÏÔÊ¾Æ÷'>ÏÔÊ¾Æ÷</a> </p>
+                        <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/2-15-1.html">ÏÔÊ¾Æ÷´ïÈË</a></dt>
+                <dd><span>×Ü²¥·Å£º44</span> <span>×ÜÆÀÂÛ£º0</span></dd>
+                <dd><strong>½éÉÜ£º</strong>LG¡°³¬Õ­±ß¿ò¡±·¨±¦ÊÇÈçºÎÁ¶³É£¿</dd>
+              </dl>
+            </div>
+          </li>
+                     <li>
+            <div class="pic">
+              <a href="/video120081.html"><img src="http://v.zol-img.com.cn/video/1/980/ceuV7ttKNDpZM.jpg" alt="½ñÇïÊ®ÔÂ ÐÂÆ·GTX650Ti³õÌåÑé" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video120081.html" title="½ñÇïÊ®ÔÂ ÐÂÆ·GTX650Ti³õÌåÑé">½ñÇïÊ®ÔÂ ÐÂÆ·GTX650Ti³õÌåÑé</a>
+            </div>
+                        <p class="tag">À¸Ä¿£º<a href="/week_hits/2-9-1.html" title="Ó²¼þ¼±ÕïÊÒ">Ó²¼þ¼±ÕïÊÒ</a></p>
+                                    <p class="tag">±êÇ©£º<a href='/week_hits/4-3503-1.html' title='ÏÔ¿¨'>ÏÔ¿¨</a><a href='/week_hits/4-3543-1.html' title='Æß²Êºç'>Æß²Êºç</a> </p>
+                        <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/2-9-1.html">Ó²¼þ¼±ÕïÊÒ</a></dt>
+                <dd><span>×Ü²¥·Å£º2,011</span> <span>×ÜÆÀÂÛ£º3</span></dd>
+                <dd><strong>½éÉÜ£º</strong>½ñÇïÊ®ÔÂ ÐÂÆ·GTX650Ti³õÌåÑé</dd>
+              </dl>
+            </div>
+          </li>
+                     <li>
+            <div class="pic">
+              <a href="/video119998.html"><img src="http://v.zol-img.com.cn/video/1/854/ce5JnFtjmkyh6.jpg" alt="¹Ø°®µØÇò »ÝÆÕ³©Ì¸»·±£´òÓ¡" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video119998.html" title="¹Ø°®µØÇò »ÝÆÕ³©Ì¸»·±£´òÓ¡">¹Ø°®µØÇò »ÝÆÕ³©Ì¸»·±£´òÓ¡</a>
+            </div>
+                        <p class="tag">À¸Ä¿£º<a href="/week_hits/1-1-1.html" title="¿Æ¼¼½ÚÄ¿">¿Æ¼¼½ÚÄ¿</a></p>
+                                    <p class="tag">±êÇ©£º<a href='/week_hits/4-6643-1.html' title='»ÝÆÕ'>»ÝÆÕ</a><a href='/week_hits/4-28107-1.html' title='hp'>hp</a> </p>
+                        <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/1-1-1.html">¿Æ¼¼½ÚÄ¿</a></dt>
+                <dd><span>×Ü²¥·Å£º338</span> <span>×ÜÆÀÂÛ£º0</span></dd>
+                <dd><strong>½éÉÜ£º</strong>ÖÐ¹Ø´åÔÚÏß´òÓ¡Éè±¸´ó½²ÌÃ
+¹Ø°®µØÇò »ÝÆÕ³©Ì¸»·±£´òÓ¡</dd>
+              </dl>
+            </div>
+          </li>
+                  </ul>
+        <ul class="li_word12">
+                  <li><a href="/video119970.html" title="¼ÒÌìÏÂ£ºÌåÑé¹úÇìÂô³¡">¼ÒÌìÏÂ£ºÌåÑé¹úÇìÂô³¡</a></li>
+                  <li><a href="/video119889.html" title="iPhone5ÍêÊ¤ÈýÐÇS3£¿">iPhone5ÍêÊ¤ÈýÐÇS3£¿</a></li>
+                  <li><a href="/video119873.html" title="20120925Í¶Í¶ÊÇµÀµÚ96ÆÚ">20120925Í¶Í¶ÊÇµÀµÚ96ÆÚ</a></li>
+                  <li><a href="/video119835.html" title="¼ÒÌìÏÂ20120911">¼ÒÌìÏÂ20120911</a></li>
+                  <li><a href="/video119834.html" title="¼ÒÌìÏÂ20120925">¼ÒÌìÏÂ20120925</a></li>
+                  <li><a href="/video119826.html" title="Ã¿ÈÕ¼ÑÈí¡ª¿ñÒ°ì­³µ7">Ã¿ÈÕ¼ÑÈí¡ª¿ñÒ°ì­³µ7</a></li>
+                  <li><a href="/video119672.html" title="0914»úÎÅÌìÏÂÊÖ»úÐÂÎÅÑÛ">0914»úÎÅÌìÏÂÊÖ»úÐÂÎÅÑÛ</a></li>
+                  <li><a href="/video119663.html" title="´ó´ÐÍæÊÖ»úÖ®ÒæÖÇÓÎÏ·">´ó´ÐÍæÊÖ»úÖ®ÒæÖÇÓÎÏ·</a></li>
+                </ul>
+      </div>
     </div>
-  </body>
-
+    <div class="wrap_r">
+      <div class="bd cate_top">
+        <div class="title"><strong>±¾ÖÜ¿Æ¼¼½ÚÄ¿ÊÓÆµÅÅÐÐ</strong></div>
+        <div class="top_t"> ÅÅÃû<b class="a">ÊÓÆµ</b><b class="b">±¾ÖÜ²¥·Å</b> Ç÷ÊÆ</div>
+        <ul id="w_tech" class="v_top">
+                            <li class="open">
+            <em class="n1">1</em>
+                      <a class="pic" href="/video116354.html"><img src="http://v.zol-img.com.cn/video/1_60x45/881/ceZqRWQqlc6U.jpg" alt="Win8 MetroÕûÌå½éÉÜ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video116354.html" title="Win8 MetroÕûÌå½éÉÜ">Win8 MetroÕûÌå½éÉÜ</a></p>
+            <span class="text_s"><a href="/video116354.html"  title="Win8 MetroÕûÌå½éÉÜ">Win8 MetroÕûÌå½éÉÜ</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>1,555´Î</span>
+            <span class="down">¡ý</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n1">2</em>
+                      <a class="pic" href="/video120000.html"><img src="http://v.zol-img.com.cn/video/1_60x45/858/ceWZq2t0ZyJO.jpg" alt="iÊÖ»ú£ºÅÌµãiPhone 5 ¸÷ÖÖÈ±ÏÝÃÅ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video120000.html" title="iÊÖ»ú£ºÅÌµãiPhone 5 ¸÷ÖÖÈ±ÏÝÃÅ">iÊÖ»ú£ºÅÌµãiPhone 5 ¸÷ÖÖÈ±ÏÝÃÅ</a></p>
+            <span class="text_s"><a href="/video120000.html"  title="iÊÖ»ú£ºÅÌµãiPhone 5 ¸÷ÖÖÈ±ÏÝÃÅ">iÊÖ»ú£ºÅÌµãiPhone¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>1,502´Î</span>
+            <span class="down">¡ý</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n1">3</em>
+                      <a class="pic" href="/video120081.html"><img src="http://v.zol-img.com.cn/video/1_60x45/980/ceuV7ttKNDpZM.jpg" alt="½ñÇïÊ®ÔÂ ÐÂÆ·GTX650Ti³õÌåÑé" width="60" height="45"></a>
+            <p class="text_l"><a href="/video120081.html" title="½ñÇïÊ®ÔÂ ÐÂÆ·GTX650Ti³õÌåÑé">½ñÇïÊ®ÔÂ ÐÂÆ·GTX650Ti³õÌåÑé</a></p>
+            <span class="text_s"><a href="/video120081.html"  title="½ñÇïÊ®ÔÂ ÐÂÆ·GTX650Ti³õÌåÑé">½ñÇïÊ®ÔÂ ÐÂÆ·GTX6¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>973´Î</span>
+            <span class="up">¡ü</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">4</em>
+                      <a class="pic" href="/video119889.html"><img src="http://v.zol-img.com.cn/video/1_60x45/677/cetYW1jfz0rJE.jpg" alt="iPhone5ÍêÊ¤ÈýÐÇS3£¿" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119889.html" title="iPhone5ÍêÊ¤ÈýÐÇS3£¿">iPhone5ÍêÊ¤ÈýÐÇS3£¿</a></p>
+            <span class="text_s"><a href="/video119889.html"  title="iPhone5ÍêÊ¤ÈýÐÇS3£¿">iPhone5ÍêÊ¤ÈýÐÇS3£¿</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>845´Î</span>
+            <span class="down">¡ý</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">5</em>
+                      <a class="pic" href="/video116655.html"><img src="http://v.zol-img.com.cn/video/1_60x45/305/ce6a0fEQ1Dmf2.jpg" alt="iPad2 VS iPad3 ÏÔÊ¾ÐÔÄÜ¶Ô±È" width="60" height="45"></a>
+            <p class="text_l"><a href="/video116655.html" title="iPad2 VS iPad3 ÏÔÊ¾ÐÔÄÜ¶Ô±È">iPad2 VS iPad3 ÏÔÊ¾ÐÔÄÜ¶Ô±È</a></p>
+            <span class="text_s"><a href="/video116655.html"  title="iPad2 VS iPad3 ÏÔÊ¾ÐÔÄÜ¶Ô±È">iPad2 VS iPad3 ÏÔ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>408´Î</span>
+            <span class="down">¡ý</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">6</em>
+                      <a class="pic" href="/video118074.html"><img src="http://v.zol-img.com.cn/video/1_60x45/487/ceEhqjOIiSOU.jpg" alt="´ó´ÐÍæÊÖ»ú¡ªGALAXY S3Ë£¿á×ÀÃæ²å¼þ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video118074.html" title="´ó´ÐÍæÊÖ»ú¡ªGALAXY S3Ë£¿á×ÀÃæ²å¼þ">´ó´ÐÍæÊÖ»ú¡ªGALAXY S3Ë£¿á×ÀÃæ²å¼þ</a></p>
+            <span class="text_s"><a href="/video118074.html"  title="´ó´ÐÍæÊÖ»ú¡ªGALAXY S3Ë£¿á×ÀÃæ²å¼þ">´ó´ÐÍæÊÖ»ú¡ªGALA¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>360´Î</span>
+            <span class="up">¡ü</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">7</em>
+                      <a class="pic" href="/video116129.html"><img src="http://v.zol-img.com.cn/video/1_60x45/462/ce0nuypb742Uc.jpg" alt="HISÏÔ¿¨ÊÐ³¡µ÷²é" width="60" height="45"></a>
+            <p class="text_l"><a href="/video116129.html" title="HISÏÔ¿¨ÊÐ³¡µ÷²é">HISÏÔ¿¨ÊÐ³¡µ÷²é</a></p>
+            <span class="text_s"><a href="/video116129.html"  title="HISÏÔ¿¨ÊÐ³¡µ÷²é">HISÏÔ¿¨ÊÐ³¡µ÷²é</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>297´Î</span>
+            <span class="up">¡ü</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">8</em>
+                      <a class="pic" href="/video109764.html"><img src="http://v.zol-img.com.cn/video/1_60x45/249/cean60HjyF7gQ.jpg" alt="iPad1ºÍiPad2µÄ±¾ÖÊÇø±ð" width="60" height="45"></a>
+            <p class="text_l"><a href="/video109764.html" title="iPad1ºÍiPad2µÄ±¾ÖÊÇø±ð">iPad1ºÍiPad2µÄ±¾ÖÊÇø±ð</a></p>
+            <span class="text_s"><a href="/video109764.html"  title="iPad1ºÍiPad2µÄ±¾ÖÊÇø±ð">iPad1ºÍiPad2µÄ±¾ÖÊ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>277´Î</span>
+            <span class="up">¡ü</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">9</em>
+                      <a class="pic" href="/video119998.html"><img src="http://v.zol-img.com.cn/video/1_60x45/854/ce5JnFtjmkyh6.jpg" alt="¹Ø°®µØÇò »ÝÆÕ³©Ì¸»·±£´òÓ¡" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119998.html" title="¹Ø°®µØÇò »ÝÆÕ³©Ì¸»·±£´òÓ¡">¹Ø°®µØÇò »ÝÆÕ³©Ì¸»·±£´òÓ¡</a></p>
+            <span class="text_s"><a href="/video119998.html"  title="¹Ø°®µØÇò »ÝÆÕ³©Ì¸»·±£´òÓ¡">¹Ø°®µØÇò »ÝÆÕ³©Ì¸¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>267´Î</span>
+            <span class="down">¡ý</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">10</em>
+                      <a class="pic" href="/video117243.html"><img src="http://v.zol-img.com.cn/video/1_60x45/257/ceS9psHy3j8Uo.jpg" alt="¡¾¼ÑÄÜµ¥·´¿ÎÌÃµÚÈý¼¾µÚ2ÆÚ¡¿-½â¹¹±±¾©ºó»¨Ô°" width="60" height="45"></a>
+            <p class="text_l"><a href="/video117243.html" title="¡¾¼ÑÄÜµ¥·´¿ÎÌÃµÚÈý¼¾µÚ2ÆÚ¡¿-½â¹¹±±¾©ºó»¨Ô°">¡¾¼ÑÄÜµ¥·´¿ÎÌÃµÚÈý¼¾µÚ2ÆÚ¡¿-½â¹¹±±¾©ºó¡­</a></p>
+            <span class="text_s"><a href="/video117243.html"  title="¡¾¼ÑÄÜµ¥·´¿ÎÌÃµÚÈý¼¾µÚ2ÆÚ¡¿-½â¹¹±±¾©ºó»¨Ô°">¡¾¼ÑÄÜµ¥·´¿ÎÌÃµÚÈý¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>228´Î</span>
+            <span class="down">¡ý</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">11</em>
+                      <a class="pic" href="/video117907.html"><img src="http://v.zol-img.com.cn/video/1_60x45/203/ceG85QAKTI6k.jpg" alt="¡¾¼ÑÄÜµ¥·´¿ÎÌÃµÚÈý¼¾µÚ3ÆÚ¡¿-¹ã½ÇÏÂµÄÌìÌ³" width="60" height="45"></a>
+            <p class="text_l"><a href="/video117907.html" title="¡¾¼ÑÄÜµ¥·´¿ÎÌÃµÚÈý¼¾µÚ3ÆÚ¡¿-¹ã½ÇÏÂµÄÌìÌ³">¡¾¼ÑÄÜµ¥·´¿ÎÌÃµÚÈý¼¾µÚ3ÆÚ¡¿-¹ã½ÇÏÂµÄÌìÌ³</a></p>
+            <span class="text_s"><a href="/video117907.html"  title="¡¾¼ÑÄÜµ¥·´¿ÎÌÃµÚÈý¼¾µÚ3ÆÚ¡¿-¹ã½ÇÏÂµÄÌìÌ³">¡¾¼ÑÄÜµ¥·´¿ÎÌÃµÚÈý¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>206´Î</span>
+            <span class="mid">-</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">12</em>
+                      <a class="pic" href="/video112364.html"><img src="http://v.zol-img.com.cn/video/1_60x45/939/ceJQn8sovKI.jpg" alt="¼ÑÄÜµ¥·´¿ÎÌÃµÚ¶þ¼¾£ºÅÄºÃ·ç¾°µÄ¼¼ÇÉ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video112364.html" title="¼ÑÄÜµ¥·´¿ÎÌÃµÚ¶þ¼¾£ºÅÄºÃ·ç¾°µÄ¼¼ÇÉ">¼ÑÄÜµ¥·´¿ÎÌÃµÚ¶þ¼¾£ºÅÄºÃ·ç¾°µÄ¼¼ÇÉ</a></p>
+            <span class="text_s"><a href="/video112364.html"  title="¼ÑÄÜµ¥·´¿ÎÌÃµÚ¶þ¼¾£ºÅÄºÃ·ç¾°µÄ¼¼ÇÉ">¼ÑÄÜµ¥·´¿ÎÌÃµÚ¶þ¼¾¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>158´Î</span>
+            <span class="down">¡ý</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">13</em>
+                      <a class="pic" href="/video112829.html"><img src="http://v.zol-img.com.cn/video/1_60x45/771/ce9fDq7qexDIc.jpg" alt="¼ÑÄÜµ¥·´¿ÎÌÃµÚÈýÆÚ-Çï¼¾ÈËÏñÉãÓ°¹¥ÂÔ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video112829.html" title="¼ÑÄÜµ¥·´¿ÎÌÃµÚÈýÆÚ-Çï¼¾ÈËÏñÉãÓ°¹¥ÂÔ">¼ÑÄÜµ¥·´¿ÎÌÃµÚÈýÆÚ-Çï¼¾ÈËÏñÉãÓ°¹¥ÂÔ</a></p>
+            <span class="text_s"><a href="/video112829.html"  title="¼ÑÄÜµ¥·´¿ÎÌÃµÚÈýÆÚ-Çï¼¾ÈËÏñÉãÓ°¹¥ÂÔ">¼ÑÄÜµ¥·´¿ÎÌÃµÚÈýÆÚ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>149´Î</span>
+            <span class="up">¡ü</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">14</em>
+                      <a class="pic" href="/video112163.html"><img src="http://v.zol-img.com.cn/video/1_60x45/586/cev8WGvbHlJNw.jpg" alt="Ð¡Ã×ÊÖ»úÆû³µÑ¹²âÊÔ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video112163.html" title="Ð¡Ã×ÊÖ»úÆû³µÑ¹²âÊÔ">Ð¡Ã×ÊÖ»úÆû³µÑ¹²âÊÔ</a></p>
+            <span class="text_s"><a href="/video112163.html"  title="Ð¡Ã×ÊÖ»úÆû³µÑ¹²âÊÔ">Ð¡Ã×ÊÖ»úÆû³µÑ¹²âÊÔ</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>133´Î</span>
+            <span class="up">¡ü</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">15</em>
+                      <a class="pic" href="/video110749.html"><img src="http://v.zol-img.com.cn/video/1_60x45/113/ce82P1j8WZkOg.jpg" alt="¼ÑÄÜµ¥·´¿ÎÌÃµÚ¶þÆÚ£º60D 600D²Ù×÷Ö¸ÄÏ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video110749.html" title="¼ÑÄÜµ¥·´¿ÎÌÃµÚ¶þÆÚ£º60D 600D²Ù×÷Ö¸ÄÏ">¼ÑÄÜµ¥·´¿ÎÌÃµÚ¶þÆÚ£º60D 600D²Ù×÷Ö¸ÄÏ</a></p>
+            <span class="text_s"><a href="/video110749.html"  title="¼ÑÄÜµ¥·´¿ÎÌÃµÚ¶þÆÚ£º60D 600D²Ù×÷Ö¸ÄÏ">¼ÑÄÜµ¥·´¿ÎÌÃµÚ¶þÆÚ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>116´Î</span>
+            <span class="down">¡ý</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                             <li>
+            <em class="n2">16</em>
+                      <a class="pic" href="/video116149.html"><img src="http://v.zol-img.com.cn/video/1_60x45/503/ceql3e9PA2M8Q.jpg" alt="÷È×åMXÒôÆµÍ¬ÖáÊä³ö²âÊÔ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video116149.html" title="÷È×åMXÒôÆµÍ¬ÖáÊä³ö²âÊÔ">÷È×åMXÒôÆµÍ¬ÖáÊä³ö²âÊÔ</a></p>
+            <span class="text_s"><a href="/video116149.html"  title="÷È×åMXÒôÆµÍ¬ÖáÊä³ö²âÊÔ">÷È×åMXÒôÆµÍ¬ÖáÊä³ö¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>116´Î</span>
+            <span class="down">¡ý</span>
+            <!-- <span class="up">¡ü</span><span class="mid">-</span><span class="down">¡ý</span> -->
+          </li>
+                 </ul>
+      </div>
+    </div>
+  </div>
+  <script>write_ad("index_fengyong_top_tonglan");</script> 
+  <div class="mt clearfix">
+    <div class="wrap_l v_cate">
+      <dl class="v_cate_nav">
+        <dt class="fy"><a href="/week_hits/1-3-1.html" target="_blank"><H2>·çÔÆÈËÎï</H2></a></dt>
+        <dd>
+          <table cellspacing="0" cellspadding="0">
+            <tr>
+              <th>×¨Çø£º</th>
+                                        <td><a href="/week_hits/4-90435-1.html" title="ÂíºêÉý"  target="_blank">ÂíºêÉý</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90434-1.html" title="Áø´«Ö¾"  target="_blank">Áø´«Ö¾</a></td>
+                                                      <td><a href="/week_hits/4-90436-1.html" title="ÑîÐð"  target="_blank">ÑîÐð</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90437-1.html" title="»ÆÈÊÑ«"  target="_blank">»ÆÈÊÑ«</a></td>
+                                                      <td><a href="/week_hits/4-90438-1.html" title="ÁºÄî¼á"  target="_blank">ÁºÄî¼á</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90439-1.html" title="ãÉÒã´ï"  target="_blank">ãÉÒã´ï</a></td>
+                                                      <td><a href="/week_hits/4-90440-1.html" title="ÕÅÑÇÇÚ"  target="_blank">ÕÅÑÇÇÚ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90441-1.html" title="µËÔªä]"  target="_blank">µËÔªä]</a></td>
+                                                      <td><a href="/week_hits/4-90442-1.html" title="Ã«¶«·ò"  target="_blank">Ã«¶«·ò</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90443-1.html" title="Ò¶Åà³Ç"  target="_blank">Ò¶Åà³Ç</a></td>
+                                                      <td><a href="/week_hits/4-90444-1.html" title="ÉòÕñÀ´"  target="_blank">ÉòÕñÀ´</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90445-1.html" title="ÕÅÎÄñ´"  target="_blank">ÕÅÎÄñ´</a></td>
+                                                      <td><a href="/week_hits/4-90446-1.html" title="Îâº£¾ü"  target="_blank">Îâº£¾ü</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90447-1.html" title="Àú¾ü"  target="_blank">Àú¾ü</a></td>
+                                                      <td><a href="/week_hits/4-90448-1.html" title="ÄßÌìÒâ"  target="_blank">ÄßÌìÒâ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90449-1.html" title="ÈÎÎ°¹â"  target="_blank">ÈÎÎ°¹â</a></td>
+                                                      <td><a href="/week_hits/4-90450-1.html" title="ÐíÂ¡Â×"  target="_blank">ÐíÂ¡Â×</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90451-1.html" title="¶­ÞÈ"  target="_blank">¶­ÞÈ</a></td>
+                                                      <td><a href="/week_hits/4-90452-1.html" title="µËÅàÖÇ"  target="_blank">µËÅàÖÇ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90453-1.html" title="°×ÅàÁØ"  target="_blank">°×ÅàÁØ</a></td>
+                                                      <td><a href="/week_hits/4-90454-1.html" title="Ä²¹óÏÈ"  target="_blank">Ä²¹óÏÈ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90455-1.html" title="³Â¾´ÐÂ"  target="_blank">³Â¾´ÐÂ</a></td>
+                                                      <td><a href="/week_hits/4-90456-1.html" title="³Â¾´ºê"  target="_blank">³Â¾´ºê</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-7319-1.html" title="·ë¾ü"  target="_blank">·ë¾ü</a></td>
+                                                      <td><a href="/week_hits/4-90457-1.html" title="À¶ìÇ"  target="_blank">À¶ìÇ</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90458-1.html" title="Àî¿ª¸´"  target="_blank">Àî¿ª¸´</a></td>
+                                                      <td><a href="/week_hits/4-84411-1.html" title="ÅË³¤»ª"  target="_blank">ÅË³¤»ª</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-84764-1.html" title="Ð»ê»"  target="_blank">Ð»ê»</a></td>
+                                                      <td><a href="/week_hits/4-90460-1.html" title="ÕÔ½¡"  target="_blank">ÕÔ½¡</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-83799-1.html" title="ÁÖÇ¿"  target="_blank">ÁÖÇ¿</a></td>
+                                                      <td><a href="/week_hits/4-83421-1.html" title="½­Õñ¹ú"  target="_blank">½­Õñ¹ú</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-53314-1.html" title="ÁõÃ¯Æð"  target="_blank">ÁõÃ¯Æð</a></td>
+                                                      <td><a href="/week_hits/4-83119-1.html" title="ÐíÓÓ¼Î"  target="_blank">ÐíÓÓ¼Î</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/4-90461-1.html" title="Îâ·½È¨"  target="_blank">Îâ·½È¨</a></td>
+                                                      <td><a href="/week_hits/4-89360-1.html" title="³ÂÃñÁÁ"  target="_blank">³ÂÃñÁÁ</a></td>
+            </tr>
+                                                </table>
+        </dd>
+      </dl>
+      <div class="mod_v">
+        <div class="v_rec">
+          <div class="pic"><a href="http://v.zol.com.cn/video119391.html"><img src="http://dg1.zol-img.com.cn/18_module_images/16/503c21a9cebc3.jpg" alt="ÁªÏë¸±×Ü½â¶ÁËÄºËÀÖPhone K860" width="220" height="147"><span>²¥·Å</span></a></div>
+          <a class="vtit" href="http://v.zol.com.cn/video119391.html" title="ÁªÏë¸±×Ü½â¶ÁËÄºËÀÖPhone K860">ÁªÏë¸±×Ü½â¶ÁËÄºËÀÖPhone ¡­</a>
+          <p class="v_intro">È«ÇòÊ×¿î5…¼ËÄºËÖÇÄÜÊÖ»úÁªÏëÀÖPhone K860×Ô8ÔÂ17ÈÕÕýÊ½·¢²¼ÒÔÀ´¾ÍÊÜµ½ÁËÒµ½ç¼«´óµÄ¹Ø×¢¡£Îª´ËÎÒÃÇ×¨ÃÅÇëµ½ÁªÏë¼¯ÍÅ¸±×Ü²ÃÔø¹úÕÂÏÈÉúÀ´Ò»ÆðÁÄÁÄÕâ¿î²úÆ·¡£</p>
+                    <p class="tag">À¸Ä¿£º<a href="/week_hits/1-3-1.html" title="·çÔÆÈËÎï">·çÔÆÈËÎï</a></p>
+                              <p class="tag">±êÇ©£º<a href="/week_hits/4-3440-1.html" title="ÁªÏë">ÁªÏë</a>
+          <a href="/week_hits/4-101301-1.html" title="K860ÉÏÊÐ">K860ÉÏÊÐ</a>
+                    </p>
+                  </div>
+        <ul id="pers" class="v_list v_list_m ishow">
+                   <li>
+            <div class="pic">
+              <a href="/video120107.html"><img src="http://v.zol-img.com.cn/video/1_120x90/28/ceh56acevVgg.jpg" alt="" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video120107.html" title="×¨·ÃGarmin¼ÑÃ÷ÖÐ¹úÇø¸ß²ã">×¨·ÃGarmin¼ÑÃ÷ÖÐ¹úÇø¸ß²ã</a>
+            </div>
+                        <p class="tag">À¸Ä¿£º<a href="/week_hits/1-3-1.html" title="·çÔÆÈËÎï">·çÔÆÈËÎï</a></p>
+                                    <p class="tag">±êÇ©£º<a href='/week_hits/4-81740-1.html' title='Garmin'>Garmin</a><a href='/week_hits/4-82159-1.html' title='¼ÑÃ÷'>¼ÑÃ÷</a></p>
+                        <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/2-0-1.html">·çÔÆÈËÎï</a></dt>
+                <dd><span>×Ü²¥·Å£º35</span> <span>×ÜÆÀÂÛ£º0</span></dd>
+                <dd><strong>½éÉÜ£º</strong>×¨·ÃGarmin¼ÑÃ÷ÖÐ¹úÇø¸ß²ã</dd>
+              </dl>
+            </div>
+          </li>
+                     <li>
+            <div class="pic">
+              <a href="/video120091.html"><img src="http://v.zol-img.com.cn/video/1_120x90/0/cejzMfUR7Om3k.jpg" alt="" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video120091.html" title="×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­ÀíÀîÖ¾Áú">×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­ÀíÀîÖ¾Áú</a>
+            </div>
+                        <p class="tag">À¸Ä¿£º<a href="/week_hits/1-3-1.html" title="·çÔÆÈËÎï">·çÔÆÈËÎï</a></p>
+                                    <p class="tag">±êÇ©£º<a href='/week_hits/4-101898-1.html' title='ÀîÖ¾Áú'>ÀîÖ¾Áú</a><a href='/week_hits/4-96039-1.html' title='ÒÆ¶¯µçÔ´'>ÒÆ¶¯µç</a></p>
+                        <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/2-0-1.html">·çÔÆÈËÎï</a></dt>
+                <dd><span>×Ü²¥·Å£º39</span> <span>×ÜÆÀÂÛ£º0</span></dd>
+                <dd><strong>½éÉÜ£º</strong>ËÜ¾«Æ·Ê÷Æ·ÅÆ´´¼ÛÖµ£¬Ç¿Í¨Â·×ö×¨ÒµÓ®ÊÐ³¡¡£2012Äê10ÔÂ17ÈÕ×¨·Ã×¨·ÃÈðÊÆ¿Æ¼¼ÓÐÏÞ¹«Ë¾×Ü¾­ÀíÀîÖ¾ÁúÏÈÉú¡£</dd>
+              </dl>
+            </div>
+          </li>
+                     <li>
+            <div class="pic">
+              <a href="/video119969.html"><img src="http://v.zol-img.com.cn/video/1_120x90/803/ceJQdLyGRqweY.jpg" alt="" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video119969.html" title="·çÔÆ¶Ô»°£º20121009ÅÌ¹Å³ÂÎÄ»Ô">·çÔÆ¶Ô»°£º20121009ÅÌ¹Å³ÂÎÄ»Ô</a>
+            </div>
+                        <p class="tag">À¸Ä¿£º<a href="/week_hits/1-3-1.html" title="·çÔÆÈËÎï">·çÔÆÈËÎï</a></p>
+                                    <p class="tag">±êÇ©£º<a href='/week_hits/4-45185-1.html' title='·çÔÆ¶Ô»°'>·çÔÆ¶Ô»°</a><a href='/week_hits/4-101775-1.html' title='³ÂÎÄ»Ô'>³ÂÎÄ</a></p>
+                        <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/2-0-1.html">·çÔÆÈËÎï</a></dt>
+                <dd><span>×Ü²¥·Å£º73</span> <span>×ÜÆÀÂÛ£º0</span></dd>
+                <dd><strong>½éÉÜ£º</strong>·çÔÆ¶Ô»°£º20121009ÅÌ¹Å³ÂÎÄ»Ô</dd>
+              </dl>
+            </div>
+          </li>
+                  </ul>
+        <ul class="li_word12">
+                  <li><a href="/video119903.html" title="×¨·ÃÇå»ªÍ¬·½ÑÐ·¢ÖÐÐÄÊÂÒµ²¿×Ü¾­Àí ±¡ÁÕ">×¨·ÃÇå»ªÍ¬·½ÑÐ·¢ÖÐÐÄÊÂÒµ²¿×Ü¾­Àí¡­</a></li>
+                  <li><a href="/video119659.html" title="Å¦ÂüÒÆ¶¯µçÔ´ ÓÃÐ¾×öºÃ°²È«">Å¦ÂüÒÆ¶¯µçÔ´ ÓÃÐ¾×öºÃ°²È«</a></li>
+                  <li><a href="/video119556.html" title="Í¶Í¶ÊÇµÀ£º´ÓÉÌÎñµ½¼ÒÓÃ  Í¶Ó°¸Ä±äÉú»î">Í¶Í¶ÊÇµÀ£º´ÓÉÌÎñµ½¼ÒÓÃ  Í¶Ó°¸Ä±ä¡­</a></li>
+                  <li><a href="/video119406.html" title="»Ô»ÍÊ®Äê Ãú¬uÓÐÄã">»Ô»ÍÊ®Äê Ãú¬uÓÐÄã</a></li>
+                  <li><a href="/video119273.html" title="12Äêß³ßåÎ´ÔøÑÔ°Ü ½ñ³¯ºÎ¾å´ÓÐÂ³ö·¢">12Äêß³ßåÎ´ÔøÑÔ°Ü ½ñ³¯ºÎ¾å´ÓÐÂ³ö·¢</a></li>
+                  <li><a href="/video119197.html" title="Ç¿º·±¾É« ¶ÀÏÔ·æÃ¢ ½â¶Áº£¶û±Ê¼Ç±¾">Ç¿º·±¾É« ¶ÀÏÔ·æÃ¢ ½â¶Áº£¶û±Ê¼Ç±¾</a></li>
+                  <li><a href="/video119116.html" title="ÉÆÁìDSA--³µÔØµ¼º½µÄÐÂ¸ß¶È">ÉÆÁìDSA--³µÔØµ¼º½µÄÐÂ¸ß¶È</a></li>
+                  <li><a href="/video119106.html" title="Æß²Êºç³ÐÆô¿Æ¼¼Õ½ÂÔºÏ×÷ÁªºÏ×¨·Ã">Æß²Êºç³ÐÆô¿Æ¼¼Õ½ÂÔºÏ×÷ÁªºÏ×¨·Ã</a></li>
+                </ul>
+      </div>
+    </div>
+    <div class="wrap_r">
+      <div class="bd cate_top">
+        <div class="title"><strong>±¾ÖÜ·çÔÆÈËÎïÊÓÆµÅÅÐÐ</strong></div>
+        <div class="top_t"> ÅÅÃû<b class="a">ÊÓÆµ</b><b class="b">±¾ÖÜ²¥·Å</b> Ç÷ÊÆ</div>
+        <ul id="w_pers" class="v_top">
+                            <li class="open">
+            <em class="n1">1</em>
+                      <a class="pic" href="/video119391.html"><img src="http://v.zol-img.com.cn/video/1_60x45/801/ceyPhPj1UKFmA.jpg" alt="ÎÞÐèµÈ´ýÇÀÏÊËÄºË ÁªÏëÀÖphone K860ÉÏÊÐ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119391.html" title="ÎÞÐèµÈ´ýÇÀÏÊËÄºË ÁªÏëÀÖphone K860ÉÏÊÐ">ÎÞÐèµÈ´ýÇÀÏÊËÄºË ÁªÏëÀÖphone K860ÉÏÊÐ</a></p>
+            <span class="text_s"><a href="/video119391.html"  title="ÎÞÐèµÈ´ýÇÀÏÊËÄºË ÁªÏëÀÖphone K860ÉÏÊÐ">ÎÞÐèµÈ´ýÇÀÏÊËÄºË ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>91´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n1">2</em>
+                      <a class="pic" href="/video120091.html"><img src="http://v.zol-img.com.cn/video/1_60x45/0/cejzMfUR7Om3k.jpg" alt="×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­ÀíÀîÖ¾Áú" width="60" height="45"></a>
+            <p class="text_l"><a href="/video120091.html" title="×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­ÀíÀîÖ¾Áú">×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­ÀíÀîÖ¾Áú</a></p>
+            <span class="text_s"><a href="/video120091.html"  title="×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­ÀíÀîÖ¾Áú">×¨·ÃÈðÊÆ¿Æ¼¼×Ü¾­Àí¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>30´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n1">3</em>
+                      <a class="pic" href="/video110125.html"><img src="http://v.zol-img.com.cn/video/1_60x45/906/ceTed3e7GG8A.jpg" alt="AMDµËÔªä]Ïê½âAPU" width="60" height="45"></a>
+            <p class="text_l"><a href="/video110125.html" title="AMDµËÔªä]Ïê½âAPU">AMDµËÔªä]Ïê½âAPU</a></p>
+            <span class="text_s"><a href="/video110125.html"  title="AMDµËÔªä]Ïê½âAPU">AMDµËÔªä]Ïê½âAPU</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>19´Î</span>
+            <span class="mid">-</span>
+          </li>
+                             <li>
+            <em class="n2">4</em>
+                      <a class="pic" href="/video119659.html"><img src="http://v.zol-img.com.cn/video/1_60x45/251/ceqMxQOBc8u7k.jpg" alt="Å¦ÂüÒÆ¶¯µçÔ´ ÓÃÐ¾×öºÃ°²È«" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119659.html" title="Å¦ÂüÒÆ¶¯µçÔ´ ÓÃÐ¾×öºÃ°²È«">Å¦ÂüÒÆ¶¯µçÔ´ ÓÃÐ¾×öºÃ°²È«</a></p>
+            <span class="text_s"><a href="/video119659.html"  title="Å¦ÂüÒÆ¶¯µçÔ´ ÓÃÐ¾×öºÃ°²È«">Å¦ÂüÒÆ¶¯µçÔ´ ÓÃÐ¾¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>16´Î</span>
+            <span class="mid">-</span>
+          </li>
+                             <li>
+            <em class="n2">5</em>
+                      <a class="pic" href="/video100144.html"><img src="http://v.zol-img.com.cn/video/1_60x45/359/ceWWJmspHpWDI.jpg" alt="ÉñÖÛÎâº£¾ü£ºÉñÖÛµçÄÔµÄ·µÐÞÂÊÊÇÊÐ³¡×îµÍµÄ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video100144.html" title="ÉñÖÛÎâº£¾ü£ºÉñÖÛµçÄÔµÄ·µÐÞÂÊÊÇÊÐ³¡×îµÍµÄ">ÉñÖÛÎâº£¾ü£ºÉñÖÛµçÄÔµÄ·µÐÞÂÊÊÇÊÐ³¡×îµÍµÄ</a></p>
+            <span class="text_s"><a href="/video100144.html"  title="ÉñÖÛÎâº£¾ü£ºÉñÖÛµçÄÔµÄ·µÐÞÂÊÊÇÊÐ³¡×îµÍµÄ">ÉñÖÛÎâº£¾ü£ºÉñÖÛµç¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>15´Î</span>
+            <span class="mid">-</span>
+          </li>
+                             <li>
+            <em class="n2">6</em>
+                      <a class="pic" href="/video116621.html"><img src="http://v.zol-img.com.cn/video/1_60x45/328/cet3enQq2j2h2.jpg" alt="Windows 8Æ½Ì¨µÄ³¬¼«±¾¿ÉÒÔÊµÏÖ´¥Ãþ¹¦ÄÜ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video116621.html" title="Windows 8Æ½Ì¨µÄ³¬¼«±¾¿ÉÒÔÊµÏÖ´¥Ãþ¹¦ÄÜ">Windows 8Æ½Ì¨µÄ³¬¼«±¾¿ÉÒÔÊµÏÖ´¥Ãþ¹¦ÄÜ</a></p>
+            <span class="text_s"><a href="/video116621.html"  title="Windows 8Æ½Ì¨µÄ³¬¼«±¾¿ÉÒÔÊµÏÖ´¥Ãþ¹¦ÄÜ">Windows 8Æ½Ì¨µÄ³¬¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>14´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">7</em>
+                      <a class="pic" href="/video119903.html"><img src="http://v.zol-img.com.cn/video/1_60x45/705/cednyhheed5UI.jpg" alt="×¨·ÃÇå»ªÍ¬·½ÑÐ·¢ÖÐÐÄÊÂÒµ²¿×Ü¾­Àí ±¡ÁÕ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119903.html" title="×¨·ÃÇå»ªÍ¬·½ÑÐ·¢ÖÐÐÄÊÂÒµ²¿×Ü¾­Àí ±¡ÁÕ">×¨·ÃÇå»ªÍ¬·½ÑÐ·¢ÖÐÐÄÊÂÒµ²¿×Ü¾­Àí ±¡ÁÕ</a></p>
+            <span class="text_s"><a href="/video119903.html"  title="×¨·ÃÇå»ªÍ¬·½ÑÐ·¢ÖÐÐÄÊÂÒµ²¿×Ü¾­Àí ±¡ÁÕ">×¨·ÃÇå»ªÍ¬·½ÑÐ·¢ÖÐ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>14´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">8</em>
+                      <a class="pic" href="/video76810.html"><img src="http://v.zol-img.com.cn/video/0_60x45/236/ceWdWAgOCL6wE.jpg" alt="Áø´«Ö¾·ÃÌ¸" width="60" height="45"></a>
+            <p class="text_l"><a href="/video76810.html" title="Áø´«Ö¾·ÃÌ¸">Áø´«Ö¾·ÃÌ¸</a></p>
+            <span class="text_s"><a href="/video76810.html"  title="Áø´«Ö¾·ÃÌ¸">Áø´«Ö¾·ÃÌ¸</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>12´Î</span>
+            <span class="mid">-</span>
+          </li>
+                             <li>
+            <em class="n2">9</em>
+                      <a class="pic" href="/video112255.html"><img src="http://v.zol-img.com.cn/video/1_60x45/752/cehoLyvlLMAgg.jpg" alt="ÁªÏëPCÁ½´óÏµÁÐ²úÆ·¶¨Î»µÄ²î±ð" width="60" height="45"></a>
+            <p class="text_l"><a href="/video112255.html" title="ÁªÏëPCÁ½´óÏµÁÐ²úÆ·¶¨Î»µÄ²î±ð">ÁªÏëPCÁ½´óÏµÁÐ²úÆ·¶¨Î»µÄ²î±ð</a></p>
+            <span class="text_s"><a href="/video112255.html"  title="ÁªÏëPCÁ½´óÏµÁÐ²úÆ·¶¨Î»µÄ²î±ð">ÁªÏëPCÁ½´óÏµÁÐ²úÆ·¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>12´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">10</em>
+                      <a class="pic" href="/video118552.html"><img src="http://v.zol-img.com.cn/video/1_60x45/306/cegwFg9F9kbMM.jpg" alt="½âÎöÃ÷»ù´ó¹âÈ¦Æì½¢DC G1" width="60" height="45"></a>
+            <p class="text_l"><a href="/video118552.html" title="½âÎöÃ÷»ù´ó¹âÈ¦Æì½¢DC G1">½âÎöÃ÷»ù´ó¹âÈ¦Æì½¢DC G1</a></p>
+            <span class="text_s"><a href="/video118552.html"  title="½âÎöÃ÷»ù´ó¹âÈ¦Æì½¢DC G1">½âÎöÃ÷»ù´ó¹âÈ¦Æì½¢¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>11´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">11</em>
+                      <a class="pic" href="/video119116.html"><img src="http://v.zol-img.com.cn/video/1_60x45/331/ceK8jgblFo4aE.jpg" alt="ÉÆÁìDSA--³µÔØµ¼º½µÄÐÂ¸ß¶È" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119116.html" title="ÉÆÁìDSA--³µÔØµ¼º½µÄÐÂ¸ß¶È">ÉÆÁìDSA--³µÔØµ¼º½µÄÐÂ¸ß¶È</a></p>
+            <span class="text_s"><a href="/video119116.html"  title="ÉÆÁìDSA--³µÔØµ¼º½µÄÐÂ¸ß¶È">ÉÆÁìDSA--³µÔØµ¼º½¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>9´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">12</em>
+                      <a class="pic" href="/video119969.html"><img src="http://v.zol-img.com.cn/video/1_60x45/803/ceJQdLyGRqweY.jpg" alt="·çÔÆ¶Ô»°£º20121009ÅÌ¹Å³ÂÎÄ»Ô" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119969.html" title="·çÔÆ¶Ô»°£º20121009ÅÌ¹Å³ÂÎÄ»Ô">·çÔÆ¶Ô»°£º20121009ÅÌ¹Å³ÂÎÄ»Ô</a></p>
+            <span class="text_s"><a href="/video119969.html"  title="·çÔÆ¶Ô»°£º20121009ÅÌ¹Å³ÂÎÄ»Ô">·çÔÆ¶Ô»°£º2012100¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>9´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">13</em>
+                      <a class="pic" href="/video118506.html"><img src="http://v.zol-img.com.cn/video/1_60x45/197/cet7LKEOJDuA.jpg" alt="½â¶Á½ðºÓÌï¼Ò¾ÓÏµÁÐ»úÏä" width="60" height="45"></a>
+            <p class="text_l"><a href="/video118506.html" title="½â¶Á½ðºÓÌï¼Ò¾ÓÏµÁÐ»úÏä">½â¶Á½ðºÓÌï¼Ò¾ÓÏµÁÐ»úÏä</a></p>
+            <span class="text_s"><a href="/video118506.html"  title="½â¶Á½ðºÓÌï¼Ò¾ÓÏµÁÐ»úÏä">½â¶Á½ðºÓÌï¼Ò¾ÓÏµÁÐ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>8´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">14</em>
+                      <a class="pic" href="/video118943.html"><img src="http://v.zol-img.com.cn/video/1_60x45/27/ceKkdAbdDM9WI.jpg" alt="ÖÇÄÜµ¼º½°ÂÃØËùÔÚ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video118943.html" title="ÖÇÄÜµ¼º½°ÂÃØËùÔÚ">ÖÇÄÜµ¼º½°ÂÃØËùÔÚ</a></p>
+            <span class="text_s"><a href="/video118943.html"  title="ÖÇÄÜµ¼º½°ÂÃØËùÔÚ">ÖÇÄÜµ¼º½°ÂÃØËùÔÚ</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>7´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">15</em>
+                      <a class="pic" href="/video115968.html"><img src="http://v.zol-img.com.cn/video/1_60x45/189/ceyaIYKIQyzFU.jpg" alt="º£¶ûÕÅÑåÆ½£ºÒ»¼üÁ¬µçÄÔ½â¾ö¿ÍÌüµçÊÓÆ¬Ô´ÎÊÌâ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video115968.html" title="º£¶ûÕÅÑåÆ½£ºÒ»¼üÁ¬µçÄÔ½â¾ö¿ÍÌüµçÊÓÆ¬Ô´ÎÊÌâ">º£¶ûÕÅÑåÆ½£ºÒ»¼üÁ¬µçÄÔ½â¾ö¿ÍÌüµçÊÓÆ¬Ô´¡­</a></p>
+            <span class="text_s"><a href="/video115968.html"  title="º£¶ûÕÅÑåÆ½£ºÒ»¼üÁ¬µçÄÔ½â¾ö¿ÍÌüµçÊÓÆ¬Ô´ÎÊÌâ">º£¶ûÕÅÑåÆ½£ºÒ»¼üÁ¬¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>6´Î</span>
+            <span class="mid">-</span>
+          </li>
+                             <li>
+            <em class="n2">16</em>
+                      <a class="pic" href="/video118784.html"><img src="http://v.zol-img.com.cn/video/1_60x45/741/ceVMnjHSRMQA.jpg" alt="¶À¼Ò½ÒÃØ£º»ÝÆÕEnvy 4Éè¼Æ±³ºóµÄ¹ÊÊÂ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video118784.html" title="¶À¼Ò½ÒÃØ£º»ÝÆÕEnvy 4Éè¼Æ±³ºóµÄ¹ÊÊÂ">¶À¼Ò½ÒÃØ£º»ÝÆÕEnvy 4Éè¼Æ±³ºóµÄ¹ÊÊÂ</a></p>
+            <span class="text_s"><a href="/video118784.html"  title="¶À¼Ò½ÒÃØ£º»ÝÆÕEnvy 4Éè¼Æ±³ºóµÄ¹ÊÊÂ">¶À¼Ò½ÒÃØ£º»ÝÆÕEnv¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>6´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                 </ul>
+      </div>
+    </div>
+  </div>
+  <script>write_ad("index_game_tonglan");</script>  <div class="mt clearfix">
+    <div class="wrap_l v_cate">
+      <dl class="v_cate_nav">
+        <dt class="it"><a href="/week_hits/1-4-1.html" target="_blank"><H2>IT´óÊÂ¼þ</H2></a></dt>
+        <dd>
+          <table cellspacing="0" cellspadding="0">
+            <tr>
+              <th>×¨Çø£º</th>
+                                        <td><a href="/week_hits/2-39-1.html" title="·¢²¼»á"  target="_blank">·¢²¼»á</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-31-1.html" title="COMPUTEXÌ¨±±µçÄÔÕ¹"  target="_blank">Ì¨±±µçÄÔÕ¹</a></td>
+                                                      <td><a href="/week_hits/2-35-1.html" title="CES"  target="_blank">CES</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-43-1.html" title="ZOL¿Í»§´ðÐ»»á"  target="_blank">¿Í»§´ðÐ»»á</a></td>
+                                                      <td><a href="/week_hits/2-32-1.html" title="Ó¢ÌØ¶ûIDF"  target="_blank">Ó¢ÌØ¶ûIDF</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-40-1.html" title="Z¿áÐ£Ô°ÐÐ"  target="_blank">Ð£Ô°ÐÐ</a></td>
+                                                      <td><a href="/week_hits/2-34-1.html" title="P&E"  target="_blank">P&E</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-36-1.html" title="Chinajoy"  target="_blank">Chinajoy</a></td>
+                                                      <td><a href="/week_hits/2-33-1.html" title="ÖÐ¹ú¹ú¼ÊÍ¨ÐÅÕ¹"  target="_blank">Í¨ÐÅÕ¹</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-41-1.html" title="Õ¾³¤´ó»á"  target="_blank">Õ¾³¤´ó»á</a></td>
+                                                      <td><a href="/week_hits/2-38-1.html" title="·äÄñÄ£ÌØ´óÈü"  target="_blank">Ä£ÌØ´óÈü</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-47-1.html" title="ZOLÊ®ÖÜÄêÇìµä"  target="_blank">Ê®ÖÜÄêÇìµä</a></td>
+                                                      <td><a href="/week_hits/2-37-1.html" title="Æ»¹û¿ª·¢Õß´ó»áWWDC"  target="_blank">Æ»¹û¿ª·¢»á</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="/week_hits/2-71-1.html" title="°²·ÀÕ¹"  target="_blank">°²·ÀÕ¹</a></td>
+                                                      <td><a href="/week_hits/2-77-1.html" title="»¥ÁªÍø´ó»á"  target="_blank">»¥ÁªÍø´ó»á</a></td>
+            </tr>
+                                                </table>
+        </dd>
+        <dd>
+          <table cellspacing="0" cellspadding="0">
+            <tr>
+              <th>ÍÆ¼ö£º</th>
+                                        <td><a href="http://v.zol.com.cn/control/search.php?kword=ipad2%B7%A2%B2%BC%BB%E1" title="iPad2·¢²¼"  target="_blank">iPad2·¢²¼</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="http://v.zol.com.cn/control/search.php?kword=%CD%A8%D1%B6%D5%B9" title="Í¨Ñ¶Õ¹"  target="_blank">Í¨Ñ¶Õ¹</a></td>
+                                                      <td><a href="http://v.zol.com.cn/control/search.php?kword=MWC" title="MWC2011"  target="_blank">MWC2011</a></td>
+            </tr>
+                                                    <tr>
+              <td><a href="http://v.zol.com.cn/control/search.php?kword=iPad" title="iPad"  target="_blank">iPad</a></td>
+                                                      <td><a href="http://v.zol.com.cn/control/search.php?kword=cebit" title="cebit"  target="_blank">cebit</a></td>
+            </tr>
+                                                </table>
+        </dd>
+      </dl>
+      <div class="mod_v">
+        <div class="v_rec">
+          <div class="pic"><a href="http://v.zol.com.cn/video119704.html"><img src="http://dg1.zol-img.com.cn/18_module_images/16/50611a8a8bf0c.jpg" alt="Í¨ÐÅÕ¹ÌåÑéÅµ»ùÑÇ920" width="220" height="147"><span>²¥·Å</span></a></div>
+          <a class="vtit" href="http://v.zol.com.cn/video119704.html" title="Í¨ÐÅÕ¹ÌåÑéÅµ»ùÑÇ920">Í¨ÐÅÕ¹ÌåÑéÅµ»ùÑÇ920</a>
+          <p class="v_intro">ÌåÑéWindows Phone 8</p>
+                    <p class="tag">À¸Ä¿£º<a href="/week_hits/2-33-1.html" title="ÖÐ¹ú¹ú¼ÊÍ¨ÐÅÕ¹">ÖÐ¹ú¹ú¼ÊÍ¨ÐÅÕ¹</a></p>
+                              <p class="tag">±êÇ©£º<a href="/week_hits/4-49959-1.html" title="Í¨ÐÅÕ¹">Í¨ÐÅÕ¹</a>
+          <a href="/week_hits/4-101466-1.html" title="Åµ»ùÑÇ920">Åµ»ùÑÇ920</a>
+                    </p>
+                  </div>
+        <ul id="ite" class="v_list v_list_m ishow">
+                   <li>
+            <div class="pic">
+              <a href="/video119877.html"><img src="http://v.zol-img.com.cn/video/1_120x90/653/cebAq2PYaAUU.jpg" alt="ÁªÏëÑïÌì2012Äê¶ÈÐÂÆ··¢²¼»á" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video119877.html" title="ÁªÏëÑïÌì2012Äê¶ÈÐÂÆ··¢²¼»á">ÁªÏëÑïÌì2012Äê¶ÈÐÂÆ··¢²¼»á</a>
+            </div>
+                        <p class="tag">À¸Ä¿£º<a href="/week_hits/2-39-1.html" title="·¢²¼»á">·¢²¼»á</a></p>
+                                    <p class="tag">±êÇ©£º<a href='/week_hits/4-3440-1.html' title='ÁªÏë'>ÁªÏë</a><a href='/week_hits/4-6677-1.html' title='ÑïÌì'>ÑïÌì</a></p>
+                        <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/2-39-1.html">·¢²¼»á</a></dt>
+                <dd><span>×Ü²¥·Å£º314</span> <span>×ÜÆÀÂÛ£º0</span></dd>
+                <dd><strong>½éÉÜ£º</strong>ÁªÏëÑïÌì2012Äê¶ÈÐÂÆ··¢²¼»á</dd>
+              </dl>
+            </div>
+          </li>
+                     <li>
+            <div class="pic">
+              <a href="/video119814.html"><img src="http://v.zol-img.com.cn/video/1_120x90/522/ceH6s7quA0deE.jpg" alt="2012ÖÐ¹ú¹ú¼ÊÐÅÏ¢Í¨ÐÅÕ¹ÊÖ»úÉãÓ°´óÈü°ä½±" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video119814.html" title="2012ÖÐ¹ú¹ú¼ÊÐÅÏ¢Í¨ÐÅÕ¹ÊÖ»úÉãÓ°´óÈü°ä½±">2012ÖÐ¹ú¹ú¼ÊÐÅÏ¢Í¨ÐÅÕ¹ÊÖ»úÉãÓ°´óÈü°ä½±</a>
+            </div>
+                        <p class="tag">À¸Ä¿£º<a href="/week_hits/2-33-1.html" title="ÖÐ¹ú¹ú¼ÊÍ¨ÐÅÕ¹">ÖÐ¹ú¹ú¼ÊÍ¨¡­</a></p>
+                                    <p class="tag">±êÇ©£º<a href='/week_hits/4-101672-1.html' title='2012ÖÐ¹ú¹ú¼ÊÐÅÏ¢Í¨ÐÅÕ¹'>2012ÖÐ¹ú¹ú¼ÊÐÅ</a></p>
+                        <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/2-33-1.html">ÖÐ¹ú¹ú¼ÊÍ¨ÐÅÕ¹</a></dt>
+                <dd><span>×Ü²¥·Å£º86</span> <span>×ÜÆÀÂÛ£º0</span></dd>
+                <dd><strong>½éÉÜ£º</strong>2012ÖÐ¹ú¹ú¼ÊÐÅÏ¢Í¨ÐÅÕ¹ÊÖ»úÉãÓ°´óÈü°ä½±</dd>
+              </dl>
+            </div>
+          </li>
+                     <li>
+            <div class="pic">
+              <a href="/video119813.html"><img src="http://v.zol-img.com.cn/video/1_120x90/520/ceOfvkSYkznxU.jpg" alt="2012ÖÐ¹ú¹ú¼ÊÐÅÏ¢Í¨ÐÅÕ¹ÀÀ»áÊÖ»úÉãÓ°´óÈü Ð¡ÌáÇÙÑÝ×à" width="120" height="90"><span>²¥·Å</span></a>
+              <a href="/video119813.html" title="2012ÖÐ¹ú¹ú¼ÊÐÅÏ¢Í¨ÐÅÕ¹ÀÀ»áÊÖ»úÉãÓ°´óÈü Ð¡ÌáÇÙÑÝ×à">2012ÖÐ¹ú¹ú¼ÊÐÅÏ¢Í¨ÐÅÕ¹ÀÀ»áÊÖ»úÉãÓ°´óÈü¡­</a>
+            </div>
+                        <p class="tag">À¸Ä¿£º<a href="/week_hits/2-33-1.html" title="ÖÐ¹ú¹ú¼ÊÍ¨ÐÅÕ¹">ÖÐ¹ú¹ú¼ÊÍ¨¡­</a></p>
+                                    <p class="tag">±êÇ©£º<a href='/week_hits/4-49959-1.html' title='Í¨ÐÅÕ¹'>Í¨ÐÅÕ¹</a></p>
+                        <div class="v_detail" style="display:none;">
+              <div class="arrow"></div>
+              <dl>
+                <dt><a href="/week_hits/2-33-1.html">ÖÐ¹ú¹ú¼ÊÍ¨ÐÅÕ¹</a></dt>
+                <dd><span>×Ü²¥·Å£º91</span> <span>×ÜÆÀÂÛ£º0</span></dd>
+                <dd><strong>½éÉÜ£º</strong>2012ÖÐ¹ú¹ú¼ÊÐÅÏ¢Í¨ÐÅÕ¹ÊÖ»úÉãÓ°´óÈüÐ¡ÌáÇÙÑÝ×à</dd>
+              </dl>
+            </div>
+          </li>
+                  </ul>
+        <ul class="li_word12">
+                  <li><a href="/video119785.html" title="×¨·ÃÅµ»ùÑÇÈ«Çò×ÊÉî¸±×Ü²Ã°²µÂÅà">×¨·ÃÅµ»ùÑÇÈ«Çò×ÊÉî¸±×Ü²Ã°²µÂÅà</a></li>
+                  <li><a href="/video119779.html" title="×¨·ÃOPPOÒÆ¶¯Í¨ÐÅ¸±×Ü¾­ÀíÁõ×÷»¢">×¨·ÃOPPOÒÆ¶¯Í¨ÐÅ¸±×Ü¾­ÀíÁõ×÷»¢</a></li>
+                  <li><a href="/video119774.html" title="×¨·ÃÕýµã¿Æ¼¼´´Ê¼ÈË¶­²©Ó¢">×¨·ÃÕýµã¿Æ¼¼´´Ê¼ÈË¶­²©Ó¢</a></li>
+                  <li><a href="/video119773.html" title="×¨·Ãµ¼º½È®CEOÇ®½ø">×¨·Ãµ¼º½È®CEOÇ®½ø</a></li>
+                  <li><a href="/video119772.html" title="×¨·Ã½ðÉ½°ì¹«Èí¼þWPS OfficeÒÆ¶¯°æÊÐ³¡×Ü¼à  »ÆÕñ">×¨·Ã½ðÉ½°ì¹«Èí¼þWPS OfficeÒÆ¶¯°æ¡­</a></li>
+                  <li><a href="/video119765.html" title="×¨·ÃMarvell²úÆ·ÊÐ³¡×Ü¼à  Îâ»ÛÐÛ">×¨·ÃMarvell²úÆ·ÊÐ³¡×Ü¼à  Îâ»ÛÐÛ</a></li>
+                  <li><a href="/video119753.html" title="Èý´óÔËÓªÉÌÕ¹¶àÖÖÓ¦ÓÃ Í¨ÐÅÕ¹´ÎÈÕÁÁµã»Ø¹Ë">Èý´óÔËÓªÉÌÕ¹¶àÖÖÓ¦ÓÃ Í¨ÐÅÕ¹´ÎÈÕÁÁ¡­</a></li>
+                  <li><a href="/video119748.html" title="×¨·Ã´¥±¦¿Æ¼¼CEOÍõ¼ÑÁº">×¨·Ã´¥±¦¿Æ¼¼CEOÍõ¼ÑÁº</a></li>
+                </ul>
+      </div>
+    </div>
+    <div class="wrap_r">
+      <div class="bd cate_top">
+        <div class="title"><strong>±¾ÖÜIT´óÊÂ¼þÊÓÆµÅÅÐÐ</strong></div>
+        <div class="top_t"> ÅÅÃû<b class="a">ÊÓÆµ</b><b class="b">±¾ÖÜ²¥·Å</b> Ç÷ÊÆ</div>
+        <ul id="w_ite" class="v_top">
+                            <li class="open">
+            <em class="n1">1</em>
+                      <a class="pic" href="/video119704.html"><img src="http://v.zol-img.com.cn/video/1_60x45/331/ce9oLgZj2xmR2.jpg" alt="[2012Í¨ÐÅÕ¹]Åµ»ùÑÇ920ÏÖ³¡ÊÔÍæ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119704.html" title="[2012Í¨ÐÅÕ¹]Åµ»ùÑÇ920ÏÖ³¡ÊÔÍæ">[2012Í¨ÐÅÕ¹]Åµ»ùÑÇ920ÏÖ³¡ÊÔÍæ</a></p>
+            <span class="text_s"><a href="/video119704.html"  title="[2012Í¨ÐÅÕ¹]Åµ»ùÑÇ920ÏÖ³¡ÊÔÍæ">[2012Í¨ÐÅÕ¹]Åµ»ùÑÇ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>370´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n1">2</em>
+                      <a class="pic" href="/video119486.html"><img src="http://v.zol-img.com.cn/video/1_60x45/967/cewrV58mA8CNM.jpg" alt="ÁªÏëThinkPad Win8Æ½°åµçÄÔ½éÉÜ(01)" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119486.html" title="ÁªÏëThinkPad Win8Æ½°åµçÄÔ½éÉÜ(01)">ÁªÏëThinkPad Win8Æ½°åµçÄÔ½éÉÜ(01)</a></p>
+            <span class="text_s"><a href="/video119486.html"  title="ÁªÏëThinkPad Win8Æ½°åµçÄÔ½éÉÜ(01)">ÁªÏëThinkPad Win8¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>333´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n1">3</em>
+                      <a class="pic" href="/video119708.html"><img src="http://v.zol-img.com.cn/video/1_60x45/339/ce2Tl78RhgsM6.jpg" alt="°ËºËÊÖ»úÄêµ×ÉÏÊÐ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119708.html" title="°ËºËÊÖ»úÄêµ×ÉÏÊÐ">°ËºËÊÖ»úÄêµ×ÉÏÊÐ</a></p>
+            <span class="text_s"><a href="/video119708.html"  title="°ËºËÊÖ»úÄêµ×ÉÏÊÐ">°ËºËÊÖ»úÄêµ×ÉÏÊÐ</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>131´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">4</em>
+                      <a class="pic" href="/video113035.html"><img src="http://v.zol-img.com.cn/video/1_60x45/188/ceaG1ctAu68c.jpg" alt="2011·äÄñÄ£ÌØ´óÈü Ó¾×°Ðã" width="60" height="45"></a>
+            <p class="text_l"><a href="/video113035.html" title="2011·äÄñÄ£ÌØ´óÈü Ó¾×°Ðã">2011·äÄñÄ£ÌØ´óÈü Ó¾×°Ðã</a></p>
+            <span class="text_s"><a href="/video113035.html"  title="2011·äÄñÄ£ÌØ´óÈü Ó¾×°Ðã">2011·äÄñÄ£ÌØ´óÈü ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>85´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">5</em>
+                      <a class="pic" href="/video83995.html"><img src="http://v.zol-img.com.cn/video/0_60x45/253/cexjM95hF9C3.jpg" alt="2009P&EÄá¿µÕ¹Ì¨£º¿´²úÆ·¡¢¹ÛÃÀÅ®" width="60" height="45"></a>
+            <p class="text_l"><a href="/video83995.html" title="2009P&EÄá¿µÕ¹Ì¨£º¿´²úÆ·¡¢¹ÛÃÀÅ®">2009P&EÄá¿µÕ¹Ì¨£º¿´²úÆ·¡¢¹ÛÃÀÅ®</a></p>
+            <span class="text_s"><a href="/video83995.html"  title="2009P&EÄá¿µÕ¹Ì¨£º¿´²úÆ·¡¢¹ÛÃÀÅ®">2009P&EÄá¿µÕ¹Ì¨£º¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>63´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">6</em>
+                      <a class="pic" href="/video119730.html"><img src="http://v.zol-img.com.cn/video/1_60x45/383/cejtJuAy56yfI.jpg" alt="×¨·Ãvivo»Æèº:ÐÂ»úvivo X1Ö»ÓÐ6.5mm" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119730.html" title="×¨·Ãvivo»Æèº:ÐÂ»úvivo X1Ö»ÓÐ6.5mm">×¨·Ãvivo»Æèº:ÐÂ»úvivo X1Ö»ÓÐ6.5mm</a></p>
+            <span class="text_s"><a href="/video119730.html"  title="×¨·Ãvivo»Æèº:ÐÂ»úvivo X1Ö»ÓÐ6.5mm">×¨·Ãvivo»Æèº:ÐÂ»ú¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>56´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">7</em>
+                      <a class="pic" href="/video119877.html"><img src="http://v.zol-img.com.cn/video/1_60x45/653/cebAq2PYaAUU.jpg" alt="ÁªÏëÑïÌì2012Äê¶ÈÐÂÆ··¢²¼»á" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119877.html" title="ÁªÏëÑïÌì2012Äê¶ÈÐÂÆ··¢²¼»á">ÁªÏëÑïÌì2012Äê¶ÈÐÂÆ··¢²¼»á</a></p>
+            <span class="text_s"><a href="/video119877.html"  title="ÁªÏëÑïÌì2012Äê¶ÈÐÂÆ··¢²¼»á">ÁªÏëÑïÌì2012Äê¶ÈÐÂ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>56´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">8</em>
+                      <a class="pic" href="/video84104.html"><img src="http://v.zol-img.com.cn/video/0_60x45/375/cegviPjCphrno.jpg" alt="2009P&E:ÃÀÅ®Ä£ÌØ´óËÑÂÞ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video84104.html" title="2009P&E:ÃÀÅ®Ä£ÌØ´óËÑÂÞ">2009P&E:ÃÀÅ®Ä£ÌØ´óËÑÂÞ</a></p>
+            <span class="text_s"><a href="/video84104.html"  title="2009P&E:ÃÀÅ®Ä£ÌØ´óËÑÂÞ">2009P&E:ÃÀÅ®Ä£ÌØ´ó¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>35´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">9</em>
+                      <a class="pic" href="/video107885.html"><img src="http://v.zol-img.com.cn/video/1_60x45/738/ceezSXrojBNzU.jpg" alt="Ì×Ì×Ò²ÖÇÄÜ iPad2 Smart Cover" width="60" height="45"></a>
+            <p class="text_l"><a href="/video107885.html" title="Ì×Ì×Ò²ÖÇÄÜ iPad2 Smart Cover">Ì×Ì×Ò²ÖÇÄÜ iPad2 Smart Cover</a></p>
+            <span class="text_s"><a href="/video107885.html"  title="Ì×Ì×Ò²ÖÇÄÜ iPad2 Smart Cover">Ì×Ì×Ò²ÖÇÄÜ iPad2 ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>35´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">10</em>
+                      <a class="pic" href="/video108204.html"><img src="http://v.zol-img.com.cn/video/1_60x45/326/ceQqhCxxjR0xM.jpg" alt="ÈýÐÇÐÂÆ··¢²¼»á" width="60" height="45"></a>
+            <p class="text_l"><a href="/video108204.html" title="ÈýÐÇÐÂÆ··¢²¼»á">ÈýÐÇÐÂÆ··¢²¼»á</a></p>
+            <span class="text_s"><a href="/video108204.html"  title="ÈýÐÇÐÂÆ··¢²¼»á">ÈýÐÇÐÂÆ··¢²¼»á</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>33´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">11</em>
+                      <a class="pic" href="/video118517.html"><img src="http://v.zol-img.com.cn/video/1_60x45/217/ceKmUm7omREFw.jpg" alt="AMDµÚ¶þ´úAPU·¢²¼»á" width="60" height="45"></a>
+            <p class="text_l"><a href="/video118517.html" title="AMDµÚ¶þ´úAPU·¢²¼»á">AMDµÚ¶þ´úAPU·¢²¼»á</a></p>
+            <span class="text_s"><a href="/video118517.html"  title="AMDµÚ¶þ´úAPU·¢²¼»á">AMDµÚ¶þ´úAPU·¢²¼»á</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>29´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">12</em>
+                      <a class="pic" href="/video106212.html"><img src="http://v.zol-img.com.cn/video/1_60x45/219/ceHIv8CQER7OI.jpg" alt="CES2011:À×Éß·¢²¼Switchblade£¨µ¯»Éµ¶£©" width="60" height="45"></a>
+            <p class="text_l"><a href="/video106212.html" title="CES2011:À×Éß·¢²¼Switchblade£¨µ¯»Éµ¶£©">CES2011:À×Éß·¢²¼Switchblade£¨µ¯»Éµ¶£©</a></p>
+            <span class="text_s"><a href="/video106212.html"  title="CES2011:À×Éß·¢²¼Switchblade£¨µ¯»Éµ¶£©">CES2011:À×Éß·¢²¼¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>28´Î</span>
+            <span class="down">¡ý</span>
+          </li>
+                             <li>
+            <em class="n2">13</em>
+                      <a class="pic" href="/video110568.html"><img src="http://v.zol-img.com.cn/video/1_60x45/711/cex1mWJUDb5Jw.jpg" alt="Computex2011£º¿É°®Ì¨ÃÃ±íÇéÐã" width="60" height="45"></a>
+            <p class="text_l"><a href="/video110568.html" title="Computex2011£º¿É°®Ì¨ÃÃ±íÇéÐã">Computex2011£º¿É°®Ì¨ÃÃ±íÇéÐã</a></p>
+            <span class="text_s"><a href="/video110568.html"  title="Computex2011£º¿É°®Ì¨ÃÃ±íÇéÐã">Computex2011£º¿É°®¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>23´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">14</em>
+                      <a class="pic" href="/video110566.html"><img src="http://v.zol-img.com.cn/video/1_60x45/707/ceqIqa77uhVdo.jpg" alt="Computex2011£ºArcticÕ¹Ì¨Ä£ÌØ" width="60" height="45"></a>
+            <p class="text_l"><a href="/video110566.html" title="Computex2011£ºArcticÕ¹Ì¨Ä£ÌØ">Computex2011£ºArcticÕ¹Ì¨Ä£ÌØ</a></p>
+            <span class="text_s"><a href="/video110566.html"  title="Computex2011£ºArcticÕ¹Ì¨Ä£ÌØ">Computex2011£ºArc¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>22´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                             <li>
+            <em class="n2">15</em>
+                      <a class="pic" href="/video119779.html"><img src="http://v.zol-img.com.cn/video/1_60x45/458/ceNj20MFVVifQ.jpg" alt="×¨·ÃOPPOÒÆ¶¯Í¨ÐÅ¸±×Ü¾­ÀíÁõ×÷»¢" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119779.html" title="×¨·ÃOPPOÒÆ¶¯Í¨ÐÅ¸±×Ü¾­ÀíÁõ×÷»¢">×¨·ÃOPPOÒÆ¶¯Í¨ÐÅ¸±×Ü¾­ÀíÁõ×÷»¢</a></p>
+            <span class="text_s"><a href="/video119779.html"  title="×¨·ÃOPPOÒÆ¶¯Í¨ÐÅ¸±×Ü¾­ÀíÁõ×÷»¢">×¨·ÃOPPOÒÆ¶¯Í¨ÐÅ¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>22´Î</span>
+            <span class="mid">-</span>
+          </li>
+                             <li>
+            <em class="n2">16</em>
+                      <a class="pic" href="/video119722.html"><img src="http://v.zol-img.com.cn/video/1_60x45/367/ceddS1qlvxOxU.jpg" alt="ÏÂÒ»´úTegraÃ÷Äê·¢²¼ ¶Ô»°NVIDIA½ðÑóÏÈÉú" width="60" height="45"></a>
+            <p class="text_l"><a href="/video119722.html" title="ÏÂÒ»´úTegraÃ÷Äê·¢²¼ ¶Ô»°NVIDIA½ðÑóÏÈÉú">ÏÂÒ»´úTegraÃ÷Äê·¢²¼ ¶Ô»°NVIDIA½ðÑóÏÈÉú</a></p>
+            <span class="text_s"><a href="/video119722.html"  title="ÏÂÒ»´úTegraÃ÷Äê·¢²¼ ¶Ô»°NVIDIA½ðÑóÏÈÉú">ÏÂÒ»´úTegraÃ÷Äê·¢¡­</a></span>
+            <span class="plnum"><b>×Ü²¥·Å£º</b>21´Î</span>
+            <span class="up">¡ü</span>
+          </li>
+                 </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <dl class="bd mt friendlink">
+    <dt class="title"><strong>ºÏ×÷»ï°é</strong></dt>
+    <dd class="co"><script language="JavaScript" src="http://icon.zol-img.com.cn/all/friend_link_qq.js?1"></script> <a href="http://link.zol.com.cn/">²é¿´¸ü¶àÃ½Ìå</a> <a href="http://link.zol.com.cn/application.php?cid=34">ÎÒÒªÉêÇë²Î¼Ó</a></dd>
+    <dd class="link_list clearfix">
+        	<a href="http://tech.youku.com/"><img src="http://dg1.zol-img.com.cn/18_module_images/16/4e5b66be32190.jpg" alt="ÓÅ¿á" width="88" height="31">ÓÅ¿á</a>
+        	<a href="http://it.tudou.com/"><img src="http://dg1.zol-img.com.cn/18_module_images/16/4d6b5ac838d9c.jpg" alt="ÍÁ¶¹¿Æ¼¼ÆµµÀ" width="88" height="31">ÍÁ¶¹¿Æ¼¼ÆµµÀ</a>
+        	<a href="http://it.joy.cn"><img src="http://dg1.zol-img.com.cn/18_module_images/16/4d943bc524c6d.jpg" alt="¼¤¶¯Íø" width="88" height="31">¼¤¶¯Íø</a>
+        	<a href="http://www.ku6.com/"><img src="http://dg1.zol-img.com.cn/18_module_images/16/4e5b676655741.jpg" alt="¿áÁùÍø" width="88" height="31">¿áÁùÍø</a>
+        	<a href="http://xiyou.cntv.cn/"><img src="http://dg1.zol-img.com.cn/18_module_images/16/4d6b5a4373d61.jpg" alt="°®Î÷èÖ" width="88" height="31">°®Î÷èÖ</a>
+        </dd>
+  </dl>
+  <dl class="bd mt friendlink">
+    <dt class="title"><strong>ÓÑÇéÁ´½Ó</strong></dt>
+    <dd class="link_list clearfix">
+        <a href="http://v.ifeng.com/fashion/" title="·ï»ËÊ±ÉÐÊÓÆµ" target="_blank" class="a_hei12l">·ï»ËÊ±ÉÐÊÓÆµ</a> <a href="http://www.jzlady.com" title="¼«ÖÂÅ®ÈË" target="_blank" class="a_hei12l">¼«ÖÂÅ®ÈË</a> <a href="http://www.doshow.com.cn" title="ÊÓÆµÁÄÌìÊÒ" target="_blank" class="a_hei12l">ÊÓÆµÁÄÌìÊÒ</a> <a href="http://www.ziyuan5.com" title="µçÓ°×ÊÔ´Íø" target="_blank" class="a_hei12l">µçÓ°×ÊÔ´Íø</a> <a href="http://movie.poco.cn/" title="POCOµçÓ°Íø" target="_blank" class="a_hei12l">POCOµçÓ°Íø</a> <a href="http://news.v1.cn/" title="µÚÒ»ÊÓÆµ" target="_blank" class="a_hei12l">µÚÒ»ÊÓÆµ</a> <a href="http://www.iactive.com.cn" title="ÊÓÆµ»áÒé" target="_blank" class="a_hei12l">ÊÓÆµ»áÒé</a> <a href="http://www.17guagua.com/" title="ßÉßÉÊÓÆµÉçÇø" target="_blank" class="a_hei12l">ßÉßÉÊÓÆµÉçÇø</a> <a href="http://best.letv.com/" title="ÀÖÊÓÖÆÔì" target="_blank" class="a_hei12l">ÀÖÊÓÖÆÔì</a> <a href="http://v.61.com" title="ÌÔÃ×¶¯»­Æ¬´óÈ«" target="_blank" class="a_hei12l">ÌÔÃ×¶¯»­Æ¬´óÈ«</a> <a href="http://www.aiqisoft.com" title="ÊÓÆµ¸ñÊ½×ª»»Æ÷" target="_blank" class="a_hei12l">ÊÓÆµ¸ñÊ½×ª»»Æ÷</a> <a href="http://www.dvpeixun.com" title="ÊÓÆµÅàÑµÍø" target="_blank" class="a_hei12l">ÊÓÆµÅàÑµÍø</a> <a href="http://dianying.2345.com" title="ºÃ¿´µÄµçÓ°" target="_blank" class="a_hei12l">ºÃ¿´µÄµçÓ°</a> 
+    </dd>
+</div>
+<script type="text/javascript" src="http://icon.zol-img.com.cn/ishow/js/index.js"></script>
+<script type="text/javascript" src="http://icon.zol-img.com.cn/ishow/js/iseenow.js"></script>
+<div class="foot_search mt">
+  <div class="wrapper">
+   <form action="/control/search.php" method="get" name="searchform" class="searchform">
+    <div class="search"><!--
+      <div class="s_type" id="foot_select">
+        <div class="val">ÊÓÆµ</div>
+        <div class="option"><a href="#">ÊÓÆµ</a> <a href="#">»áÔ±</a></div>
+      </div>
+      -->
+      <input type="text" class="s_text" name="kword"  id="kword" value="¿Æ¼¼"  onclick="JavaScript:if(this.value=='¿Æ¼¼'){this.value='';this.style.color='#000'};" autocomplete="off">
+      <input type="submit" class="s_btn" value="ËÑË÷">
+    </div>
+    </form>
+    <div class="search_key">
+	    	    	<a href="http://v.zol.com.cn/week_hits/4-29514-1.html">Æ½°åµçÄÔ</a>
+	    	    	<a href="http://v.zol.com.cn/control/search.php?kword=ces">CES</a>
+	    	    	<a href="http://v.zol.com.cn/control/search.php?kword=ipad">iPad</a>
+	        </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="wrapper">
+    <dl>
+      <dt>ÌØÉ«</dt>
+      <dd>
+      	    		<a href="http://v.zol.com.cn/week_hits/2-4-1.html">´ó´ÐÍæÊÖ»ú</a>
+    	    		<a href="http://v.zol.com.cn/week_hits/2-3-1.html">µ¥·´ÑµÁ·Óª</a>
+    	    		<a href="http://v.zol.com.cn/week_hits/2-15-1.html">ÏÔÊ¾Æ÷´ïÈË</a>
+    	    		<a href="http://v.zol.com.cn/week_hits/2-16-1.html">ITÅ£ÊÂ»ã</a>
+    	    		<a href="http://v.zol.com.cn/week_hits/2-29-1.html">IT711</a>
+    	    		<a href="http://v.zol.com.cn/week_hits/2-28-1.html">IT·ç²¨</a>
+    	    		<a href="http://v.zol.com.cn/week_hits/2-27-1.html">ITÂ·¿ö</a>
+    	    		<a href="http://v.zol.com.cn/week_hits/2-2-1.html">Í¬·½±¾ÖÜÄ©</a>
+    	        </dd>
+    </dl>
+    <dl>
+      <dt>ÐÂÎÅ</dt>
+      <dd>
+      	    	  <a href="http://v.zol.com.cn/control/search.php?kword=%CD%F8%D3%D1%BE%DB%BB%E1">ÍøÓÑ¾Û»á</a> 
+    	    	  <a href="http://v.zol.com.cn/week_hits/2-40-1.html">Ð£Ô°ÐÐ</a> 
+    	    	  <a href="http://v.zol.com.cn/control/search.php?kword=%D5%B9%BB%E1">Õ¹»á±¨µÀ</a> 
+    	    	  <a href="http://v.zol.com.cn/control/search.php?kword=%BB%EE%B6%AF">×¨Ìâ»î¶¯</a> 
+    	    	  <a href="http://v.test.zol.com.cn/week_hits/2-39-1.html">·¢²¼»á</a> 
+    	    	  <a href="http://v.test.zol.com.cn/control/search.php?kword=%B7%C3%CC%B8">¼Î±ö·ÃÌ¸</a> 
+    	      </dd>
+    </dl>
+    <dl>
+      <dt>²úÆ·</dt>
+      <dd>
+          	  <a href="http://v.zol.com.cn/week_hits/2-63-1.html">¼Òµç</a> 
+    	    	  <a href="http://v.zol.com.cn/week_hits/2-52-1.html">ÊýÂëÏà»ú</a> 
+    	    	  <a href="http://v.zol.com.cn/week_hits/2-53-1.html">ÒôÏä</a> 
+    	    	  <a href="http://v.zol.com.cn/week_hits/2-54-1.html">DIYÓ²¼þ</a> 
+    	    	  <a href="http://v.zol.com.cn/week_hits/2-56-1.html">ÆóÒµÉÌÓÃ</a> 
+    	    	  <a href="http://v.zol.com.cn/week_hits/2-57-1.html">°ì¹«´òÓ¡</a> 
+    	    	  <a href="http://v.zol.com.cn/week_hits/2-58-1.html">GPS</a> 
+    	    	  <a href="http://v.zol.com.cn/week_hits/2-59-1.html">Òº¾§ÏÔÊ¾Æ÷</a> 
+    	    	  <a href="http://v.zol.com.cn/week_hits/2-60-1.html">¼üÅÌÊó±ê</a> 
+    	    	  <a href="http://v.zol.com.cn/week_hits/2-62-1.html">±Ê¼Ç±¾µçÄÔ</a> 
+    	    	  <a href="http://v.zol.com.cn/week_hits/2-48-1.html">ÊÖ»ú</a> 
+    	      </dd>
+    </dl>
+  </div>
+</div><div class="wrapper clearfix">
+<script language="JavaScript" type="text/javascript" src="http://icon.zol-img.com.cn/public/js/web_footc.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://icon.zol-img.com.cn/public/js/web_foot.js"></script></div>
+</body>
+<script type="text/javascript" >BAIDU_CLB_SLOT_ID = "135389";</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/o.js"></script>
 </html>

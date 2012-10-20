@@ -17,6 +17,7 @@ g_dledUrl = []      #下载过的页面
 g_toDlUrl = []        #当前要下载的页面
 g_failedUrl = []       #下载失败的页面
 g_crawledUrl = []      #爬过的Url
+g_dledPic = []
 g_totalcount = 0    #下载过的页面数量
 
 PREFIX = dirname(abspath(__file__))          #当前绝对路径
@@ -125,67 +126,58 @@ class WebCrawler:
         global g_toDlUrl
         print 'parse link'
         soup = BeautifulSoup(html_doc, from_encoding="gb18030")  #解决中文乱码问题
-        #for link in soup.find_all('a',{"href":re.compile(".html")}):
-        for link in soup.find_all('a'):
+        for link in soup.find_all('a', href=True):
+        #for link in soup.find_all('a'):
             hurl = link['href']
-            #patten_1 = re.compile(r'http')
-            #match_1 = patten_1.match(hurl)
-            #if(not match_1):
-            #    if key[-1] == '/':
-                #key_new = key[:-1]
-                #    hurl = key_new + hurl
-                #else:
-                #    hurl = key + hurl
-            hurl = self.getUrl(key, hurl)
-            print '--++--',hurl
+            if (link):
+                #print 'if link', link
+                re_href = re.compile('href="(.*)" ')
+                findhrefSrc = re.findall(re_href, str(link))
+                if(findhrefSrc):
+                    for i_href in findhrefSrc:
+                 #       print 'fsfsfsf...fsfs',i_href
+                        print 'haha'
+            if (hurl):
+                hurl = self.getUrl(key, hurl)
+                print '--++--',hurl
             #print(hurl)  #TODO 加入到 to Download 列表
-            #if(len(g_toDlUrl) >=5):
-            #    break
+            #TODO 如果爬过，则跳过
+                if hurl in g_crawledUrl:
+            #    print 'crawled ...pass...'
+                    continue
+            #限定url 数量
+            if(len(g_toDlUrl) >=5):
+                break
             g_toDlUrl.append(hurl)
             print 'after parse link, size of to dl url',len(g_toDlUrl)
-            #判断 以 http,www 开头 or no
-            #append to list
+
 
 # 查找图片
     def parse_img(self, key, html_doc):
+        global g_dledPic
         print 'parse_img'
         soup = BeautifulSoup(html_doc, from_encoding="gb18030")
         #print 'charset',soup.originalEncoding()
         result = soup.findAll(name='img')
 
         with open("%s/down.sh"%DOWN_PREFIX, "a") as down:
-            #for link in result:
-                #link = unicode(link)
-                #print 'hello'
 
-                #print(link['src2'])
+            patImgSrc1 = re.compile('src="(.*)" ')
+            patImgSrc2 = re.compile('src2="(.*)" ')
+            for imgsrc in result:
+                findPatImgSrc1 = re.findall(patImgSrc1, str(imgsrc))
+                findPatImgSrc2 = re.findall(patImgSrc2, str(imgsrc))
+                findPatImgSrc = findPatImgSrc1 + findPatImgSrc2
+                if(findPatImgSrc):
+                    for i_src in findPatImgSrc:
+                        if(i_src.endswith('jpg')):
+                            #查找 图片是否下载过
+                            if (i_src in g_dledPic):
+                                continue
+                            img_path = self.getUrl(key, i_src)
+                            down.write('wget %s \n' % img_path)
 
-                #if(link['src2']):
-                #    print(link['src2'])
-                #    continue
-                #if(link['src']):
-                #    print(link['src'])
-                #    continue
 
-            #imgss = []
-            #for tt in result:
-            #    if(tt['src']):
-            #          imgss.append(tt['src'])
-
-            imgs = set(tag['src'] for tag in result)
-
-            for img_path in imgs:
-                #patten_img = re.compile('.jpg')
-
-                #match_img = patten_img.match(img_path)
-                #if(match_img):
-                    #print 'img match'
-                if(str(img_path).endswith('jpg')):
-                    img_path = self.getUrl(key, img_path)
-                    down.write('wget %s \n' % img_path)
-            #down.write('wget %s -O "%s"\n' % (img_path,img_title)
-            #down.write('wget %s' % img_path)
-            print 'parse_img sucess==='
 
     #转换 Url 绝对路径变相对路径
     def getUrl(self, key, hurl):
@@ -240,9 +232,7 @@ class CrawlerThread(threading.Thread):
             print 'Failed downloading and saving', self.url
             return None
 
-
         g_mutex.acquire()
-
         g_dledUrl.append(self.url)
         g_mutex.release()
 
