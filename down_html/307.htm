@@ -1,0 +1,174 @@
+<html>
+<head><link href="/css/list.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>信息公开</title>
+<link href="/page/main163/css/css.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<center>
+<div id="container_page">
+  <div id="head">
+    <table width="1002" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr></tr>
+      <tr bgcolor="#FFFFFF">
+        <td height="130" valign="top" background="/page/main163/images/banner.jpg">&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+  <div id="nav">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bar0">
+      <tr>
+        <td align="center" class="bar"><table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td><table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td class="linkbar"><script language='javascript'>   function getHttpObj(){       var xmlHttp = false;       try {           xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");       }catch (e) {           try {               xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");           }catch (e2) {               xmlHttp = false;           }       }       if (!xmlHttp && typeof XMLHttpRequest != 'undefined'){           xmlHttp = new XMLHttpRequest();       }       return xmlHttp;   }   function P(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=0;   }   function T(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=1;   }   function I(pltId, url, fun){       this.portletId=pltId;       this.url=url;       this.kind=2;       this.nextFunc=fun;   }   var PLTS=new Array();   var cur1=0;   var Loader1= getHttpObj();   function loadps(){       if(cur1<PLTS.length){           Loader1.open('GET',PLTS[cur1].url+'?'+new Date().getTime()+(10000+parseInt(Math.random()*10000)));           Loader1.onreadystatechange=endloadps;           Loader1.send(null);       }   };   function endloadps(){       if(Loader1.readyState==4){           if(Loader1.status==200){               var response=Loader1.responseText;               if(PLTS[cur1].kind==2) {                   _listArticleCount =response.replace(/(^\s*)|(\s*$)/g, "");                   try {                       eval(PLTS[cur1].nextFunc);                   }catch(e){                       alert('高效分页初始化失败！');                   }               }               try{                   if(window.execScript){                       document.getElementById(PLTS[cur1].portletId).outerHTML='<body>'+response+'</body>';                   } else{                       document.getElementById(PLTS[cur1].portletId).innerHTML=response;                   }               } catch(e){}               var regx=new RegExp('<scr'+'ipt[^>]*?>([\\s\\S]*?)<\\/scr'+'ipt\\s*>|<scr'+'ipt[^>]*?\\/>','img');               var arr;               while((arr = regx.exec(response)) != null){                   if(arr.length){                       if(arr.length >=2){                           var regx2 = new RegExp("<scr"+"ipt[^>]*?\\bsrc=\\s*('[^>]*'|\"[^>]*\"|[\\S]*)\\s*\\/?>",'im');                           var srcArr=regx2.exec(arr[0]);                           if(srcArr!=null){                               var src= srcArr[1];                               if(src){                                   if((src.charAt(0)=='"') || (src.charAt(0)=="'")){                                       src=src.substr(1,src.length-2);                                   }                                   loadScript(src);                               }                           } else{                               execJavaScript(arr[1]);                           }                       }                   }               }           }           cur1++;           loadps();       }   }   function loadScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.src=s;           document.body.appendChild(sc);       }catch(e){}   }   function execJavaScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.text=s;           document.body.appendChild(sc);       }catch(e){}   }   window.onload=loadps;</script><div id='_p_1'></div><script language='javascript'>PLTS[PLTS.length]=new P('_p_1','/s/18/t/163/p/1/p.jspy');</script></td>
+                  </tr>
+              </table></td>
+              <td><img src="/page/main163/images/bar_ge.gif" width="16" height="36"></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#999999">
+      <tr>
+        <td height="1"></td>
+      </tr>
+    </table>
+  </div>
+  <div id="container_content">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="260" height="320"valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="nemufont">
+          <tr>
+            <td width="15" background="/page/main163/images/menu_bg.gif"><img src="/page/main163/images/dot2.gif" width="16" height="16"></td>
+            <td background="/page/main163/images/menu_bg.gif"><a href='/s/18/t/163/p/1/c/2802/d/2872/list.jspy' target='_self' class="nemufont">思政教育</a></td>
+          </tr>
+          
+        
+          <tr>
+            <td width="15" background="/page/main163/images/menu_bg.gif"><img src="/page/main163/images/dot2.gif" width="16" height="16"></td>
+            <td background="/page/main163/images/menu_bg.gif"><a href='/s/18/t/163/p/1/c/2802/d/2873/list.jspy' target='_self' class="nemufont">资助管理</a></td>
+          </tr>
+          
+        
+          <tr>
+            <td width="15" background="/page/main163/images/menu_bg.gif"><img src="/page/main163/images/dot2.gif" width="16" height="16"></td>
+            <td background="/page/main163/images/menu_bg.gif"><a href='/s/18/t/163/p/1/c/2802/d/2874/list.jspy' target='_self' class="nemufont">招生工作</a></td>
+          </tr>
+          
+        
+          <tr>
+            <td width="15" background="/page/main163/images/menu_bg.gif"><img src="/page/main163/images/dot2.gif" width="16" height="16"></td>
+            <td background="/page/main163/images/menu_bg.gif"><a href='http://job.njupt.edu.cn' target='_self' class="nemufont">就业指南</a></td>
+          </tr>
+          
+        </TABLE>
+        <br></td>
+        <td width="1" bgcolor="#D6CFD6"></td>
+        <td align="center" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="p9">
+          <tr>
+            <td height="25" background="/page/main163/images/position_bg.gif">&nbsp;&nbsp;<a href='/s/18/t/163/main.jspy' title='返回首页'>首页</a><span class="posSplit">&nbsp;&nbsp;</span><a href='/s/18/t/163/p/1/c/2802/list.jspy' title='信息公开'>信息公开</a><span class="posSplit">&nbsp;&nbsp;</span><a href='/s/18/t/163/p/1/c/2802/d/2872/list.jspy' title='思政教育'>思政教育</a></td>
+          </tr>
+        </table>
+          <table width="90%"  border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="30" colspan="2">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="35" height="35"><img src="/page/main163/images/dot4.gif" width="27" height="27"></td>
+                          <td background="/page/main163/images/lm_bg.gif" class="tit2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td class="tit2">思政教育</td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="content"><link href='/css/divwin.css' type='text/css' rel='stylesheet'><script language='javascript' src='/include/classbase.js'></script><script language='javascript' src='/include/windowopener.js'></script><table width="100%" border="0" align="center" cellpadding="0" cellspacing="2" class="p9"><tr>
+                          <td width="16" valign="top" class="main_shadow"><img src="/page/main163/images/arrow.gif" width="18" height="16"></td>
+                          <td class="main_shadow"><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/18/t/163/a/15255/info.jspy' target='_blank' style=''><font color=''>南京邮电大学学生违纪处分规定</font></a></td><td align='center' width='14%' nowrap>2010-11-15</td></tr></table></td>
+                        </tr>
+                        <tr>
+                          <td height="1" colspan="2" background="/page/main163/images/dotline.gif" class="main_shadow"></td>
+                        </tr><tr>
+                          <td width="16" valign="top" class="main_shadow"><img src="/page/main163/images/arrow.gif" width="18" height="16"></td>
+                          <td class="main_shadow"><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/18/t/163/a/15257/info.jspy' target='_blank' style=''><font color=''>南京邮电大学考试纪律和考试违纪处理规定</font></a></td><td align='center' width='14%' nowrap>2010-11-15</td></tr></table></td>
+                        </tr>
+                        <tr>
+                          <td height="1" colspan="2" background="/page/main163/images/dotline.gif" class="main_shadow"></td>
+                        </tr><tr>
+                          <td width="16" valign="top" class="main_shadow"><img src="/page/main163/images/arrow.gif" width="18" height="16"></td>
+                          <td class="main_shadow"><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/18/t/163/a/15259/info.jspy' target='_blank' style=''><font color=''>南京邮电大学学生申诉处理办法</font></a></td><td align='center' width='14%' nowrap>2010-11-15</td></tr></table></td>
+                        </tr>
+                        <tr>
+                          <td height="1" colspan="2" background="/page/main163/images/dotline.gif" class="main_shadow"></td>
+                        </tr><tr>
+                          <td width="16" valign="top" class="main_shadow"><img src="/page/main163/images/arrow.gif" width="18" height="16"></td>
+                          <td class="main_shadow"><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/18/t/163/a/15260/info.jspy' target='_blank' style=''><font color=''>南京邮电大学学生学籍管理办法</font></a></td><td align='center' width='14%' nowrap>2010-11-15</td></tr></table></td>
+                        </tr>
+                        <tr>
+                          <td height="1" colspan="2" background="/page/main163/images/dotline.gif" class="main_shadow"></td>
+                        </tr><tr>
+                          <td width="16" valign="top" class="main_shadow"><img src="/page/main163/images/arrow.gif" width="18" height="16"></td>
+                          <td class="main_shadow"><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/18/t/163/a/15273/info.jspy' target='_blank' style=''><font color=''>南京邮电大学优秀毕业生评选办法</font></a></td><td align='center' width='14%' nowrap>2010-11-15</td></tr></table></td>
+                        </tr>
+                        <tr>
+                          <td height="1" colspan="2" background="/page/main163/images/dotline.gif" class="main_shadow"></td>
+                        </tr><tr>
+                          <td width="16" valign="top" class="main_shadow"><img src="/page/main163/images/arrow.gif" width="18" height="16"></td>
+                          <td class="main_shadow"><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/18/t/163/a/15262/info.jspy' target='_blank' style=''><font color=''>南京邮电大学学生“创新标兵”评选办法</font></a></td><td align='center' width='14%' nowrap>2010-11-15</td></tr></table></td>
+                        </tr>
+                        <tr>
+                          <td height="1" colspan="2" background="/page/main163/images/dotline.gif" class="main_shadow"></td>
+                        </tr><tr>
+                          <td width="16" valign="top" class="main_shadow"><img src="/page/main163/images/arrow.gif" width="18" height="16"></td>
+                          <td class="main_shadow"><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/18/t/163/a/15261/info.jspy' target='_blank' style=''><font color=''>南京邮电大学普通高等教育本科毕业生学士学位授予办法</font></a></td><td align='center' width='14%' nowrap>2010-11-15</td></tr></table></td>
+                        </tr>
+                        <tr>
+                          <td height="1" colspan="2" background="/page/main163/images/dotline.gif" class="main_shadow"></td>
+                        </tr><tr>
+                          <td width="16" valign="top" class="main_shadow"><img src="/page/main163/images/arrow.gif" width="18" height="16"></td>
+                          <td class="main_shadow"><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/18/t/163/a/15253/info.jspy' target='_blank' style=''><font color=''>南京邮电大学推荐优秀应届本科毕业生免试攻读硕士学位研究生管理办法</font></a></td><td align='center' width='14%' nowrap>2010-11-15</td></tr></table></td>
+                        </tr>
+                        <tr>
+                          <td height="1" colspan="2" background="/page/main163/images/dotline.gif" class="main_shadow"></td>
+                        </tr></table><table width=100% cellSpacing=0 cellPadding=0 border=0><tr><td height='10' align="center"><font style="font-size:9pt"><span width="100%">
+<table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-width:0px;border-collapse:collapse;">
+<tr><td style="width:30%;" nowrap>&nbsp;&nbsp;每页14条记录&nbsp;&nbsp;总共8条记录</td>
+<td align="right" style="width:70%;" nowrap>
+&nbsp;&nbsp;<a disabled="disabled" title="返回首页">首页</a>
+&nbsp;&nbsp;<a disabled="disabled" title="返回上一页" class="PageButton">上一页</a>
+&nbsp;&nbsp;<a disabled="disabled" title="进入下一页">下一页</a>
+&nbsp;&nbsp;<a disabled="disabled" title="进入尾页">尾页</a>&nbsp;&nbsp;页码:&nbsp;1/1&nbsp;&nbsp;<input name="pageIndex_PDT" type="text" maxlength="3" class="compose_input" style="width:25px;" />&nbsp;&nbsp;<a title="跳转至" href="javascript:if(true){gotoUrl='/s/18/t/163/p/1/c/2802/i//list.jspy';location.href=gotoUrl.replace('i/','i/'+document.all('pageIndex_PDT').value)}" onclick="javascript:return PageIsValidation('pageIndex_PDT',1);">跳转</a>&nbsp;&nbsp;
+<script language="javascript">function PageIsValidation( objName,page ){b = true;var obj = document.all[objName];if( obj.value.replace(/ /g,"") == "" )b = false;else if(isNaN(obj.value))b = false;else if ( parseInt(obj.value) > parseInt(page) || parseInt(obj.value)<=0 )b = false;if( !b ){obj.value = '';obj.focus();alert( '请您输入有效的页码!' );}return b;}</script></td></tr></table></span></font></td></tr></table></td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table></td>
+      </tr>
+    </table>
+  </div>
+  <div id="foot">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="6" class="bottom_x"></td>
+      </tr>
+    </table>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="58" colspan="3" align="center" background="/page/main163/images/bottom_bg.jpg" class="bottom_y"><p><span class="p9white">版权所有 &copy; 南京邮电大学学生工作处（部）<br>
+         </span></p></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</center>
+</body>
+</html>

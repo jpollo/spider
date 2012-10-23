@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link href="/css/list.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>校庆动态</title>
+<link rel="stylesheet" href="/page/main370/css/style.css" type="text/css" />
+<SCRIPT LANGUAGE="JavaScript">   
+function AddFavorite(sURL, sTitle) {   
+    try {   
+        window.external.addFavorite(sURL, sTitle);   
+    } catch (e) {   
+        try {   
+            window.sidebar.addPanel(sTitle, sURL, "");   
+        } catch (e) {   
+            alert("加入收藏失败，请使用Ctrl+D进行添加");   
+        }   
+    }   
+}   
+</SCRIPT>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td background="/page/main370/images/dhbg.gif" height="141">
+<table width="984" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td height="141" width="193"><img src="/page/main370/images/70logo.gif" width="193" height="141" /></td>
+    <td width="791">
+<!--head right start-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="36" align="right" valign="bottom"><a onclick="AddFavorite('http://xq70.njupt.edu.cn',document.title)" href="#"><img src="/page/main370/images/b1.gif" width="78" height="25" /> </a><a href="http://xcb.njupt.edu.cn/search/articleSearch.faces?siteId=132&pageId=0"><img src="/page/main370/images/b2.gif" width="78" height="25" /></a></td>
+  </tr>
+  <tr>
+    <td height="65"><img src="/page/main370/images/headwenzi.gif" width="611" height="65" /></td>
+  </tr>
+  <tr>
+    <td height="25">
+<div id="dh">
+<table border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td height="25" align="left">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td align="center" valign="middle"><script language='javascript'>   function getHttpObj(){       var xmlHttp = false;       try {           xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");       }catch (e) {           try {               xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");           }catch (e2) {               xmlHttp = false;           }       }       if (!xmlHttp && typeof XMLHttpRequest != 'undefined'){           xmlHttp = new XMLHttpRequest();       }       return xmlHttp;   }   function P(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=0;   }   function T(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=1;   }   function I(pltId, url, fun){       this.portletId=pltId;       this.url=url;       this.kind=2;       this.nextFunc=fun;   }   var PLTS=new Array();   var cur1=0;   var Loader1= getHttpObj();   function loadps(){       if(cur1<PLTS.length){           Loader1.open('GET',PLTS[cur1].url+'?'+new Date().getTime()+(10000+parseInt(Math.random()*10000)));           Loader1.onreadystatechange=endloadps;           Loader1.send(null);       }   };   function endloadps(){       if(Loader1.readyState==4){           if(Loader1.status==200){               var response=Loader1.responseText;               if(PLTS[cur1].kind==2) {                   _listArticleCount =response.replace(/(^\s*)|(\s*$)/g, "");                   try {                       eval(PLTS[cur1].nextFunc);                   }catch(e){                       alert('高效分页初始化失败！');                   }               }               try{                   if(window.execScript){                       document.getElementById(PLTS[cur1].portletId).outerHTML='<body>'+response+'</body>';                   } else{                       document.getElementById(PLTS[cur1].portletId).innerHTML=response;                   }               } catch(e){}               var regx=new RegExp('<scr'+'ipt[^>]*?>([\\s\\S]*?)<\\/scr'+'ipt\\s*>|<scr'+'ipt[^>]*?\\/>','img');               var arr;               while((arr = regx.exec(response)) != null){                   if(arr.length){                       if(arr.length >=2){                           var regx2 = new RegExp("<scr"+"ipt[^>]*?\\bsrc=\\s*('[^>]*'|\"[^>]*\"|[\\S]*)\\s*\\/?>",'im');                           var srcArr=regx2.exec(arr[0]);                           if(srcArr!=null){                               var src= srcArr[1];                               if(src){                                   if((src.charAt(0)=='"') || (src.charAt(0)=="'")){                                       src=src.substr(1,src.length-2);                                   }                                   loadScript(src);                               }                           } else{                               execJavaScript(arr[1]);                           }                       }                   }               }           }           cur1++;           loadps();       }   }   function loadScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.src=s;           document.body.appendChild(sc);       }catch(e){}   }   function execJavaScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.text=s;           document.body.appendChild(sc);       }catch(e){}   }   window.onload=loadps;</script><div id='_p_1'></div><script language='javascript'>PLTS[PLTS.length]=new P('_p_1','/s/132/t/370/p/11/p.jspy');</script></td>
+			</tr>
+		</table></td>
+  </tr>
+</table>
+</div>
+    </td>
+  </tr>
+  <tr>
+    <td height="15"></td>
+  </tr>
+</table>
+<!--head right end-->
+    </td>
+  </tr>
+</table>
+    </td>
+  </tr>
+</table>
+
+<table width="984" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#FFFFFF">
+  <tr>
+    <td height="16"></td>
+  </tr>
+</table>
+<table width="984" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#FFFFFF">
+  <tr>
+    <td height="160"> <script>   
+ 	var idx = Math.ceil(Math.random()*4);
+	document.write("<img src='/page/main370/images/bannerlist"+idx+".jpg' />");
+  </script></td>
+  </tr>
+</table>
+<table width="984" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#FFFFFF">
+  <tr>
+    <td height="200" width="260" bgcolor="#D8D6D7" valign="top">
+<div id="lmlist"> 
+ <table width="240" border="0" cellspacing="0" cellpadding="0" align="center"></TABLE>
+</div>
+	</td>
+	<td width="724" valign="top">
+<!--start of right-->  
+ <table width="100%" height="34" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td height="20"><table width="100%" height="25" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+	  	        <td width="153"></td>
+                <td align="left">当前位置: <a href='/s/132/t/370/main.jspy' title='返回首页'>首页</a><span class="posSplit">&nbsp;&nbsp;</span><a href='/s/132/t/370/p/11/c/3082/list.jspy' title='校庆动态'>校庆动态</a></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table>
+		<br>
+          <table width="95%" height="22" border="0"cellpadding="0" cellspacing="0" align="center">
+            <tr>
+              <td width="45" height="33" align="center" valign="middle"><img src="/page/main370/images/listright1_1.gif"></td>
+              <td nowrap class="biaoti1">校庆动态</td>
+            </tr>
+             <tr>
+               <td height="7" colspan="2" background="/page/main370/images/line_1.gif"></td>
+            </tr>
+          </table>
+          <table width="95%" border="0" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+              <td class="content"><div id=newslist>
+                  <link href='/css/divwin.css' type='text/css' rel='stylesheet'><script language='javascript' src='/include/classbase.js'></script><script language='javascript' src='/include/windowopener.js'></script><table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31508/info.jspy' target='_blank' style=''><font color=''>我校隆重举行办学70周年庆祝大会</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31717/info.jspy' target='_blank' style=''><font color=''>视频:光辉的历程——南京邮电大学办学70周年文艺晚会</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31446/info.jspy' target='_blank' style=''><font color=''>外国语学院举办“译意生辉”校园树木译名挂牌活动</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31411/info.jspy' target='_blank' style=''><font color=''>年轻校友相聚南邮  共庆母校七十华诞</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31413/info.jspy' target='_blank' style=''><font color=''>江苏电视台城市频道播出我校70周年校庆庆典大会专题节目</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31321/info.jspy' target='_blank' style=''><font color=''>诺贝尔奖获得者Peter Grünberg来我校作学术报告</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31302/info.jspy' target='_blank' style=''><font color=''>经济与管理学院奖学金、实习基地签字仪式暨校友座谈会成功举行</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31299/info.jspy' target='_blank' style=''><font color=''>通信与信息工程学院老校友致信感谢校庆期间学院活动安排及接待工作</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31296/info.jspy' target='_blank' style=''><font color=''>人民邮电出版社南京邮电大学教材出版分部第二届编委会会议在我校隆重召开</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31281/info.jspy' target='_blank' style=''><font color=''>第四届南京邮电大学•纽约理工学院大学生电影节圆满落幕</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31217/info.jspy' target='_blank' style=''><font color=''>通信与信息工程学院举办迎70周年校庆大学生科技创新成果汇报展</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31215/info.jspy' target='_blank' style=''><font color='#ff1a00'>光辉的历程——庆祝南京邮电大学办学70周年文艺晚会成功举行</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31218/info.jspy' target='_blank' style=''><font color=''>通信与信息工程学院老校友参观仙林校区</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr><tr>
+                      <td width="22" align="center"><img src="/page/main370/images/button3.gif" width="16" height="22"></td>
+                      <td ><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/132/t/370/a/31157/info.jspy' target='_blank' style=''><font color='#fb1c03'>海峡两岸物联网与智慧服务产业发展（金陵）论坛在我校隆重举行</font></a></td></tr></table></td>
+                    </tr>
+					<tr>
+					  <td height="1" colspan="2" background="/page/main370/images/dotxu.gif"></td>
+					  </tr></table><table width=100% cellSpacing=0 cellPadding=0 border=0><tr><td height='10' align="center"><font style="font-size:9pt"><span width="100%">
+<table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-width:0px;border-collapse:collapse;">
+<tr><td style="width:30%;" nowrap>&nbsp;&nbsp;每页14条记录&nbsp;&nbsp;总共156条记录</td>
+<td align="right" style="width:70%;" nowrap>
+&nbsp;&nbsp;<a disabled="disabled" title="返回首页">首页</a>
+&nbsp;&nbsp;<a disabled="disabled" title="返回上一页" class="PageButton">上一页</a>
+&nbsp;&nbsp;<a href="/s/132/t/370/p/11/c/3082/i/2/list.jspy" title="进入下一页">下一页</a>
+&nbsp;&nbsp;<a href="/s/132/t/370/p/11/c/3082/i/12/list.jspy" title="进入尾页">尾页</a>&nbsp;&nbsp;页码:&nbsp;1/12&nbsp;&nbsp;<input name="pageIndex_PDT" type="text" maxlength="3" class="compose_input" style="width:25px;" />&nbsp;&nbsp;<a title="跳转至" href="javascript:if(true){gotoUrl='/s/132/t/370/p/11/c/3082/i//list.jspy';location.href=gotoUrl.replace('i/','i/'+document.all('pageIndex_PDT').value)}" onclick="javascript:return PageIsValidation('pageIndex_PDT',12);">跳转</a>&nbsp;&nbsp;
+<script language="javascript">function PageIsValidation( objName,page ){b = true;var obj = document.all[objName];if( obj.value.replace(/ /g,"") == "" )b = false;else if(isNaN(obj.value))b = false;else if ( parseInt(obj.value) > parseInt(page) || parseInt(obj.value)<=0 )b = false;if( !b ){obj.value = '';obj.focus();alert( '请您输入有效的页码!' );}return b;}</script></td></tr></table></span></font></td></tr></table>
+              </div></td>
+            </tr>
+          </table> 
+ <!--end of right-->      	
+	</td>
+  </tr>
+</table>
+
+<table width="984" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td height="11" bgcolor="#ff650f"></td>
+  </tr>
+  <tr>
+    <td height="50" valign="middle" class="copyright">版权所有 &copy; 南京邮电大学 Nanjing University of Posts and Telecommunications</td>
+  </tr>
+</table>
+</body>
+</html>

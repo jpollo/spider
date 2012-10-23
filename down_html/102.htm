@@ -1,0 +1,919 @@
+
+
+
+
+
+
+
+
+
+<html>
+  <head> 
+    <title>南京邮电大学人才招聘系统</title>
+	<META http-equiv=Content-Language content=cn-zh>
+	<META http-equiv=Content-Type content="text/html; charset=utf-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<link href="/zpsys/css/styles.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="./css/login.css">
+	<link rel="stylesheet" type="text/css" href="./css/swms.css">
+	<!-- Ext -->
+	<link rel="stylesheet" type="text/css" href="/zpsys/extclient/resources/css/ext-all.css" />
+<script type="text/javascript" src="/zpsys/extclient/adapter/yui/yui-utilities.js"></script>
+<script type="text/javascript" src="/zpsys/extclient/adapter/yui/ext-yui-adapter.js"></script>
+<script type="text/javascript" src="/zpsys/extclient/ext-all.js"></script> 
+<script type="text/javascript" src="/zpsys/publicjs/Ext.linkCombo.js"></script>
+<script type="text/javascript" src="/zpsys/publicjs/Ext.tableForm.js"></script>      
+
+<script type="text/javascript" src="/zpsys/js/com/util.js"></script>  
+<style type="text/css">
+<!--
+*{font-size:12px;}
+* {
+    margin:0;
+    padding:0;
+    text-decoration:none;
+}
+#pagebar {
+    float:left;
+    display:inline;
+    width:250px;
+    margin:20px;
+    font-size:13px;}
+#pagebar a,#pagebar .page_now {
+    display:block;
+    float:left;
+    margin-right:4px;
+    padding:2px 5px;
+    border:1px solid #97c4f8;
+    color:#207;
+    font-weight:800;
+	background-color:#e1efff;
+}
+#pagebar a {
+    display:inline;
+}
+#pagebar a:hover {
+	color:#d60;
+    border:1px solid #03c;
+	background-color:#e1efff;
+}
+#pagebar .page_now {
+    border:1px solid #094e9e;
+	color:#094e9e;
+    background:#97c4f8;
+}
+body {
+	background-color: #1767AA;
+}
+.login{
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/zpsys/images/login.png');
+	/*background-image:url(/zpsys/images/login.png);*/
+	width:323px;
+	height:249px;
+	background-repeat:no-repeat;
+	background-position:right bottom;
+}
+.login2{
+	
+	/*background-image:url(/zpsys/images/login.png);*/
+	width:323px;
+	height:249px;
+	background-repeat:no-repeat;
+	background-position:right bottom;
+}
+.style1 {color: #FFFFFF; line-height:23px;}
+.infomation td{border-bottom:1px dotted #bababa; height:25px; padding-left:10px}
+.tunpageborder {	border:1px solid #000000;
+					height:16px; width:12px;
+					line-height:20px;
+					padding-left:5px;
+					padding-right:5px;
+					background-color:#0099CC;}
+.tunpageborder2{
+					border:1px solid #ececec;
+					height:16px; width:12px;
+					line-height:20px;
+					padding-left:5px;
+					padding-right:5px;
+					background-color:#bdd5f1;
+					}	
+.top{
+	border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; background-color:#ffefff
+}
+.top2{
+	border-top:1px solid #000000; border-right:1px solid #000000; border-bottom:1px solid #000000; background-color:#1767aa; cursor:pointer
+}					
+-->
+</style>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+		window.top.self.moveTo(0,0);
+		window.top.self.resizeTo(screen.availWidth,screen.availHeight);
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+</head>
+  	<script language="JavaScript">
+  	
+  	//验证字母是不是全角
+ 	function isSBCcase(source){
+ 	 	if("" == source){
+ 			return true;
+ 		}
+ 		//全角定义
+ 		var reg=/^[\w\u4E00-\u9FA5\uF900-\uFA2D]*$/;
+ 		//如果source是全角
+ 		if(reg.test(source)){
+ 			return false;
+ 		}else{
+ 			return true;
+ 		}
+ 	}
+ 	
+ 	function subClick(){
+ 		var f = true;
+ 		
+ 		/*
+ 		if(!idChecked("loginform","ZJHM"))
+		{
+		
+	      return false;
+	   }
+ 		*/
+ 		
+ 		
+ 		//userIdF.markInvalid("2323");
+ 	
+ 		if(!userIdF.isValid()){
+ 		
+ 			userIdF.markInvalid(userIdF.blankText);
+ 			f = false;
+ 		}
+ 		if(!passWordF.isValid()){
+ 			passWordF.markInvalid(passWordF.blankText);
+ 			f = false;
+ 		}
+ 		if(!checkF.isValid()){
+ 			checkF.markInvalid('您输入的验证码不正确！');
+ 			f = false;
+ 		}
+ 		if(f == false){
+			return;
+		}
+ 		loginform.submit();
+ 		
+ 	}
+
+	function openWindow(url,args){
+			var title = '';
+			var width = 800;
+			var height = 530;
+			if(args){
+				if(args.title){
+					title = args.title;
+				}
+				if(args.width){
+					width = args.width;
+				}
+				if(args.height){
+					height = args.height;
+				}
+			}
+			
+			var x  = (screen.width - width) / 2 ;
+			var y = (screen.height  - height)  / 2 ;
+			var w = window.open(url, title, "top=" + y + ",left=" + x + ",scrollbars=1,dialog=yes,modal=yes,width=" + width + ",height=" + height + ",resizable=1");
+			//w.dialogArguments = parameter;
+			w.focus();
+	}
+
+  </script>
+
+
+
+
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<input type="hidden" id="tab_count" value="1" /> 
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+ 
+  <tr>
+    <td><table width="100%" height="444" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+	<td>
+	<table>
+	<tr>
+ <td style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/zpsys/images/logo.png');">&nbsp;</td>
+ </tr>
+ 
+ 
+ </table>
+  </tr>
+      <tr>
+        <td height="44" style="position:relative" background="/zpsys/images/login_03.gif">
+        <table width="100%" height="444" border="0" cellpadding="0" cellspacing="0" id="__01" >
+        <tr>
+        	<td>	  
+			  <div id="Layer3" style="position:absolute;  top:12px; width:110%; height:138px; z-index:1">				  
+			    <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
+                 <!-- <tr>
+                    <td style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='');">&nbsp;</td>
+                  </tr>
+				   <tr>
+                    <td style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='');">&nbsp;</td>
+                  </tr>
+				   <tr>
+                    <td style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='');">&nbsp;</td>
+                  </tr>
+				-->
+                  <tr>
+                    <td >
+                      <table width="99%" border="0" align="right" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td width="60%" height="27"><table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                             	
+							 <td id="zpxx001" width="100%" class="top" onclick="javascript:zpxxView('001','1');"><div id="div001" align="center" class=''><strong>岗位信息</strong></div></td>
+							 
+                             </tr>
+                          </table></td>
+                      
+                 </tr>
+                      
+   		<tr valign="top">
+               <td id="tableId" height="350" colspan="2" style="border-bottom:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; background-color:#f1f7ff"><br>
+                    <table  id="dataArea1" style="display:block" class="infomation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+		                       <tr>
+								
+
+		                         <td><font color='blue'>[类别]</font>&nbsp;</td>
+		                        <td width="20%"><font color='blue'>&nbsp;部门</font></td>
+		                      
+		                        <td>
+		                       
+		                        <font color='blue'>岗位</font></td>
+		                        <td width="30%"><font color='blue'>&nbsp;专业方向</font></td>
+		                        <td><font color='blue' width="3">拟聘人数</font></td>
+		                       
+		                        <td><font color='blue'>	发布日期</font></td>
+		                         <td><font color='blue'>	截止时间</font></td>
+		                       </tr>
+						  	 
+						    
+								<tr>
+								
+								<td><font><a>教师岗</a></font></td>
+		                				<td width="20%"><font>&nbsp;教育与科学技术学院</font></td>
+								<td><font><a href="#"  onClick="javascript:window.parent.openWindow('/zpsys/jbxx/postApply.jsp?WID=9D794BC35C68D188E043CA77E222D188&GWDM=GWDM20101681&zplb=01')"
+								>副教授/博士</a></font></td>
+		                        <td width="30%"><font width="30%">&nbsp;计算机应用或教育技术学</font></td>
+		                        <td><font >1</font></td>
+		                       
+		                        <td><font >2011-03-02</font>&nbsp;</td>
+		                        <td><font >2011-12-31</font>&nbsp;</td>
+		                      
+		                      	
+		              		 </tr>
+		 	
+  								
+						    
+								<tr>
+								
+								<td><font><a>教师岗</a></font></td>
+		                				<td width="20%"><font>&nbsp;教育与科学技术学院</font></td>
+								<td><font><a href="#"  onClick="javascript:window.parent.openWindow('/zpsys/jbxx/postApply.jsp?WID=9D794BC35C69D188E043CA77E222D188&GWDM=GWDM20111769&zplb=01')"
+								>教授</a></font></td>
+		                        <td width="30%"><font width="30%">&nbsp;计算机应用或教育技术学</font></td>
+		                        <td><font >1</font></td>
+		                       
+		                        <td><font >2011-03-02</font>&nbsp;</td>
+		                        <td><font >2011-12-31</font>&nbsp;</td>
+		                      
+		                      	
+		              		 </tr>
+		 	
+  								
+						    
+								<tr>
+								
+								<td><font><a>教师岗</a></font></td>
+		                				<td width="20%"><font>&nbsp;马克思主义学院</font></td>
+								<td><font><a href="#"  onClick="javascript:window.parent.openWindow('/zpsys/jbxx/postApply.jsp?WID=9D794BC35C5FD188E043CA77E222D188&GWDM=GWDM201015821&zplb=01')"
+								>副教授/博士</a></font></td>
+		                        <td width="30%"><font width="30%">&nbsp;马克思主义哲学</font></td>
+		                        <td><font >1</font></td>
+		                       
+		                        <td><font >2011-03-02</font>&nbsp;</td>
+		                        <td><font >2011-12-31</font>&nbsp;</td>
+		                      
+		                      	
+		              		 </tr>
+		 	
+  								
+						    
+								<tr>
+								
+								<td><font><a>教师岗</a></font></td>
+		                				<td width="20%"><font>&nbsp;通信与信息工程学院</font></td>
+								<td><font><a href="#"  onClick="javascript:window.parent.openWindow('/zpsys/jbxx/postApply.jsp?WID=9D794BC35C33D188E043CA77E222D188&GWDM=GWDM201015231&zplb=01')"
+								>副教授/博士</a></font></td>
+		                        <td width="30%"><font width="30%">&nbsp;信号学科：语音与智能信号处理”、“通信信号处理”、“图像与多媒体信息处理”、“量子信息处理”。</font></td>
+		                        <td><font >10</font></td>
+		                       
+		                        <td><font >2011-03-02</font>&nbsp;</td>
+		                        <td><font >2011-12-31</font>&nbsp;</td>
+		                      
+		                      	
+		              		 </tr>
+		 	
+  								
+						    
+								<tr>
+								
+								<td><font><a>教师岗</a></font></td>
+		                				<td width="20%"><font>&nbsp;通信与信息工程学院</font></td>
+								<td><font><a href="#"  onClick="javascript:window.parent.openWindow('/zpsys/jbxx/postApply.jsp?WID=9D794BC35C34D188E043CA77E222D188&GWDM=GWDM20101522&zplb=01')"
+								>教授</a></font></td>
+		                        <td width="30%"><font width="30%">&nbsp;通信学科：宽带无线移动通信、新一代通信网络和通信理论</font></td>
+		                        <td><font >2</font></td>
+		                       
+		                        <td><font >2011-03-02</font>&nbsp;</td>
+		                        <td><font >2011-12-31</font>&nbsp;</td>
+		                      
+		                      	
+		              		 </tr>
+		 	
+  								
+						    
+								<tr>
+								
+								<td><font><a>教师岗</a></font></td>
+		                				<td width="20%"><font>&nbsp;通信与信息工程学院</font></td>
+								<td><font><a href="#"  onClick="javascript:window.parent.openWindow('/zpsys/jbxx/postApply.jsp?WID=9D794BC35C35D188E043CA77E222D188&GWDM=GWDM20101524&zplb=01')"
+								>教授</a></font></td>
+		                        <td width="30%"><font width="30%">&nbsp;信号学科：语音与智能信号处理”、“通信信号处理”、“图像与多媒体信息处理”、“量子信息处理”。</font></td>
+		                        <td><font >2</font></td>
+		                       
+		                        <td><font >2011-03-02</font>&nbsp;</td>
+		                        <td><font >2011-12-31</font>&nbsp;</td>
+		                      
+		                      	
+		              		 </tr>
+		 	
+  								
+						    
+								<tr>
+								
+								<td><font><a>教师岗</a></font></td>
+		                				<td width="20%"><font>&nbsp;电子科学与工程学院、电工电子实验教学中心</font></td>
+								<td><font><a href="#"  onClick="javascript:window.parent.openWindow('/zpsys/jbxx/postApply.jsp?WID=9D794BC35C38D188E043CA77E222D188&GWDM=GWDM201015421&zplb=01')"
+								>副教授/博士</a></font></td>
+		                        <td width="30%"><font width="30%">&nbsp;电磁场与微波，射频电路设计</font></td>
+		                        <td><font >2</font></td>
+		                       
+		                        <td><font >2011-03-02</font>&nbsp;</td>
+		                        <td><font >2011-12-31</font>&nbsp;</td>
+		                      
+		                      	
+		              		 </tr>
+		 	
+  								
+						    
+								<tr>
+								
+								<td><font><a>教师岗</a></font></td>
+		                				<td width="20%"><font>&nbsp;电子科学与工程学院、电工电子实验教学中心</font></td>
+								<td><font><a href="#"  onClick="javascript:window.parent.openWindow('/zpsys/jbxx/postApply.jsp?WID=9D794BC35C36D188E043CA77E222D188&GWDM=GWDM201015441&zplb=01')"
+								>副教授/博士</a></font></td>
+		                        <td width="30%"><font width="30%">&nbsp;微电子，模拟集成电路设计</font></td>
+		                        <td><font >2</font></td>
+		                       
+		                        <td><font >2011-03-02</font>&nbsp;</td>
+		                        <td><font >2011-12-31</font>&nbsp;</td>
+		                      
+		                      	
+		              		 </tr>
+		 	
+  								
+		 				
+				 </table>
+                        
+                        
+                  <!--todo-->     
+				 <table  id="dataArea2" style="display:none" class="infomation" width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+			  	
+			  	 
+ 				   
+			    
+				 </table>
+				 <table  id="dataArea3" style="display:none" class="infomation" width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+			  	 
+ 					
+			  	
+			    
+				 </table>
+				 
+			
+				 
+						  <table  align="right" border="0" cellspacing="0" cellpadding="0">
+							
+							  <TR  id="tablemore" style="display:block">
+								<TD  vAlign=top width=100% align="right"><BR>
+								<P ><img src="./pic/point.gif" width="9" height="9"><a id="ah" href="javascript:morepc('/zpsys/jbxx/regZwxxFrame.jsp')" >
+								
+								
+								
+								&nbsp;<font color=red size =2>更多</font>&nbsp;</a> &nbsp;&nbsp;</P>
+								
+								
+								</td>
+							</tr>
+							
+							</table>
+                              </td>
+                        </tr>
+                    </table></td>
+                  </tr>
+			      <tr>
+								<td>
+									&nbsp; &nbsp; &nbsp; &nbsp;
+								</td>
+						</tr>
+
+			      <tr>
+								<td>
+										<a href="help/hwyczp.doc" target='_blank' align="middle"  height="600"><b><h3><font color=red>&nbsp;&nbsp;“海外引才”招聘方案（人数及待遇）</font></h3></b></a>
+								</td>
+						</tr>
+			      <tr>
+								<td>
+										<a href="help/2010DEPZPJH.xls" target='_blank' align="middle" ><b><h3><font color=red>&nbsp;&nbsp;&nbsp;2010年第二批招聘计划（人才派遣）</font></h3></b></a>
+								</td>
+						</tr>
+                </table>
+			  </div>
+			  <img src="/zpsys/images/login_02.gif" width="730" height="444" alt=""></td>
+              <td width="29%" style="position:relative"> <div align="right"><img src="/zpsys/images/login_04.gif" width="533" height="444" alt=""></div>
+			  	  <div id="Layer1" style="position:absolute; left:100px; top:55px; width:341px; height:227px; z-index:1">
+  <table  border="0" cellpadding="0" class="login" cellspacing="0">
+    <tr>
+      <td valign="bottom">&nbsp;</td>
+    </tr>
+
+  </table>
+</div>
+<div id="Layer2" style="position:absolute; left:100px; top:58px; width:286px; height:177px; z-index:2">
+ <form id="loginform" name="loginform" action="" method="post">
+  <table  border="0" cellpadding="0" class="login2" cellspacing="0">
+    <tr>
+      <td valign="bottom"><table width="300" height="80" border="0" align="center">
+      	<tr>
+      	<td>
+      	
+      	
+      	</td>
+      	<td colspan="2">
+      	&nbsp;<font color=red></font>&nbsp;
+      	</td>
+      	</tr>
+          <tr>
+            <td width="100">用户名</td>
+            <td width="79"><div class="x-form-element"><input tabindex="1"    type="text" name="ZJHM" id="ZJHM"    ></div></td>
+            <td width="18">&nbsp;</td>
+          </tr>
+          <tr>
+            <td  width="100">密&nbsp;&nbsp;码</td>
+            <td><div class="x-form-element"><input tabindex="2" type="password" name="MM" id="MM" maxLength="20" ></div></td>
+            <td><a href="./jsp/recoverPassword.jsp"><img src="/zpsys/images/findpass.png" width="56" height="19"></a></td>
+          </tr>
+          <tr>
+            <td  width="100">验证码</td>
+            <td><div class="x-form-element"><input tabindex="3" type="text" name="verifyCode" id="verifyCode"></div></td>
+            <td><img src="/zpsys/VerifyCodeGenServlet.do"></td>
+          </tr>
+          <tr>
+            <td colspan="3"><div align="center"> <br>
+                  <a id="update_0" href="#"> <img src="/zpsys/images/b_login.png" onClick="subClick()" width="75" height="23"> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                  
+                   <a id="update_0" href="#"><img onclick="javascript:document.forms['loginform'].reset()" src="/zpsys/images/b_reset.png" width="75" height="23"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                     <a id="update_0" href="#"><img onClick="window.location.href='jsp/regAcc.jsp'" src="/zpsys/images/reg.png" width="75" height="23"></a><br>
+                    <br>
+                    <br>
+                    <br>
+            </div></td>
+          </tr>
+      </table></td>
+    </tr>
+  </table>
+  <table align="right">
+ 
+  <tr>
+   	  <td >&nbsp;&nbsp;意见箱 rsk@njupt.edu.cn</td>
+   	  <td >&nbsp;&nbsp;咨询电话 02585866291</td>
+   </tr>
+  <tr>
+   	  <td ></td>
+   </tr>
+  <tr>
+   	  <td ></td>
+   </tr>
+  <tr>
+   	  <td ></td>
+   </tr>
+
+  <tr>
+   	  <td ><a href="help/zphelp.doc" target='_blank' align="middle">招聘系统使用说明</a></td>
+   </tr>
+
+
+ <!----   
+  <tr>
+   	  <td ><href="" target='_blank'>南京邮电大学人事系统</td>
+   </tr>
+   --->
+  </table>
+  </form>
+</div>
+			  
+			  
+			  </td>
+            </tr>
+
+            
+        </table>
+        </td>
+      </tr>
+			
+      
+ 
+
+    </table>
+    <p align="center"><span class="style1"><div >
+		<table align="center">	
+			<tr><td colspan="3" class="style1"><div class="style1"><strong>操作指南：</strong></div></td></tr>
+					
+			<tr>
+				<td colspan="3" class="style1"><div class="style1">
+					<img src="./pic/point.gif" width="9" height="9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首次登录本系统，请先注册用户名<br/>
+										<img src="./pic/point.gif" width="9" height="9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户注册时，用户名、密码自己设定<br/>
+					<img src="./pic/point.gif" width="9" height="9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;填写用户名(身份证号)与密码进入资料修改页面<br/>
+					<img src="./pic/point.gif" width="9" height="9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若是忘记或丢失密码，可以点击“找回密码”进行操作<br/>
+					</div>
+				</td>
+			</tr>
+		</table>
+		</div></span></p></td>
+  </tr>
+</table>
+
+</body>
+
+
+ 
+
+
+<div id="my-dlg" style="visibility:hidden;position:absolute;top:0px;">
+	 	<div class="x-dlg-hd">职位需求一览</div>
+	 		<div class="x-dlg-bd">
+				<iframe id="more" 
+						style="border:0px;margin:0;padding:0" 
+						src=""
+						scrolling="yes" 
+						width="100%" 
+						height="100%" 
+						frameBorder="0">
+				</iframe>
+			</div>
+</div>
+<div id="my-dlg11" style="visibility:hidden;position:absolute;top:0px;">
+	 	<div class="x-dlg-hd">招聘岗位一览</div>
+	 		<div class="x-dlg-bd">
+				<iframe id="morepc" 
+						style="border:0px;margin:0;padding:0" 
+						src=""
+						scrolling="yes" 
+						width="100%" 
+						height="100%" 
+						frameBorder="0">
+				</iframe>
+			</div>
+</div>
+<div id="my-dlg1" style="visibility:hidden;position:absolute;top:0px;">
+<div class="x-dlg-hd">应聘人员一览</div>
+	 		<div class="x-dlg-bd">
+				<iframe id="more1" 
+						style="border:0px;margin:0;padding:0" 
+						src=""
+						scrolling="yes" 
+						width="100%" 
+						height="100%" 
+						frameBorder="0">
+				</iframe>
+			</div>
+</div>
+
+<div id="my-dlg_1" style="visibility:hidden;position:absolute;top:0px;">
+<div class="x-dlg-hd">面试通知一览</div>
+	 		<div class="x-dlg-bd">
+				<iframe id="more_1" 
+						style="border:0px;margin:0;padding:0" 
+						src=""
+						scrolling="yes" 
+						width="100%" 
+						height="100%" 
+						frameBorder="0">
+				</iframe>
+			</div>
+</div>
+<div id="my-dlg_2" style="visibility:hidden;position:absolute;top:0px;">
+<div class="x-dlg-hd">录用公示一览</div>
+	 		<div class="x-dlg-bd">
+				<iframe id="more_2" 
+						style="border:0px;margin:0;padding:0" 
+						src=""
+						scrolling="yes" 
+						width="100%" 
+						height="100%" 
+						frameBorder="0">
+				</iframe>
+			</div>
+</div>
+<!-- end -->
+<div id="my-dlg2" style="visibility:hidden;position:absolute;top:0px;">
+	 	<div class="x-dlg-hd">职位详情查看</div>
+	 		<div class="x-dlg-bd">
+				<iframe id="moreD" 
+						style="border:0px;margin:0;padding:0" 
+						src=""
+						scrolling="yes" 
+						width="100%" 
+						height="100%" 
+						frameBorder="0">
+				</iframe>
+			</div>
+</div>
+
+<div id="my-dlg3" style="visibility:hidden;position:absolute;top:0px;">
+	 	<div class="x-dlg-hd">应聘人员信息查看</div>
+	 		<div class="x-dlg-bd">
+				<iframe id="moreDD" 
+						style="border:0px;margin:0;padding:0" 
+						src=""
+						scrolling="yes" 
+						width="100%" 
+						height="100%" 
+						frameBorder="0">
+				</iframe>
+			</div>
+</div>
+
+
+
+
+
+
+
+
+<script language="javascript">
+
+	dlg2 = new Ext.BasicDialog("my-dlg2", {
+			    height: 420,
+			    width: 795,
+			   	modal: true
+			});
+	dlg2.addKeyListener(27, dlg2.hide, dlg2); // ESC can also close the dialog
+	dlg2.addButton('关闭', dlg2.hide, dlg2);
+	dlg2.on('show',function(e){e.resizeTo(795,420);});
+	
+	dlg3 = new Ext.BasicDialog("my-dlg3", {
+			    height: 700,
+			    width: 900,
+			   	modal: true
+			});
+	dlg3.addKeyListener(27, dlg3.hide, dlg3); // ESC can also close the dialog
+	dlg3.addButton('关闭', dlg3.hide, dlg3);
+	dlg3.on('show',function(e){e.resizeTo(900,700);});
+	
+	Ext.onReady(function(){
+		Ext.QuickTips.init(); 
+		
+		Ext.apply(Ext.form.VTypes, {
+			checks: function(val) {
+				if(val != '0030'){
+					return false;
+			    }
+			    return true;
+			  },  
+			checksText: '您输入的验证码不正确！'
+		}); 
+		//Ext.form.Field.prototype.msgTarget = 'side';
+		Ext.form.Field.prototype.msgTarget = 'under';
+		var config = {
+			id: 'userIdF',
+			width: 150,
+			editable: false
+		};
+		config.allowBlank = false;
+		config.validationEvent = 'keydown';
+		config.blankText = '请您输入用户名！';
+		userIdF = new Ext.form.TextField(config);	
+		userIdF.applyTo('ZJHM');
+	  	
+	  	passWordF = new Ext.form.TextField({
+	  		id: 'MM',
+			width: 150,
+			editable: false,
+			allowBlank : false,
+			inputType: 'password',
+			validationEvent : 'keydown',
+			blankText : '请您输入密码！'
+		});
+	  	passWordF.applyTo('MM');
+	  	
+	  	checkF = new Ext.form.TextField({
+	  		id: 'verifyCode',
+			width: 150,
+			editable: false,
+			allowBlank : false,
+			
+			validationEvent : 'keydown',
+			blankText : '请您输入验证码！'
+		});
+	  	checkF.applyTo('verifyCode');
+	  	
+	});
+	var dlg;
+	var dlg1;
+	var dlg11;
+	var dlg111;
+	
+	function openWindow(url,s){
+		parent.dlg2.show(s);
+		parent.Ext.getDom('moreD').src = url;
+	}
+	function more(url){
+		if(!dlg){
+			dlg = new Ext.BasicDialog("my-dlg", {
+			    height: 560,
+			    width: 795,
+			   	modal: true,
+			   	animateTarget: 'ah'
+			});
+			dlg.addKeyListener(27, dlg.hide, dlg); // ESC can also close the dialog
+			dlg.addButton('关闭', dlg.hide, dlg);
+			dlg.on('show',function(e){e.resizeTo(795,560);});
+		}
+		dlg.show();
+		document.getElementById('more').src = url;
+	}
+	
+	function morepc(url){
+		if(!dlg11){
+			dlg11 = new Ext.BasicDialog("my-dlg11", {
+			    height: document.body.clientHeight,
+			    width:  1000,
+			   	modal: true,
+			   	animateTarget: 'ah'
+			});
+			//dlg11.addKeyListener(27, dlg11.hide, dlg11); // ESC can also close the dialog
+			dlg11.addButton('关闭', dlg11.hide, dlg11);
+			dlg11.on('show',function(e){e.resizeTo(1000,document.body.clientHeight);});
+		}
+		dlg11.show();
+		//document.getElementById('morepc').src ="http://hrm.wiscom.com.cn:9092/zpsys/index.jsp";
+		document.getElementById('morepc').src = url;
+	}
+	
+	function morery(url){
+		if(!dlg1){
+			dlg1 = new Ext.BasicDialog("my-dlg_1", {
+			    height: 600,
+			    width: 1000,
+			   	modal: true,
+			   	animateTarget: 'ah'
+			});
+			dlg1.addKeyListener(27, dlg1.hide, dlg1); // ESC can also close the dialog
+			dlg1.addButton('关闭', dlg1.hide, dlg1);
+			dlg1.on('show',function(e){e.resizeTo(1000,600);});
+		}
+		dlg1.show();		
+		document.getElementById('more_1').src = url;
+	}
+	//20090331,陈星光，添加了morery_2函数
+	function morery_2(url){
+		if(!dlg111){
+			dlg111 = new Ext.BasicDialog("my-dlg_2", {
+			    height: 600,
+			    width: 1000,
+			   	modal: true,
+			   	animateTarget: 'ah'
+			});
+			dlg111.addKeyListener(27, dlg111.hide, dlg111); // ESC can also close the dialog
+			dlg111.addButton('关闭', dlg111.hide, dlg111);
+			dlg111.on('show',function(e){e.resizeTo(1000,600);});
+		}
+		dlg111.show();		
+		document.getElementById('more_2').src = url;
+	}
+	
+	/*
+	function more(url){
+		document.getElementById('bottom').className = '';
+		document.getElementById('bottom').innerHTML = '<div height=500 border=1><TABLE cellSpacing=0 cellPadding=0 width=749 border=0><tr><td><iframe id="more" src="" style="border:0px;width:779;height:420" frameBorder="0"></iframe></td></tr></table></div>';
+		document.getElementById('more').src = url;
+		document.getElementById('ah').href = 'javascript:close()';
+		document.getElementById('ah').innerHTML = '&nbsp;&nbsp;隐藏更多&nbsp;';
+	}
+	*/
+	/*参数 id：显示ID
+	SX:显示顺序
+	*/
+	zpxxView("001","1");
+	function zpxxView(id,sx){
+	
+	var count = document.getElementById("tab_count").value;
+	
+	for(var i=1;i<=count;i++){
+		var tempid="00"+i;
+		 if(id==tempid){
+			 Ext.getDom("zpxx"+id).className = 'top';
+			Ext.getDom("div"+id).className = '';
+			Ext.getDom("dataArea"+i).style.display = "block";
+		 }
+		 else
+		 {
+			 Ext.getDom("zpxx"+tempid).className = 'top2';
+			Ext.getDom("div"+tempid).className = 'style1';
+			Ext.getDom("dataArea"+i).style.display = "none";
+		 }
+	
+	}
+	
+	
+	}
+	
+	
+	function close(){
+		document.getElementById('bottom').className = 'rightCorner';
+		document.getElementById('bottom').innerHTML = '';
+		document.getElementById('ah').href = 'javascript:more("more.jsp")';
+		document.getElementById('ah').innerHTML = '&nbsp;&nbsp;更多&nbsp;';
+	}
+	function go(){   
+		if(event.keyCode==13){
+	      	subClick();
+	    } 
+	}
+	function  more2(url,s){
+		dlg2.show(s);
+		Ext.getDom('moreD').src = url;
+	}
+	function  more3(url,s){
+		dlg3.show(s);
+		Ext.getDom('moreDD').src = url;
+	}        
+	document.onkeydown = go;
+	Ext.onReady(function(){
+		
+	});
+	
+	function getObj(id){
+	return document.getElementById(id);
+	}
+	
+	function checkinput(obj,val){
+	if (obj.className.indexOf('gray')!=-1) {
+		obj.value = '';
+		obj.className = obj.className.replace('gray', 'black');
+	} else if (val && obj.value=='') {
+		obj.value = obj.defaultValue = val;
+		if (obj.className.indexOf('black') == -1) {
+			obj.className += ' gray';
+		} else {
+			obj.className = obj.className.replace('black', 'gray');
+		}
+	}
+	}
+	
+	
+
+	
+	
+	
+	
+	
+		
+
+</script>
+
+
+</html>

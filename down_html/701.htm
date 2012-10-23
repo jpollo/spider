@@ -1,0 +1,1577 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>研究生导师库</title>
+<link href="css/graduate.css" rel="stylesheet" type="text/css" />
+<script src="js/qiehuan02.js" language="javascript"></script>
+<script src="js/twoSwitch.js" language="javascript" ></script>
+<script src="js/fourSwitch.js" language="javascript"></script>
+<link href="http://www.eol.cn/css/cer.net/glb0710.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><script type="text/javascript">
+function setHomePage(obj){
+    var aUrls=document.URL.split("/");
+    var vDomainName="http://"+aUrls[2]+"/";
+    try{//IE
+        obj.style.behavior="url(#default#homepage)";
+        obj.setHomePage(vDomainName);
+    }catch(e){//other
+        if(window.netscape) {//ff
+            try {
+                    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+            }
+            catch (e) {
+                    alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将[signed.applets.codebase_principal_support]设置为'true'");
+            }
+            var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+            prefs.setCharPref('browser.startup.homepage',vDomainName);
+         }
+    }
+    if(window.netscape)alert("ff");
+}
+function addFavorite(){
+    var aUrls=document.URL.split("/");
+    var vDomainName="http://"+aUrls[2]+"/";
+    var description=document.title;
+    try{//IE
+        window.external.AddFavorite(vDomainName,description);
+    }catch(e){//FF
+        window.sidebar.addPanel(description,vDomainName,"");
+    }
+}
+
+</script>
+<script type="text/javascript" src="http://reg.eol.cn/js/login_utf8.js"></script>
+<!-- 	
+	<div id="glbtop">
+	<div id="glbt1">
+		<a href="http://www.eol.cn" target="_top" class="a_e">中国教育在线</a>
+		<a href="http://www.edu.cn" target="_top" class="a_e">中国教育网</a>
+		<a href="#" onclick="addFavorite()" target="_top" id="a_fav">加入收藏</a>
+		<a href="#" onclick="setHomePage(this)" target="_top" id="a_home">设为首页</a>
+		<div id="loginDiv">
+		<script type="text/javascript">
+		Passport.isLogin('loginSpan');
+</script>
+</div><iframe id="loginifr" name="loginifr" style="display:none;"></iframe>
+	</div>
+	<div id="glbt2">
+		<div id="glbdh">
+		<a href="http://www.eol.cn" target="_top">首页</a>|
+		<a href="http://gaokao.eol.cn" target="_top">高考</a>|
+		<a href="http://www.kaoyan.cn" target="_top">考研</a>|
+		<a href="http://zaizhi.eol.cn" target="_top">在职硕士</a>|
+		<a href="http://zikao.eol.cn" target="_top">自考</a>|
+		<a href="http://chengkao.eol.cn" target="_top">成考</a>|
+		<a href="http://en.eol.cn" target="_top">外语</a>|
+		<a href="http://zige.eol.cn" target="_top">资格考试</a>|
+		<a href="http://gongwuyuan.eol.cn" target="_top">公务员</a>|
+		<a href="http://liuxue.eol.cn" target="_top">留学</a>|
+		<a href="http://teacher.eol.cn" target="_top">教师招聘</a>|
+		<a href="http://career.eol.cn" target="_top">校园招聘</a>|
+        <a href="http://shengya.eol.cn" target="_top">生涯规划</a>|
+		<a href="http://campus.eol.cn" target="_top">校园</a>|
+		<a href="http://bbs.eol.cn" target="_top">社区</a>|
+		<a href="http://haiwai.eol.cn" target="_top">海外名校</a>|
+		<a href="http://shop.eol.cn" target="_top">书店</a>|
+		<a href="http://jijiao.eol.cn">中小学</a>|
+		</div>
+		<iframe id="glbloc" src="/templates/loc0710.html" frameborder="0" scrolling="no" height="25" width="120" allowTransparency="true"></iframe>
+		<div style="clear:both;"></div>
+	</div>
+		<div id="selloc" style="display:none;" onclick="javascript:showsel();">
+			<ul>
+			<li><a href="http://beijing.eol.cn" target="_top">北京</a></li>
+			<li><a href="http://guangdong.eol.cn" target="_top">广东</a></li>
+			<li><a href="http://shanghai.eol.cn" target="_top">上海</a></li>
+			<li><a href="http://shandong.eol.cn" target="_top">山东</a></li>
+			<li><a href="http://jiangsu.eol.cn" target="_top">江苏</a></li>
+			<li><a href="http://sichuan.eol.cn" target="_top">四川</a></li>
+			<li><a href="http://zhejiang.eol.cn" target="_top">浙江</a></li>
+			<li><a href="http://henan.eol.cn" target="_top">河南</a></li>
+			<li><a href="http://liaoning.eol.cn" target="_top">辽宁</a></li>
+			<li><a href="http://shaanxi.eol.cn" target="_top">陕西</a></li>
+			<li><a href="http://hubei.eol.cn" target="_top">湖北</a></li>
+			<li><a href="http://hunan.eol.cn" target="_top">湖南</a></li>
+			<li><a href="http://fujian.eol.cn" target="_top">福建</a></li>
+			<li><a href="http://chongqing.eol.cn" target="_top">重庆</a></li>
+			<li><a href="http://anhui.eol.cn" target="_top">安徽</a></li>
+			<li><a href="http://hebei.eol.cn" target="_top">河北</a></li>
+			<li><a href="http://shanxi.eol.cn" target="_top">山西</a></li>
+			<li><a href="http://guangxi.eol.cn" target="_top">广西</a></li>
+			<li><a href="http://jiangxi.eol.cn" target="_top">江西</a></li>
+			<li><a href="http://gansu.eol.cn" target="_top">甘肃</a></li>
+			<li><a href="http://tianjin.eol.cn" target="_top">天津</a></li>
+			<li><a href="http://guizhou.eol.cn" target="_top">贵州</a></li>
+			<li><a href="http://jilin.eol.cn" target="_top">吉林</a></li>
+			<li><a href="http://hainan.eol.cn" target="_top">海南</a></li>
+			<li><a href="http://yunnan.eol.cn" target="_top">云南</a></li>
+			<li><a href="http://xinjiang.eol.cn" target="_top">新疆</a></li>
+			<li><a href="http://ningxia.eol.cn" target="_top">宁夏</a></li>
+			<li><a href="http://qinghai.eol.cn" target="_top">青海</a></li>
+			<li><a href="http://xizang.eol.cn" target="_top">西藏</a></li>
+			<li><a href="http://heilongjiang.eol.cn" target="_top">黑龙江</a></li>
+			<li><a href="http://neimenggu.eol.cn" target="_top">内蒙古</a></li>
+			</ul>
+		</div>
+</div>
+ -->
+ <div id="glbtop">
+	<div id="glbt1">
+		<a href="http://www.eol.cn" target="_top" class="a_e">中国教育在线</a>
+		<a href="http://www.edu.cn" target="_top" class="a_e">中国教育网</a>
+		<a href="#" onclick="addFavorite()" target="_top" id="a_fav">加入收藏</a>
+		<a href="#" onclick="setHomePage(this)" target="_top" id="a_home">设为首页</a>
+<div id="e09top_b" >
+				<div id="loginDiv">
+
+				 <script type="text/javascript" src="http://i.eol.cn/js_new/common.js"></script>
+				<script type="text/javascript" src="/js/login_gbk_2010_sub.js"></script>
+				<script type="text/javascript">
+				Passport.isLogin('loginSpan');
+				</script>
+				</div>
+				<iframe id="loginifr" name="loginifr" style="display:none;"></iframe>
+			</div>			
+		  <div id="e09top_s">
+
+		<form id="w" name="soFom" action="http://sou.eol.cn/search.s" method="post" accept-charset="utf-8" onsubmit="document.charset='utf-8';" >
+<input type="text" name="all"  id="q" value="请输入关键词" onfocus="if(this.value!='请输入关键词'){this.style.color='#000'}else{this.value='';this.style.color='#888'}" onblur="if(this.value==''){this.value='请输入关键词';this.style.color='#888'}" onkeydown="this.style.color='#000'"  />
+<input type="hidden" name="showCommand" value="true"/><input type="hidden" name="type" value="facet"/><input type="hidden" name="selectStyle" value="cat"/><input type="hidden" name="newq" value="1"/><input type="hidden" name="facet.field" value="keywords"/>
+<a href="#" onClick="checkForm();" target="_self" >搜索</a>
+			</form>
+<script>
+function checkForm()
+{
+if(document.getElementById('q').value == '请输入关键词')
+{ 
+document.getElementById('q').value = '中国教育在线';
+}
+document.charset='utf-8';
+document.soFom.submit();
+}
+</script>
+
+		  </div>		
+	</div>
+
+	<div id="glbt2">
+
+		<div id="glbdh">
+		<a href="http://www.eol.cn" target="_top">首页</a>|
+		<a href="http://gaokao.eol.cn" target="_top" style="color:red;">高考</a>|
+		<a href="http://www.kaoyan.cn" target="_top">考研</a>|
+		<a href="http://zaizhi.eol.cn" target="_top">在职</a>|
+		<a href="http://zikao.eol.cn" target="_top">自考</a>|
+		<a href="http://chengkao.eol.cn" target="_top">成考</a>|
+		<a href="http://en.eol.cn" target="_top">外语</a>|
+		<a href="http://zige.eol.cn" target="_top">资格考试</a>|
+        <a href="http://itpx.eol.cn" target="_top">IT</a> |
+		<a href="http://gongwuyuan.eol.cn" target="_top">公务员</a>|
+		<a href="http://liuxue.eol.cn" target="_top">留学</a>|
+		<a href="http://teacher.eol.cn" target="_top">教师招聘</a>|
+		<a href="http://career.eol.cn" target="_top">校园招聘</a>|
+        <a href="http://shengya.eol.cn" target="_top">生涯规划</a>|
+		<a href="http://campus.eol.cn" target="_top">校园</a>|
+		<a href="http://bbs.eol.cn" target="_top">社区</a>|
+		<a href="http://haiwai.eol.cn" target="_top">海外名校</a>|
+		<a href="http://shop.eol.cn" target="_top">书店</a>|
+		<a href="http://jijiao.eol.cn">中小学</a>|
+		</div>
+
+		<iframe id="glbloc" src="/templates/loc0710.html" frameborder="0" scrolling="no" height="25" width="120" allowTransparency="true"></iframe>
+		<div style="clear:both;"></div>
+	</div>
+		<div id="selloc" style="display:none;" onclick="javascript:showsel();">
+			<ul>
+			<li><a href="http://beijing.eol.cn" target="_top">北京</a></li>
+			<li><a href="http://guangdong.eol.cn" target="_top">广东</a></li>
+
+			<li><a href="http://shanghai.eol.cn" target="_top">上海</a></li>
+			<li><a href="http://shandong.eol.cn" target="_top">山东</a></li>
+			<li><a href="http://jiangsu.eol.cn" target="_top">江苏</a></li>
+			<li><a href="http://sichuan.eol.cn" target="_top">四川</a></li>
+			<li><a href="http://zhejiang.eol.cn" target="_top">浙江</a></li>
+			<li><a href="http://henan.eol.cn" target="_top">河南</a></li>
+
+			<li><a href="http://liaoning.eol.cn" target="_top">辽宁</a></li>
+			<li><a href="http://shaanxi.eol.cn" target="_top">陕西</a></li>
+			<li><a href="http://hubei.eol.cn" target="_top">湖北</a></li>
+			<li><a href="http://hunan.eol.cn" target="_top">湖南</a></li>
+			<li><a href="http://fujian.eol.cn" target="_top">福建</a></li>
+			<li><a href="http://chongqing.eol.cn" target="_top">重庆</a></li>
+
+			<li><a href="http://anhui.eol.cn" target="_top">安徽</a></li>
+			<li><a href="http://hebei.eol.cn" target="_top">河北</a></li>
+			<li><a href="http://shanxi.eol.cn" target="_top">山西</a></li>
+			<li><a href="http://guangxi.eol.cn" target="_top">广西</a></li>
+			<li><a href="http://jiangxi.eol.cn" target="_top">江西</a></li>
+			<li><a href="http://gansu.eol.cn" target="_top">甘肃</a></li>
+
+			<li><a href="http://tianjin.eol.cn" target="_top">天津</a></li>
+			<li><a href="http://guizhou.eol.cn" target="_top">贵州</a></li>
+			<li><a href="http://jilin.eol.cn" target="_top">吉林</a></li>
+			<li><a href="http://hainan.eol.cn" target="_top">海南</a></li>
+			<li><a href="http://yunnan.eol.cn" target="_top">云南</a></li>
+			<li><a href="http://xinjiang.eol.cn" target="_top">新疆</a></li>
+
+			<li><a href="http://ningxia.eol.cn" target="_top">宁夏</a></li>
+			<li><a href="http://qinghai.eol.cn" target="_top">青海</a></li>
+			<li><a href="http://xizang.eol.cn" target="_top">西藏</a></li>
+			<li><a href="http://heilongjiang.eol.cn" target="_top">黑龙江</a></li>
+			<li><a href="http://neimenggu.eol.cn" target="_top">内蒙古</a></li>
+			</ul>
+
+		</div>
+</div>
+<script src="http://www.eol.cn/include/cer.net/page/script.js" type="text/javascript"></script></td>
+  </tr>
+</table>
+<!-- <table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table> -->
+﻿<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="199"><a href="http://cksp.eol.cn/tutor_index.php"><img src="images/logo.gif" width="199" height="63" border="0" /></a></td>
+    <td width="711" valign="top" background="images/nav_bg.jpg"><table width="690" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="35" align="right" class="colW"><!-- 个人中心登录
+          <label>
+          <input type="text" name="textfield" style="width:100px" />
+          </label>                                   
+          密码
+          <label>
+          <input type="text" name="textfield2" style="width:60px" />
+          </label>                           
+          <a href="#" class="colW">通行证登录</a> |  <a href="#" class="colW">注册</a> |  <a href="#" class="colW">帮助</a> --></td>
+      </tr>
+    </table>
+      <table width="690" border="0" align="center" cellpadding="0" cellspacing="0" class="nav" >
+  <tr>
+    <td width="69" height="22" class="bor_R"><a href="http://www.eol.cn" target="_blank" class="f_12b_blue"><strong>eol首页</strong></a></td>
+    <td width="69" class="bor_R"><a href="http://kaoyan.eol.cn" target="_blank" class="f_12b_blue"><strong>考研</strong></a></td>
+    <td width="69" class="bor_R"><a href="http://baoming.kaoyan.eol.cn/" target="_blank" class="f_12b_blue"><strong>报名指南</strong></a></td>
+    <td width="69" class="bor_R"><a href="http://kaoyan.eol.cn/fu_xi_gui_hua_3979/" target="_blank" class="f_12b_blue"><strong>复习方法</strong></a></td>
+    <td width="69" class="bor_R"><a href="http://zhenti.kaoyan.eol.cn/" target="_blank" class="f_12b_blue"><strong>试题中心</strong></a></td>
+    <td width="69" class="bor_R"><a href="http://kaoyan.eol.cn/zheng_ce_bian_hua_3936/" target="_blank" class="f_12b_blue"><strong>政策</strong></a></td>
+    <td width="69" class="bor_R"><a href="http://kaoyan.eol.cn/jing_yan_jiao_liu_3913/" target="_blank" class="f_12b_blue"><strong>经验</strong></a></td>
+    <td width="69" class="bor_R"><a href="http://bbs.eol.cn/forumdisplay.php?fid=277 " target="_blank" class="f_12b_blue"><strong>论坛</strong></a></td>
+    <td width="69" class="bor_R"><a href="http://i.eol.cn/group_page.php?id=5613" target="_blank" class="f_12b_blue"><strong>群组</strong></a></td>
+    <td width="69"><a href="http://blog.edu.cn" target="_blank" class="f_12b_blue"><strong>博客</strong></a></td>
+  </tr>
+</table>
+</td>
+  </tr>
+</table><table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0" >
+  <tr><td width="10">&nbsp;</td>
+    <td>您现在所在的位置：<a href="http://www.eol.cn" target="_blank">eol首页</a>&gt; <a href="http://kaoyan.eol.cn/" target="_blank">考研</a> &gt;研究生导师库</td>
+    
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="666">
+	<table width="666" border="0" cellpadding="0" cellspacing="10" class="borBlue bg01">
+      <tr>
+        <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<form action ="tutor_search.php" method="get">
+		<input type="hidden" name="do" value="q_search">
+          <tr> 
+		  <td width="12%" align="right"><strong class="f_14">搜索导师 &nbsp;</strong></td>
+            <td width="88%">
+              <input type="text" name="keyword" style="width:400px" value="请输入关键字" onmouseover="this.select();if(this.value=='请输入关键字')this.value='';" onmouseout="if(this.value=='')this.value='请输入关键字';"/> 
+              <input type="submit" name="Submit" value="搜 索" class="btn_search" />
+              <strong><a href="tutor_c_search.php?do=q_search" class="f_12u_blue">高级搜索&gt;&gt;</a></strong></td>           
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>
+            <input type="radio" name="key" checked value="name"/>
+            导师姓名     
+            <input type="radio" name="key"  value="special" />
+            招生专业     
+            <input type="radio" name="key"  value="comname" />
+            所在院校     
+            <input type="radio" name="key"  value="research" />
+            研究领域</td>
+          </tr>
+		  </form>
+        </table></td>
+      </tr>
+    </table>	</td>
+    <td width="10">&nbsp;</td>
+    <td width="234" valign="top"><table width="234" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top">
+		<!-- 导师快速分类查询 -->
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="ban01">
+<tr>
+<td>导师快速分类查询</td>
+</tr>
+</table>
+<table width="234" border="0" align="center" cellpadding="0" cellspacing="2" class="borBlue_top">
+  <tr>
+    <td align="center"><span style="border:1px solid #fed293;padding:3px 15px;background:url(../images/qiehu.gif);"><a href="tutor_search.php?do=b_search&type=211&is211=211%E9%99%A2%E6%A0%A1" target="_blank">211院校</a></span></td>
+    <td align="center"><span style="border:1px solid #fed293;padding:3px 20px;background:url(../images/qiehu.gif); width:5px"><a href="tutor_search.php?do=b_search&type=985&is985=985%E9%99%A2%E6%A0%A1" target="_blank">985院校</a></span></td>
+  </tr>
+  <tr >
+    <td  align="center">
+	<span style="border:1px solid #fed293;padding:3px 24px;background:url(../images/qiehu.gif); width:5px"><a href="tutor_search.php?do=b_search&zw=ys&type=%E9%99%A2%E5%A3%AB&duty=%E9%99%A2%E5%A3%AB" target="_blank">院士</a></span>
+	</td>
+    <td align="center"><span style="border:1px solid #fed293;padding:3px 23px;background:url(../images/qiehu.gif); width:5px"><a href="tutor_search.php?do=b_search&xb=nys&sex=%E5%A5%B3%E9%99%A2%E5%A3%AB&type=%E5%A5%B3%E9%99%A2%E5%A3%AB" target="_blank">女院士</a></span></td>
+  </tr>
+</table>		</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10" ></td>
+  </tr>
+</table>
+<div align="center">
+<table width="910" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #ccc;">
+  <tr>
+    <td width="134" height="50" align="left" style="padding-left:4px"><a href="http://souky.eol.cn/HomePage/index_141.html" target="_blank"><img src="http://img.eol.cn/html/2007ky/images/dhdx-10ky120-40.jpg" width="120" height="40" border="0" /></a></td>
+    <td width="130"align="left"><a href="http://souky.eol.cn/HomePage/index_128.html" target="_blank"><img src="http://img.eol.cn/images/cer.net/kaoyan/2009/whfzdx-11ky12040.jpg" width="120" height="40" border="0" /></a></td>
+    <td width="130"align="left"><a href="http://souky.eol.cn/HomePage/index_117.html" target="_blank"><img src="http://img.eol.cn/images/cer.net/kaoyan/gjgxxy-08ky115-40.jpg" width="120" height="40" border="0" /></a></td>
+    <td width="130"align="left"><a href="http://souky.eol.cn/HomePage/index_393.html" target="_blank"><img src="http://img.eol.cn/images/cer.net/kaoyan/dizhi11540.jpg" width="120" height="40" border="0" /></a></td>
+    <td width="130"align="left"><a href="http://souky.eol.cn/HomePage/index_194.html" target="_blank"><img src="http://img.eol.cn/html/ky/2011yz/images/zgnydx.gif" width="120" height="40" border="0" /></a></td>
+    <td width="130"align="left"><a href="http://yjsy.ncepu.edu.cn:8080/zhaoshengxinxiwang/" target="_blank"><img src="http://img.eol.cn/images/cer.net/kaoyan/2009/hbdldx-11ky120-40.gif" width="120" height="40" border="0" /></a></td>
+    <td width="124"align="left"><a href="http://souky.eol.cn/HomePage/index_2.html" target="_blank"><img src="http://img.eol.cn/html/2007ky/images/hbdx-10ky120-40.jpg" width="120" height="40" border="0" /></a></td>
+  </tr>
+</table>
+</div>
+<!--<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="121"><img src="images/ad120x40.jpg" width="120" height="40" /></td>
+    <td width="10">&nbsp;</td>
+    <td width="121"><img src="images/ad120x40.jpg" width="120" height="40" /></td>
+    <td width="10">&nbsp;</td>
+    <td width="121"><img src="images/ad120x40.jpg" width="120" height="40" /></td>
+    <td width="10">&nbsp;</td>
+    <td width="121"><img src="images/ad120x40.jpg" width="120" height="40" /></td>
+    <td width="10">&nbsp;</td>
+    <td width="121"><img src="images/ad120x40.jpg" width="120" height="40" /></td>
+    <td width="10">&nbsp;</td>
+    <td width="121"><img src="images/ad120x40.jpg" width="120" height="40" /></td>
+    <td width="10">&nbsp;</td>
+    <td width="124"><img src="images/ad120x40.jpg" width="120" height="40" /></td>
+  </tr>
+</table>--><!--#include virtual="http://kaoyan.eol.cn/include/cer.net/ad/kaoyan/fangtan_ad.shtml"-->
+ <table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10" ></td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="666" valign="top" class="borBlue_top">
+	<table width="666" height="25" border="0" cellpadding="0" cellspacing="1" background="images/ban_bg.gif" class="borBlue2">
+      <tr>
+        <td height="0" class="ban_L01">硕士研究生导师</td>
+		<td width="8%"><a href="tutor_search.php?page=1&do=search&dstype=2&key=硕士导师">更多>></a></td>
+        </tr>
+    </table>	
+	<DIV id="demo" style="OVERFLOW: hidden; WIDTH:664PX;">
+	<TABLE cellSpacing="0" cellPadding="0"  border="0">       
+	<TR>
+	  <TD id="demo1" vAlign="top">
+	<table width="665" border="0" cellpadding="0" cellspacing="10">
+    <tr>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=19" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539545_face_uuxv.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E8%A5%BF%E5%AE%89%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6" title="西安交通大学" target="_blank">西安交通大学</a> <a href="tutor_detail.php?id=19" target="_blank">王国林</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%87%91%E8%9E%8D%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2" title="金融学" target="_blank">
+		 金融学</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=20" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539545_face_442e.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E8%A5%BF%E5%AE%89%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6" title="西安交通大学" target="_blank">西安交通大学</a> <a href="tutor_detail.php?id=20" target="_blank">王茜草</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E5%9B%BD%E9%99%85%E8%B4%B8%E6%98%93%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2" title="国际贸易学" target="_blank">
+		 国际贸..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=21" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539545_face_k4n4.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E8%A5%BF%E5%AE%89%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6" title="西安交通大学" target="_blank">西安交通大学</a> <a href="tutor_detail.php?id=21" target="_blank">宋丽颖</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E8%B4%A2%E6%94%BF%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2" title="财政学" target="_blank">
+		 财政学</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=22" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539545_face_ugi4.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E8%A5%BF%E5%AE%89%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6" title="西安交通大学" target="_blank">西安交通大学</a> <a href="tutor_detail.php?id=22" target="_blank">周琳</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E4%BA%A7%E4%B8%9A%E7%BB%8F%E6%B5%8E%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2" title="产业经济学" target="_blank">
+		 产业经..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=23" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539545_face_zdsv.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E8%A5%BF%E5%AE%89%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6" title="西安交通大学" target="_blank">西安交通大学</a> <a href="tutor_detail.php?id=23" target="_blank">王文博</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E7%BB%9F%E8%AE%A1%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2" title="统计学" target="_blank">
+		 统计学</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=88" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539570_face_2xcx.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=88" target="_blank">张峥</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E6%9D%90%E6%96%99%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2" title="材料学" target="_blank">
+		 材料学</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=97" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539575_face_wm3n.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=97" target="_blank">张佐光</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E6%9D%90%E6%96%99%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2" title="材料学" target="_blank">
+		 材料学</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=123" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539586_face_b3zk.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=123" target="_blank">白明</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=124" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539586_face_j2h2.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=124" target="_blank">常青</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=125" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539586_face_r5pn.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=125" target="_blank">陈炜</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=126" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539586_face_r1x1.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=126" target="_blank">陈杰</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=127" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539590_face_9ror.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=127" target="_blank">陈星</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=128" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539590_face_bezf.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=128" target="_blank">陈爱新</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=129" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539590_face_6ebw.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=129" target="_blank">邓晖</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=130" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539590_face_7wcf.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=130" target="_blank">冯文全</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=131" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539590_face_z1x1.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=131" target="_blank">高强</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=132" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539590_face_bkcx.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=132" target="_blank">胡国英</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=133" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539591_face_70ur.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=133" target="_blank">洪韬</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=134" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539591_face_xavt.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=134" target="_blank">寇艳红</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+      <td><table width="114" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=135" target="_blank"><img src="http://p.img.eol.cn/images/1014/2010/0115/1263539591_face_j2z2.jpg"  class="img_01" width="100px" height="130px"/></a>
+		</td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=135" target="_blank">李晓白</a></nobr><br/>招生专业：
+         <nobr>
+		 <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=%E6%90%9C%E7%B4%A2" title="通信与信息系统" target="_blank">
+		 通信与..</a></nobr></td>
+      </tr>
+    </table></td>
+    </tr>
+</table>
+</TD>
+   <TD id="demo2" vAlign="top"></TD>
+</TR>
+</TABLE>
+</DIV>
+
+</td>
+    <td width="10">&nbsp;</td>
+<!--<td width="234" valign="top" class="borBlue bg01"> -->
+<td width="234" valign="top" class="borBlue">
+<!-- 考研搜索 -->
+<table width="100%">
+<tr >
+<td class="borBlue"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="25" bgcolor="#f2f7ff" class="f_14 colO">&nbsp;<strong>研究生招生报名查询系统</strong></td>
+          </tr>
+    </table>
+	<table width="100%" border="0" cellpadding="0" cellspacing="8" >
+  <tr>
+    <td><table width="100%" border="0" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td class="kk01" id="ss_1" onmouseover="javascript:ss(1);">找学校 </td>
+        <td class="kk02" id="ss_2" onmouseover="javascript:ss(2);">查专业</td>
+        <td class="kk02" id="ss_3" onmouseover="javascript:ss(3);">招生简章</td>
+        <td class="kk04" id="ss_4" onmouseover="javascript:ss(4);">分数线</td>
+      </tr>
+    </table><table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="8"></td>
+  </tr>
+</table>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" id="ss_1c" >
+	<form name="Form1" action="tutor_index.php" method="get" target="_blank">
+  <tr>
+    <td>
+      <input type="text" name="searchword" style="width:120px;color: rgb(136, 136, 136);" onkeydown="this.style.color='#000'" onblur="if(this.value==''){this.value='北京大学';this.style.color='#888'}" onfocus="if(this.value!='北京大学'){this.style.color='#000'}else{this.value='';this.style.color='#888'}" value="北京大学">
+	  <input type="hidden" name="s_school"  value="搜索" />	 
+      <input type="submit" name="s_school" value="搜索" class="btn_search02" />
+    </td>
+  </tr>
+ </form>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="ss_2c" style="display:none">
+<form name="Form2" action="tutor_index.php" method="get" target="_blank">
+  <tr>
+    <td>
+      <input type="text" name="searchword" style="width:120px;color: rgb(136, 136, 136);" onkeydown="this.style.color='#000'" onblur="if(this.value==''){this.value='金融学';this.style.color='#888'}" onfocus="if(this.value!='金融学'){this.style.color='#000'}else{this.value='';this.style.color='#888'}" value="金融学">
+	   <input type="hidden" name="s_special"  value="搜索" />
+      <input type="submit" name="s_special" value="搜索" class="btn_search02" />
+    </td>
+  </tr>
+</form>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="ss_3c" style="display:none">
+<form name="Form3" action="tutor_index.php" method="get" target="_blank"> 
+<tr>
+    <td>
+      <input type="text" name="searchkey" style="width:120px;color: rgb(136, 136, 136);" onkeydown="this.style.color='#000'" onblur="if(this.value==''){this.value='北京大学';this.style.color='#888'}" onfocus="if(this.value!='北京大学'){this.style.color='#000'}else{this.value='';this.style.color='#888'}" value="北京大学">
+	   <input type="hidden" name="s_jz"  value="搜索" />
+      <input type="submit" name="s_jz" value="搜索" class="btn_search02" />
+   </td>
+  </tr> 
+ </form>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="ss_4c" style="display:none">
+  <tr>
+    <td>
+	   国家初试合格线
+	   <select name="nianfen" onchange=openhz(this.value) style="width:100px">
+        <option selected>请选择查询年份</option>
+		<option value="http://kaoyan.eol.cn/nnews_6152/20100322/t20100322_459048.shtml">2010</option>
+		<option value="http://kaoyan.eol.cn/nnews_6152/20090403/t20090403_370633.shtml">2009</option>
+		<option value="http://kaoyan.eol.cn/nnews_6152/20080331/t20080331_288491.shtml">2008</option>
+
+		<option value="http://kaoyan.eol.cn/fu_shi_tiao_ji_3927/20070329/t20070329_225400.shtml">2007</option>
+        <option value="http://kaoyan.eol.cn/06_fsx_4012/20060323/t20060323_168927.shtml">2006</option>
+	  	<option value="http://kaoyan.eol.cn/fu_shi_fsx_3774/20060323/t20060323_121453.shtml">2005</option>
+	  	<option value="http://kaoyan.eol.cn/article/20040330/3102731.shtml">2004</option>
+		<option value="http://kaoyan.eol.cn/wang_nian_fen_shu_3985/20060323/t20060323_71295.shtml">2003</option>
+		<option value="http://kaoyan.eol.cn/wang_nian_fen_shu_3985/20060323/t20060323_47102.shtml">2002</option>
+</select>
+
+   </td>
+  </tr>
+</table>
+ <script>function openhz(v) {window.open(v);}
+  </script></td>
+</tr>
+  <tr>
+    <td>
+      <span class="colO">各地热招：</span>
+      <a href="http://kaoyan.eol.cn/html/ky/yanzhao2013/#bj" target="_blank"> 京</a> 
+      <a href="http://kaoyan.eol.cn/html/ky/yanzhao2013/#tj" target="_blank">津</a> 
+      <a href="http://kaoyan.eol.cn/html/ky/yanzhao2013/#sh" target="_blank">沪</a> 
+      <a href="http://kaoyan.eol.cn/html/ky/yanzhao2013/#js" target="_blank">苏</a> 
+      <a href="http://kaoyan.eol.cn/html/ky/yanzhao2013/" target="_blank">更多&gt;&gt;</a>
+    </td>
+  </tr>
+</table><table width="100%" border="0" cellpadding="0" cellspacing="0" class="bor_dash">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table> <table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table> <table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td class="f_14 colO"><strong>&nbsp;热门搜索</strong></td>
+  </tr>
+</table><table width="100%">
+  <tr>
+    <td>院校：<a href="http://souky.eol.cn/isschool.php?id=112000200" target="_blank">中国人民大学</a> <a href="http://souky.eol.cn/isschool.php?id=352000100" target="_blank">厦门大学</a><br />
+      专业：<a href="tutor_index.php?searchword=经济学&s_special=搜索" target="_blank">经济学</a> <a href="tutor_index.php?searchword=管理学&s_special=搜索" target="_blank">管理学</a> <a href="tutor_index.php?searchword=计算机&s_special=搜索" target="_blank">计算机</a><br />
+      <!--专业：经济学 管理学 计算机 --></td>
+  </tr>
+</table></td>
+  </tr>
+</table>
+</td>
+  </tr>
+</table>
+
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="450"><a href="http://kaoyan.eol.cn/html/ky/daoshi/" target="_blank"><img src="http://img.eol.cn/images/cer.net/kaoyan/2009/super.jpg" alt="导师看专业系列访谈" width="450" height="40" border="0" /></a></td>
+    <td width="10">&nbsp;</td>
+    <td width="450"><a href="http://kaoyan.eol.cn/html/ky/ft2013/" target="_blank"><img src="http://img.eol.cn/images/cer.net/kaoyan/2009/ft.jpg" alt="全国高校研招办主任视频访谈" width="450" height="40" border="0" /></a></td>
+  </tr>
+</table><table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="664" valign="top"  class="borBlue_top">
+	<table width="664" height="25" border="0" cellpadding="1" cellspacing="0" background="images/ban_bg.gif" class="borBlue2">
+      <tr>
+        <td height="0" class="ban_L01" width="90%">博士研究生导师</td><td width="8%"><a href="tutor_search.php?page=1&do=search&dstype=1&key=博士导师">更多>></a></td>
+      </tr>
+    </table>
+    <DIV id="c_demo" style="OVERFLOW: hidden; WIDTH:664PX;" >
+	<TABLE cellSpacing="0" cellPadding="0"  border="0">       
+	<TR>
+	<TD id="c_demo1" vAlign="top" >
+	<table width="665" border="0" cellpadding="0" cellspacing="10">
+    <tr>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=11" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539545_face_gm8m.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E4%B8%AD%E5%8C%BB%E8%8D%AF%E5%A4%A7%E5%AD%A6" title="北京中医药大学" target="_blank">北京中医药大..</a> <a href="tutor_detail.php?id=11" target="_blank">郭霞珍</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=%E4%B8%AD%E5%8C%BB%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA&s_special=%E6%90%9C%E7%B4%A2"  title="中医基础理论" target="_blank">中医基..</a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=13" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539545_face_8q69.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E4%B8%AD%E5%8C%BB%E8%8D%AF%E5%A4%A7%E5%AD%A6" title="北京中医药大学" target="_blank">北京中医药大..</a> <a href="tutor_detail.php?id=13" target="_blank">金光亮</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=%E4%B8%AD%E5%8C%BB%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA&s_special=%E6%90%9C%E7%B4%A2"  title="中医基础理论" target="_blank">中医基..</a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=14" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539545_face_to5o.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E4%B8%AD%E5%8C%BB%E8%8D%AF%E5%A4%A7%E5%AD%A6" title="北京中医药大学" target="_blank">北京中医药大..</a> <a href="tutor_detail.php?id=14" target="_blank">孟庆刚</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=%E4%B8%AD%E5%8C%BB%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA&s_special=%E6%90%9C%E7%B4%A2"  title="中医基础理论" target="_blank">中医基..</a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=15" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539545_face_flil.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E4%B8%AD%E5%8C%BB%E8%8D%AF%E5%A4%A7%E5%AD%A6" title="北京中医药大学" target="_blank">北京中医药大..</a> <a href="tutor_detail.php?id=15" target="_blank">钱会南</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=%E4%B8%AD%E5%8C%BB%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA&s_special=%E6%90%9C%E7%B4%A2"  title="中医基础理论" target="_blank">中医基..</a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=16" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539545_face_341l.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E4%B8%AD%E5%8C%BB%E8%8D%AF%E5%A4%A7%E5%AD%A6" title="北京中医药大学" target="_blank">北京中医药大..</a> <a href="tutor_detail.php?id=16" target="_blank">苏晶</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=%E4%B8%AD%E5%8C%BB%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA&s_special=%E6%90%9C%E7%B4%A2"  title="中医基础理论" target="_blank">中医基..</a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=17" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539545_face_a4j5.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E4%B8%AD%E5%8C%BB%E8%8D%AF%E5%A4%A7%E5%AD%A6" title="北京中医药大学" target="_blank">北京中医药大..</a> <a href="tutor_detail.php?id=17" target="_blank">王琦</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=%E4%B8%AD%E5%8C%BB%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA&s_special=%E6%90%9C%E7%B4%A2"  title="中医基础理论" target="_blank">中医基..</a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=25" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539550_face_w5p5.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E4%B8%AD%E5%9B%BD%E8%88%AA%E5%A4%A9%E7%A7%91%E5%B7%A5%E9%9B%86%E5%9B%A2" title="中国航天科工集团" target="_blank">中国航天科工..</a> <a href="tutor_detail.php?id=25" target="_blank">于本水</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=&s_special=%E6%90%9C%E7%B4%A2"  title="" target="_blank"></a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=26" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539550_face_qywz.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E6%B5%B7%E5%86%9B%E5%B7%A5%E7%A8%8B%E5%A4%A7%E5%AD%A6" title="海军工程大学" target="_blank">海军工程大学</a> <a href="tutor_detail.php?id=26" target="_blank">马伟明</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=&s_special=%E6%90%9C%E7%B4%A2"  title="" target="_blank"></a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=28" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539550_face_ghfu.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=28" target="_blank">王　浚</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=&s_special=%E6%90%9C%E7%B4%A2"  title="" target="_blank"></a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=30" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539550_face_h9aq.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E5%8C%96%E5%B7%A5%E5%A4%A7%E5%AD%A6%EF%BC%9B%E5%A4%A9%E6%B4%A5%E5%A4%A7%E5%AD%A6" title="北京化工大学；天津大学" target="_blank">北京化工大学..</a> <a href="tutor_detail.php?id=30" target="_blank">王玉明</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=&s_special=%E6%90%9C%E7%B4%A2"  title="" target="_blank"></a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=31" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539550_face_uvxd.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E8%A5%BF%E5%8C%97%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="西北工业大学" target="_blank">西北工业大学</a> <a href="tutor_detail.php?id=31" target="_blank">王兴治</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=&s_special=%E6%90%9C%E7%B4%A2"  title="" target="_blank"></a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=33" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539550_face_zp6q.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6%EF%BC%9B%E5%8D%97%E4%BA%AC%E8%88%AA%E7%A9%BA%E8%88%AA%E5%A4%A9%E5%A4%A7%E5%AD%A6" title="北京航空航天大学；南京航空航天大学" target="_blank">北京航空航天..</a> <a href="tutor_detail.php?id=33" target="_blank">冯培德</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=&s_special=%E6%90%9C%E7%B4%A2"  title="" target="_blank"></a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=36" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539555_face_sjg2.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%B1%B1%E4%B8%9C%E5%A4%A7%E5%AD%A6%E6%9C%BA%E6%A2%B0%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2" title="山东大学机械工程学院" target="_blank">山东大学机械..</a> <a href="tutor_detail.php?id=36" target="_blank">艾　兴</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=&s_special=%E6%90%9C%E7%B4%A2"  title="" target="_blank"></a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=39" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539555_face_veue.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E7%82%AE%E5%85%B5%E5%AD%A6%E9%99%A2%E5%8D%97%E4%BA%AC%E5%88%86%E9%99%A2" title="炮兵学院南京分院" target="_blank">炮兵学院南京..</a> <a href="tutor_detail.php?id=39" target="_blank">刘怡昕</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=&s_special=%E6%90%9C%E7%B4%A2"  title="" target="_blank"></a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=40" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539555_face_xf1g.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E6%95%99%E8%82%B2%E9%83%A8%E7%A7%91%E6%8A%80%E5%A7%94%E7%AE%A1%E7%90%86%E7%A7%91%E5%AD%A6%E9%83%A8" title="教育部科技委管理科学部" target="_blank">教育部科技委..</a> <a href="tutor_detail.php?id=40" target="_blank">刘人怀</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=&s_special=%E6%90%9C%E7%B4%A2"  title="" target="_blank"></a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=41" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539555_face_k4o4.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8D%8E%E5%8C%97%E7%94%B5%E5%8A%9B%E5%A4%A7%E5%AD%A6" title="华北电力大学" target="_blank">华北电力大学</a> <a href="tutor_detail.php?id=41" target="_blank">杨奇逊</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=%E7%94%B5%E6%B0%94%E5%B7%A5%E7%A8%8B%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2"  title="电气工程学" target="_blank">电气工..</a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=42" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539555_face_p314.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8D%8E%E5%8C%97%E7%94%B5%E5%8A%9B%E5%A4%A7%E5%AD%A6" title="华北电力大学" target="_blank">华北电力大学</a> <a href="tutor_detail.php?id=42" target="_blank">黄其励</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=%E8%83%BD%E6%BA%90%E4%B8%8E%E5%8A%A8%E5%8A%9B%E5%B7%A5%E7%A8%8B%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2"  title="能源与动力工程学" target="_blank">能源与..</a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=43" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539555_face_wxhx.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8D%8E%E5%8C%97%E7%94%B5%E5%8A%9B%E5%A4%A7%E5%AD%A6" title="华北电力大学" target="_blank">华北电力大学</a> <a href="tutor_detail.php?id=43" target="_blank">陈蕴博</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=%E8%83%BD%E6%BA%90%E4%B8%8E%E5%8A%A8%E5%8A%9B%E5%B7%A5%E7%A8%8B%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2"  title="能源与动力工程学" target="_blank">能源与..</a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=46" target="_blank">
+		<img src="images/pic100x130.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="北京工业大学" target="_blank">北京工业大学</a> <a href="tutor_detail.php?id=46" target="_blank">李晓阳</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2"  title="流体力学" target="_blank">流体力..</a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+        <td>
+	 <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><a href="tutor_detail.php?id=47" target="_blank">
+		<img  src="http://p.img.eol.cn/images/1014/2010/0115/1263539555_face_9wbr.jpg"  width="100px" height="130px" class="img_01" /></a></td>
+      </tr>
+      <tr>
+        <td><nobr><a href="tutor_search.php?do=q_search&key=comname&keyword=%E5%8C%97%E4%BA%AC%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="北京工业大学" target="_blank">北京工业大学</a> <a href="tutor_detail.php?id=47" target="_blank">杨庆生</a></nobr><br/>招生专业:
+        <nobr><a href="tutor_index.php?searchword=%E5%B7%A5%E7%A8%8B%E5%8A%9B%E5%AD%A6&s_special=%E6%90%9C%E7%B4%A2"  title="工程力学" target="_blank">工程力..</a></nobr></td>
+      </tr>
+    </table>	
+	</td>
+    	
+  </tr>
+</table>
+</TD>
+   <TD id="c_demo2" vAlign=top></TD>
+</TR>
+</TABLE>
+</DIV>
+</td>
+    <td width="10">&nbsp;</td>
+    <td width="234" valign="top">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0"
+	class="ban01">
+	<tr>
+		<td height="25">近期热点</td>
+	</tr>
+</table>
+<table width="234" border="0" cellpadding="0" cellspacing="0"
+	class="borBlue_top">
+	<tr>
+		<td>
+		<table width="214" border="0" align="center" cellpadding="0"
+			cellspacing="0">
+			<tr>
+				<td height="3"></td>
+			</tr>
+			<tr>
+				<td>
+				<ul class="ul_01">
+					<li><a href="http://kaoyan.eol.cn/html/ky/yanzhao2013/" target="_blank">2013年研究生招生生简章、专业目录</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/mianshi/2013.shtml" target="_blank">全国高校2013年最新推荐免试政策汇总 </a></li>
+				          	<li><a href="http://kaoyan.eol.cn/html/ky/2012dg/" target="_blank">中国教育在线：2012考研大纲名师解析</a></li>
+							<li><a href="http://zixunhui.kaoyan.eol.cn/" target="_blank">2013年全国研究生招生现场咨询会活动</a></li>
+					<li><a href="http://dssp.eol.cn/" target="_blank">2013年研究生导师看专业系列访谈活动</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/ft2013/" target="_blank">2013年全国高校研招办主任视频访谈</a></li>
+					<li><a href="http://zhaosheng.kaoyan.eol.cn/" target="_blank">2013年全国研究生招生网上咨询月活动</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/xueke/" target="_blank">编辑推荐：考研十二大学科门类全解析</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/zyjx_hz/index.shtml" target="_blank">编辑推荐：十大考研热门专业深度解读</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/mingxiao/" target="_blank">名校考研之北大、人大、北航、哈工大</a></li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td height="8"></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>      </td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="666" valign="top" class="ban_L02"><table width="666" height="25" border="0" cellpadding="0" cellspacing="2">
+      <tr>
+	    <td width="10" class="f_14W">&nbsp;</td>
+        <td width="653" height="22" class="f_14W">关注排行榜</td>
+      
+      </tr>
+    </table><table width="650" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="8"></td>
+  </tr>
+</table>
+<table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="210"><table width="210" height="24" border="0" cellpadding="0" cellspacing="0" class="ban_L02_01">
+      <tr>
+        <td><strong>受关注导师排行</strong></td>
+      </tr>
+    </table><table width="210" border="0" cellpadding="0" cellspacing="10" class="borGray">
+  <tr>
+    <td valign="top">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	  		  <tr>
+			<td height="22"><img src="images/num_1.gif" /> <a href="http://souky.eol.cn/isschool.php?id=232000200" target="_blank">哈尔滨工业大学</a> <a href="tutor_detail.php?id=9183" target="_blank">于开平</a> <!--1 --></td>
+		  </tr> 
+		  		  <tr>
+			<td height="22"><img src="images/num_2.gif" /> <a href="http://souky.eol.cn/isschool.php?id=112001200" target="_blank">北京中医药大学</a> <a href="tutor_detail.php?id=17" target="_blank">王琦</a> <!--1 --></td>
+		  </tr> 
+		  		  <tr>
+			<td height="22"><img src="images/num_3.gif" /> <a href="http://souky.eol.cn/isschool.php?id=422001700" target="_blank">武汉科技学院</a> <a href="tutor_detail.php?id=27276" target="_blank">夏明桂</a> <!--1 --></td>
+		  </tr> 
+		  		  <tr>
+			<td height="22"><img src="images/num_4.gif" /> <a href="http://souky.eol.cn/isschool.php?id=612000100" target="_blank">西安交通大学</a> <a href="tutor_detail.php?id=19" target="_blank">王国林</a> <!--2 --></td>
+		  </tr> 
+		  		  <tr>
+			<td height="22"><img src="images/num_5.gif" /> <a href="http://souky.eol.cn/isschool.php?id=612000100" target="_blank">西安交通大学</a> <a href="tutor_detail.php?id=20" target="_blank">王茜草</a> <!--2 --></td>
+		  </tr> 
+		  		  <tr>
+			<td height="22"><img src="images/num_6.gif" /> <a href="http://souky.eol.cn/isschool.php?id=612000100" target="_blank">西安交通大学</a> <a href="tutor_detail.php?id=23" target="_blank">王文博</a> <!--1 --></td>
+		  </tr> 
+		  		  <tr>
+			<td height="22"><img src="images/num_7.gif" /> <a href="http://souky.eol.cn/isschool.php?id=332000100" target="_blank">浙江大学</a> <a href="tutor_detail.php?id=11674" target="_blank">范顺武</a> <!--1 --></td>
+		  </tr> 
+		  		  <tr>
+			<td height="22"><img src="images/num_8.gif" /> <a href="http://souky.eol.cn/isschool.php?id=312000300" target="_blank">上海交通大学</a> <a href="tutor_detail.php?id=7955" target="_blank">张杰</a> <!--3 --></td>
+		  </tr> 
+		  	</table></td>
+  </tr>
+  
+</table>
+</td>
+    <td width="10">&nbsp;</td>
+    <td width="210" valign="top"><table width="210" height="24" border="0" cellpadding="0" cellspacing="0" class="ban_L02_01">
+      <tr>
+        <td><strong>受关注院校排行</strong></td>
+      </tr>
+    </table><table width="210" border="0" cellpadding="0" cellspacing="10" class="borGray">
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr>
+    <td height="22"><img src="images/num_1.gif" /> <a href="http://souky.eol.cn/isschool.php?id=122000200" target="_blank">天津大学</a></td>
+  </tr> 
+   <tr>
+    <td height="22"><img src="images/num_2.gif" /> <a href="http://souky.eol.cn/isschool.php?id=112000100" target="_blank">北京大学</a></td>
+  </tr> 
+   <tr>
+    <td height="22"><img src="images/num_3.gif" /> <a href="http://souky.eol.cn/isschool.php?id=502000100" target="_blank">重庆大学</a></td>
+  </tr> 
+   <tr>
+    <td height="22"><img src="images/num_4.gif" /> <a href="http://souky.eol.cn/isschool.php?id=322000200" target="_blank">东南大学</a></td>
+  </tr> 
+   <tr>
+    <td height="22"><img src="images/num_5.gif" /> <a href="http://souky.eol.cn/isschool.php?id=372000100" target="_blank">山东大学</a></td>
+  </tr> 
+   <tr>
+    <td height="22"><img src="images/num_6.gif" /> <a href="http://souky.eol.cn/isschool.php?id=352000100" target="_blank">厦门大学</a></td>
+  </tr> 
+   <tr>
+    <td height="22"><img src="images/num_7.gif" /> <a href="http://souky.eol.cn/isschool.php?id=222000100" target="_blank">吉林大学</a></td>
+  </tr> 
+   <tr>
+    <td height="22"><img src="images/num_8.gif" /> <a href="http://souky.eol.cn/isschool.php?id=312000300" target="_blank">上海交通大学</a></td>
+  </tr> 
+ </table></td>
+  </tr>
+  
+</table></td>
+    <td width="10">&nbsp;</td>
+    <td width="210" valign="top"><table width="210" height="24" border="0" cellpadding="0" cellspacing="0" class="ban_L02_01">
+      <tr>
+        <td><strong>受关注专业排行</strong></td>
+      </tr>
+    </table><table width="210" border="0" cellpadding="0" cellspacing="10" class="borGray">
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+    <td height="22"><img src="images/num_1.gif" /> <a href="tutor_index.php?searchword=%E4%BC%81%E4%B8%9A%E7%AE%A1%E7%90%86&s_special=搜索" target="_blank">企业管理</a></td>
+  </tr>  
+    <tr>
+    <td height="22"><img src="images/num_2.gif" /> <a href="tutor_index.php?searchword=%E7%AE%A1%E7%90%86%E7%A7%91%E5%AD%A6%E4%B8%8E%E5%B7%A5%E7%A8%8B&s_special=搜索" target="_blank">管理科学与工程</a></td>
+  </tr>  
+    <tr>
+    <td height="22"><img src="images/num_3.gif" /> <a href="tutor_index.php?searchword=%E5%BF%83%E7%90%86%E5%AD%A6&s_special=搜索" target="_blank">心理学</a></td>
+  </tr>  
+    <tr>
+    <td height="22"><img src="images/num_4.gif" /> <a href="tutor_index.php?searchword=%E4%BC%9A%E8%AE%A1%E5%AD%A6&s_special=搜索" target="_blank">会计学</a></td>
+  </tr>  
+    <tr>
+    <td height="22"><img src="images/num_5.gif" /> <a href="tutor_index.php?searchword=%E9%87%91%E8%9E%8D%E5%AD%A6&s_special=搜索" target="_blank">金融学</a></td>
+  </tr>  
+    <tr>
+    <td height="22"><img src="images/num_6.gif" /> <a href="tutor_index.php?searchword=%E8%A1%8C%E6%94%BF%E7%AE%A1%E7%90%86&s_special=搜索" target="_blank">行政管理</a></td>
+  </tr>  
+    <tr>
+    <td height="22"><img src="images/num_7.gif" /> <a href="tutor_index.php?searchword=%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F&s_special=搜索" target="_blank">通信与信息系统</a></td>
+  </tr>  
+    <tr>
+    <td height="22"><img src="images/num_8.gif" /> <a href="tutor_index.php?searchword=%E5%A4%96%E5%9B%BD%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%8F%8A%E5%BA%94%E7%94%A8%E8%AF%AD%E8%A8%80%E5%AD%A6&s_special=搜索" target="_blank">外国语言学及应用语言学</a></td>
+  </tr>  
+  </table></td>
+  </tr>
+  
+</table></td>
+  </tr>
+</table>
+</td>
+    <td width="10">&nbsp;</td>
+    <td width="234" valign="top">
+    <table width="234" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="117" class="qq01" id="tw_1" onmouseover="javascript:tw(1);">活动推荐</td>
+		<td width="117" class="qq04" id="tw_2" onmouseover="javascript:tw(2);">专题推荐</td>
+	</tr>
+</table>
+<table width="234" border="0" cellpadding="0" cellspacing="0" class="borBlue_top">
+	<tr>
+		<td>
+		<table width="214" border="0" align="center" cellpadding="0"
+			cellspacing="0" id="tw_1c">
+			<tr>
+				<td height="5"></td>
+			</tr>
+			<tr>
+				<td>
+					<ul class="ul_01">
+					<li><a href="http://www.kaoyan.edu.cn/" target="_blank">教育部2013年研究生招生咨询公益活动</a></li>
+					<li><a href="http://zixunhui.kaoyan.eol.cn/" target="_blank">2013年全国研究生招生现场咨询会举行</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/ft2013/" target="_blank">2013全国高校研招办主任系列视频访谈</a></li>
+					<li><a href="http://zhaosheng.kaoyan.eol.cn/" target="_blank">2013年全国硕士研究生招生网上咨询月</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/2012shanghai/" target="_blank">2012年上海市硕士研究生招生网上咨询</a></li>
+					<li><a href="http://kaoyan.eol.cn/focus_6151/20100512/t20100512_474140.shtml" target="_blank">一方考研八方声援，考研顾问火热招募</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/2010khh/index.shtml" target="_blank">2011年全国研究生招生活动高端研讨会</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/2012zw/" target="_blank">2012年我的考研之路大型有奖征文活动</a></li>
+					<li><a href="http://kaoyan.eol.cn/yuan_xiao_xin_xi_3988/20100414/t20100414_465615.shtml" target="_blank">中国教育在线《院校直通车》高校征集</a></li>
+					<li><a href="http://kaoyan.eol.cn/jing_yan_jiao_liu_3913/20090930/t20090930_411101.shtml" target="_blank">中国教育在线考研频道考友联盟成立</a></li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td height="4"></td>
+			</tr>
+		</table>
+		<table width="214" border="0" align="center" cellpadding="0" cellspacing="0" id="tw_2c" style="display: none">
+			<tr>
+				<td height="5"></td>
+			</tr>
+			<tr>
+				<td>
+				<ul class="ul_01">
+					<li><a href="http://kaoyan.eol.cn/html/ky/10kyqc/" target="_blank">2013年考研全程备考手册</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/zhuanshuo/" target="_blank">全日制专业学位硕士全解读</a></li>
+					<li><a href="http://zhenti.kaoyan.eol.cn/" target="_blank">全国硕士研究生入学考试历年真题解析</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/2010booklz/hz/index.shtml" target="_blank">图书汇总！考研辅导图书系列连载</a></li>
+					<li><a href="http://souky.eol.cn/school_yz.php" target="_blank"><font color="#FF0000">全国招生单位研招办联系方式汇总</font></a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/2012ky/" target="_blank">2012年全国研究生入学考试专题报道</a></li>
+					<li><a href="http://chafen.kaoyan.eol.cn/" target="_blank">2012年考研复试线及复试要求</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/paihang/yjs_2009.shtml" target="_blank">教育部学位中心2009年全国学科排名</a></li>
+					<li><a href="http://kaoyan.eol.cn/kaoyanzn_3941/" target="_blank">2012年考研院校信息、专业介绍、大纲</a></li>
+					<li><a href="http://kaoyan.eol.cn/html/ky/consultant/index.shtml" target="_blank">中国教育在线考研频道专家顾问团</a></li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td height="4"></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>    </td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="450"><a href="http://kaoyan.eol.cn/html/ky/zyml/" target="_blank"><img src="http://img.eol.cn/images/cer.net/kaoyan/2009/sy.jpg" alt="2012年全国硕士研究生招生学科、专业索引" width="450" height="40" border="0" /></a></td>
+    <td width="10">&nbsp;</td>
+    <td width="450"><a href="http://zixunhui.kaoyan.eol.cn/" target="_blank"><img src="http://img.eol.cn/images/cer.net/kaoyan/2009/zxh.jpg" alt="2012年全国研究生招生现场咨询会" width="450" height="40" border="0" /></a></td>
+  </tr>
+</table><table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="666" valign="top" class="ban_L02"><table width="666" height="25" border="0" cellpadding="0" cellspacing="2">
+      <tr>
+	    <td width="10" class="f_14W">&nbsp;</td>
+        <td width="653" height="22" class="f_14W">互动专区</td>
+      
+      </tr>
+    </table><table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="8"></td>
+  </tr>
+</table>
+    <table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="100" class="yy01" id="onL_1" onmouseover="javascript:onL(1);">在线答疑</td>
+        <td width="100" class="yy02" id="onL_2" onmouseover="javascript:onL(2);">群组讨论</td>
+        <td width="100" class="yy02" id="onL_3" onmouseover="javascript:onL(3);">精选博文</td>
+        <td width="100" class="yy02" id="onL_4" onmouseover="javascript:onL(4);"> 考研论坛</td>
+        <td width="250" class="bor_bg">&nbsp;</td>
+      </tr>
+    </table>
+    <table width="650" border="0" align="center" cellpadding="0" cellspacing="10" class="borGray_top">
+      <tr>
+        <td width="384" valign="top"><table width="380" border="0" cellpadding="0" cellspacing="0" id="onL_1c">
+          <tr>
+            <td width="379">
+            <script src="http://dayi.eol.cn/kylist.php?category_id=14&num=1&elite=1" charset="gb2312"></script>
+            <script src="http://dayi.eol.cn/kylist.php?category_id=82&num=2&elite=1" charset="gb2312"></script>
+            <script src="http://dayi.eol.cn/kylist.php?category_id=18&num=1&elite=1" charset="gb2312"></script>
+            <script src="http://dayi.eol.cn/kylist.php?category_id=87&num=1&elite=1" charset="gb2312"></script>
+            <script src="http://dayi.eol.cn/kylist.php?category_id=140&num=1&elite=1" charset="gb2312"></script>
+            </td>
+          </tr>
+        </table>	
+		<table width="380" border="0" cellpadding="0" cellspacing="0" id="onL_2c" style="display:none">
+          <tr>
+            <td width="379">
+            <script src="http://invoke.i.eol.cn/js_group.php?groupid=5613&titlelen=48&limit=4&field=2&charset=utf-8&pith=2"></script>
+            </td>
+          </tr>
+        </table>
+		<table width="380" border="0" cellpadding="0" cellspacing="0" id="onL_3c"  style="display:none">
+		  <tr>
+            <td width="325"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="http://makesi.blog.edu.cn/2010/536655.html">研招会随想 </a></td>
+            <td width="54" class="colO">马克思小</td>
+          </tr>
+		   <tr>
+            <td width="86%"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="http://hehongwei.blog.edu.cn/2010/536663.html">一份愉快的志愿经历 </a></td>
+            <td width="14%" class="colO">David</td>
+          </tr>
+          <tr>
+            <td width="86%"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="http://haiwenky.blog.edu.cn/2010/560152.html">一个“教书先生”的两次曲折考研历程</a></td>
+            <td width="14%" class="colO">万学海文</td>
+          </tr>
+		  <tr>
+            <td width="86%"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="http://kaoyanzhi.blog.edu.cn/2010/547529.html">关于目前很多同学存在的——复习阅读的问题！</a></td>
+            <td width="14%" class="colO">南开老五</td>
+          </tr>
+		  <tr>
+            <td width="86%"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="http://eneol.blog.edu.cn/2010/534522.html">考研热潮激化培训市场竞争，众企业共商如何品牌突围</a></td>
+            <td width="14%" class="colO">抑扬</td>
+          </tr>
+		  <tr>
+            <td width="86%"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="http://wwwcnedu.blog.edu.cn/2010/511320.html">考研教育网跨专业考研选择专业的三大依据</a></td>
+            <td width="14%" class="colO">考研教育</td>
+          </tr>
+        </table>		<table width="380" border="0" cellpadding="0" cellspacing="0" id="onL_4c"  style="display:none">
+		  <tr>
+            <td width="325"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="http://bbs.eol.cn/showthread.php?t=831330">考研十大热门专业深度解析。经典推荐！  </a></td>
+            <td width="54" class="colO">抑扬</td>
+          </tr>
+		   <tr>
+            <td width="86%"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="http://bbs.eol.cn/showthread.php?t=380086">考研24个关键问题详细解答  </a></td>
+            <td width="14%" class="colO">糖果寿司</td>
+          </tr>
+          <tr>
+            <td width="86%"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="http://bbs.eol.cn/showthread.php?t=307696">考研互助中心 大家帮助大家 </a></td>
+            <td width="14%" class="colO">emily</td>
+          </tr>
+		  <tr>
+            <td width="86%"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="http://bbs.eol.cn/showthread.php?t=421796">很全很强大 2011年考研全程备考手册 </a></td>
+            <td width="14%" class="colO">david</td>
+          </tr>
+		  <tr>
+            <td width="86%"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="http://bbs.eol.cn/showthread.php?t=365145">八卦公告：八一八我考研的那点事 </a></td>
+            <td width="14%" class="colO">紫衿</td>
+          </tr>
+		  <tr>
+            <td width="86%"><img src="images/dot.gif" width="3" height="3" align="absmiddle" /> <a href="hhttp://bbs.eol.cn/showthread.php?t=1129150">2010年考研初试应考注意事项</a></td>
+            <td width="14%" class="colO">雷雨</td>
+          </tr>
+        </table>        </td>
+        <td width="234" valign="top">
+<table width="234" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><a href="http://souky.eol.cn/school_yz.php" target="_blank"><img src="http://img.eol.cn/images/cer.net/kaoyan/2009/lx.jpg" alt="全国高校研招办联系方式" width="234" height="60" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td height="10"></td>
+  </tr>
+  <tr>
+    <td><a href="http://kaoyan.eol.cn/html/ky/paihang/2011.shtml" target="_blank"><img src="http://img.eol.cn/images/cer.net/kaoyan/2009/pj.jpg" alt="《2009年中国研究生教育评价报告》" width="234" height="60" border="0" /></a></td>
+  </tr>
+</table></td>
+      </tr>
+    </table></td>
+    <td width="10">&nbsp;</td>
+    <td width="234" valign="top">
+    <table width="234" border="0" cellpadding="0" cellspacing="0"
+	class="ban01">
+	<tr>
+		<td height="25">资料共享</td>
+	</tr>
+</table>
+<table width="234" border="0" cellpadding="0" cellspacing="0"
+	class="borBlue_top">
+	<tr>
+		<td>
+		<table width="214" border="0" align="center" cellpadding="0"
+			cellspacing="0" id="tw_1c">
+			<tr>
+				<td height="6"></td>
+			</tr>
+			<tr>
+				<td>
+				<ul class="ul_01">
+					<li><a href="http://kaoyan.eol.cn/kaoyan_news_3989/20090111/t20090111_354041.shtml">全国高校研究生各专业报录比例全下载</a></li>
+					<li><a href="http://kaoyan.eol.cn/te_bie_guan_zhu_3937/20120527/t20120527_781741.shtml">很励志的2013年考研日历免费下载</a></li>
+					<li><a href="http://kaoyan.eol.cn/yingyu_3977/20120527/t20120527_781742.shtml">32年考研英语真题答案(1980-2011)</a></li>
+					<li><a href="http://kaoyan.eol.cn/yingyu_3977/20120527/t20120527_781740.shtml">刘一男：考研词汇5500笔记完美打印版</a></li>
+					<li><a href="http://kaoyan.eol.cn/yingyu_3977/20111208/t20111208_716894.shtml">新东方：考研英语写作点睛之笔200句</a></li>
+					<li><a href="http://zhenti.kaoyan.eol.cn/#zhengzhi">历年考研政治真题免费下载</a></li>
+					<li><a href="http://zhenti.kaoyan.eol.cn/#yingyu">历年考研英语真题免费下载</a></li>
+					<li><a href="http://zhenti.kaoyan.eol.cn/#shu1">历年考研数学真题免费下载</a></li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td height="8"></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>    </td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table><table width="910" border="0" align="center" cellpadding="0" cellspacing="10" bgcolor="#e3ecf6">
+  <tr>
+    <td class="colG">系统说明：<br />
+      1．使用本查询系统，可以查询到全国各高等院校和科研院所的大部分硕士、博士研究生导师信息。<br />
+      2．本查询系统的信息来源于官方网站，由于公布时间的差异，本系统数据处于动态变化之中，请使用者及时关注。<br />
+      3．如对本系统有任何疑问请与中国教育在线考研频道联系。</td>
+  </tr>
+</table>
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><div id="glbbot">
+	<a href="http://www.eol.cn/html/cer.net/jj.htm">eol.cn简介</a> | 
+	<a href="http://www.eol.cn/html/cer.net/ggzn/index.htm">广告服务</a> | 
+	<a href="http://www.eol.cn/html/cer.net/lx.htm">联系方式</a> | 
+	<a href="http://www.eol.cn/html/cer.net/sm.htm">网站声明</a> | 
+	<a href="http://www.eol.cn/html/cer.net/web/index.htm">网站建设</a> | 
+	<a href="http://www.eol.cn/html/cer.net/hzhb.htm">合作伙伴</a> | 
+	<a href="http://www.eol.cn/html/cer.net/icp.htm">京ICP证020165号</a> | 
+	<a href="http://www.eol.cn/html/cer.net/zhaopinxinxi.htm">招聘信息</a><br />
+	<a href="http://www.edu.cn/20021101/3071378.shtml">中国教育网的严正声明</a> | 版权所有 
+	<a href="http://www.cernet.com">赛尔网络有限公司</a><br />
+	Mail to: <a href="mailto:webmaster@cernet.com">webmaster@cernet.com</a>
+</div>
+
+<div style="height:1px;overflow:hidden;">
+<script type="text/javascript">
+document.write('<img src="http://pv.img.eol.cn/images/cer.net/log/cksp.png?'+Math.round(Math.random()*1e17)+'" width="0" height="0"/>');
+</script>
+<noscript>
+<img src="http://pv.img.eol.cn/images/cer.net/log/cksp.png" width="0" height="0" />
+</noscript>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-4097726-14";
+urchinTracker();
+</script>
+
+
+<!-- ecounter -->
+<script>
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://stat.eol.cn/" : "http://stat.eol.cn/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "mysql.php", 86);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://stat.eol.cn/mysql.php?idsite=86" style="border:0" alt="" /></p></noscript>
+<!-- End ecounter Tag -->
+</td>
+  </tr>
+</table>
+<SCRIPT>
+/*
+var speed3=25//速度数值越大速度越慢
+demo2.innerHTML=demo1.innerHTML
+function Marquee(){
+if(demo2.offsetWidth-demo.scrollLeft<=0)
+demo.scrollLeft-=demo1.offsetWidth
+else{
+demo.scrollLeft++
+}
+}
+var MyMar=setInterval(Marquee,speed3)
+demo.onmouseover=function() {clearInterval(MyMar)}
+demo.onmouseout=function() {MyMar=setInterval(Marquee,speed3)}
+*/
+	var speed=20;
+	var direct='left';
+	s=document.getElementById('demo');
+	c1=document.getElementById('demo1');
+	c2=document.getElementById('demo2');
+	c2.innerHTML=c1.innerHTML;	
+
+	c_s=document.getElementById('c_demo');
+	c_c1=document.getElementById('c_demo1');
+	c_c2=document.getElementById('c_demo2');
+	c_c2.innerHTML=c_c1.innerHTML;	
+	function scroll(d) {
+		direct=d;
+		if(d=='left') {
+			if(c2.offsetWidth-s.scrollLeft<=0) {
+			s.scrollLeft-=c1.offsetWidth;
+			}
+			else {
+			s.scrollLeft++;
+			}
+			if(c_c2.offsetWidth-c_s.scrollLeft<=0) {
+			c_s.scrollLeft-=c_c1.offsetWidth;
+			}
+			else {
+			c_s.scrollLeft++;
+			}
+		}
+		else {
+			if(s.scrollLeft<=0) {
+			s.scrollLeft+=c1.offsetWidth;
+			}
+			else {
+			s.scrollLeft--;
+			}
+			if(c_s.scrollLeft<=0) {
+			c_s.scrollLeft+=c_c1.offsetWidth;
+			}
+			else {
+			c_s.scrollLeft--;
+			}
+		}
+	}
+	MyMar=setInterval("scroll('left')",speed);
+	function move(d) {
+	clearInterval(MyMar);
+	MyMar=setInterval("scroll('"+d+"')",speed);
+	}
+	s.onmouseover=function() {clearInterval(MyMar)}
+	s.onmouseout=function() {MyMar=setInterval("scroll('"+direct+"')",speed);}
+	c_s.onmouseover=function() {clearInterval(MyMar)}
+	c_s.onmouseout=function() {MyMar=setInterval("scroll('"+direct+"')",speed);}
+
+</SCRIPT>
+</body>
+</html>

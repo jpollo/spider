@@ -1,0 +1,232 @@
+
+
+
+
+
+
+
+
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>文章搜索</title>        
+        <LINK href="../css/css.css" type="text/css" rel="stylesheet">
+        <script language="JavaScript" src="../include/common.js" type="text/javascript"></script>
+    </head>
+        <script language="JavaScript"  type="text/javascript">
+            function aaa(){
+                if(document.getElementById("gotofirst")&&document.getElementById("fotofirst")){
+                    document.forms[0]['page:JSF_PAT_CUR_PAG'].value=1;document.all('search:pageChange').onclick(); return false;
+                }
+            }
+            
+        </script>
+    <body onload="aaa();">        
+        <!--script language="JavaScript" src="../include/jsffigleaf.js" type="text/javascript"></script--> 
+        
+        
+        <script type="text/javascript" src="../control/dateselect/selectTime.js"></script>
+              
+            <form id="search" method="post" action="/search/articleSearch.faces" enctype="application/x-www-form-urlencoded">
+      
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td bgcolor="#000000" height="3"></td>
+                    </tr>
+                    <tr>
+                        <td><table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                <tr>
+                                    <td width="1"><IMG SRC="/images/res/search/bar_l.jpg" width="516" height="63"></td>
+                                    <td background="/images/res/search/bar_m.jpg">&nbsp;</td>
+                                    <td align="right" background="/images/res/search/bar_m.jpg"><img src="/images/res/search/bar_r.jpg" width="262" height="63"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>                
+                                    
+                    
+                    
+                <table width="100%"  border="0" cellpadding="0" cellspacing="0" class="position">   <tr>       <td width="108" height="24" class="position_icon">&nbsp;</td>       <td ><a href="http://xq70.njupt.edu.cn" title="首页" target="_parent">首页</a>｜<label title="信息搜索">信息搜索</label><font color="#c0c0c0">[专业版提供给 南京邮电大学]</font></td>       <td align='right'></td>   </tr></table>
+                <br>
+                <table width="720" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+                    <tr>
+                        <td width="10"><img src="../images/search/table_top_left.gif" width="10" height="63"></td>
+                        <td width="700" valign="baseline" background="../images/search/table_top_bg.gif">
+                            <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td background="../images/search/search_xx_bg.gif"><img src="../images/search/search_xx.gif" width="140" height="48"></td>
+                                    <td background="../images/search/search_xx_bg.gif">
+                                        <div align="left">&nbsp;
+                                        <strong>文&nbsp;&nbsp; 章</strong>&nbsp;&nbsp;
+                                        
+                                            
+                                            
+                                        <a href="#" onclick="javascript:window.location='pictureSearch.faces?pageId=0&amp;siteId=132'"><span style="color:blue" title="&#22270;&#29255;&#25628;&#32034;">&#22270;  &#29255;</span></a>&nbsp;&nbsp;
+                                        
+                                            
+                                            
+                                        <a href="#" onclick="javascript:window.location='multimediaSearch.faces?pageId=0&amp;siteId=132'"><span style="color:blue" title="&#22810;&#23186;&#20307;&#25628;&#32034;">&#22810;&#23186;&#20307;</span></a>&nbsp;&nbsp;
+                                        
+                                            
+                                            
+                                        <a href="#" onclick="javascript:window.location='documentSearch.faces?pageId=0&amp;siteId=132'"><span style="color:blue" title="&#25991;&#26723;&#25628;&#32034;">&#25991;  &#26723;</span></a>
+                                       </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="10"><img src="../images/search/table_top_right.gif" width="10" height="63"></td>
+                    </tr>
+                    <tr>
+                        <td width="10" background="../images/search/table_mid_left.gif">　</td>
+                        <td id="td1" align="center"><FONT face="宋体"></FONT>
+                            <table width="620" border="0" align="center" cellpadding="0" cellspacing="1">                                
+                                <tr>
+                                    <td height="22" align="right" bgcolor="#f0f0f0" width="100">标题：</td>
+                                    <td><input id="search:title" type="text" name="search:title" maxlength="50" size="50" /></td>            
+                                </tr>
+                                <tr>
+                                    <td height="22" align="right" bgcolor="#f0f0f0" width="100">关键字：</td>
+                                    <td>
+                                        <input id="search:keyWords" type="text" name="search:keyWords" size="50" />
+                                        <font color="blue">以英文逗号隔开(如：a,b,c)</font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="22" align="right" bgcolor="#f0f0f0" width="100">文章分类：</td>
+                                    <td>
+                                        
+                                            
+                                        <select id="search:category" name="search:category" size="1">	<option value="0">&#25152;&#26377;&#31867;&#22411;</option>
+	<option value="1">&#20844;&#21578;</option>
+	<option value="2">&#36890;&#30693;</option>
+	<option value="3">&#22270;&#29255;</option>
+	<option value="4">&#25307;&#29983;</option>
+	<option value="5">&#23601;&#19994;</option>
+	<option value="6">&#20854;&#20182;</option>
+</select>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="22" align="right" bgcolor="#f0f0f0" width="100">正文：</td>
+                                    <td>
+                                        <input id="search:content" type="text" name="search:content" maxlength="50" size="50" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="22" align="right" bgcolor="#f0f0f0" width="100">作者：</td>
+                                    <td>
+                                        <input id="search:aAuthor" type="text" name="search:aAuthor" value="" maxlength="50" size="50" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="22" align="right" bgcolor="#f0f0f0" width="100">创建者：</td>
+                                    <td>
+                                        <input id="search:creator" type="text" name="search:creator" maxlength="30" size="50" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="22" align="right" bgcolor="#f0f0f0" width="100">开始时间：</td>
+                                    <td>              
+                                        <input id="search:begin" type="text" name="search:begin" onclick="setday(this,this)" size="50" style="cursor:pointer" />
+                                        <img id="img1" src="../images/button/setdate.gif" align="top" style="cursor:pointer" onclick="setday(this,document.getElementById('search:begin'));">                                        
+                                        <script type="text/javascript">document.getElementById("search:begin").readOnly=true;</script>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="22" align="right" bgcolor="#f0f0f0" width="100">结束时间：</td>
+                                    <td>
+                                        <input id="search:end" type="text" name="search:end" onclick="setday(this,this)" size="50" style="cursor:pointer" />
+                                        <img id="img2" src="../images/button/setdate.gif" align="top" style="cursor:pointer" onclick="setday(this,document.getElementById('search:end'));">                                        
+                                        <script type="text/javascript">document.getElementById("search:end").readOnly=true;</script>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" height="30" align="center">
+                                         <a href="#" onclick="document.forms['search']['search:_idcl'].value='search:_id7'; document.forms['search'].submit(); return false;" class="button">查询</a>
+                                    </td>
+                                </tr>                                
+                                <tr>
+                                    <td colspan="2">
+                                        <table class="tableX" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>                      
+                                                    
+                                                        
+                                                            
+                                                                
+                                                            
+                                                            
+                                                            
+                                                                
+                                                                
+                                                                              
+                                                        
+                                                        
+                                                            
+                                                                
+                                                            
+                                                            
+                                                        
+                                                        
+                                                            
+                                                                
+                                                            
+                                                            
+                                                        
+                                                        
+                                                            
+                                                                
+                                                            
+                                                            
+                                                        
+                                                    <table border="0" cellpadding="0" cellspacing="1" width="100%">
+<thead>
+<tr>
+<th class="dt_h" scope="col">&#26631;&#39064;</th>
+<th class="dt_h" scope="col">&#20316;&#32773;</th>
+<th class="dt_h" scope="col">&#25152;&#23646;&#26639;&#30446;</th>
+<th class="dt_h" scope="col">&#21457;&#24067;&#26102;&#38388;</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+                                                  
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>                                    
+                                    <td colspan="2" align="center">
+                                        <span width="100%">
+<table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-width:0px;border-collapse:collapse;">
+<input type="hidden" id="page:JSF_PAT_CUR_PAG" name="page:JSF_PAT_CUR_PAG" value="1"><tr><td style="width:30%;">&nbsp;&nbsp;每页15条记录&nbsp;&nbsp;总共0条记录</td>
+<td align="right" style="width:70%;">
+&nbsp;&nbsp;<a disabled="disabled" title="返回首页">首页</a>
+&nbsp;&nbsp;<a disabled="disabled" title="返回上一页" class="PageButton">上一页</a>
+&nbsp;&nbsp;<a disabled="disabled" title="进入下一页">下一页</a>
+&nbsp;&nbsp;<a disabled="disabled" title="进入尾页">尾页</a>&nbsp;&nbsp;页码:&nbsp;1/0&nbsp;&nbsp;<input id="page:JSF_PAT_CUR_PAG_PDT" name="page:JSF_PAT_CUR_PAG_PDT" type="text" maxlength="3" class="compose_input" style="width:25px;" />&nbsp;&nbsp;<a title="跳转至" href="#" onmousedown="javascript:if(this.onclick){this.oldOnClick = this.onclick;this.onclick = null;}if(PageIsValidation('page:JSF_PAT_CUR_PAG_PDT',0)){this.oldOnClick();}" onclick="document.getElementById('page:JSF_PAT_CUR_PAG').value=document.getElementById('page:JSF_PAT_CUR_PAG_PDT').value;document.all('search:pageChange').onclick(); return false;">跳转&nbsp;&nbsp;</a>
+</td></tr></table></span><span id="search:page"></span>                                        
+                                         <a id="search:pageChange" href="#" onclick="document.forms['search']['search:_idcl'].value='search:pageChange'; document.forms['search'].submit(); return false;"></a>                                        
+                                    </td>                                    
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="10" background="../images/search/table_mid_right.gif"> </td>
+                    </tr>
+                    <tr>
+                        <td width="10"><img src="../images/search/table_bot_left.gif" width="10" height="63"></td>
+                        <td background="../images/search/table_bot_bg.gif"> </td>
+                        <td width="10"><img src="../images/search/table_bot_right.gif" width="10" height="63"></td>
+                    </tr>
+                </table>                
+             <input type="hidden" name="com.sun.faces.VIEW" value="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" />
+ <input type=hidden name="com.sudytech.faces.ViewState" id="com.sudytech.faces.ViewState" value="rO0ABXNyABpjb20uc3VkeXRlY2guanNmLlZpZXdTdGF0ZT/A/67w3cyIAgAAeHIAE2phdmEudXRpbC5IYXNodGFibGUTuw8lIUrkuAMAAkYACmxvYWRGYWN0b3JJAAl0aHJlc2hvbGR4cD9AAAAAAAAIdwgAAAALAAAABnQACF9fcGFnZWlkdAABMHQACnNlYXJjaFR5cGV0AAExdAAMcGFnZUxhbmd1YWdldAABMHQACF9fc2l0ZWlkdAADMTMydAAMZmlyc3RQYWdlVXJsdAAYaHR0cDovL3hxNzAubmp1cHQuZWR1LmNudAAHcmVmZXJlcnQAAHg="/><input type="hidden" name="search" value="search" /><input type="hidden" name="search:_idcl" /></form>      
+        
+    </body>
+</html>

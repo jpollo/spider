@@ -1,0 +1,172 @@
+<html>
+<head><link href="/css/list.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="keywords" content="Webplus">
+<meta name="keywords" content="苏迪,苏迪科技,Webplus,南京苏迪科技有限公司,Powered By Webplus,政府门户解决方案,教育解决方案">
+<title>部门概况</title>
+<link href="/page/main775/css/css.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div id="container_page">
+  <div id="head">
+    <table width="1002" border="0" align="center" cellpadding="0" cellspacing="0">
+    
+    
+      <tr bgcolor="#FFFFFF">
+        <td height="130" colspan="2" valign="top" background="/page/main775/images/banner.jpg">&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+  <div id="nav">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bar0">
+      <tr>
+        <td align="center" class="bar"><table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+
+
+ <td style="color:#FF6600;" onMouseOver="this.style.color='#000000';"  onmouseout="this.style.color='#ff0000';">  今天是<script>
+    calendar = new Date();
+    day = calendar.getDay();
+    month = calendar.getMonth();
+    date = calendar.getDate();
+    year = calendar.getFullYear();//此处为getFullYear()而非getYear()
+    
+    cent = parseInt(year/100);
+    g = year % 19;
+    k = parseInt((cent - 17)/25);
+    i = (cent - parseInt(cent/4) - parseInt((cent - k)/3) + 19*g + 15) % 30;
+    i = i - parseInt(i/28)*(1 - parseInt(i/28)*parseInt(29/(i+1))*parseInt((21-g)/11));
+    j = (year + parseInt(year/4) + i + 2 - cent + parseInt(cent/4)) % 7;
+    l = i - j;
+    emonth = 3 + parseInt((l + 40)/44);
+    edate = l + 28 - 31*parseInt((emonth/4));
+    emonth--;
+    
+    var dayname = new Array ("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+    var monthname =
+    new Array ("1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月" );
+    document.write(""+year +"年");
+    document.write(monthname[month]);
+    document.write(date + "日");
+    document.write(dayname[day]+" "+"");
+    </script>
+            <br></td>
+		  <td>&nbsp;&nbsp;&nbsp;</td>
+
+
+
+
+              <td><table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td class="linkbar"><script language='javascript'>   function getHttpObj(){       var xmlHttp = false;       try {           xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");       }catch (e) {           try {               xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");           }catch (e2) {               xmlHttp = false;           }       }       if (!xmlHttp && typeof XMLHttpRequest != 'undefined'){           xmlHttp = new XMLHttpRequest();       }       return xmlHttp;   }   function P(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=0;   }   function T(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=1;   }   function I(pltId, url, fun){       this.portletId=pltId;       this.url=url;       this.kind=2;       this.nextFunc=fun;   }   var PLTS=new Array();   var cur1=0;   var Loader1= getHttpObj();   function loadps(){       if(cur1<PLTS.length){           Loader1.open('GET',PLTS[cur1].url+'?'+new Date().getTime()+(10000+parseInt(Math.random()*10000)));           Loader1.onreadystatechange=endloadps;           Loader1.send(null);       }   };   function endloadps(){       if(Loader1.readyState==4){           if(Loader1.status==200){               var response=Loader1.responseText;               if(PLTS[cur1].kind==2) {                   _listArticleCount =response.replace(/(^\s*)|(\s*$)/g, "");                   try {                       eval(PLTS[cur1].nextFunc);                   }catch(e){                       alert('高效分页初始化失败！');                   }               }               try{                   if(window.execScript){                       document.getElementById(PLTS[cur1].portletId).outerHTML='<body>'+response+'</body>';                   } else{                       document.getElementById(PLTS[cur1].portletId).innerHTML=response;                   }               } catch(e){}               var regx=new RegExp('<scr'+'ipt[^>]*?>([\\s\\S]*?)<\\/scr'+'ipt\\s*>|<scr'+'ipt[^>]*?\\/>','img');               var arr;               while((arr = regx.exec(response)) != null){                   if(arr.length){                       if(arr.length >=2){                           var regx2 = new RegExp("<scr"+"ipt[^>]*?\\bsrc=\\s*('[^>]*'|\"[^>]*\"|[\\S]*)\\s*\\/?>",'im');                           var srcArr=regx2.exec(arr[0]);                           if(srcArr!=null){                               var src= srcArr[1];                               if(src){                                   if((src.charAt(0)=='"') || (src.charAt(0)=="'")){                                       src=src.substr(1,src.length-2);                                   }                                   loadScript(src);                               }                           } else{                               execJavaScript(arr[1]);                           }                       }                   }               }           }           cur1++;           loadps();       }   }   function loadScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.src=s;           document.body.appendChild(sc);       }catch(e){}   }   function execJavaScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.text=s;           document.body.appendChild(sc);       }catch(e){}   }   window.onload=loadps;</script><div id='_p_1'></div><script language='javascript'>PLTS[PLTS.length]=new P('_p_1','/s/26/t/775/p/1/p.jspy');</script></td>
+                  </tr>
+              </table></td>
+              <td><img src="/page/main775/images/bar_ge.gif" width="16" height="36"></td>
+            <td><table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td class="linkbar"><a href="http://202.119.236.82/gzzd/1.aspx"></a></td>
+                  </tr>
+              </table></td>
+              <td>                </td>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td style="color:#ff6600;" ><a href=http://202.119.236.102/ onMouseOver="this.style.color='#000000';"  onmouseout="this.style.color='#ff0000';"><font color="#ff0000">学校首页</font></a></td>
+
+<td>&nbsp;&nbsp;&nbsp;</td>      
+</tr>
+        </table></td>
+      </tr>
+    </table>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#999999">
+      <tr>
+        <td height="1"></td>
+      </tr>
+    </table>
+  </div>
+  <div id="container_content">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="260" height="320"valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="nemufont">
+          <tr>
+            <td width="15" background="/page/main775/images/menu_bg.gif"><img src="/page/main775/images/dot2.gif" width="16" height="16"></td>
+            <td background="/page/main775/images/menu_bg.gif"><a href='/s/26/t/775/p/1/c/516/d/701/list.jspy' target='_self' class="nemufont">部门简介</a></td>
+          </tr>
+          
+        
+          <tr>
+            <td width="15" background="/page/main775/images/menu_bg.gif"><img src="/page/main775/images/dot2.gif" width="16" height="16"></td>
+            <td background="/page/main775/images/menu_bg.gif"><a href='/s/26/t/775/p/1/c/516/d/703/list.jspy' target='_self' class="nemufont">领导介绍</a></td>
+          </tr>
+          
+        
+          <tr>
+            <td width="15" background="/page/main775/images/menu_bg.gif"><img src="/page/main775/images/dot2.gif" width="16" height="16"></td>
+            <td background="/page/main775/images/menu_bg.gif"><a href='/s/26/t/775/p/1/c/516/d/702/list.jspy' target='_self' class="nemufont">机构设置</a></td>
+          </tr>
+          
+        
+          <tr>
+            <td width="15" background="/page/main775/images/menu_bg.gif"><img src="/page/main775/images/dot2.gif" width="16" height="16"></td>
+            <td background="/page/main775/images/menu_bg.gif"><a href='/s/26/t/775/p/1/c/516/d/704/list.jspy' target='_self' class="nemufont">工作职责</a></td>
+          </tr>
+          
+        </TABLE>
+        <br></td>
+        <td width="1" bgcolor="#D6CFD6"></td>
+        <td align="center" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="0" class="p9">
+          <tr>
+            <td height="25" background="/page/main775/images/position_bg.gif">&nbsp;&nbsp;<a href='/s/26/t/775/main.jspy' title='返回首页'>首页</a><span class="posSplit">&nbsp;&nbsp;</span><a href='/s/26/t/775/p/1/c/516/list.jspy' title='部门概况'>部门概况</a><span class="posSplit">&nbsp;&nbsp;</span><a href='/s/26/t/775/p/1/c/516/d/701/list.jspy' title='部门简介'>部门简介</a></td>
+          </tr>
+        </table>
+          <table width="90%"  border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="30" colspan="2">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="35" height="35"><img src="/page/main775/images/dot4.gif" width="27" height="27"></td>
+                          <td background="/page/main775/images/lm_bg.gif" class="tit2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td class="tit2">部门简介</td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="content"><p style="text-indent: 26.25pt; mso-char-indent-count: 2.5"><span style="font-size: 10.5pt"><font face="宋体">南京邮电大学是一所培养现代通信技术和管理人才、面向电子信息领域的多科性高等院校。其前身可追溯到<span lang="EN-US">1942</span>年诞生于山东滨海抗日根据地的战邮干训班。<span lang="EN-US">1958</span>年经国务院批准，以原部属南京电信学校为基础，并将部属南京邮政学校并入，改建为五年制本科的南京邮电学院。是国务院首批授权可授予硕士学位的高等工科院校之一，<span lang="EN-US">2005</span>年 经教育部和江苏省人民政府批准更名为南京邮电大学，南邮的历史又翻开了新的一页。学校有仙林、三牌楼两个校区，占地<span lang="EN-US">133.2</span>万 平方米。校园内四季花木扶苏，亭台叠翠，景色怡人，分别被江苏省、南京市评为文明校园，是学习和生活的良好场所。&nbsp;</font></span>&nbsp;</p>
+<p style="line-height: 120%; text-indent: 24pt"><span style="line-height: 120%; font-size: 10.5pt">学校根据国家信息产业和地方经济社会发展的需要，始终以学科建设为龙头，以人才培养为中心，注重强化优势，彰显特色，鼓励学科交叉融合，逐步形成了从单一的邮电到通信，到信息技术各个领域，再到以信息学科为特色、多学科协调发展的道路，学校的学科建设、研究生教育获得了蓬勃发展。我校现有博士后流动站<span lang="EN-US">2</span>个、一级学科博士学位授予点<span lang="EN-US">3</span>个、二级学科博士学位授予点<span lang="EN-US">14</span>个，一级学科硕士学位授予点<span lang="EN-US">10</span>个、二级学科硕士学位授予点<span lang="EN-US">34</span>个，专业学位授权点<span lang="EN-US">12</span>个，横跨工学、理学、管理学与教育学四大门类；信号与信息处理为国家重点（培育）学科，信息与通信工程、有机光电子学为江苏高校优势学科。</span>&nbsp;</p>
+<p style="line-height: 120%; text-indent: 24pt"><span style="line-height: 120%; font-size: 10.5pt">学校重视导师队伍建设。<span lang="EN-US">2010</span>年被评为江苏省师资队伍建设先进高校。有博士生、硕士生导师<span lang="EN-US">426</span>人，其中高级专业技术职务的占<span lang="EN-US">81%</span>，具有博士、硕士学位的占<span lang="EN-US">75%</span>；。目前有中国科学院院士<span lang="EN-US">1</span>人、教育部<span lang="EN-US">“</span>长江学者<span lang="EN-US">”</span>特聘教授<span lang="EN-US">2</span>人、<span lang="EN-US">“</span>国家杰出青年基金<span lang="EN-US">”</span>获得者<span lang="EN-US">3</span>人，入选<span lang="EN-US">“</span>千人计划<span lang="EN-US">”5</span>人，<span lang="EN-US">“</span>青年千人计划<span lang="EN-US">”1</span>人，<span lang="EN-US">1</span>人入选中科院<span lang="EN-US">“</span>百人计划<span lang="EN-US">”</span>，<span lang="EN-US">7</span>人入选教育部<span lang="EN-US">“</span>新世纪优秀人才支持计划<span lang="EN-US">”</span>。学校现有教育部<span lang="EN-US">“</span>长江学者和创新团队发展计划<span lang="EN-US">”</span>创新团队<span lang="EN-US">1</span>个，江苏省<span lang="EN-US">“</span>青蓝工程<span lang="EN-US">”</span>科技创新团队培养对象<span lang="EN-US">1</span>个，江苏省优秀教学团队<span lang="EN-US">1</span>个。一大批教师作为会士、专委会主任、专家等活跃在国际电联、中国通信学会、电子学会、计算机学会、自动化学会等学术机构，其中中国通信学会学术工作委员会、通信理论与信号处理专委会和多媒体通信专委会挂靠我校。</span>&nbsp;&nbsp;&nbsp;</p>
+<p style="line-height: 120%; margin-top: 6pt; text-indent: 24pt"><span style="line-height: 120%; font-size: 10.5pt"><font face="宋体">学校目前的研究生教育规模已逾<span lang="EN-US">5000</span>人，其中全日制研究约<span lang="EN-US">3500</span>人。自<span lang="EN-US">1978</span>年招收研究生以来，已培养研究生<span lang="EN-US">3800</span>多人，毕业研究生在高等教育、企业管理、邮电科学研究、通信工程应用和技术开发等方面已经和正在发挥积极的作用，多已成为我国信息产业的领军人物、技术精英和管理骨干，涌现了一大批杰出校友，有<span lang="EN-US">“</span>华夏<span lang="EN-US">IT</span>英 才的摇篮<span lang="EN-US">”</span>之誉。毕业生因基础厚、素质高、能力强而受到用人单位的广泛欢迎，研究生就业率一直保持在<span lang="EN-US">100</span>％。<span lang="EN-US">&nbsp;</span></font></span>&nbsp;&nbsp;</p>
+<p style="line-height: 120%; margin-top: 6pt; text-indent: 24pt"><span style="line-height: 120%; font-size: 10.5pt">学校教学基本设施齐全，具有良好的教学、科研支撑条件。现有<span lang="EN-US">1</span>个省部共建国家重点实验室培育基地，<span lang="EN-US"> 1</span>个省部共建教育部重点实验室，<span lang="EN-US">1</span>个教育部工程中心，<span lang="EN-US"> 5</span>个省级重点实验室，<span lang="EN-US">3</span>个省级工程中心；<span lang="EN-US">4</span>个江苏高校哲学社会科学重点研究基地（含培育点<span lang="EN-US">1</span>个），<span lang="EN-US">2</span>个江苏省决策咨询研究基地；<span lang="EN-US">1</span>个国家级工程实践教育中心，<span lang="EN-US">2</span>个省级实践教育基地，<span lang="EN-US">1</span>个江苏省创新平台提升项目；<span lang="EN-US">11</span>个原信息产业部重点实验室， <span lang="EN-US">10</span>个省级实验教学示范中心及建设点，<span lang="EN-US">50</span>个中央财政专项实验室（含中央地方共建），拥有全国高校首个<span lang="EN-US">3G</span>国际标准实验室，已建成一个以万兆光纤为骨干的高速校园网络环境，通过<span lang="EN-US">Cernet</span>及<span lang="EN-US">Chinanet</span>双路由与<span lang="EN-US">Internet</span>联网，实现了校园有线、无线网络双覆盖，技术手段先进，为教学、科研提供了良好的网络条件。学校图书馆拥有纸质文献藏书量<span lang="EN-US">144.12</span>万余册，其中信息、通信、电子等专业文献的收藏富有特色，享誉一方。</span>&nbsp;&nbsp;</p>
+<p style="line-height: 120%; margin-top: 6pt; text-indent: 24pt"><span style="line-height: 120%; font-size: 10.5pt">学校大力提倡科学研究和科技创新工作，在现代信息交换与通信网络、移动通信与电磁兼容、信息理论与通信信号处理、有机电子与信息显示、信息管理与信息系统、图像处理与数字视频技术、计算机通信与信息网络安全、光通信与光电子技术、量子信息处理、信息材料与纳米技术、非线性电路与智能优化技术等研究领域有较强优势。近三年，承担国家<span lang="EN-US">973</span>、<span lang="EN-US">863</span>、国家科技重大专项、国家科技支撑计划和国家自然科学基金项目、国家社科基金项目等各类科研课题<span lang="EN-US">2298</span>项，发表学术论文<span lang="EN-US">6718</span>篇，<span lang="EN-US">3360</span>篇被<span lang="EN-US">SCI</span>、<span lang="EN-US">EI</span>、<span lang="EN-US">ISTP</span>收录。<span lang="EN-US">2011</span>年<span lang="EN-US">7</span>月，由江苏省政府主办的江苏省企业创新成果展在南京国展中心隆重举行，作为全省唯一的高校代表，我校物联网科技园<span lang="EN-US">“</span>综合信息智慧服务平台<span lang="EN-US">”</span>参与了创新成果互动体验展示。因<span lang="EN-US">“</span>十一五<span lang="EN-US">”</span>期间科技创新工作成绩显著，我校被江苏省人民政府授予<span lang="EN-US">“‘</span>十一五<span lang="EN-US">’</span>获重大科技成果奖励成绩显著高等学校<span lang="EN-US">”</span>荣誉称号。</span>&nbsp;&nbsp;</p>
+<p style="line-height: 120%; text-indent: 21pt"><font face="宋体"><span style="line-height: 120%; font-size: 10.5pt">学校积极推进对外交流与合作。<span lang="EN-US">1990</span>年起就成为亚太电信组织（<span lang="EN-US">APT</span>）在中国的培训基地之一。二十多年来，共培训<span lang="EN-US">22</span>个国家和地区的二十多批学员。较早与美、英、德、法、加、俄、澳、日及新加坡等十多个国家和港、台地区的大学和科研机构建立了长期的校际合作关系，先后有<span lang="EN-US">800</span>多位国外、境外专家学者来学校讲学，学校也选派教师出访或参加国际学术会议，进行学术交流。与美国纽约理工学院、美国弗吉尼亚理工大学等十多所国外高校签署了合作协议并开展了不同形式及不同层次的合作，在多学科领域共同培养专业人才。通过主办国际与地区性学术会议，扩大了学校在国际上的知名度。</span></font></p>
+<p style="line-height: 120%; text-indent: 21pt"><span style="font-family: Arial; font-size: 9pt" lang="EN-US">&nbsp;</span><span style="font-size: 10.5pt"><font face="宋体">邮电通信，国脉所系；邮电通信，前景无量。通信事业的发展，离不开青年人的开拓，我们热忱欢迎有志于祖国通信事业的广大考生积极报考南京邮电大学研究生，加入我们的队伍，为祖国通信事业的发展和建设添砖加瓦。南邮的学位与研究生教育明天会更美好！<span lang="EN-US"><o:p></o:p></span></font></span></p>
+<p style="line-height: 120%; margin-top: 6pt; text-indent: 24pt">&nbsp;</p></td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table></td>
+      </tr>
+    </table>
+  </div>
+  <div id="foot">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="6" class="bottom_x"></td>
+      </tr>
+    </table>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="58" colspan="3" align="center" background="/page/main775/images/bottom_bg.jpg" class="bottom_y"><p><span class="p9white"> 版权所有 &copy; 南京邮电大学研究生部 学科建设办公室<br>
+          技术支持：<a href="http://www.sudytech.com" target="_blank"><font color="#FFFFFF">南京苏迪科技有限公司</font></a></span></p></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>

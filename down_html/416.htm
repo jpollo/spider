@@ -1,0 +1,208 @@
+<html>
+<head><link href="/css/list.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="keywords" content="南京邮电大学 后勤管理处 阳光后勤网">
+<meta name="keywords" content="设计制作: 南京邮电大学 07003229 周景瑞  时间：2010-03-15 至 2010-06-31">
+<title>信息公开</title>
+<link href="/page/main251/css/css.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div   align="center">
+					<div id="container_page">
+<div id="head"><table width="100%" border="0" cellpadding="0" cellspacing="0" background="/page/main251/images/banner.jpg">
+  <tr>
+    <td height="137"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="216" height="55">　</td>
+        <td width="686">　</td>
+      </tr>
+     
+    </table></td>
+  </tr>
+</table>
+</div>
+						<div id="nav">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" class="bar0">
+								<tr>
+									<td align="center" class="bar">
+									<table border="0" cellspacing="0" cellpadding="0">
+										<tr>
+<td style="color:#FF0000;" onMouseOver="this.style.color='#000000';"  onmouseout="this.style.color='#ff0000';"> 
+    今天是<script>
+    calendar = new Date();
+    day = calendar.getDay();
+    month = calendar.getMonth();
+    date = calendar.getDate();
+    year = calendar.getFullYear();//此处为getFullYear()而非getYear()
+    
+    cent = parseInt(year/100);
+    g = year % 19;
+    k = parseInt((cent - 17)/25);
+    i = (cent - parseInt(cent/4) - parseInt((cent - k)/3) + 19*g + 15) % 30;
+    i = i - parseInt(i/28)*(1 - parseInt(i/28)*parseInt(29/(i+1))*parseInt((21-g)/11));
+    j = (year + parseInt(year/4) + i + 2 - cent + parseInt(cent/4)) % 7;
+    l = i - j;
+    emonth = 3 + parseInt((l + 40)/44);
+    edate = l + 28 - 31*parseInt((emonth/4));
+    emonth--;
+    
+    var dayname = new Array ("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+    var monthname =
+    new Array ("1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月" );
+    document.write(""+year +"年");
+    document.write(monthname[month]);
+    document.write(date + "日");
+    document.write(dayname[day]+" "+"");
+    </script>
+            <br></td>
+		  <td>&nbsp;&nbsp;&nbsp;</td>										
+										
+											<td>
+											<table border="0" cellpadding="0" cellspacing="0">
+												<tr>
+													<td class="linkbar"><script language='javascript'>   function getHttpObj(){       var xmlHttp = false;       try {           xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");       }catch (e) {           try {               xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");           }catch (e2) {               xmlHttp = false;           }       }       if (!xmlHttp && typeof XMLHttpRequest != 'undefined'){           xmlHttp = new XMLHttpRequest();       }       return xmlHttp;   }   function P(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=0;   }   function T(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=1;   }   function I(pltId, url, fun){       this.portletId=pltId;       this.url=url;       this.kind=2;       this.nextFunc=fun;   }   var PLTS=new Array();   var cur1=0;   var Loader1= getHttpObj();   function loadps(){       if(cur1<PLTS.length){           Loader1.open('GET',PLTS[cur1].url+'?'+new Date().getTime()+(10000+parseInt(Math.random()*10000)));           Loader1.onreadystatechange=endloadps;           Loader1.send(null);       }   };   function endloadps(){       if(Loader1.readyState==4){           if(Loader1.status==200){               var response=Loader1.responseText;               if(PLTS[cur1].kind==2) {                   _listArticleCount =response.replace(/(^\s*)|(\s*$)/g, "");                   try {                       eval(PLTS[cur1].nextFunc);                   }catch(e){                       alert('高效分页初始化失败！');                   }               }               try{                   if(window.execScript){                       document.getElementById(PLTS[cur1].portletId).outerHTML='<body>'+response+'</body>';                   } else{                       document.getElementById(PLTS[cur1].portletId).innerHTML=response;                   }               } catch(e){}               var regx=new RegExp('<scr'+'ipt[^>]*?>([\\s\\S]*?)<\\/scr'+'ipt\\s*>|<scr'+'ipt[^>]*?\\/>','img');               var arr;               while((arr = regx.exec(response)) != null){                   if(arr.length){                       if(arr.length >=2){                           var regx2 = new RegExp("<scr"+"ipt[^>]*?\\bsrc=\\s*('[^>]*'|\"[^>]*\"|[\\S]*)\\s*\\/?>",'im');                           var srcArr=regx2.exec(arr[0]);                           if(srcArr!=null){                               var src= srcArr[1];                               if(src){                                   if((src.charAt(0)=='"') || (src.charAt(0)=="'")){                                       src=src.substr(1,src.length-2);                                   }                                   loadScript(src);                               }                           } else{                               execJavaScript(arr[1]);                           }                       }                   }               }           }           cur1++;           loadps();       }   }   function loadScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.src=s;           document.body.appendChild(sc);       }catch(e){}   }   function execJavaScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.text=s;           document.body.appendChild(sc);       }catch(e){}   }   window.onload=loadps;</script><div id='_p_1'></div><script language='javascript'>PLTS[PLTS.length]=new P('_p_1','/s/32/t/251/p/1/p.jspy');</script></td>
+												</tr>
+											</table></td>
+											<td>
+											<img src="/page/main251/images/bar_ge.gif" width="16" height="36"></td>
+<td>&nbsp;&nbsp;&nbsp;</td>	
+										
+<td style="color:#ff6600;" ><a href=http://hqc.njupt.edu.cn/ onMouseOver="this.style.color='#000000';"  onmouseout="this.style.color='#ff0000';"><font color="#ff0000">返回首页</font></a></td>
+
+<td>&nbsp;&nbsp;&nbsp;</td>      
+			
+<td style="color:#ff6600;" onMouseOver="this.style.color='#000000';"  onmouseout="this.style.color='#ff0000';"><span style="CURSOR: hand" onClick="window.external.addFavorite('http://hqc.njupt.edu.cn/','南京邮电大学 后勤管理处 阳光后勤网')" >加入收藏</span></td>											
+										</tr>
+									</table></td>
+								</tr>
+							</table>
+							<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#999999">
+								<tr>
+									<td height="1"></td>
+								</tr>
+							</table></div>
+						<div id="container_content">
+							<table width="100%" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="260" height="320"valign="top" bgcolor="#FFFFFF">
+									<table width="100%" border="0" cellpadding="0" cellspacing="0" class="nemufont">
+										<tr>
+											<td width="15" background="/page/main251/images/menu_bg.gif">
+											<img src="/page/main251/images/dot2.gif" width="16" height="16"></td>
+											<td background="/page/main251/images/menu_bg.gif"><a href='/s/32/t/251/p/1/c/2935/d/2937/list.jspy' target='_self' class="nemufont">办学条件</a></td>
+										</tr>
+										
+									
+										<tr>
+											<td width="15" background="/page/main251/images/menu_bg.gif">
+											<img src="/page/main251/images/dot2.gif" width="16" height="16"></td>
+											<td background="/page/main251/images/menu_bg.gif"><a href='/s/32/t/251/p/1/c/2935/d/2939/list.jspy' target='_self' class="nemufont">应急预案</a></td>
+										</tr>
+										
+									
+										<tr>
+											<td width="15" background="/page/main251/images/menu_bg.gif">
+											<img src="/page/main251/images/dot2.gif" width="16" height="16"></td>
+											<td background="/page/main251/images/menu_bg.gif"><a href='/s/32/t/251/p/1/c/2935/d/2936/list.jspy' target='_self' class="nemufont">重大工程</a></td>
+										</tr>
+										
+									
+										<tr>
+											<td width="15" background="/page/main251/images/menu_bg.gif">
+											<img src="/page/main251/images/dot2.gif" width="16" height="16"></td>
+											<td background="/page/main251/images/menu_bg.gif"><a href='/s/32/t/251/p/1/c/2935/d/2938/list.jspy' target='_self' class="nemufont">医药采购</a></td>
+										</tr>
+										
+									</TABLE><br></td>
+									<td width="1" bgcolor="#D6CFD6"></td>
+									<td align="center" valign="top">
+									<table width="100%"  border="0" cellpadding="0" cellspacing="0" class="p9">
+										<tr>
+											<td height="25" background="/page/main251/images/position_bg.gif">&nbsp;&nbsp;<a href='/s/32/t/251/main.jspy' title='返回首页'>首页</a><span class="posSplit">&nbsp;&nbsp;</span><a href='/s/32/t/251/p/1/c/2935/list.jspy' title='信息公开'>信息公开</a><span class="posSplit">&nbsp;&nbsp;</span><a href='/s/32/t/251/p/1/c/2935/d/2938/list.jspy' title='医药采购'>医药采购</a></td>
+										</tr>
+									</table>
+									<table width="90%"  border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+											<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td width="30" colspan="2">　</td>
+												</tr>
+												<tr>
+													<td colspan="2">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td width="35" height="35">
+															<img src="/page/main251/images/dot4.gif" width="27" height="27"></td>
+															<td background="/page/main251/images/lm_bg.gif" class="tit2">
+															<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td class="tit2">医药采购</td>
+																</tr>
+															</table></td>
+														</tr>
+													</table></td>
+												</tr>
+												<tr>
+													<td colspan="2" class="content">
+													<p class="MsoNormal" style="margin: 0cm 0cm 0pt"><span lang="EN-US" style="font-size: 14pt; font-family: 宋体"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-align: center" align="center"><strong style="mso-bidi-font-weight: normal"><span style="font-size: 14pt; font-family: 宋体">关于我校药品招标工作的情况通报<span lang="EN-US"><o:p></o:p></span></span></strong></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-align: center" align="center"><strong style="mso-bidi-font-weight: normal"><span lang="EN-US" style="font-size: 14pt; font-family: 宋体"><o:p>&nbsp;</o:p></span></strong></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 68pt; text-indent: -36pt; tab-stops: list 68.0pt; mso-list: l0 level1 lfo1"><strong><span lang="EN-US" style="font-size: 14pt; font-family: 宋体; mso-bidi-font-family: 宋体"><span style="mso-list: Ignore">一、<span style="font: 7pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 14pt; font-family: 宋体">发布招标公告<span lang="EN-US"><o:p></o:p></span></span></strong></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 32pt"><st1:chsdate w:st="on" isrocdate="False" islunardate="False" day="30" month="4" year="2010"><span lang="EN-US" style="font-size: 14pt; font-family: 宋体">4</span><span style="font-size: 14pt; font-family: 宋体">月<span lang="EN-US">30</span>日</span></st1:chsdate><span style="font-size: 14pt; font-family: 宋体">我处在校园网上发布药品采购的招标公告，公告内容</span><span style="font-size: 14pt; font-family: 宋体">如下：</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 32pt"><span style="font-size: 14pt; font-family: 宋体"><span lang="EN-US"><o:p></o:p></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 32pt; text-indent: 13.75pt; mso-para-margin-left: 3.05gd; mso-char-indent-count: .98"><strong><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体">南京邮电大学医用药品、耗材采购招标公告</span></strong><span lang="EN-US" style="font-size: 14pt; font-family: 宋体"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 36pt; text-indent: -36pt; mso-pagination: widow-orphan; tab-stops: list 36.0pt; mso-list: l1 level1 lfo2; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto"><span lang="EN-US" style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体"><span style="mso-list: Ignore">一）<span style="font: 7pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体">招标人： 南京邮电大学<span lang="EN-US"><o:p></o:p></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 36pt; text-indent: -36pt; mso-pagination: widow-orphan; tab-stops: list 36.0pt; mso-list: l1 level1 lfo2; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto"><span lang="EN-US" style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体"><span style="mso-list: Ignore">二）<span style="font: 7pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体">招标内容：医用药品、耗材<span lang="EN-US"><o:p></o:p></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 36pt; text-indent: -36pt; mso-pagination: widow-orphan; tab-stops: list 36.0pt; mso-list: l1 level1 lfo2; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto"><span lang="EN-US" style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体"><span style="mso-list: Ignore">三）<span style="font: 7pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体">报名资格条件：<span lang="EN-US"><br />
+</span>　<span lang="EN-US">1</span>、具有独立法人资格，具有独立承担民事责任的能力。投标单位代理的主要药品应获得原生产企业的授权委托书，代理主要药品生产企业的营业执照和生产许可证作为资质证明材料之一。<span lang="EN-US"><br />
+</span>　<span lang="EN-US">2</span>、投标单位要有良好的质量保证与售后服务体系并取得药品经营质量管理规范认证证书。近三年无因违反政府采购法和其他法规被处罚的记录。<span lang="EN-US"><o:p></o:p></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 36pt; text-indent: -36pt; mso-pagination: widow-orphan; tab-stops: list 36.0pt; mso-list: l1 level1 lfo2; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto"><span lang="EN-US" style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体"><span style="mso-list: Ignore">四）<span style="font: 7pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体">报名材料：投标申请人持法定代表人授权委托书（原件）、企业营业执照，资质证书（复印件加盖投标人印章），并原件携带备查。<span lang="EN-US"><o:p></o:p></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 36pt; text-indent: -36pt; mso-pagination: widow-orphan; tab-stops: list 36.0pt; mso-list: l1 level1 lfo2; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto"><span lang="EN-US" style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体"><span style="mso-list: Ignore">五）<span style="font: 7pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体">资格审查方法：招标人将根据投标人的实力、信誉、业绩等情况，进行综合考察，确定入围单位，通过资格预审的投标人方可购买招标文件，招标文件每套<span lang="EN-US">300</span>元整，招标文件的购买时间、地点另行通知。<span lang="EN-US"><o:p></o:p></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 36pt; text-indent: -36pt; mso-pagination: widow-orphan; tab-stops: list 36.0pt; mso-list: l1 level1 lfo2; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto"><span lang="EN-US" style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体"><span style="mso-list: Ignore">六）<span style="font: 7pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体">报名时间、地点、联系人：<span lang="EN-US"><br />
+</span>　　时间：<st1:chsdate w:st="on" isrocdate="False" islunardate="False" day="5" month="5" year="2010"><span lang="EN-US">2010</span>年<span lang="EN-US">5</span>月<span lang="EN-US">5</span>日</st1:chsdate><span lang="EN-US">&nbsp; </span>上午<span lang="EN-US">9</span>：<span lang="EN-US">00</span>—<span lang="EN-US">11</span>：<span lang="EN-US">00<br />
+</span>　　地点：南京邮电大学仙林校区行政南楼<span lang="EN-US">343</span>室<span lang="EN-US"><br />
+</span>　　联系人：秦老师<span lang="EN-US">&nbsp; 025-85866707<o:p></o:p></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 175pt; mso-pagination: widow-orphan; mso-char-indent-count: 12.5; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto"><span style="font-size: 14pt; color: #262626; font-family: 宋体; mso-font-kerning: 0pt; mso-bidi-font-family: 宋体"><span lang="EN-US"><o:p></o:p></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 68pt; text-indent: -36pt; text-align: left; tab-stops: list 68.0pt; mso-list: l0 level1 lfo1; mso-layout-grid-align: none" align="left"><strong><span lang="EN-US" style="font-size: 14pt; font-family: 宋体; mso-bidi-font-family: 宋体"><span style="mso-list: Ignore">二、<span style="font: 7pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 14pt; font-family: 宋体">招标工作情况<span lang="EN-US"><o:p></o:p></span></span></strong></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span lang="EN-US" style="font-size: 14pt; font-family: 宋体">1</span><span style="font-size: 14pt; font-family: 宋体">、 <st1:chsdate w:st="on" isrocdate="False" islunardate="False" day="27" month="5" year="2010"><span lang="EN-US">2010</span>年<span lang="EN-US">5</span>月<span lang="EN-US">27</span>日</st1:chsdate>，学校药品招标工作小组召开工作会议。</span><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">与会人员在听取了纪委和后勤管理处组成的考察小组对报名的医药企业考察情况后，经过对报名企业的各个方面的评价，决定下列单位为本次医药招标的入围单位：</span><span lang="EN-US" style="font-size: 14pt; font-family: 宋体"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">江苏省医药公司、江苏药大医药有限公司、江苏省润天生化医药有限公司、江苏曼迪新琴纳医药有限公司、南京华东医药有限责任公司、南京药业股份有限公司、南京嘉恒医药有限公司<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span lang="EN-US" style="font-size: 14pt; font-family: 宋体">2</span><span style="font-size: 14pt; font-family: 宋体">、<st1:chsdate w:st="on" isrocdate="False" islunardate="False" day="13" month="6" year="2010"><span lang="EN-US">2010</span>年<span lang="EN-US">6</span>月<span lang="EN-US">13</span>日</st1:chsdate>，学校药品招标工作小组召开第二次工作会议。</span><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">与会人员对《</span><span style="font-size: 14pt; font-family: 宋体">南京邮电大学药品招标办法》</span><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">进行了讨论，一致认为这个办法是可行的，是可操作的，决定：按《</span><span style="font-size: 14pt; font-family: 宋体">南京邮电大学药品招标办法》进行本次药品开标。与会人员</span><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">听取了后勤管理处收取入围单位报价材料的情况介绍，由纪委、监察处人员对投标材料进行检查后，决定对新的报价材料进行开标。本次报价单位为下列七家医药企业：<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">江苏省医药公司、江苏药大医药有限公司、江苏省润天生化医药有限公司、江苏曼迪新琴纳医药有限公司、南京华东医药有限责任公司、南京药业股份有限公司、南京嘉恒医药有限公司；<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">与会人员一致同意：本次开标按《</span><span style="font-size: 14pt; font-family: 宋体">南京邮电大学药品招标办法》进行，</span><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">采取对投标单位的报价按单一品种进行比较，按报价的高低由低向高取前三名的企业采购候选单位。因报价材料录入工作量太大，当天（至下午4时）由四名录入人员协助工作尚未完成，与会人员同意由纪委、后勤管理处、门诊部三家在休会期间，共同完成药品报价的录入工作，并对本次参与投标的医药公司因厂家、规格等问题缺少报价的药品，由上述三家单位选定供货单位，待录入排序完成后，再开会确定中标单位。</span><span lang="EN-US" style="font-size: 14pt; font-family: 宋体"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span lang="EN-US" style="font-size: 14pt; font-family: 宋体">3</span><span style="font-size: 14pt; font-family: 宋体">、 <st1:chsdate w:st="on" isrocdate="False" islunardate="False" day="30" month="6" year="2010"><span lang="EN-US">2010</span>年<span lang="EN-US">6</span>月<span lang="EN-US">30</span>日</st1:chsdate>，学校药品招标工作小组召开第三次工作会议。</span><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">与会人员对《</span><span style="font-size: 14pt; font-family: 宋体">南京邮电大学药品采购办法（暂行）》</span><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">逐条进行了讨论，与会人员一致认为这个办法是可操作的，但需要进行修改，并提出了修改意见，决定：修改后报党政联席会通过后执行。</span><span style="font-size: 14pt; font-family: 宋体">与会人员</span><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">在听取后勤管理处、纪委、监察处人员对投标材料录入统计的情况后（药品中标材料汇总表附后），进行了讨论，决定：本次药品招标的中标单位为以下六家医药企业：<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">江苏省医药公司<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">江苏药大医药有限公司<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">江苏曼迪新琴纳医药有限公司<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">南京华东医药有限责任公司<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">南京药业股份有限公司<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">南京嘉恒医药有限公司<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">与会人员一致同意：本次药品招标工作到此已结束。以后的工作由后勤管理处与纪委、监察处一起按规定与中标的医药公司签定供货协议。</span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 68pt; text-indent: -36pt; text-align: left; tab-stops: list 68.0pt; mso-list: l0 level1 lfo1; mso-layout-grid-align: none" align="left"><strong><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体"><span style="mso-list: Ignore">三、<span style="font: 7pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">采购及跟踪监督<o:p></o:p></span></strong></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">后勤管理处在完成药品招标工作后，按《</span><span style="font-size: 14pt; font-family: 宋体">南京邮电大学药品采购办法（暂行）》</span><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">的规定，对门诊部的药品采购工作进行了全面的监督，其工作内容如下：<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-indent: 28pt; text-align: left; mso-char-indent-count: 2.0; mso-layout-grid-align: none" align="left"><span style="font-size: 14pt; font-family: 宋体; mso-font-kerning: 0pt; mso-ansi-language: ZH-CN; mso-bidi-font-family: 宋体">1、对药品采购计划进行了监督，对采购药品的品种、价格、供货单位等相关内容进行监督；<o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt 21pt; text-align: left; mso-layout-grid-align: none" align="left"><span lang="EN-US" style="font-size: 14pt; font-family: 宋体">2</span><span style="font-size: 14pt; font-family: 宋体">、对药品的采购过程及采购工作中的相关情况进行了监督；<span lang="EN-US"><o:p></o:p></span></span></p>
+<p class="MsoNormal" style="margin: 0cm 0cm 0pt; text-align: left; mso-layout-grid-align: none" align="left"><span lang="EN-US" style="font-size: 14pt; font-family: 宋体"><span style="mso-spacerun: yes">&nbsp;&nbsp; </span>3</span><span style="font-size: 14pt; font-family: 宋体">、对采购的结果进行了监督，后勤管理处派专人参与了采购来的药品的检查验收工作。<span lang="EN-US"><o:p></o:p></span></span></p></td>
+												</tr>
+											</table></td>
+										</tr>
+									</table></td>
+								</tr>
+							</table></div>
+						<div id="foot">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td height="6" class="bottom_x"></td>
+								</tr>
+							</table>
+							<table width="100%" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td height="58" colspan="3" align="center" background="/page/main251/images/bottom_bg.jpg" class="bottom_y">
+									<p><span class="p9white">版权所有 &copy; 南京邮电大学 后勤管理处<br></span></p>
+									</td>
+								</tr>
+							</table></div></div></div>
+</body>
+</html>

@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="UTF-8">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>教育部直属高校列表——高考填报志愿参考系统</title>
+<meta content="all" name="robots" />
+<meta name="Copyright" content="www.eol.cn" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" rev="stylesheet" href="/css/dxcx_2009.css" type="text/css" media="all" />
+<script type="text/javascript" src="/js/table_effect.js"></script>
+<script type="text/javascript" src="/schoolhtm/sysindexHeader.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+    <!--top_box begin-->
+       <!--<div class="top_box"></div>-->
+    <!--top_box end-->
+    
+    <p class="blank10"></p>
+    <!--nav_box begin-->
+    <div class="area">
+        <div class="nav">       
+            <ul>
+            <li><a target="_self" href="/schoolInfoSearch/province/province_beijing_1.htm">各地大学</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/zybw/zybw_1.htm">中央部委</a></li>  
+        <li class="l_long"><a target="_self" href="/schoolInfoSearch/jybzs/jybzs_1.htm">教育部直属</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/985/985_1.htm">985工程</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/211/211_1.htm">211工程</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/ben/ben_beijing_1.htm">本科院校</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/gzgz/gzgz_beijing_1.htm">高职高专</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/minban/minban_beijing_1.htm">民办高校</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/dulixueyuan/dulixueyuan_beijing_1.htm">独立学院</a></li>  
+        <li><a target="_self" href="http://www.eol.cn/kuai_xun_3075/20060323/t20060323_87534.shtml">自主招生</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/zhongwai/zhongwai_1.htm">中外合作</a></li>  
+        <li class="l_long"><a target="_self" href="/schoolInfoSearch/zonghe/zonghe_1.htm">综合类</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/nonglin/nonglin_1.htm">农林类</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/ligong/ligong_1.htm">理工类</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/yishu/yishu_1.htm">艺术类</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/shifan/shifan_1.htm">师范类</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/caijing/caijing_1.htm">财经类</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/zhengfa/zhengfa_1.htm">政法类</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/yike/yike_1.htm">医科类</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/minzu/minzu_1.htm">民族类</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/tiyu/tiyu_1.htm">体育类</a></li>  
+        <li><a target="_self" href="/schoolInfoSearch/waiyu/waiyu_1.htm">外语类</a></li>  
+</ul> 
+        </div>
+        <form action="/searchSchoolName.html" method="get" name="form1" target="_blank" onsubmit="return checkSchoolName();">
+         <div class="search_box" style="position:relative;">
+            搜索大学： 
+            <input id="keyWord" name="keyWord"  class="textarea_style01" type="text" onmouseover="this.focus()" onclick="if(value=='请输入大学名称'){value=''}" onblur="if (value ==''){value='请输入大学名称'}" value="请输入大学名称" size="40"/>
+            <input type="submit" value="搜索" class="btn_style01" >
+            <a target="_self" href="http://gkcx.eol.cn" style="position:absolute;top:8px;right:10px;font-weight:normal;">返回到高考查询系统</a>
+         </div>
+         <script type="text/javascript">
+             function checkSchoolName()
+             {
+               var str = document.getElementById("keyWord").value;
+               var pattern = /^([\u4E00-\u9FA5]|[a-zA-Z])+$/i;
+               if(!pattern.test(str)||str=="请输入高校关键字")
+               {
+                   alert("请输入正确的学校名称中文关键字");
+                   document.getElementById("keyWord").focus();
+                   return false;
+               }
+               else
+               {
+                   if(str.length<2)
+                   {
+                      alert("请输入至少2个汉字");
+                      document.getElementById("keyWord").focus();
+                      return false;
+                   }
+                   else
+                   {
+                       var keyWord = document.getElementById("keyWord").value;
+                       window.open("/searchSchoolName.html?keyWord="+encodeURI(keyWord));
+                       return false;
+                   }
+               }
+             }
+         </script>
+        </form>
+    </div>
+    <p class="blank10"></p>
+    <!--add begin-->
+    <div class="wrap">
+    <!--nav_box end-->
+    
+    
+    <div class="blue_border top_bg">
+        
+        <div class="title_style01">
+            <h2><span>教育部直属</span>高校名单</h2>      
+        </div>
+    
+        
+        <table cellspacing="0" cellpadding="0" border="0" class="table_style02" id="table">
+            <tbody>
+                <thead>
+                     <tr>
+                        <td colspan="9"  align="center">
+                             <font color="red">排名不分先后</font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="25%">学校名称</th>
+                        <th width="11%">类别</th>
+                        <th width="8%">所在省市</th>
+                        <th width="8%">中央部委</th>
+                        <th width="8%">教育部直属</th>
+                        <th width="8%">985工程</th>
+                        <th width="8%">211工程</th>
+                        <th width="12%">各省录取分数线</th>
+                        <th width="12%" class="no_border">各专业录取分数线</th>
+                    </tr>
+                </thead>
+                
+                
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school31.htm" target="_blank" title="北京大学">
+                                        北京大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/zonghe/zonghe_1.htm">
+                                        综合类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_beijing_1.htm">
+                                      北京
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/31/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/31/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school36.htm" target="_blank" title="长安大学">
+                                        长安大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/ligong/ligong_1.htm">
+                                        理工类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_shanxi2_1.htm">
+                                      陕西
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/36/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/36/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school38.htm" target="_blank" title="北京交通大学">
+                                        北京交通大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/ligong/ligong_1.htm">
+                                        理工类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_beijing_1.htm">
+                                      北京
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/38/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/38/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school39.htm" target="_blank" title="北京外国语大学">
+                                        北京外国语大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/waiyu/waiyu_beijing_1.htm">
+                                        语言类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_beijing_1.htm">
+                                      北京
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/39/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/39/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school40.htm" target="_blank" title="中央音乐学院">
+                                        中央音乐学院
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/yishu/yishu_1.htm">
+                                        艺术类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_beijing_1.htm">
+                                      北京
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/40/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/40/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school42.htm" target="_blank" title="武汉大学">
+                                        武汉大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/zonghe/zonghe_1.htm">
+                                        综合类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_hubei_1.htm">
+                                      湖北
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/42/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/42/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school43.htm" target="_blank" title="北京林业大学">
+                                        北京林业大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/nonglin/nonglin_1.htm">
+                                        农林类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_beijing_1.htm">
+                                      北京
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/43/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/43/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school44.htm" target="_blank" title="湖南大学">
+                                        湖南大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/zonghe/zonghe_1.htm">
+                                        综合类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_hunan_1.htm">
+                                      湖南
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/44/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/44/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school46.htm" target="_blank" title="中国人民大学">
+                                        中国人民大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/zonghe/zonghe_1.htm">
+                                        综合类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_beijing_1.htm">
+                                      北京
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/46/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/46/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school51.htm" target="_blank" title="西南交通大学">
+                                        西南交通大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/ligong/ligong_1.htm">
+                                        理工类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_sichuan_1.htm">
+                                      四川
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/51/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/51/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school48.htm" target="_blank" title="北京邮电大学">
+                                        北京邮电大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/ligong/ligong_1.htm">
+                                        理工类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_beijing_1.htm">
+                                      北京
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/48/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/48/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school49.htm" target="_blank" title="北京中医药大学">
+                                        北京中医药大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/yike/yike_1.htm">
+                                        医药类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_beijing_1.htm">
+                                      北京
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/49/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/49/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school52.htm" target="_blank" title="北京师范大学">
+                                        北京师范大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/shifan/shifan_1.htm">
+                                        师范类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_beijing_1.htm">
+                                      北京
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/52/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/52/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school53.htm" target="_blank" title="对外经济贸易大学">
+                                        对外经济贸易大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/caijing/caijing_1.htm">
+                                        财经类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_beijing_1.htm">
+                                      北京
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/53/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/53/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school57.htm" target="_blank" title="西安电子科技大学">
+                                        西安电子科技大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/ligong/ligong_1.htm">
+                                        理工类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_shanxi2_1.htm">
+                                      陕西
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/57/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/57/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school59.htm" target="_blank" title="南开大学">
+                                        南开大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/zonghe/zonghe_1.htm">
+                                        综合类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_tianjin_1.htm">
+                                      天津
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/59/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/59/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school60.htm" target="_blank" title="天津大学">
+                                        天津大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/ligong/ligong_1.htm">
+                                        理工类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_tianjin_1.htm">
+                                      天津
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/60/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/60/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school61.htm" target="_blank" title="中国海洋大学">
+                                        中国海洋大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/zonghe/zonghe_1.htm">
+                                        综合类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_shandong_1.htm">
+                                      山东
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/61/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/61/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school63.htm" target="_blank" title="合肥工业大学">
+                                        合肥工业大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/ligong/ligong_1.htm">
+                                        理工类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_anhui_1.htm">
+                                      安徽
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/63/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/63/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                              <a href="/schoolhtm/schoolTemple/school73.htm" target="_blank" title="同济大学">
+                                        同济大学
+                              </a>
+                            </th>
+                            <td align='center'>
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/ligong/ligong_1.htm">
+                                        理工类
+                                 </a> 
+                            </td>
+                            <td class="left_td">
+                                 <a target="_self" style="color:#003399;text-decoration: none;" href="/schoolInfoSearch/province/province_shanghai_1.htm">
+                                      上海
+                                 </a>
+                            </td>
+                            <td><b>×</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><b>√</b></td>
+                            <td><a href="/schoolhtm/schoolAreaPoint/73/schoolAreaPoint.htm" target="_blank">点击查看</a></td>
+                            <td><a href="/schoolhtm/schoolSpecailtyMark/73/schoolSpecailtyMark.htm" target="_blank">点击查看</a></td>
+                        </tr>
+                
+            </tbody>
+        </table>
+        
+            <div class="s_m_pagenav">
+                 <a href="#" class="npl">首页</a>
+                 <a href="#" class="npl">上一页</a>
+               
+                
+                          <a href="/schoolInfoSearch/jybzs/jybzs_1.htm" class="cpl">1</a> 
+                          <a href="/schoolInfoSearch/jybzs/jybzs_2.htm" class="pl">2</a> 
+                          <a href="/schoolInfoSearch/jybzs/jybzs_3.htm" class="pl">3</a> 
+                          <a href="/schoolInfoSearch/jybzs/jybzs_4.htm" class="pl">4</a> 
+                          <a href="/schoolInfoSearch/jybzs/jybzs_5.htm" class="pl">5</a> 
+                  <a href="/schoolInfoSearch/jybzs/jybzs_2.htm" class="pl">下一页</a> 
+                  <a href="/schoolInfoSearch/jybzs/jybzs_5.htm" class="pl">末页</a>
+               
+            </div>
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    
+    
+    
+    
+    ﻿<!--
+<DIV id="float_l" style='left:2px;POSITION:absolute;TOP:5px;text-align:center;' onmouseover="showhide('float_l','s')" onmouseout="showhide('float_l','h')">
+	<div id="float_l1"><a href='http://gaokao.eol.cn/html/g/gyhd_bh.shtml' target='_blank'><img src='http://www.eol.cn/images/cer.net/gaokao/duilian_1224_100.gif' border='0' alt=''></a></div>
+	<div id="float_l2" style="display:none;"><a href='http://gaokao.eol.cn/html/g/gyhd_bh.shtml' target='_blank'><img src='http://www.eol.cn/images/cer.net/gaokao/duilian_1224_40.gif' border='0' alt=''></a></div>
+	<span onclick="javascript:hidediv('float_l');" style="cursor:pointer;color:#666666;display:block;line-height:18px;font-size:12px;text-align:left;padding:0 5px;background:#EFEFEF;">关闭</span>
+</div>
+
+<DIV id="float_r" style='right:2px;POSITION:absolute;TOP:5px;text-align:center;' onmouseover="showhide('float_r','s')" onmouseout="showhide('float_r','h')">
+	<div id="float_r1"><a href='http://gaokao.eol.cn/kuai_xun_3075/20100504/t20100504_471452.shtml' target='_blank'><img src='http://www.eol.cn/images/cer.net/gaokao/zxh_100_1055.jpg' border='0' alt=''></a></div>
+	<div id="float_r2" style="display:none;"><a href='http://gaokao.eol.cn/kuai_xun_3075/20100504/t20100504_471452.shtml' target='_blank'><img src='http://www.eol.cn/images/cer.net/gaokao/zxh_40_1055.jpg' border='0' alt=''></a></div>
+	<span onclick="javascript:hidediv('float_r');" style="cursor:pointer;color:#666666;display:block;line-height:18px;font-size:12px;text-align:right;padding:0 5px;background:#EFEFEF;">关闭</span>
+</div>
+
+<script>
+function $(o) {
+	return document.getElementById(o);
+}
+var ini=false;
+function showhide(o,sh) {
+	if(ini==true) {
+		$(o+'2').style.display=(sh=='s')?'none':'block';
+		$(o+'1').style.display=(sh=='s')?'block':'none';
+	}
+}
+function hidediv(o) {
+	$(o).style.display='none';
+}
+window.onload=function() {
+	window.setTimeout("ini=true;showhide('float_l','h');showhide('float_r','h');showhide('s1_r','h');showhide('s1_l','h');",3000);
+}
+function showdiv(o) {
+	$(o).style.display='block';
+}
+</script>
+-->
+<input type="hidden" /> 
+    
+    
+    
+    <p class="blank10"></p>
+
+        <script type="text/javascript" src="/schoolhtm/sysindexFooter.js"></script>
+<!---->         <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+            </script>
+            
+            <script type="text/javascript">
+            _uacct = "UA-4097726-9";
+            urchinTracker();
+            </script>
+            <noscript>
+            <img src="http://pv.img.eol.cn/images/cer.net/log/gkcx.png" width="0" height="0" />
+            </noscript>　
+
+    </div>
+
+</body>
+</html>
+

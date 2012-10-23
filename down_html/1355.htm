@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>无法访问网页 - iwms</title>
+<META http-equiv=Content-Type content=text/html; charset=gb2312>
+<style type="text/css">
+	body, td {font-size:14px; font-family:Arial,宋体; line-height:150%; }
+	a:link {color:blue;}
+	a:hover {color:red!important;}
+	a:visited {color:blue;}
+</style>
+<script type="text/javascript">
+var msg, url;
+	
+function init()
+{
+	var errs = new Array();
+	var q = document.location.href.toLowerCase();
+	errs[0] = "你请求的网页已经不存在";
+	errs[1] = "你的防火墙破坏了网页ViewState的完整性<br>请关闭防火墙后再试";
+	errs[2] = "你的网站所在目录权限不够<br>请给网站所在目录aspnet读/写/建目录权限<br>如果是win2000请给所在分区aspnet读权限";
+	
+	url = q;
+	if (url.indexOf("?")>0){
+		url = url.substr(0,url.lastIndexOf("?"));
+	}
+	url = url.substr(0,url.length-13);
+	
+	if (q.lastIndexOf("?")<0){
+		q = 0;
+	}else{
+		q = q.substr(q.lastIndexOf("?")+1);
+		q = q.split("=")[1];
+	}
+	
+	msg = errs[parseInt(q)];
+}
+
+init();
+</script>
+</head>
+<body>
+	<table width="350" height="200" align="center" bgcolor="white" border="1" bordercolor="#00CCFF" style="BORDER-COLLAPSE: collapse" cellpadding="4">
+		<tr>
+			<td height="20" style="font-size:12px; background:#99FFFF; color:black; font-weight:bold;">
+				你请求的网页无法访问 - iwms
+			</td>
+		</tr>
+		<tr>
+			<td align="center" style="color:red;">
+				<script type="text/javascript">
+					document.write(msg+"<br><br>");
+					document.write("<a href=\""+ url +"\" target=\"_top\">"+ url +"</a>");
+				//	window.setTimeout("window.top.location='"+url+"';",5000);
+				</script>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

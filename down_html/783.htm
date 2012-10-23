@@ -1,0 +1,266 @@
+<html>
+<head><link href="/css/list.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>新闻动态</title>
+<link href="/page/main816/style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+/* ---左侧放子栏目div--- */
+#listleft {
+	float: left;
+	width: 25%;
+	background-color: #eeeeee;
+}
+/* ---右侧放主要信息div--- */
+#listright {
+	background-color: #FFFFFF;
+	float: right;
+	width: 70%;
+}
+/* ---当前位置--- */
+#position {
+	padding: 3px;
+}	
+.listtitfont {	font-size: 12pt;
+	font-weight: normal;
+}
+/* ---列表标题--- */
+#listtit {
+	font-size: 12pt;
+	font-weight: normal;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-right: 5px;
+}
+/* ---列表正文--- */
+#newslist {
+	padding-top: 8px;
+	padding-right: 15px;
+	padding-bottom: 8px;
+	padding-left: 15px;
+	width: 100%;
+	font-size: 10.5pt;
+}
+-->
+#newslist div{
+	font-size: 10.5pt;
+	line-height: 1.5em;
+}
+#newslist img{
+	background-color:#FFFFFF;
+	border: 2px solid #FFFFFF;
+}
+.STYLE2 {font-size: 9pt; font-family: "宋体"; color: #A72C2E;}
+</style>
+</head>
+<body>
+<div id="container_page">
+<div id="head">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" background="/page/main816/images/head1.gif" style="background-repeat:no-repeat">
+  <tr>
+    <td width="772" height="103"></td>
+    <td width="299" valign="top">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="15"></td>
+  </tr>
+</table>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="80" height="30"></td>
+    <td width="80" align="center">
+	<table border="0" cellpadding="0" cellspacing="0" class="wlink">
+  <tr>
+    <td><script language='javascript'>   function getHttpObj(){       var xmlHttp = false;       try {           xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");       }catch (e) {           try {               xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");           }catch (e2) {               xmlHttp = false;           }       }       if (!xmlHttp && typeof XMLHttpRequest != 'undefined'){           xmlHttp = new XMLHttpRequest();       }       return xmlHttp;   }   function P(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=0;   }   function T(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=1;   }   function I(pltId, url, fun){       this.portletId=pltId;       this.url=url;       this.kind=2;       this.nextFunc=fun;   }   var PLTS=new Array();   var cur1=0;   var Loader1= getHttpObj();   function loadps(){       if(cur1<PLTS.length){           Loader1.open('GET',PLTS[cur1].url+'?'+new Date().getTime()+(10000+parseInt(Math.random()*10000)));           Loader1.onreadystatechange=endloadps;           Loader1.send(null);       }   };   function endloadps(){       if(Loader1.readyState==4){           if(Loader1.status==200){               var response=Loader1.responseText;               if(PLTS[cur1].kind==2) {                   _listArticleCount =response.replace(/(^\s*)|(\s*$)/g, "");                   try {                       eval(PLTS[cur1].nextFunc);                   }catch(e){                       alert('高效分页初始化失败！');                   }               }               try{                   if(window.execScript){                       document.getElementById(PLTS[cur1].portletId).outerHTML='<body>'+response+'</body>';                   } else{                       document.getElementById(PLTS[cur1].portletId).innerHTML=response;                   }               } catch(e){}               var regx=new RegExp('<scr'+'ipt[^>]*?>([\\s\\S]*?)<\\/scr'+'ipt\\s*>|<scr'+'ipt[^>]*?\\/>','img');               var arr;               while((arr = regx.exec(response)) != null){                   if(arr.length){                       if(arr.length >=2){                           var regx2 = new RegExp("<scr"+"ipt[^>]*?\\bsrc=\\s*('[^>]*'|\"[^>]*\"|[\\S]*)\\s*\\/?>",'im');                           var srcArr=regx2.exec(arr[0]);                           if(srcArr!=null){                               var src= srcArr[1];                               if(src){                                   if((src.charAt(0)=='"') || (src.charAt(0)=="'")){                                       src=src.substr(1,src.length-2);                                   }                                   loadScript(src);                               }                           } else{                               execJavaScript(arr[1]);                           }                       }                   }               }           }           cur1++;           loadps();       }   }   function loadScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.src=s;           document.body.appendChild(sc);       }catch(e){}   }   function execJavaScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.text=s;           document.body.appendChild(sc);       }catch(e){}   }   window.onload=loadps;</script><div id='_p_1'></div><script language='javascript'>PLTS[PLTS.length]=new P('_p_1','/s/162/t/816/p/99/p.jspy');</script></td>
+  </tr>
+</table>
+</td>
+    <td> <script language=JavaScript>
+														<!--
+														calendar = new Date();
+														day = calendar.getDay();
+														month = calendar.getMonth();
+														date = calendar.getDate();
+														year = calendar.getYear();
+														if (year< 200) year = 1900 + year;
+														cent = parseInt(year/100);
+														g = year % 19;
+														k = parseInt((cent - 17)/25);
+														i = (cent - parseInt(cent/4) - parseInt((cent - k)/3) + 19*g + 15) % 30;
+														i = i - parseInt(i/28)*(1 - parseInt(i/28)*parseInt(29/(i+1))*parseInt((21-g)/11));
+														j = (year + parseInt(year/4) + i + 2 - cent + parseInt(cent/4)) % 7;
+														l = i - j;
+														emonth = 3 + parseInt((l + 40)/44);
+														edate = l + 28 - 31*parseInt((emonth/4));
+														emonth--;
+														
+														var dayname = new Array ("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+														var monthname =
+														new Array ("1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月" );
+														document.write("<font color=274494>"+year +"年");
+														document.write(monthname[month]);
+														document.write(date + "日");
+														document.write(dayname[day]+" "+"</font>");
+														//-->
+														</script></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="23" height="58"><img src="/page/main816/images/bottom1.gif"></td>
+    <td width="65" align="center">站内搜索：</td>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div id='_p_2'></div><script language='javascript'>PLTS[PLTS.length]=new P('_p_2','/s/162/t/816/p/98/p.jspy');</script></td>
+  </tr>
+</table>
+</td>
+  </tr>
+</table>
+
+
+</td>
+    <td width="19"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="32" align="center" bgcolor="#bdbdbd">	
+	<table border="0" cellpadding="0" cellspacing="0" class="zlink">
+  <tr>
+    <td><div id='_p_3'></div><script language='javascript'>PLTS[PLTS.length]=new P('_p_3','/s/162/t/816/p/1/p.jspy');</script></td>
+  </tr>
+</table></td>
+  </tr>
+</table>
+</div>
+<div id="container_content">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+<td width="278" align="center" valign="top"  bgcolor="#526fab" class="listleftbg1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="20"></td>
+  </tr>
+</table>
+<table width="90%" border="0" cellpadding="0" cellspacing="0" class="blink">
+          <tr>
+            <td width="34" align="center"></td>
+            <td height="29"><a href='/s/162/t/816/p/22/c/4468/list.jspy' target='_self' class="blink">新闻动态</a></td>
+            <td width="7">&nbsp;</td>
+          </tr>
+		  <tr>
+<td height="1" colspan="2" background="/page/main816/images/line1.gif" style="background-repeat:no-repeat"></td>
+</tr>  
+          
+<tr>
+            <td height="2"></td>
+            <td></td>
+            <td></td>
+          </tr></TABLE>
+		  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="450"></td>
+  </tr>
+</table>
+
+</td>    <td valign="top"><table width="100%" height="400" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+		<td width="20"></td>
+        <td valign="top">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="/page/main816/images/head.jpg"></td>
+  </tr>
+</table>
+
+		
+		<table width="92%" height="34" border="0" align="center" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td height="20"><table width="100%" height="25" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="left">当前位置: <a href='/s/162/t/816/main.jspy' title='返回首页'>首页</a><span class="posSplit">&nbsp;&nbsp;</span><a href='/s/162/t/816/p/22/list.jspy' title='新闻动态'>新闻动态</a></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table>
+<table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="13" height="26"><img src="/page/main816/images/main2_1.gif"></td>
+    <td background="/page/main816/images/main2_2.gif" class="biaoti" style="background-repeat:no-repeat">新闻动态</td>
+  </tr>
+</table>
+          <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td class="content"><div id=newslist>
+                <link href='/css/divwin.css' type='text/css' rel='stylesheet'><script language='javascript' src='/include/classbase.js'></script><script language='javascript' src='/include/windowopener.js'></script><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/34243/info.jspy' target='_blank' style=''><font color=''>海外教育学院2012级新生开学典礼隆重举行</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/34245/info.jspy' target='_blank' style=''><font color=''>校党委书记刘陈教授会见美国纽约理工学院校长Edward Guiliano博士</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/33892/info.jspy' target='_blank' style=''><font color=''>南京邮电大学海外教育学院第六届N-CUP篮球赛正式开战</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/33872/info.jspy' target='_blank' style=''><font color=''>以就业为导向 为就业开绿灯</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/33569/info.jspy' target='_blank' style=''><font color=''>海外教育学院"学长面对面"活动圆满落幕</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/33568/info.jspy' target='_blank' style=''><font color=''>海外教育学院召开新学期工作会议</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/33542/info.jspy' target='_blank' style=''><font color=''>校党委常委、副校长王宗荣走访海外教育学院</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/33342/info.jspy' target='_blank' style=''><font color=''>感恩回馈，SHOW出你的爱</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/33214/info.jspy' target='_blank' style=''><font color=''>“南邮，你好！”——海外教育学院迎新系列活动之一</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/33109/info.jspy' target='_blank' style=''><font color=''>海外教育学院2012年度迎新工作顺利结束</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/32549/info.jspy' target='_blank' style=''><font color=''>南京邮电大学海外教育学院2008级学生毕业典礼</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/31849/info.jspy' target='_blank' style=''><font color=''>海外教育学院第二届“菁英人才学校”开学典礼隆重举行</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/31808/info.jspy' target='_blank' style=''><font color=''>迎母亲节，寄真情卡</font></a></td></tr></table></td>
+                    </tr><tr>
+                      <td width="22" height="23" align="center"><img src="/page/main816/images/bottom2.gif"></td>
+                      <td><table width=100% border=0 cellspacing=0 cellpadding=0 class='columnStyle'><tr><td><a href='/s/162/t/816/a/31335/info.jspy' target='_blank' style=''><font color=''>著名导演陈应岐先生莅临我校讲座</font></a></td></tr></table></td>
+                    </tr></table><table width=100% cellSpacing=0 cellPadding=0 border=0><tr><td height='10' align="center"><font style="font-size:9pt"><span width="100%">
+<table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-width:0px;border-collapse:collapse;">
+<tr><td style="width:30%;" nowrap>&nbsp;&nbsp;每页14条记录&nbsp;&nbsp;总共241条记录</td>
+<td align="right" style="width:70%;" nowrap>
+&nbsp;&nbsp;<a disabled="disabled" title="返回首页">首页</a>
+&nbsp;&nbsp;<a disabled="disabled" title="返回上一页" class="PageButton">上一页</a>
+&nbsp;&nbsp;<a href="/s/162/t/816/p/22/i/2/list.jspy" title="进入下一页">下一页</a>
+&nbsp;&nbsp;<a href="/s/162/t/816/p/22/i/18/list.jspy" title="进入尾页">尾页</a>&nbsp;&nbsp;页码:&nbsp;1/18&nbsp;&nbsp;<input name="pageIndex_PDT" type="text" maxlength="3" class="compose_input" style="width:25px;" />&nbsp;&nbsp;<a title="跳转至" href="javascript:if(true){gotoUrl='/s/162/t/816/p/22/i//list.jspy';location.href=gotoUrl.replace('i/','i/'+document.all('pageIndex_PDT').value)}" onclick="javascript:return PageIsValidation('pageIndex_PDT',18);">跳转</a>&nbsp;&nbsp;
+<script language="javascript">function PageIsValidation( objName,page ){b = true;var obj = document.all[objName];if( obj.value.replace(/ /g,"") == "" )b = false;else if(isNaN(obj.value))b = false;else if ( parseInt(obj.value) > parseInt(page) || parseInt(obj.value)<=0 )b = false;if( !b ){obj.value = '';obj.focus();alert( '请您输入有效的页码!' );}return b;}</script></td></tr></table></span></font></td></tr></table>
+              </div></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+  </div>
+  <div id="foot">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="45"  align="center" valign="middle" class="foothang" background="/page/main816/images/foot.gif">版权所有 南京邮电大学海外教育学院 联系电话：025-85866198 025-85866199 传 真:025-85866199<br>  
+邮 箱：zhaowei@njupt.edu.cn 邮 编：210041 通讯地址：南京市栖霞区文苑路9号南京邮电大学海外教育学院</td>
+  </tr>
+</table>
+  </div>
+</div>
+</body>
+</html>

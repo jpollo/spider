@@ -1,0 +1,238 @@
+
+
+
+
+
+<html>
+    <head>
+        <meta content="text/html;charset=UTF-8"/>
+        <title>用户发表留言</title>
+        <LINK href="../../css/css.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript">
+            var patterns = new Object();
+            patterns.email = /^[a-zA-Z0-9\._-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+            patterns.handset=/^[0-9]{10,12}$/g;      
+            var re=/[\\/:*?\"<>|]/;
+            var re1=/[\\/\&<>|]/;
+            function check(obj){
+              if(obj.onclick){
+                obj.oldOnClick = obj.onclick;
+                obj.onclick = null;
+              }
+              if(window.document.getElementById("message:userName").value==""){
+                alert("请填写留言人姓名！");
+              }
+              else if(window.document.getElementById("message:userName").value.match(re)){
+                alert("-姓名不能包括 \\ / : * ? \" < > |");
+              }
+              else if(window.document.getElementById("message:email").value==""){
+                alert("请填写电子邮箱！");
+              }
+              else if(window.document.getElementById("message:email").value!="" && !(patterns.email).test(window.document.getElementById("message:email").value))
+              {   
+                 alert("电子信箱格式不正确!");
+              }
+              else if(window.document.getElementById("message:handset").value!="" && !(patterns.handset).test(window.document.getElementById("message:handset").value)){
+                    alert("电话号码格式不正确！");
+              }
+              else if(window.document.getElementById("message:title").value==""){
+                alert("请填写留言标题！");
+              }
+              else if(window.document.getElementById("message:title").value.match(re)){
+                alert("-留言标题不能包括 \\ / : * ? \" < > |");
+              }
+              else if(window.document.getElementById("message:content").value==""){
+                alert("请填写留言内容");
+              }
+              else if(window.document.getElementById("message:content").value.match(re1)){
+                alert("-回复内容不能包括 \\ / \& < > |");
+              }
+              else if(window.document.getElementById("message:content").value!="" && window.document.getElementById("message:content").value.length>500){
+                alert("留言内容不得超过500字符！");
+              }else{obj.oldOnClick();}
+            }
+          function quit()
+            {
+              try
+              {
+                window.opener.location.reload(true);
+              }
+              catch (ex) {}
+            } 
+        </script>
+    </head>
+    <body>
+        <script language="JavaScript" src="../../include/jsffigleaf.js" type="text/javascript"></script>
+        
+        
+            <form id="message" method="post" action="/message/messageappear/messageAppearPageOfMain.faces;jsessionid=7C59A7D7DC04D3F38090026305CE3FA7" enctype="application/x-www-form-urlencoded">
+
+                <table class="table90" border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                        <td height="10"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="table1" border="0" cellpadding="0" cellspacing="0" align="center">
+                                <tr>
+                                    <td class="poptdl"></td>
+                                    <td class="toptdm">
+                                        <strong>用户留言</strong>
+                                    </td>
+                                    <td class="toptdr"></td>
+                                </tr>
+                            </table>
+                            <table class="table" cellspacing="1" cellpadding="0" align="center">
+                                <tr>
+                                    <td class="tablebody1" align="center" height="25">
+                                        <table width="98%" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                        </table>
+                                        <table width="98%" border="1" borderColor="#cccccc" cellpadding="2" cellspacing="0" align="center">
+                                            <tr>
+                                                <td borderColor="#ffffff">
+                                                    <div id="div1">
+                                                         <table width="90%" border="0" cellspacing="4" align="center" >
+                                                            <tr>
+                                                                <td align="right" height="22px">您的姓名: </td>
+                                                                <td height="22px">
+                                                                    
+                                                                    <input id="message:userName" type="text" name="message:userName" maxlength="20" />
+                                                                    <font color="red">*</font>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right">
+                                                                    
+                                                                </td>  
+                                                                <td>
+                                                                    
+                                                                    
+                                                                                                                                                
+                                                                    
+                                                                   
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right" height="22px">类别: </td>
+                                                                <td> 
+                                                                    
+                                                                        
+                                                                    <select id="message:category" name="message:category" size="1" style="width:120px">	<option value="1">&#26222;&#36890;&#30041;&#35328;</option>
+</select>                                   
+                                                                </td>
+                                                            </tr>    
+                                                            <tr>
+                                                                <td align="right" height="22px">电子邮件: </td>
+                                                                <td height="22px">
+                                                                    
+                                                                    <input id="message:email" type="text" name="message:email" maxlength="40" />
+                                                                    <font color="red">*</font>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right" height="22px">电话号码: </td>
+                                                                <td height="22px">
+                                                                    
+                                                                    <input id="message:handset" type="text" name="message:handset" maxlength="20" /><font color="green">(格式：02585034082或13387723412)</font>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right" height="22px">标题: </td>
+                                                                <td height="22px">
+                                                                    
+                                                                    <input id="message:title" type="text" name="message:title" maxlength="50" style="width:400px" />
+                                                                    <font color="red">*</font>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right" height="22px" valign="top">内容: </td>
+                                                                <td height="22px">
+                                                                       
+                                                                    <textarea id="message:content" name="message:content" style="height:100px;width:400px;"></textarea><br>
+                                                                    <font color="red">*  500字符以内</font>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="right" height="22px">验证码: </td>
+                                                                <td height="22px">
+                                                                    
+                                                                    <input id="message:validateCode" type="text" name="message:validateCode" value="" maxlength="20" style="width:120px" />
+                                                                    <img src="/control/validateimage" style="margin-bottom: -3px;">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div id="div2">
+                                                        <table width="90%" border="0" cellspacing="4" align="center">
+                                                            <tr>
+                                                                <td height="22px" align="center">
+                                                                    留言未开放，请联系管理员
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="22px" align="left">
+                                                                    <font size="2" color="red">
+                                                                        <label for="message:">
+留言禁用说明:  </label>
+                                                                        
+                                                                    </font>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table width="98%" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td height="10"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="table" cellpadding="0" cellspacing="0" align="center">
+                                <tr>
+                                    <td bgcolor="f7f7f7" height="30" align="center">
+                                        
+                                        <a href="#" onmousedown="check(this);" title="&#30830;&#23450;" onclick="document.forms['message']['message:_idcl'].value='message:_id5'; document.forms['message'].submit(); return false;" class="button">确定</a>
+                                        &nbsp;&nbsp;
+                                        
+                                        <a href="#" onmousedown="javascript:window.close()" title="&#20851;&#38381;" onclick="document.forms['message']['message:_idcl'].value='message:_id6'; document.forms['message'].submit(); return false;" class="button">关闭</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="table1" border="0" cellSpacing="0" cellPadding="0" align="center">
+                                <tr>
+                                    <td class="botdl" width="1">&nbsp;</td>
+                                    <td class="botdm">&nbsp;</td>
+                                    <td class="botdr" width="1">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="10"></td>
+                    </tr>
+                </table>
+                <input id="message:hidden" type="hidden" name="message:hidden" value="none" />
+                   
+                
+             <input type="hidden" name="com.sun.faces.VIEW" value="H4sIAAAAAAAAAM1ZW2wUVRg+u7SllHsvJNUWFyvSErrblnKxRekFajfZ7RJa6oWYMp057Q7MzowzZ7oDREIf1IiJMRGimBo1MYYHwAd8Mz4YH0xMMJHEF5+MEQuJ+urlRc9/5r5M22kt0H34e86Zc/7z/9///efWq7+jcl1DCV4pJHVDTk5wPNaTBhGl5IiG8TDRDJ4YGq6dePRQw6UTiTgqy6BKPi9KgoZlguoyJ7kpLgUDUr2axp3OiDrpzqA1vMTp+hBXwARVW30kTp5MUYWiPEk7VMBMRCeoxqdhkNPzWU6ln+Oi8DI6h+KmSq2rgR6WUe4c5vStxsvfcB+sQrE0KtPFM9hUEUKxYhmVVToMRkyW0/pG1rrJalUJagaFpu0sdV1VZOpMMk8KUnKQirSsGmQEm4T2rTR0rIEj7uidC4zOGYQOz3DjWKK9y8ZEoa3EnoCVtE9TuMZj6WEsYZ6kCS7otqp2k6BdCxhgjcrJOItlA1xQNWVKlHk8rxkgq+1ZOkyo1cJYniN4UtFO+3pV0fZyXOBEqaRxdZ6TBZ2GtaQvEYnk4beQ+S76nIY50MorMqE9SrSum+IkUaDW9SsC9n1bb/uw252wJVLA7HjD0M7Ise5XCgXqc0aUT9lj9/hM2WW37Y2sj/k+KAoClmnvijwr+TS22Br3mXOyxtU1oGgFgI9SV+cmqXcoMRfPRkVcPKooRFUNmm7HWUomIWGTufGTlEvdb3/3/Ieb9BYpjhDLs7gB1uynpTK3VElTdbOXqnYyl6/+8auvt5z4fhWKD6AqSeGEAY4nipZGa0hew3pekQRTPdiD4LeuWAmJCtwk6Am/tUU8zqlqsv/Y0aOHh0bGRtOHnxs7msuNwOTPmKqqupMzs/sURcKcfDOhnf9h5p8/4ij2IiqnhDHoMhFjeB5EKgWnanAkmxnr6x1O9xPUkbKhcv7SGTGnObVeVjtCS7mJLCfKyZM6zLrJczmj8JyEz/21+cRM29+/0bUyjSrzFAaeMjQDPDZkop1mCxtdRcFQg2qz66unOE3kZGKve//SH0Hx/iEqzuQJQi7OMbfkRWGLLwpQOhAGaCIM0Fz2SG4IIE0fGi5dMKG6FsQGEHUgHgHRAGIriASIJhDbQewAsRNEK4gUiA4QnabpoyK07AXRA6KXWBg6ljHeqhCdbdRCSaQrkKjIKbO1WCy2TtCPrYYmYRlAFdTSn4vDxhCUHnNLVW5p1YLIIdOnqiQ97P3s2q3R2buNZ5910oOCbbHNCxplypPh6TdM6CI2SNMAa8PcFNZe+PbG0+/M3MzGgRXeRmrTpEqnfQQ2Jri12pkKOG8LbudYSo6CMX2iLFBr0wVVomQPsHos6695TO+jSZR0dkAaJ3tQl9PkMiQ0kmxJVdnC1RsUPV7VipuvHszkNF37J7FW/fNHn/w5/fr+OOz3diY7ucf6DRmFcay9dvVS49qLP73pBKKWTRakiDcVC/jEedrPtcQNGArhT91SWQOl4xYvKum5iUYaCz5qQGkMxDhBT0WPi6gfsTd2SgeN0C3RCQ+cOdy8dUKz2R8a63gCOTk7M/3LF192WbjUzZ1QYYA0LCmhYtA8VHoMgWqNGYZaHAovgdC8rwHQFkHmwFloOUB3c8LR7K6VoTnBzmSRcqI0RUIpTNDaoiiQfFd7R5tq+uMVtk3El0hbFoA5CLtv8dizA22Qru0s/B4MD5p59aHMm9fxRZDOOUT72OI0uZuqF/43lpEfIC6scFo4UITQgh0e6qPTYhl2+EjepaJ7xy5KBK13vGJ1UNMQDCpewk4Jfyaocc2s53Jtcw8KxPboINoXS4I2OjDaLaBq6/IBubznhRXIRnYV97GR1UFNYvlA7FgMiO4G1tlWsoGFIbp15VHTfp3wUdNuAVVNHmgE1ZaejdkDRxScS4lXGoUoMNfnsTiZJ13tgHO3D/PulULjA9FBd95+DlOkNXa5ofA6+PsfhkD19oe0PoC4sBC4i7tTqMHtcTf02xG0vgin+rrZS5fvXDk/++n07MUrdz77/Nf33upKJCxbB+85LsxrYMV9jflA9JjbPQcUbZw9i6UlydCJxl4HgrB0gvKd4VFf7PGy4n84rc3h9P7FXDfsryFXvD2grtW/wgRuGuxR0pqXoMfveRLIYpJXBN+bgPekR1CN9fRlz229dwVcaInsAmVjT9PZ6B6HzPxK4MJTMfvx9dvX3w8wmALD5zF/qpnkRb2l22uuGDcIUWQW+9j25Qx6SSqy96xUgHOxRhf+5pB/sPQrsk44mQQCQVCsKejt7Vdv3H33Wom39RBonddElXQV6UilmOQlRcfNLb5VKbbD+tMxv9vejeD+Lu/dS2X9MNEI2uAe/Fjyg84OP/Wr/dS3X9AjrPMPcelri46HFekg4faBms55traegHv/ASPqAOfqGwAA" />
+ <input type=hidden name="com.sudytech.faces.ViewState" id="com.sudytech.faces.ViewState" value="rO0ABXNyABpjb20uc3VkeXRlY2guanNmLlZpZXdTdGF0ZT/A/67w3cyIAgAAeHIAE2phdmEudXRpbC5IYXNodGFibGUTuw8lIUrkuAMAAkYACmxvYWRGYWN0b3JJAAl0aHJlc2hvbGR4cD9AAAAAAAAIdwgAAAALAAAABHQACF9fcGFnZWlkdAADMjUxdAAGcGFnZUlkcQB+AAR0AAhfX3NpdGVpZHQAAjMydAAGc2l0ZUlkcQB+AAd4"/><input type="hidden" name="message" value="message" /><input type="hidden" name="message:_idcl" /></form>
+        
+    </body>
+</html>
+<script type="text/javascript" language="javascript">
+    if(document.getElementById("message:hidden").value=="none"){
+        document.getElementById("div1").style.display = "";
+        document.getElementById("div2").style.display = "none";
+    }else{
+        document.getElementById("div1").style.display = "none";
+        document.getElementById("div2").style.display = "";
+    }
+</script>

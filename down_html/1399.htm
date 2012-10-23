@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="google-site-verification" content="P6nItkRPdu53VwuaqY64aWGJXNbPFmDg1UNuAOoN2zk" />
+<title>江苏广播电视大学</title>
+<link href="jstvu.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery/jquery-1.4.2.min.js"></script>
+<script type="text/JavaScript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+
+<!--<script type="text/javascript">
+    $
+    (
+    function()
+    {
+        $("#banner").slideDown();
+        var Up=function(){$("#banner").slideUp(1500)}
+        setTimeout(Up,30000);
+        $("#close").click
+        (
+        function()
+        {
+            $("#banner").slideToggle
+            (
+            600,function()
+            {
+                if($("#banner").css("display") == "none")
+                {
+                    $("#close").text("打开");
+                }
+                else
+                {
+                    $("#close").text("关闭");
+                }
+            }
+        );
+        }
+    );
+    }
+);
+</script>-->
+
+<script>
+    $(document).ready(function(){
+                /*FF和IE7可以通过position:fixed来定位，只有ie6需要动态设置高度.*/
+                if($.browser.msie && $.browser.version == 6) {
+                    FollowDiv.follow();
+                }
+            });
+            FollowDiv = {
+                follow : function(){
+                    $('#FollowDiv').css('position','absolute');
+                    $(window).scroll(function(){
+                        var f_top = FollowDiv._getScroll()['scrollTop'] ;
+                        $('#FollowDiv').css( 'top' , f_top );
+                    });
+                },
+                _getScroll : function(){
+                    scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+                    return {scrollTop:scrollTop};
+                }
+            }
+</script>
+
+
+
+<script language="JavaScript" type="text/JavaScript">
+		function check()
+		{
+		   if (form1.IDToken1.value == null || form1.IDToken1.value =="" || form1.IDToken2.value ==null || form1.IDToken2.value =="")
+				{
+				      window.alert("请输入您的用户名和密码！");
+				      form1.IDToken1.focus();
+                                      return false;
+				}
+                        if(form1.type.value == "oa")
+			{
+                            form1.username.value=form1.IDToken1.value;
+                            form1.password.value=form1.IDToken2.value;
+			    form1.action="http://oa.jstvu.edu.cn/names.nsf?login";
+//                            window.open="http://oa.jstvu.edu.cn/names.nsf?login&username="+username+"&password="+password;
+			}
+			if(form1.type.value == "mail")
+			{
+//				if(form1.UserName.value.indexOf("@") == -1)
+//			     form1.UserName.value = form1.UserName.value + "@njty.edu.cn";
+			     form1.action="http://ids1.jstvu.edu.cn:80/amserver/UI/Login?goto=http%3A%2F%2Fmail.jstvu.edu.cn%2Findex-ids-log.php";
+//                             form1.action="http://mail.jstvu.edu.cn/index-ids-log.php"; form1.target="_blank";
+			}
+                        if(form1.type.value == "msg")
+			{
+//				if(form1.UserName.value.indexOf("@") == -1)
+//			     form1.UserName.value = form1.UserName.value + "@njty.edu.cn";
+			     form1.action="http://ids1.jstvu.edu.cn/amserver/UI/Login?goto=http%3A%2F%2Fopen1.jstvu.edu.cn%2Fsmsweb%2Findex.php";
+//                             form1.action="http://mail.jstvu.edu.cn/index-ids-log.php"; form1.target="_blank";
+			}
+			if(form1.type.value == "open1")
+			{
+			     form1.action="http://ids1.jstvu.edu.cn/amserver/UI/Login?goto=http%3A%2F%2Fopen1.jstvu.edu.cn%3A80%2Findex.php";
+			}
+		}
+</script>
+
+<script type="text/javascript">
+/*    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-21533604-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();*/
+</script>
+
+
+</head>
+
+<script>
+//window.open("/tongzhi/20110703.htm","notice0","left=100,top=100,width=600,height=400,statusbar=1,toolbar=0,menubar=0,center=1,scrollbars=yes,resize=yes");
+</script>
+
+<script>
+//window.open("/tongzhi/20110527.htm","notice1","left=200,top=200,width=600,height=400,statusbar=1,toolbar=0,menubar=0,center=1,scrollbars=yes,resize=yes");
+</script>
+
+<!--<script language="javascript">
+suspendcode="<DIV id=lovexin style='Z-INDEX: 10; right: 0px; POSITION: absolute; TOP: 150px; width: 100px; height: 100px;'><a href='http://210.28.216.200/jsou/' target=blank><img src='http://www.jstvu.edu.cn/images/jsou.png' width='100' height='100' border='0'></a></DIV>"
+document.write(suspendcode);
+lastScrollY=0;
+function heartBeat(){
+diffY=document.body.scrollTop;
+percent=.1*(diffY-lastScrollY);
+if(percent>0)percent=Math.ceil(percent);
+else percent=Math.floor(percent);
+document.all.lovexin.style.pixelTop+=percent;
+lastScrollY=lastScrollY+percent;
+}
+window.setInterval("heartBeat()",1);
+</script>-->
+    
+<!--<script language="javascript">
+suspendcode="<DIV id=lovexin1 style='Z-INDEX: 10; right: 0px; POSITION: absolute; TOP: 350px; width: 100px; height: 100px;'><a href='http://210.28.216.35/registration/ ' target=blank><img src='http://www.jstvu.edu.cn/images/2012zhaosheng.jpg' width='100' height='100' border='0'></a></DIV>"
+document.write(suspendcode);
+lastScrollY=0;
+function heartBeat(){
+diffY=document.body.scrollTop;
+percent=.1*(diffY-lastScrollY);
+if(percent>0)percent=Math.ceil(percent);
+else percent=Math.floor(percent);
+document.all.lovexin1.style.pixelTop+=percent;
+lastScrollY=lastScrollY+percent;
+}
+window.setInterval("heartBeat()",1);
+</script>-->
+
+
+
+
+
+
+
+
+<body>
+<div id="container">
+    <!-- end #Slider -->
+<!--    <div id="banner"></div>
+    <span id="close">关闭</span>-->
+    <!-- end #header -->
+  <div id="header">
+        <div id='nav_logo'><img src="../images/030.gif" /></div>
+		<div id='logo'><img src="images/logo.gif" alt="江苏广播电视大学" width="380" height="77" align="right"/></div>
+  <!-- end #header -->
+  </div>
+  <div id="navigater">
+    <div id='nav_logo'><img src="../images/020.gif" /></div>
+  <div id="nav_menu">
+      <ul>
+        <li><a href="#" class="current">首页</a></li>
+		<li><a href="/intro/intro.html">学校简介</a></li>
+		<li><a href="/zzjy/zzjy.htm">中高职教育</a></li>
+		<li><a href="http://210.28.216.200/jjy/index.aspx">继续教育</a></li>
+		<li><a href="/lndx/lndx.htm">老年大学</a></li> 
+      </ul>
+  </div><!-- end #nav_menu -->
+<!-- end #navigater -->
+  </div>
+
+  <div id="middle_box">
+    	<div id="building">
+        	<img src="../images/01.gif" alt="" width="448" height="228" title="" />
+        </div>
+        <div id="right_nav">
+            <ul>                                        
+                <li><a href="http://210.28.216.200/jsddzhaoban/" title="">招生动态</a></li>
+                <li><a href="http://open.jstvu.edu.cn/" title="">在线平台</a></li>
+                <li><a href="http://210.28.216.200/cai/" title="">多媒体课件</a></li>
+                <li><a href="http://vod.jstvu.edu.cn/" title="">视频点播</a></li>
+                <li><a href="http://elib.jstvu.edu.cn" title="">数字图书馆</a></li>
+                <li><a href="http://trs.jstvu.edu.cn/xzelec/" title="">虚拟实验室</a></li>                
+            </ul>
+        </div>       
+  </div><!--end of middle box-->
+
+<div id="mainContent">
+	<div id="leftContent">
+    	<div class="news">
+        <h3>新闻速递</h3>  			
+			<!-- 新闻速递 -->
+
+<p>
+    <img src="/images/news_icon.gif" width="15" height="14" alt="">
+         <a href="viewNews.jsp?aid=4197" target="_blank">
+                        国家教育咨询委专家组来我校专题调研江苏开放大学建设情况 (2012/10/22)
+            </a>
+        <img src="/news/assets/images/ccjs/newimg.gif" alt="">
+    </p>
+<p>
+    <img src="/images/news_icon.gif" width="15" height="14" alt="">
+         <a href="viewNews.jsp?aid=4192" target="_blank">
+                        校纪委召开工作会议 (2012/10/18)
+            </a>
+    </p>
+<p>
+    <img src="/images/news_icon.gif" width="15" height="14" alt="">
+         <a href="viewNews.jsp?aid=4190" target="_blank">
+                        我校召开第六届廉洁文化活动月活动动员会 (2012/10/18)
+            </a>
+    </p>
+<p>
+    <img src="/images/news_icon.gif" width="15" height="14" alt="">
+         <a href="viewNews.jsp?aid=4164" target="_blank">
+                        金南冬副书记、副校长参加全省高校哲学社会科学工作会议 (2012/10/11)
+            </a>
+    </p>
+<p>
+    <img src="/images/news_icon.gif" width="15" height="14" alt="">
+         <a href="viewNews.jsp?aid=4136" target="_blank">
+                        江苏省教育厅组织召开“江苏开放大学专业建设论证”工作会议 (2012/10/01)
+            </a>
+    </p>
+
+<div id="newsMore"><p><a href="/news/jstvu/news-more-jstvu.htm?cid=281" target="_blank">更多...</a></p></div>
+<!-- End 新闻速递 -->
+
+			<!-- <p class="more"><a href="news_more.jsp?cid=19" target="_blank">更多...</a></p> -->
+   	  </div>
+      <div class="news">
+      <h3>开放教育最新消息</h3> 
+			<!-- 开放教育最新消息 -->
+
+    
+<p>
+    <img src="/images/news_icon.gif" width="15" height="14" alt="">
+            <a href="viewNews.jsp?aid=4182" target="_blank">
+                                关于公布江苏广播电视大学经济管理类专业优秀毕业论文与优.... (2012/10/16)
+                                            </a>
+            </p>
+    
+<p>
+    <img src="/images/news_icon.gif" width="15" height="14" alt="">
+            <a href="viewNews.jsp?aid=4181" target="_blank">
+                                                关于召开2012年开放教育形成性考核工作交流研讨会的通知 (2012/10/16)
+                            </a>
+            </p>
+    
+<p>
+    <img src="/images/news_icon.gif" width="15" height="14" alt="">
+            <a href="viewNews.jsp?aid=4175" target="_blank">
+                                                关于认真做好2012年迎检自检报告撰写工作的通知 (2012/10/12)
+                            </a>
+            </p>
+    
+<p>
+    <img src="/images/news_icon.gif" width="15" height="14" alt="">
+            <a href="viewNews.jsp?aid=4173" target="_blank">
+                                                全省电大2012年《教学检查信息表》填报工作情况通报 (2012/10/12)
+                            </a>
+            </p>
+    
+<p>
+    <img src="/images/news_icon.gif" width="15" height="14" alt="">
+            <a href="viewNews.jsp?aid=4171" target="_blank">
+                                关于推荐2012年度“中央广播电视大学优秀毕业生”候选.... (2012/10/12)
+                                            </a>
+            </p>
+    
+<div id="newsMore"><p><a href="/news/jstvu/news-more-jstvu.htm?cid=282" target="_blank">更多...</a></p></div>
+<!-- End end  -->
+
+
+			<!-- <p class="more"><a href="news_more.jsp?cid=18" target="_blank">更多...</a></p> -->
+       </div>        
+    </div>
+    <div id="rightContent">
+        <div id="top">
+            <a href="http://www.jstvu.edu.cn/infoportal/index.html"><img src="images/portal.gif" alt="信息门户" /></a>　<a href="http://mail.jstvu.edu.cn/"><img src="images/mail.gif" alt="邮件系统" /></a>
+        </div>
+        <div class="dotline"></div>
+      <div id="login">
+<!--            <form id="form1" action="http://ids1.jstvu.edu.cn/amserver/UI/Login?goto=http%3A%2F%2Fopen1.jstvu.edu.cn%3A80%2Findex.php" method="post" name="form1" onSubmit="check()">-->
+                <form id="form1" method="post" name="form1" onSubmit="check()">
+          类　型：
+          <select name="type">
+              <option value="oa">办公自动化系统(OA)</option>
+              <option value="mail">邮件系统</option>
+              <option value="msg">短信平台</option>
+              <option value="open1">旧版电大在线</option>
+          </select><br />
+            用户名：
+              <input id="IDToken1" type="text" maxlength="20" size="9" name="IDToken1"/>
+              <input type="hidden" name="username"/>
+              <br/>
+            <label>密　码：</label>
+            <input id="IDToken2" type="password" maxlength="20" size="9" name="IDToken2"/> <br />
+            <input type="hidden" name="password"/>
+            <input class="button" type="submit" value="登录" name="loginButton"/>
+            </form>
+      </div>
+        <div class="dotline"></div>
+        <div id="links">
+                
+        <table width="90%" border="0" cellspacing="2" cellpadding="2" align="center">
+          <tr> 
+              <td><img src="images/triangle.gif" width="6" height="8" /><a href="http://210.28.216.200/cxzy/index.aspx" target="blank">
+              <font color=#000000>创先争优</font></a></td>
+            <td><img src="images/triangle.gif" width="6" height="8" /><a href="http://210.28.216.200/jsddffcl/index.aspx" target="blank">
+              <font color=#000000>反腐倡廉</font></a></td>
+          </tr>
+          <tr> 
+              <td><img src="images/triangle.gif" width="6" height="8" /><a href="http://www.jstvu.edu.cn/news/jstvu/xxgk/main-page.htm?id=3115">
+              <font color="red">信息公开</font></a></td>
+            <td><img src="images/triangle.gif" width="6" height="8" /> <a href="http://www.jstvu.edu.cn/ggfw/ring.htm">
+              电话号码</a></td>
+          </tr>
+        </table>
+	      </div>
+          <div class="dotline"></div>
+          <div id="selects">
+
+                  <select name="departments" id="departments" onChange="MM_jumpMenu('parent',this,1)">
+                    <option selected>职能部门</option>
+                    <option value="#">----------------------</option>
+                    <option value="http://210.28.216.200/jsddxiaoban/">校办</option>
+                    <option value="http://210.28.216.200/jsdddwzzb/main.aspx">组织部</option>
+                    <option value="http://210.28.216.200/jsddhszx/">宣传部</option>
+                    <option value="http://210.28.216.200/jsddffcl/index.aspx">纪监审</option>
+                    <option value="http://www.jstvu.edu.cn/baowei/index.htm">保卫处</option>
+                    <option value="http://www.jstvu.edu.cn/renshichu/main.htm">人事处</option>
+                    <option value="http://210.28.216.200/jsddcaiwu/main.aspx">财务处</option>
+                    <option value="http://210.28.216.200/jsddfzyjs/">发展研究室</option>
+                    <option value="http://www.jstvu.edu.cn/syzx/main.htm">实验中心</option>            
+                    <option value="http://210.28.216.33/kyc/">科研处</option>
+                    <option value="http://210.28.216.200/jsddjxdd/">教学督导办公室</option>
+                    <option value="http://210.28.216.200/jsddzhaoban/main.aspx">招办</option>
+                    <option value="http://www.jstvu.edu.cn/zhishu/xsgz/index.htm">学工处</option>
+                    <option value="http://210.28.216.200/jsddzcglc/">资产管理处</option>
+                    <option value="http://210.28.216.200/jsddltx/">离退休工作处</option>
+                    <option value="http://210.28.216.33/tw/news/index.asp">团委</option>
+                    <option value="http://www.jstvu.edu.cn/news/jstvu/jsbz/index-page.htm">技术保障中心</option>
+                    <option value="http://210.28.216.200/jsddzyjs/">资源建设中心</option>
+                    <option value="http://elib.jstvu.edu.cn/">图书馆</option>    
+                    <option value="http://210.28.216.33/hqc/">后勤处</option>
+                    <option value="http://210.28.216.33:8080/index.php">考试中心</option>                    
+                    <option value="http://210.28.216.200/jsddgonghui/">工会</option>
+                    <option value="http://210.28.216.200/jsddzsxy/">直属学院</option>
+                  </select>
+
+                  <select name="schools" id="schools" onChange="MM_jumpMenu('parent',this,1)">
+                    <option selected>教务教学</option>
+                    <option value="#">----------------------</option>
+                    <option value="http://open.jstvu.edu.cn">开放教育教务处</option>
+                    <option value="http://210.28.216.200/kfjyjxb/">开放教育教学部</option>
+                    <option value="http://www.jstvu.edu.cn/zzjy/zzjy.htm">职业技术学院</option>
+                    <option value="http://210.28.216.200/jjy/index.aspx">继续教育学院</option>    
+                    <option value="http://www.jscvc.cn/ccjs/liaoxiao/index.html">燎校</option>
+                    <option value="#">----------------------</option>
+                    <option value="http://www.jstvu.edu.cn/cmysx/index.htm">传媒艺术系</option>
+                    <option value="http://www.jstvu.edu.cn/cskxx/shouye.html">城市科学系</option>
+                    <option value="http://210.28.216.33/xinxi/">信息工程系</option>
+                    <option value="http://www.jstvu.edu.cn/jgxy/">建筑工程系</option>    
+                    <option value="#">公共管理系</option>
+                    <option value="http://www.jstvu.edu.cn/caijing/index.htm">财经系</option>
+                    <option value="http://www.jstvu.edu.cn/waiyu/index.htm">外语系</option>
+                </select><br /><br />
+
+                   <select name="sites" id="sites" onChange="MM_jumpMenu('parent',this,1)">
+                    <option selected>专题网站</option>
+                    <option value="#">----------------------</option>    
+                    <option value="http://oa.jstvu.edu.cn/">开放电子公务</option>
+                    <option value="http://www.jstvu.edu.cn/xxjs/xzlt/main.htm">校长论坛</option>
+                    <option value="http://210.28.216.202:8080/bumen/xjzx/NetService/">网络服务</option>
+                    <option value="http://210.28.216.200/cxzy/index.aspx">创先争优</option>
+                    <option value="http://210.28.216.200/jsddhszx/">红色在线</option>
+                    <option value="http://www.js-study.cn">江苏学习在线</option>
+                    <option value="http://210.28.216.234/">远程素质教育网</option>
+                    <option value="http://www.open.com.cn">奥鹏</option>
+                    <option value="http://210.28.216.33:8080/index.php?action=news_column&cid=08">普通话测试站</option>
+                    <option value="http://soft.psych.gov.cn/2007/jscsxy/">心理咨询</option>
+                    <option value="http://210.28.216.200/kxfzg/index.aspx">学习实践活动</option>
+                   </select>
+
+                   <select name="campus" id="campus" onChange="MM_jumpMenu('parent',this,1)">
+                    <option selected>相关链接</option>
+                    <option value="#">----------------------</option>
+                    <option value="http://www.jscvc.cn">江苏城市职业学院</option>
+                    <option value="#">----------------------</option>
+                    <option value="http://www.jstvu.edu.cn/morelink/xiashu.htm">市县电大</option>
+                    <option value="http://www.crtvu.edu.cn">中央广播电视大学</option>
+                    <option value="http://www.open.edu.cn">中央电大在线</option>
+                    <option value="http://dianda.china.com.cn/index.htm">中国网电大频道</option>
+                    <option value="http://www.jstvu.edu.cn/morelink/quanguo.htm">全国电大</option>
+                    <option value="#">----------------------</option>
+                    <option value="http://www.edu.cn/xiang_guan_lian_jie/jiao_yu_zi_yuan/index.htm">CERNET资源</option>
+                    <option value="http://www.jse.gov.cn">江苏教育信息网</option>
+                    <option value="http://www.edu.cn/xiang_guan_lian_jie/men_hu_zhan_dian/index.htm">门户站点</option>
+                    <option value="http://www.edu.cn/xiang_guan_lian_jie/ge_da_xue_zhan_dian/index.htm">大学站点</option>
+                    <option value="http://www.edu.cn/xiang_guan_lian_jie/ke_xue_zhan_dian/index.htm">科学站点</option>    
+                    <option value="http://www.edu.cn/xiang_guan_lian_jie/mei_ti_jing_xuan/index.htm">媒体站点</option>
+                    <option value="http://www.edu.cn/xiang_guan_lian_jie/jiao_yu_zhan_dian/index.htm">教育网站</option>
+                    <option value="http://www.edu.cn/xiang_guan_lian_jie/zheng_fu/index.htm">政府部门</option>
+                    <option value="http://www.edu.cn/xiang_guan_lian_jie/jiu_da_wang_luo/index.htm">九大网络</option>
+                    <option value="http://www.edu.cn/xiang_guan_lian_jie/wang_luo_zhan_dian/index.htm">网络站点</option>
+                    <option value="http://www.edu.cn/xiang_guan_lian_jie/yu_le_zhan_dian/index.htm">娱乐站点</option>    
+                    <option value="http://www.edu.cn/xiang_guan_lian_jie/wen_hua_zhan_dian/index.htm">文化站点</option>
+                   </select><br /><br />
+                   
+            <!-- end #right#selects --></div>
+            <div class="dotline"></div>
+			<div id="search">
+		         <img src="images/triangle.gif" width="6" height="8" /> 站内搜索：<br />
+				 <form name=gs method=get action="http://www.google.com/univ/zh-CN/jstvu">					
+					<input type=hidden name=hl value="zh-CN">
+					<input type=hidden name=ie value="GB2312">
+					<input type=hidden name=newwindow value=1>
+					<input name="q" type="text" size="18">
+					<input name="btnG" type="submit" class="button" value="搜索" />
+				 </form>        
+			<!-- end #right#search --></div>
+            <div class="dotline"></div>
+            <div id="info">
+ 
+在线人数：17 　访问人数：18153234
+
+        <!-- end #right#info --></div>
+
+        <!-- end #right --></div>
+
+<!-- end #mainContent --></div>
+<div id="footer">
+	<p class="copyright">Copyright JIANGSU Radio And TV University<br/>版权所有 &copy;2011-2012 江苏广播电视大学  地址：南京市江东北路399号　邮政编码：210036　TEL：025-86265300<br />
+<a href="http://www.jstvu.edu.cn/beian/beian.htm">苏ICP备-05004218</a></p>
+
+<!-- end #footer --></div>
+  
+<!-- end #container --></div>
+
+<!--<div id="FollowDiv">
+    　　<a href="tongzhi/20101216.htm" target="_blank"><font color="red">[财务处]</font>：2010年终结账通知</a>
+</div>-->
+</body>
+</html>

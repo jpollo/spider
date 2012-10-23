@@ -1,0 +1,1111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>江苏省科技厅</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<style>
+.newslist a {float:left;display:inline-block; width:305px;}
+</style>
+<script language="javascript" src="/js/titqh.js"></script>
+<script type="text/javascript" src="/js/jquery-1.3.js" /></script>
+<script type="text/javascript" src="/js/jquery.form.js" /></script>
+<script type="text/javascript" src="/js/mailData.js" /></script>
+<script type="text/javascript">
+	var getURL = "/jcms/servlet/";
+
+	function getArticle(tableID,siteID,topNum,loadTR){
+		$("#"+tableID+" tr[id='"+loadTR+"']").show(); //将loadTR行打开
+		$.ajax({type:"post",url:getURL+"OutArticleRank",data:{"siteID":siteID,"topNum":topNum},dataType:"xml",
+		error: function(){if(errorAlert)alert('Error loading');},
+		success: function(xml){
+			$("#"+tableID+" tr[id='data']").show(); //将data行显示
+			var k = 0;
+			$(xml).find('Article').each(function() {
+				k++;
+				var row = $("#"+tableID+" tr[id='data']").clone(); //复制一个data行
+				if(k%2 < 1){
+					//row.bgColor = "#FBEBEF";
+					//row.attr('bgColor',"#deebf9");
+				}
+				var title = $(this).find("Title").text();
+				if(title.length > 20){
+					title = title.substring(0,20) + "...";
+				}
+				var link = $(this).find("Link").text();
+				var publishdate = $(this).find("PublishDate").text();
+				var classname = $(this).find("ClassName").text();
+				var classlink = $(this).find("ClassLink").text();
+				row.find("#title").html('·[<a href="'+classlink+'" target="_blank">'+classname+'</a>]<a href="'+link+'" target="_blank">'+title+'</a>'); //绑定数据
+				row.find("#publishdate").html(publishdate.split(' ')[0]); //绑定数据
+				row.attr("id","ready");//改变绑定好数据的行的id
+				row.appendTo("#"+tableID+" tbody");//添加到容器(table)中
+			});
+			$("#"+tableID+" tr[id='data']").hide();//将data行隐藏
+			$("#"+tableID+" tr[id='"+loadTR+"']").hide(); //将loadTR行隐藏
+		}
+		});
+	}
+
+	//页面自动载入读取数据
+	$(document).ready(function(){
+		getArticle('articles',1,6,'loadTRArticle');
+	});
+</script>
+</head>
+
+<script type="text/javascript">
+var page = 1;
+var zjxxUrl = "http://www.jstd.gov.cn/kjxx/"; //信箱地址以"/"结束
+var mailcontent = "/gzcy/tzxx/xj/index.html";
+var loadHtml = "<img src='/images/index2010/loading.gif' align='absmiddle'/> 数据载入中,请稍后..."; //载入数据时显示内容
+
+//获取不可分页的信件列表
+function getNoPageMailDataList(mailBoxID,tableID,special){
+	var pageLen = 6; //显示条数
+	var mailShowUrl = mailcontent; //内容页地址
+	var functionName = "getNoPageMailDataList"; //为此方法的名称
+	var loadHTML = ""; //数据在入时的显示
+
+	var variables = new Array(); //变量数组存储字段对象,变量是固定的,只能改变其值
+	//variables格式：variables[i] = new variableColumn(name,value);
+	//name:变量名称;value:变量值;
+
+	variables[0] = new variableColumn("tableID",tableID); //数据tableID
+	variables[1] = new variableColumn("getUrl",zjxxUrl + "outMailList.action"); //获取数据路径
+	variables[2] = new variableColumn("mailBoxID",mailBoxID); //信箱ID
+	variables[3] = new variableColumn("queryEqStepName","公开发布"); //等于的条件，为步骤的名称，多个以英文逗号隔开
+	variables[4] = new variableColumn("queryUneqStepName",""); //不等于的条件，为步骤的名称，多个以英文逗号隔开
+	variables[5] = new variableColumn("isSpecial",special); //取特殊信箱
+
+	var columns = new Array(); //字段数组存储显示字段对象
+	//columns格式：columns[i] = new formColumn(columnName,isDate,getLength,isLink);
+	//columnName:字段名称;isDate:是否日期类型(true or false 小写);getLength:截取长度(int,0为不截取);isLink:是否加链接(true or false 小写)
+	columns[0] = new formColumn("title",false,16,true);
+	getMailDataListMethod(variables,columns,page,pageLen,mailShowUrl,functionName,loadHTML,false);
+}
+
+//获取单个（第一个）带图片的访谈
+function getZxftData(status,depID){
+	var variables = new Array(); //变量数组存储字段对象,变量是固定的,只能改变其值
+	//variables格式：variables[i] = new variableColumn(name,value);
+	//name:变量名称;value:变量值;
+	variables[0] = new variableColumn("getUrl",zjxxUrl); //获取数据路径
+	variables[1] = new variableColumn("status",status); //状态ID
+	variables[2] = new variableColumn("depID",depID); //部门ID
+	variables[3] = new variableColumn("height","102"); //图片高度
+	variables[4] = new variableColumn("width","140"); //图片宽度
+
+	var columns = new Array(); //字段数组存储显示字段对象
+	//columns格式：columns[i] = new formColumnShow(columnName,isDate,getLength,isLink,columnNameShow);
+	//columnName:字段名称;isDate:是否日期类型(true or false 小写);getLength:截取长度(int,0为不截取);isLink:是否加链接(true or false 小写);columnNameShow:显示的ID
+	columns[0] = new formColumnShow("forumName",false,11,true,"zxftforumName");
+	columns[1] = new formColumnShow("zbTime",false,0,false,"zxftzbTime");
+	columns[2] = new formColumnShow("imgUrl",false,0,true,"zxftimgUrl");
+	columns[3] = new formColumnShow("forumDisc",false,53,false,"zxftforumDisc");
+	getZxftDataMethod(variables,columns,"zxftOne");
+}
+
+//获取不可分页的列表
+function getQtyyDataNoPageList(type,depID){
+	var pageLen = 6; //每页显示条数
+	var functionName = "getQtyyDataNoPageList"; //为此方法的名称
+	var loadHTML = loadHtml; //数据在入时的显示
+
+	var variables = new Array(); //变量数组存储字段对象,变量是固定的,只能改变其值
+	//variables格式：variables[i] = new variableColumn(name,value);
+	//name:变量名称;value:变量值;
+	variables[0] = new variableColumn("tableID","jyxc"); //数据tableID
+	variables[1] = new variableColumn("getUrl",zjxxUrl); //获取数据路径
+	variables[2] = new variableColumn("type",type); //调查类型ID
+	variables[3] = new variableColumn("depID",depID); //部门ID
+	variables[4] = new variableColumn("height","120"); //图片高度
+	variables[5] = new variableColumn("width","120"); //图片宽度
+	
+	var columns = new Array(); //字段数组存储显示字段对象
+	//columns格式：columns[i] = new formColumn(columnName,isDate,getLength,isLink);
+	//columnName:字段名称;isDate:是否日期类型(true or false 小写);getLength:截取长度(int,0为不截取);isLink:是否加链接(true or false 小写)
+	columns[0] = new formColumn("name",false,26,true);
+	getQtyyDataListMethod(variables,columns,page,pageLen,functionName,loadHTML,false); //最后的参数是分页开关
+}
+
+//页面自动载入读取数据
+$(document).ready(function(){
+	getNoPageMailDataList("4028858526b095740126b12a18f70004","zxzx","");//此为在线咨询
+	getZxftData("","4028816b26735e880126736027c40001");
+	getQtyyDataNoPageList("3","4028816b26735e880126736027c40001"); 
+});
+</SCRIPT>
+<body>
+
+<div id="ad" style="position:absolute"><a href="http://www.jstd.gov.cn/zwgk/tzggg/20120417/141200406.html" target="_blank"><img src="/upfile/2012/09/1567325515.gif" border="0"></a></div>
+<script> 
+var x = 50,y = 60 //浮动层的初始位置，分别对应层的初始X坐标和Y坐标 
+var xin = true, yin = true //判断层的X坐标和Y坐标是否在在控制范围之内，xin为真是层向右移动，否则向左；yin为真是层向下移动，否则向上 
+var step = 1 //层移动的步长，值越大移动速度越快 
+var delay = 15 //层移动的时间间隔,单位为毫秒，值越小移动速度越快 
+var obj=document.getElementById("ad") //捕获id为ad的层作为漂浮目标 
+function floatAD() {
+var L=T=0 //层移动范围的左边界(L)和上边界(T)坐标 
+var R= document.body.clientWidth-obj.offsetWidth //层移动的右边界 
+var B = document.body.clientHeight-obj.offsetHeight //层移动的下边界 
+obj.style.left = x + document.body.scrollLeft //更新层的X坐标，实现X轴方向上的运动；document.body.scrollLeft为文档区域的滚动条向右拉的距离，以保证在滚动条右拉时层仍在可见范围内 
+obj.style.top = y + document.body.scrollTop //更新层的Y坐标，实现Y轴方向上的运动；document.body.scrollTop为文档区域的滚动条向下拉的距离，以保证在滚动条下拉时层仍在可见范围内 
+x = x + step*(xin?1:-1) //通过判断层的范围决定层在X轴上的运动方向 
+if (x < L) { xin = true; x = L} //层超出左边界时的处理 
+if (x > R){ xin = false; x = R} //层超出右边界时的处理 
+y = y + step*(yin?1:-1) //通过判断层的范围决定层在Y轴上的运动方向 
+if (y < T) { yin = true; y = T } //层超出上边界时的处理 
+if (y > B) { yin = false; y = B } //层超出下边界时的处理
+}
+var itl= setInterval("floatAD()", delay) //每delay秒执行一次floatAD函数 
+obj.onmouseover=function(){clearInterval(itl)} //层在鼠标移上时清除上面的间隔事件，实现层在的鼠标移上时停止运动的效果 
+obj.onmouseout=function(){itl=setInterval("floatAD()", delay)} //层在鼠标移开时开始间隔事件，实现层在的鼠标移开时继续运动的效果 
+</script>
+
+<div id="ad1" style="position:absolute"><a href="http://www.cittc.org" target="_blank"><img src="/upfile/2012/06/430014536.jpg" border="0"></a></div>
+<script> 
+var x1 = 300,y1 = 60 //浮动层的初始位置，分别对应层的初始X坐标和Y坐标 
+var xin1 = true, yin1 = true //判断层的X坐标和Y坐标是否在在控制范围之内，xin为真是层向右移动，否则向左；yin为真是层向下移动，否则向上 
+var step1 = 1 //层移动的步长，值越大移动速度越快 
+var delay1= 15 //层移动的时间间隔,单位为毫秒，值越小移动速度越快 
+var obj1=document.getElementById("ad1") //捕获id为ad的层作为漂浮目标 
+function floatAD1() {
+var L1=T1=0 //层移动范围的左边界(L)和上边界(T)坐标 
+var R1= document.body.clientWidth-obj1.offsetWidth //层移动的右边界 
+var B1 = document.body.clientHeight-obj1.offsetHeight //层移动的下边界 
+obj1.style.left = x1 + document.body.scrollLeft //更新层的X坐标，实现X轴方向上的运动；document.body.scrollLeft为文档区域的滚动条向右拉的距离，以保证在滚动条右拉时层仍在可见范围内 
+obj1.style.top = y1 + document.body.scrollTop //更新层的Y坐标，实现Y轴方向上的运动；document.body.scrollTop为文档区域的滚动条向下拉的距离，以保证在滚动条下拉时层仍在可见范围内 
+x1 = x1 + step1*(xin1?1:-1) //通过判断层的范围决定层在X轴上的运动方向 
+if (x1 < L1) { xin1 = true; x1 = L1} //层超出左边界时的处理 
+if (x1 > R1){ xin1 = false; x1 = R1} //层超出右边界时的处理 
+y1 = y1 + step1*(yin1?1:-1) //通过判断层的范围决定层在Y轴上的运动方向 
+if (y1 < T1) { yin1 = true; y1 = T1 } //层超出上边界时的处理 
+if (y1 > B1) { yin1 = false; y1 = B1 } //层超出下边界时的处理
+}
+var itl2= setInterval("floatAD1()", delay1) //每delay秒执行一次floatAD函数 
+obj1.onmouseover=function(){clearInterval(itl2)} //层在鼠标移上时清除上面的间隔事件，实现层在的鼠标移上时停止运动的效果 
+obj1.onmouseout=function(){it12=setInterval("floatAD1()", delay1)} //层在鼠标移开时开始间隔事件，实现层在的鼠标移开时继续运动的效果 
+</script>
+
+
+
+<table width="1003" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="1003" height="144">
+  <param name="movie" value="/images/17204937.swf" />
+  <param name="quality" value="high" />
+  <embed src="/images/17204937.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="1003" height="144"></embed>
+</object></td>
+  </tr>
+</table>
+<div class="wrap nav">
+	<ul>
+    	<li><a href="/" target="_blank">首&nbsp;&nbsp;页</a></li>
+        <li><a href="/kjdt/" target="_blank">科技资讯</a></li>
+        <li><a href="/kjgz/kjgh/index.html" target="_blank">重大科技事项</a></li>
+        <li><a href="/zwgk/" target="_blank">政务公开</a></li>
+        <li><a href="/ggfw/index.html" target="_blank">科技服务广场</a></li>
+        <li><a href="/gzcy/index.html" target="_blank">公共互动平台</a></li>
+        <li><a href="/qt/wzdh/index.html">网站导航</a></li>
+        <li class="date1" style="width:60px"><a href="/qt/rss/index.html"><img src="/images/index2010/rss.gif" border="0" style=" margin-top:7px"/></a></li> 
+<li class="date"><script>
+function writeDateInfo()
+{
+        var day="";
+        var month="";
+        var ampm="";
+        var ampmhour="";
+        var myweekday="";
+        var year="";
+        mydate=new Date();
+        myweekday=mydate.getDay();
+        mymonth=mydate.getMonth()+1;
+        myday= mydate.getDate();
+        myyear= mydate.getYear();
+        year=(myyear > 200) ? myyear : 1900 + myyear;
+        if(myweekday == 0)
+        weekday=" 星期日";
+        else if(myweekday == 1)
+        weekday=" 星期一";
+        else if(myweekday == 2)
+        weekday=" 星期二";
+        else if(myweekday == 3)
+        weekday=" 星期三";
+        else if(myweekday == 4)
+        weekday=" 星期四";
+        else if(myweekday == 5)
+        weekday=" 星期五";
+        else if(myweekday == 6)
+        weekday=" 星期六";
+        document.write(year+"年"+mymonth+"月"+myday+"日"+weekday);
+} 
+
+</script>
+<script>writeDateInfo();</script></li></ul>
+</div>
+
+
+<!--top end-->
+<div class="wrap">
+  <div class="son hotnews">
+		<div class="leftside">
+       	  <div class="left">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="357" valign="top">
+                      <!--焦点图 start-->
+                      <table width="316" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="center">
+                          <SCRIPT language=JavaScript>
+
+function topimg(simg)
+{
+var strimg=simg;
+var strimg1="";
+var strimg2="";
+var strimg3="";
+var allstrimg="";
+ if (strimg.length>50)
+ {
+ strimg1=strimg.substring(0, 50);
+ allstrimg=strimg1 + "...";
+ }
+  if (strimg.length<=50)
+ {
+ allstrimg=strimg;
+ }
+return allstrimg;
+}
+var focus_width=349;
+var focus_height=233;
+var text_height=24;
+var links="";
+var pics="";
+var texts="";
+	var imgUrl=new Array();
+	var imgLink=new Array();
+	var imgTz=new Array();
+	var adNum=0;
+	var kk = 0;
+	var swf_height = focus_height+text_height;
+imgUrl[kk]  = '/upfile/2012/10/1860229244.jpg';
+	imgLink[kk] = 'http://www.jstd.gov.cn/kjdt/tpxw/2012/10/5396510165993.html';
+	imgTz[kk] =  '全省科技创新大会在南京召开';
+	kk++;
+
+imgUrl[kk]  = '/upfile/2012/10/1696360347.jpg';
+	imgLink[kk] = 'http://www.jstd.gov.cn/kjdt/tpxw/2012/10/15101013546.html';
+	imgTz[kk] =  '全省科技创新大会在南京召开';
+	kk++;
+
+imgUrl[kk]  = '/upfile/2012/08/341022484.jpg';
+	imgLink[kk] = 'http://www.jstd.gov.cn/kjdt/tpxw/20120820/5344818081692.html';
+	imgTz[kk] =  '王燕文赴我厅调研文化科技创新工作';
+	kk++;
+
+imgUrl[kk]  = '/upfile/2012/08/1567761878.jpg';
+	imgLink[kk] = 'http://www.jstd.gov.cn/kjdt/tpxw/20120820/5344617592893.html';
+	imgTz[kk] =  '省长助理、省科技厅厅长徐南平赴拉萨…';
+	kk++;
+
+imgUrl[kk]  = '/upfile/2012/09/1549690230.jpg';
+	imgLink[kk] = 'http://www.jstd.gov.cn/kjdt/tpxw/20120917/5370509444735.html';
+	imgTz[kk] =  '省科技厅党组副书记、副厅长曹苏民出…';
+	kk++;
+var imgNum = imgUrl.length>6?6:imgUrl.length;
+	for (i=0;i<imgNum;i++) {
+		if(i==0){
+			pics += imgUrl[i];
+			links += imgLink[i];
+			texts += imgTz[i];
+		}else{
+			pics += "|" + imgUrl[i];
+			links += "|" + imgLink[i];
+			texts += "|" + imgTz[i];
+		}
+	}
+
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ focus_width +'" height="'+ swf_height +'">');
+document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="/images/focus1.swf"><param name="quality" value="high"><param name="bgcolor" value="#F0EFEF">');
+document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+document.write('<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'">');
+document.write('<embed src="/flash/focus1.swf" wmode="opaque" FlashVars="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'" menu="false" bgcolor="#F0EFEF" quality="high" width="'+ focus_width +'" height="'+ focus_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
+document.write('</object>');
+         </SCRIPT>		
+                          </td>
+                        </tr>
+                      </table>
+                      <!--焦点图 end--></td>
+                      <td valign="top">
+                      <!--头条 start-->
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td style="border-left:1px solid #f2f5f9; border-right:1px solid #f2f5f9; background:#f4f9fd" height="258">
+                          		<h1>
+<a href="http://www.jstd.gov.cn/kjdt/kjxw/20121018/100657593.html" target="_blank" title="省科技厅党组认真贯彻全省科技创新大会精神"><span style="color:red;font-family:黑体;">省科技厅党组认真贯彻…</span></a></h1>
+                                <div class="newsnav">
+                                	<ul>
+                                    	<li class="on"  id="newsnav1" onmouseover="javascript:showDiv('news',1,3);"><a href="
+http://www.jstd.gov.cn/kjdt/kjxw/index.html" target="_blank"><strong>重点新闻</strong></a></li>
+                                        <li id="newsnav2" onmouseover="javascript:showDiv('news',2,3);"><a href="
+http://www.jstd.gov.cn/kjdt/hyxw/index.html" target="_blank"><strong>科技动态</strong></a></li>
+                                        <li id="newsnav3" onmouseover="javascript:showDiv('news',3,3);"><a href="
+http://www.jstd.gov.cn/kjdt/sxdt/index.html" target="_blank"><strong>市县创新</strong></a></li>
+                                    </ul>
+                                </div>
+                                <!--科技要闻-->
+                                <div class="newslist libg" id="news1">
+                                	<ul>
+                                    	
+<li><a href="http://www.jstd.gov.cn/kjdt/kjxw/20121018/100657593.html" title="省科技厅党组认真贯彻全省科技创新大会精神" target="_blank">省科技厅党组认真贯彻全省科技创新大会精神</a><span>10月18日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/kjxw/20121022/14410606210.html" title="江苏省共建新型研发机构 (产学研联合创新载体) 建设工作座谈会在苏州召开" target="_blank">江苏省共建新型研发机构 (产学研联合创新载体) …</a><span>10月22日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/kjxw/20121019/11251971888.html" title="全国民营科技发展贡献奖江苏获奖总数再居全国第一" target="_blank">全国民营科技发展贡献奖江苏获奖总数再居全国第一</a><span>10月19日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/kjxw/20121018/14325476510.html" title="江苏核电获科技部国家国际科技合作基地认定" target="_blank">江苏核电获科技部国家国际科技合作基地认定</a><span>10月18日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/kjxw/20121017/10440796867.html" title="全球抗体高峰论坛暨无锡药明康德研发生产基地投运典礼在无锡举行" target="_blank">全球抗体高峰论坛暨无锡药明康德研发生产基地投…</a><span>10月17日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/kjxw/20121016/160156843.html" title="省科技厅领导调研江苏农村科技服务超市总店建设工作" target="_blank">省科技厅领导调研江苏农村科技服务超市总店建设…</a><span>10月16日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/kjxw/20121016/11052267133.html" title="江阴市第二十二届科技节开幕" target="_blank">江阴市第二十二届科技节开幕</a><span>10月16日</span></li>
+                                    </ul>
+                                </div>
+                                <!--科技要闻-->
+                                <div class="newslist libg" id="news2" style="display:none;">
+                                	<ul>
+                                    	
+<li><a href="http://www.jstd.gov.cn/kjdt/hyxw/20121022/110758578.html" title="世界资源论坛在京开幕 专家研讨资源与绿色经济" target="_blank">世界资源论坛在京开幕 专家研讨资源与绿色经济</a><span>10月22日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/hyxw/20121019/103312218.html" title="十年科技平台建设为提高自主创新能力奠定坚实基础" target="_blank">十年科技平台建设为提高自主创新能力奠定坚实基础</a><span>10月19日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/hyxw/20121018/113857390.html" title="科技部启动中国-东盟科技伙伴计划" target="_blank">科技部启动中国-东盟科技伙伴计划</a><span>10月18日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/hyxw/20121017/094657484.html" title="全国国有创业投资座谈会在南京召开" target="_blank">全国国有创业投资座谈会在南京召开</a><span>10月17日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/hyxw/20121016/102430968.html" title="加强协同创新，提高创新体系整体效能" target="_blank">加强协同创新，提高创新体系整体效能</a><span>10月16日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/hyxw/20121015/111840843.html" title="科技资源配置持续优化 经费“种子”生出创新“芽”" target="_blank">科技资源配置持续优化 经费“种子”生出创新“…</a><span>10月15日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/hyxw/20121012/105022296.html" title="首批促进科技和金融结合试点工作顺利启动" target="_blank">首批促进科技和金融结合试点工作顺利启动</a><span>10月12日</span></li>
+                                    </ul>
+                                </div>
+                                <!--科技要闻-->
+                            <div class="newslist libg" id="news3" style="display:none;">
+                                	<ul>
+                                    	
+<li><a href="http://www.jstd.gov.cn/kjdt/sxdt/20121022/15434332829.html" title="宜兴举行中国陶瓷产业论坛" target="_blank">宜兴举行中国陶瓷产业论坛</a><span>10月22日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/sxdt/20121022/14461590652.html" title="连云港市抢抓政策机遇促进企业创新发展" target="_blank">连云港市抢抓政策机遇促进企业创新发展</a><span>10月22日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/sxdt/20121022/16045235968.html" title="睢宁积极搭建银企合作平台 促进县域经济发展" target="_blank">睢宁积极搭建银企合作平台 促进县域经济发展</a><span>10月22日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/sxdt/20121022/11160295377.html" title="南京探索科技创业特别社区建设新模式" target="_blank">南京探索科技创业特别社区建设新模式</a><span>10月22日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/sxdt/20121019/14391009342.html" title="2012中国陶都（宜兴）金秋经贸洽谈会隆重开幕 " target="_blank">2012中国陶都（宜兴）金秋经贸洽谈会隆重开幕 </a><span>10月19日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/sxdt/20121019/1106551875.html" title="兴化市500万鼓励科技创业" target="_blank">兴化市500万鼓励科技创业</a><span>10月19日</span></li>
+<li><a href="http://www.jstd.gov.cn/kjdt/sxdt/20121019/10355946827.html" title="创新是魂 转型升级看铜山" target="_blank">创新是魂 转型升级看铜山</a><span>10月19日</span></li>
+                                    </ul>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                      <!--头条 end-->
+                      </td>
+                    </tr>
+            </table>
+                  <!--search start-->
+				     <script>
+  function subform()   {
+  window.userSearch.action="/search/index.html?fulltext="+userSearch.fulltext.value;
+  //window.userSearch.submit();
+  }
+  </script>
+                 <form method="post" action="" name="userSearch" target="_blank" onSubmit="subform()">
+        	      <table width="100%" border="0" cellpadding="0" cellspacing="0" class="mart10">
+                    <tr>
+                      <td width="160"><img src="/images/index2010/search_title.gif" width="150" height="33" /></td>
+                      <td width="65" class="search_bg"><img src="/images/index2010/search_title2.gif" width="57" height="33" /></td>
+                      <td class="search_bg"><input name="fulltext" type="text" onFocus="this.value='';" value="请键入关键字进行查询" size="50" /></td>
+                      <td width="60" class="search_bg"><input type="image" name="imageField" id="imageField" src="/images/index2010/search_go.gif" border="0" onlick="subform()"/></td>
+                      <td width="103" align="right" class="search_bg"><a href="/search/index.jsp" target="_blank"><img src="/images/index2010/search_more.gif" width="103" height="33" border="0" /></a></td>
+                    </tr>
+                  </table>
+            </form>
+                  <!--search end-->
+                  <div class="mart10"><img src="/images/index2010/guanch.gif" border="0" usemap="#Map" />
+<map name="Map" id="Map"><area shape="rect" coords="251,6,355,37" href="/ggfw/bszn/" target="_blank"/><area shape="rect" coords="370,3,470,36" href="/ggfw/index.html" target="_blank"/><area shape="rect" coords="493,1,596,38" href="/gzcy/zxzx" target="_blank"/><area shape="rect" coords="616,3,717,38" href="/ggfw/kjzykffwmj/index.html" target="_blank"/></map></div>
+       	  </div>
+    	</div>
+    <div class="rightside">
+        	<!--通知公告 start-->
+            <div class="notice">
+            	<h2><span>通知公告</span><a href="/zwgk/tzggg/index.html" target="_blank">更多>></a></h2>
+                <ul class="libg">
+                	
+<li><a href="http://www.jstd.gov.cn/zwgk/tzggg/20120417/141200406.html" title="紧急通知" target="_blank"><font style="color: #FF0000; font-weight: bolder; ">紧急通知</font></a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/tzggg/20120928/163737765.html" title="省科技厅关于组织申报2013年度国家软科学研究计划项目的通知" target="_blank">省科技厅关于组织申报2013年度国家…</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/tzggg/20120928/103507953.html" title="关于做好2013年度国家重点新产品计划项目组织申报工作的通知" target="_blank">关于做好2013年度国家重点新产品计…</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/tzggg/20120928/102805156.html" title="关于转发江苏省金陵科技著作出版基金管理委员会《关于申报2012年度江苏省金陵科技著作出版基金资助项目的通知》" target="_blank">关于转发江苏省金陵科技著作出版基…</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/tzggg/20120927/103451937.html" title="关于做好2013年度国家级火炬计划项目组织申报工作的通知" target="_blank">关于做好2013年度国家级火炬计划项…</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/tzggg/20120924/170654515.html" title="关于组织开展2012年度江苏省国际科技合作奖推荐申报工作的通知" target="_blank">关于组织开展2012年度江苏省国际科…</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/tzggg/20120921/110555140.html" title="江苏省第一期“科技企业家培育工程”培育对象增选人选公示" target="_blank">江苏省第一期“科技企业家培育工程…</a></li>
+                </ul>
+            </div>
+      <!--通知公告 end-->
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="mart5">
+              <tr>
+                <td height="55" valign="top"><a href="http://www.jstdsun.gov.cn/kjtqlWeb/show/" target="_blank"><img src="/images/index2010/banner_1.gif" width="246" height="47" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="55" valign="top"><a href="/gzcy/tzxx" target="_blank"><img src="/images/index2010/banner_2.gif" width="246" height="48" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="55" valign="top"><a href="http://www.jskjjh.gov.cn/" target="_blank"><img src="/images/index2010/banner_3.gif" width="246" height="47" border="0" /></a></td>
+              </tr>
+      </table>
+   	</div>
+        <div class="clear"></div>
+  </div>
+</div>
+<!--信息公开 start-->
+<div class="wrap">
+	<div class="titbg"><img src="/images/index2010/title_xxgk.gif" /></div>
+  <div class="son">
+  <div class="xxgk_left">
+        	<!--政策法规 切换组 start-->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="smalllink">
+             <tr>
+                <td><a href="http://www.jstd.gov.cn/kjxxgk/nrglIndex.action?catalogID=ff8080812c8623c4012c865a35ca0007&type=1" target="_blank">信息公开指南</a></td>
+                <td><a href="http://www.jstd.gov.cn/kjxxgk/nrglIndex.action?catalogID=4028816b2ba99317012ba99950740003&type=1" target="_blank">信息公开目录</a></td>
+                <td><a href="/kjxx/infoopen/xxgksq.action" target="_blank">信息公开申请</a></td>
+                <td><a href="/zfxxgk/zqml/2009/06/15135032537.html" target="_blank">职权目录</a></td>
+                <td><a href="/zwgk/lct/index.html" target="_blank">职权运行流程图</a> </td>
+                <td><a href="http://www.jstd.gov.cn/zwgk/rsrm/jbtj/2009/06/08092143125.html" target="_blank">干部任免</a></td>
+                <td><a href="/zwgk/ldxxx/xnp/index.html" target="_blank">领导信息</a></td>
+                <td><a href="http://www.jstd.gov.cn/kjxxgk/nrglIndex.action?classID=402885853836912b0138464a6baf0010" target="_blank">机构职能</a></td>
+                <td><a href="http://www.jstd.gov.cn/kjxxgk/nrglIndex.action?classID=402885853836912b0138464b62730012" target="_blank">内设机构</a></td>
+              </tr>
+              <tr>
+                <td height="20" valign="top"><a href="http://www.jstd.gov.cn/kjxxgk/nrglIndex.action?classID=402885853836912b0138464ba7a90013" target="_blank">厅直属单位</a></td>
+                <td valign="top"><a href="/zwgk/xmyzj/index.html" target="_blank">项目与资金</a></td>
+                <td valign="top"><a href="/zwgk/lzjss/index.html" target="_blank">廉政建设</a></td>
+                <td valign="top"><a href="http://www.jstd.gov.cn/kjxxgk/nrglIndex.action?classID=402885853836912b0138464fea7b0021" target="_blank">总结报告</a></td>
+                <td valign="top"><a href="/zwgk/ml/index.html" target="_blank">科技机构名录</a></td>
+                <td valign="top"><a href="/zwgk/tjsj/index.html" target="_blank">统计数据</a></td>
+                <td valign="top"><a href="/zwgk/fggw/index.html" target="_blank">法规公文</a></td>
+                <td valign="top"><a href="/zwgk/fzghh/index.html" target="_blank">发展规划</a></td>
+                <td valign="top">&nbsp;</td>
+              </tr>
+            </table><div class="mart8">
+        	<div class="left">
+            	<div class="change">
+                	<ul>
+                    	<li class="on"  id="faguinav1" onmouseover="javascript:showDiv('fagui',1,3);"><a href="/zwgk/fggw/index.html" target="_blank">政策法规</a></li>
+                        <li id="faguinav2" onmouseover="javascript:showDiv('fagui',2,3);"><a href="
+http://www.jstd.gov.cn/zwgk/fggw/ck348/index.html" target="_blank">热点政策</a></li>
+                        <li id="faguinav3" onmouseover="javascript:showDiv('fagui',3,3);"><a href="
+http://www.jstd.gov.cn/zwgk/fggw/ck347/index.html" target="_blank">政策解读</a></li>
+                        <li class="more"><a href="
+http://www.jstd.gov.cn/zwgk/fggw/ck345/index.html" target="_blank"><img src="/images/index2010/more.gif" border="0" /></a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="libg changelist">
+                	<!--政策法规-->
+                	<ul id="fagui1">
+                    	
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/gjflfg/2009/09/2811133506450.html" title="关于促进自主创新成果产业化的若干政策" target="_blank">关于促进自主创新成果产业化的若干政策</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/gjflfg/2009/04/13114427680.html" title="国务院关于印发实施《国家中长期科学和技术发展规划纲要（2006—2020年）》若干配套政策的通知" target="_blank">国务院关于印发实施《国家中长期科学和技术发展规划…</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/gjflfg/20090412/151904613.html" title="中华人民共和国科学技术进步法" target="_blank">中华人民共和国科学技术进步法</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/gjflfg/20090412/151904612.html" title="国家中长期科学和技术发展规划纲要" target="_blank">国家中长期科学和技术发展规划纲要</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/gjflfg/20090412/151904111.html" title="中华人民共和国自然科学奖励条例实施细则" target="_blank">中华人民共和国自然科学奖励条例实施细则</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/gjflfg/20090412/151904110.html" title="中华人民共和国农业技术推广法" target="_blank">中华人民共和国农业技术推广法</a></li>
+                    </ul>
+                    <!--热点政策-->
+                	<ul id="fagui2" style="display:none;">
+                    	
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/ck348/2009/04/11162315687.html" title="企业技术创新政策简明手册" target="_blank">企业技术创新政策简明手册</a></li>
+                    </ul>
+                    <!--政策解读-->
+                	<ul id="fagui3" style="display:none;">
+                    	
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/ck347/2012/01/04094250750.html" title="江苏省“十二五”科技发展规划解读" target="_blank">江苏省“十二五”科技发展规划解读</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/ck347/2011/12/07144712796.html" title="《生产力促进中心“十二五”发展规划纲要》解读" target="_blank">《生产力促进中心“十二五”发展规划纲要》解读</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/ck347/2011/12/07144302953.html" title="《国家大学科技园认定和管理办法》解读" target="_blank">《国家大学科技园认定和管理办法》解读</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/ck347/2010/12/15144526437.html" title="《国务院关于加快培育和发展战略性新兴产业的决定》解读" target="_blank">《国务院关于加快培育和发展战略性新兴产业的决定》…</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/ck347/2010/09/0316371939176.html" title="江苏省《企业研究开发费用税前加计扣除操作规程（试行）》政策解读" target="_blank">江苏省《企业研究开发费用税前加计扣除操作规程（试…</a></li>
+<li><a href="http://www.jstd.gov.cn/zwgk/fggw/ck347/2009/10/1410375384390.html" title="《江苏知识产权战略纲要》核心亮点解读" target="_blank">《江苏知识产权战略纲要》核心亮点解读</a></li>
+                    </ul>
+                </div>
+            </div></div>
+            <!--政策法规 切换组 end-->
+            <!--最新发布 start-->
+			<div class="mart8">
+            <div class="right">
+                <div class="change">
+                <ul>
+                    	<li class="on">最新发布</li>
+                        <li class="more"><a href="/qt/zxgx/index.html" target="_blank"><img src="/images/index2010/more.gif" border="0" /></a></li>
+                  </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="libg changelist">
+                	<ul id="fagui1">
+                    	<table width="99%" border="0" cellspacing="0" cellpadding="0" id="articles">
+                    <tr id="data">
+                      <td height="24" id="title"></td>
+                    </tr>
+                  </table>
+                    </ul>
+                </div>
+            </div>
+			</div>
+            <!--最新发布 end-->
+            <!--小链接 -->
+   	  <div class="clear"></div>
+            <div class="mart8"><a href="http://www.jstd.gov.cn/ztzl/fzcxxjj/index.html" target="_blank"><img src="/upfile/Image/201012/16/15174637.jpg" border="0"/></a></div>
+    </div>
+        <div class="xxgk_right">
+        	<!--专题焦点 start-->
+                <div class="change">
+                	<ul>
+                    	<li class="on">专题专栏</li>
+                        <li class="more"><a href="/ztzl/sdzzcxcj%20zt/index.html" target="_blank"><img src="/images/index2010/more.gif" border="0" /></a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="libg changelist">
+                	<ul id="fagui1">
+                    	
+
+<li><a href="http://www.most.gov.cn/ztzl/qgkjcxdh/" target="_blank">全国科技创新大会</a></li>
+<li><a href="http://www.jstd.gov.cn/ztzl/jssqyyfjgjszl/index.html" target="_blank">江苏省企业研发机构建设专栏</a></li>
+<li><a href="http://www.jstd.gov.cn/ztzl/2011ndjskxjzjldk/index.html" target="_blank">2011年度江苏科学技术奖励大会</a></li>
+<li><a href="http://www.jstd.gov.cn/ztzl/2012ndkjjhxmsbzt/index.html" target="_blank">2012年度科技计划项目申报专题</a></li>
+<li><a href="http://www.jstd.gov.cn/ztzl/qssscxqdzltjkjcxgcgzky/index.html" target="_blank">全省实施创新驱动战略推进科技创新工程工作会议</a></li>
+<li><a href="http://www.jstd.gov.cn/ztzl/sdzzcxcj zt/index.html" target="_blank">“十大自主创新成就”专题</a></li>
+
+                    </ul>
+                </div>
+            <!--专题焦点 end-->
+            <!--邮箱及信息登录 start-->
+          <div class="change mart8 yxdl">
+            	<ul>
+                    <li class="on"  id="loginnav1" onmouseover="javascript:showDiv('login',1,2);">公务邮箱</li>
+                  <li id="loginnav2" onmouseover="javascript:showDiv('login',2,2);">信息报送</li>
+               	</ul>
+          </div>
+			<script language="javascript">
+				function resetvalue(){
+			document.getElementById('model.userName').value="";
+			document.getElementById('model.userPass').value="";
+			return false;
+}
+			</script>
+		<script language="javascript">
+			function resetvalueyou(){
+			document.getElementById('user').value="";
+			document.getElementById('password').value="";
+			return false;
+			}
+               </script>
+			<form method="post" action="http://mail.jstd.gov.cn/remote.php"   id="login1">           	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="30" align="right">邮箱账号：</td>
+                    <td><input name="LoginName" type="LoginName"  size="15" style="border:1px solid #aad8f6;width:100px" /></td>
+                  </tr>
+                  <tr>
+                    <td height="30" align="right">密码：</td>
+                    <td><input type="password" name="Password" size="15" style="border:1px solid #aad8f6;width:100px" /></td>
+                  </tr><input type=hidden class=w3 name=domain value=jstd.gov.cn size=18>
+                  <tr>
+                    <td height="35">&nbsp;</td>
+                    <td><input type="image" name="imageField2" id="imageField2" src="/images/index2010/login.gif" />
+                    <img src="/images/index2010/login_re.gif" border="0" onclick="resetvalueyou()" /></td>
+                  </tr>
+
+
+
+
+
+
+
+
+
+              </table>
+       	  </form>
+          <!--信息报送表单-->
+	    <form  action="kjxx/depAdmin/doLogin.action" method="post" class="changelist login" id="login2" style="display:none;">
+           	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="30" align="right">报送账号：</td>
+                    <td><input type="text" id="model.userName" name="typtUserModel.username" size="15" class="kk"/></td>
+                  </tr>
+                  <tr>
+                    <td height="30" align="right">密码：</td>
+                    <td><input type="password" id="model.userPass" name="typtUserModel.password" size="15" class="kk" /></td>
+                  </tr>
+                  <tr>
+                    <td height="35">&nbsp;</td>
+                    <td><input type="image" name="imageField2" id="imageField2" src="/images/index2010/login.gif" />
+                    <img src="/images/index2010/login_re.gif" border="0" onclick="resetvalue"/></td>
+                  </tr>
+          </table>
+       	  </form>
+            <!--邮箱及信息登录 end-->
+    </div>
+        <div class="clear"></div>
+  </div>
+</div>
+<!--信息公开 end-->
+<!--公共互动 start-->
+<div class="wrap">
+	<div class="titbg"><img src="/images/index2010/title_gghd.gif" /></div>
+    <div class="son">
+   	  <div class="xxgk_left">
+        	<!--在线访谈 start-->
+        	<div class="left">
+            	<div class="change">
+                	<ul>
+                    	<li class="on">在线访谈</li>
+                        <li class="more"><a href="/kjxx/zxft/html/4028816b26735e880126736027c40001/more1.htm" target="_blank"><img src="/images/index2010/more.gif" border="0" /></a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="libg changelist" id="xzft">
+               	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="152" rowspan="3" valign="top" id="zxftimgUrl"><img src='/images/index2010/loading.gif' align='absmiddle'/> 数据载入中,请稍后...</td>
+                        <td height="25" id="zxftforumName"><strong>主题：</strong></td>
+                      </tr>
+                      <tr>
+                        <td height="25" id="zxftzbTime"><strong>时间：</strong></td>
+                      </tr>
+                      <tr>
+                        <td valign="top" id="zxftforumDisc"><strong>摘要：</strong></td>
+                      </tr>
+                  </table>
+                </div>
+            </div>
+            <!--在线访谈 end-->
+            <!--民意征集 start-->
+            <div class="right">
+                <div class="change">
+                	<ul>
+                    	<li class="on">民意征集</li>
+                        <li class="more"><a href="/gzcy/mydc/myzj/index.html" target="_blank"><img src="/images/index2010/more.gif" border="0" /></a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="libg changelist">
+                	<table width="99%" border="0" cellspacing="0" cellpadding="0" id="jyxc">
+                    <tr id="data" style="display:none;">
+                      <td height="24" id="name"></td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+            <!--建言献策 end-->
+      </div>
+   	  <div class="xxgk_right">
+        	<!--在线咨询 start-->
+                <div class="change">
+                	<ul>
+                    	<li class="on">在线咨询</li>
+                        <li class="more"><a href="/gzcy/zxzx" target="_blank"><img src="/images/index2010/more.gif" border="0" /></a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="libg changelist">
+                	<table id="zxzx" width="98%" border="0" cellspacing="0" cellpadding="0">
+                    <tr id="data"  style="display:none;">
+                      <td id="title" height="24"></td>
+                    </tr>
+                  </table>
+                </div>
+            <!--在线咨询 end-->
+      </div>
+      <div class="clear"></div>
+	</div>
+</div>
+<!--公共互动 end-->
+<!--科技资源开放服务媒介 start-->
+<div class="wrap">
+	<div class="titbg"><img src="/images/index2010/title_kjzy.gif" align="absmiddle" /> <a href="http://www.jsipp.cn/pub/jsips/" target="_blank" class="on" id="zhiyuannav1" onmouseover="javascript:showDiv('zhiyuan',1,9);">知识产权平台</a>|<a href="http://www.jsinfo.gov.cn/" target="_blank" id="zhiyuannav2" onmouseover="javascript:showDiv('zhiyuan',2,9);">科技文献</a>|<a href="http://www.yqgx.org/" target="_blank" id="zhiyuannav3" onmouseover="javascript:showDiv('zhiyuan',3,9);">大型仪器共享</a>|<a href="http://www.kjpt.net/gc/" target="_blank" id="zhiyuannav4" onmouseover="javascript:showDiv('zhiyuan',4,9);">工程中心</a>|<a href="http://www.jskjcx.cn/" target="_blank" id="zhiyuannav5" onmouseover="javascript:showDiv('zhiyuan',5,9);">科技查新</a>|<a href="http://jstm.jsbi.cn/" target="_blank" id="zhiyuannav6" onmouseover="javascript:showDiv('zhiyuan',6,9);">技术市场</a>|<a href="http://jspi.jsbi.cn/zxgk.asp" target="_blank" id="zhiyuannav2" onmouseover="javascript:showDiv('zhiyuan',7,9);">企业孵化</a>|<a href="http://newdrug.jsbi.cn" target="_blank" id="zhiyuannav2" onmouseover="javascript:showDiv('zhiyuan',8,9);">新药创制资金</a>|<a href="http://www.jsste.com" target="_blank" id="zhiyuannav2" onmouseover="javascript:showDiv('zhiyuan',9,9);">评估中心</a>|</div>
+    <div class="son meijie" id="zhiyuan1">
+    <img src="/upfile/Image/200910/19/11194517.gif" width="150" height="113" /><p>
+&nbsp;&nbsp;&nbsp;&nbsp;江苏省知识产权公共服务平台由江苏省专利信息中心承担建设，整合了知识产权相关文献信息资源，向社会各界提供公益性为主的检索、咨询、援助和预警、战略研究、专利库建设等服务。<br />
+服务地址：南京市中山北路49号机械大厦<br />
+江苏省知识产权服务中心<br />
+服务电话：025-83279962
+	<div class="clear"></div>
+    
+    </div>
+	
+	<div class="son meijie" id="zhiyuan2" style="display:none;">
+    <img src="/upfile/Image/200906/18/10552536.jpg" width="150" height="113" /><p>  &nbsp;&nbsp;&nbsp;&nbsp;江苏省工程技术文献信息中心通过共知共享共建方式，集成我省科技、文化、教育三大系统的现代工程技术类主要优质科技文献信息资源，向全省各界提供国内外科技文献信息服务。<br />
+
+服务地址：南京市龙蟠路171号<br />
+
+江苏省科技情报研究所<br />
+
+服务电话：025-85410394<br />
+	<div class="clear"></div>
+    
+    </div>
+	
+	<div class="son meijie" id="zhiyuan3" style="display:none;">
+    <img src="/upfile/Image/200906/16/17480277.jpg" width="150" height="113" /><p> &nbsp;&nbsp;&nbsp;&nbsp;江苏省大型科学仪器设备共享服务平台主要以大型科学仪器设备、分析测试服务、测试方法与标准研究等为对象，充分利用现代信息技术，通过对相关资源进行整合集成、优化配置、合理布局、开放共享，致力于提高仪器设备的使用效率，避免重复购置和浪费，保持科学仪器设备的先进性，为科技创新提供支撑、为政府配置仪器设备资源提供决策依据，成为我省科技、经济发展服务的窗口。<br />
+
+服务地址：南京市龙蟠路175号
+
+江苏省生产力促进中心<br />
+
+服务电话：025-85485860/85485863
+	<div class="clear"></div>
+    
+    </div>
+	
+	<div class="son meijie" id="zhiyuan4" style="display:none;">
+    <img src="/upfile/Image/200906/16/17482686.jpg" width="150" height="113" /><p> &nbsp;&nbsp;&nbsp;&nbsp;建设工程中心的宗旨是以促进我省科技创新为目标，加强工程化研发平台建设，开展工程技术研究、试验和成套技术服务，开发产业发展中的共性、关键技术，持续提供成熟配套的技术、工艺、装备和产品，促进成果转化和技术辐射，带动相关行业的技术水平提升和科技进步，增强我省产业技术创新能力和市场竞争力。工程中心主要依托本省有关行业或领域内科技实力较强的重点科研机构、省级以上高新技术企业和高等院校组建的科研开发实体。<br />
+	<div class="clear"></div>
+    
+    </div>
+	
+	<div class="son meijie" id="zhiyuan5" style="display:none;">
+    <img src="/upfile/Image/200906/16/17485028.jpg" width="150" height="113"/><p> &nbsp;&nbsp;&nbsp;&nbsp;江苏省科技查新咨询中心为国家一级查新单位，是我省第一家至今为止也是唯一一家国家一级查新机构。中心主要为社会提供科技查新服务、国际联机检索、引文检索和定题服务。<br />
+服务地址：南京市龙蟠路171号<br />
+江苏省科技情报研究所<br />
+服务电话：025-85410441/85450078
+	<div class="clear"></div>
+    
+    </div>
+	
+	<div class="son meijie" id="zhiyuan6" style="display:none;">
+    <img src="/upfile/2011/08/1799539697.jpg" width="150" height="113" /><p>
+&nbsp;&nbsp;&nbsp;&nbsp;提供技术合同登记认定、全省技术市场统计、知识产权纠纷案鉴定、科技成果挂牌、科技成果推介等服务。
+ <br />
+服务地址：南京市广州路37号&nbsp;&nbsp;江苏科技大厦305室<br />
+服务电话：025-83232218、83232778 
+	<div class="clear"></div>
+    
+    </div>
+	<div class="son meijie" id="zhiyuan7" style="display:none;">
+    <img src="/upfile/Image/200906/16/1749267.jpg" width="150" height="113" /><p>
+&nbsp;&nbsp;&nbsp;&nbsp;提供科技企业孵化共享设施建设与运行管理服务，企业孵化共性科技、商务服务等。<br />
+ 
+服务地址：南京市广州路37号<br /> 江苏科技大厦<br />
+服务电话：025-52200735
+	<div class="clear"></div>
+    
+    </div>
+	<div class="son meijie" id="zhiyuan8" style="display:none;">
+    <img src="/upfile/Image/200906/16/17511619.jpg" width="150" height="113"/><p>  &nbsp;&nbsp;&nbsp;&nbsp;该资金是介于政府无偿拨款与风险投资之间的专业性政府引导资金，旨在促进新药创制、成果转化及其产业化，对一般风险投资不愿投资的新药研发项目及处于风险大、投资额小的起步期企业进行投资，并保证新药发展资金保值增值。<br />
+服务地址：南京市广州路37号  江苏科技大厦<br />
+服务电话：025-83309498、83315408
+	<div class="clear"></div>
+    
+    </div>
+	<div class="son meijie" id="zhiyuan9" style="display:none;">
+    <img src="/upfile/Image/200906/18/10540160.jpg" width="150" height="113" /><p>
+&nbsp;&nbsp;&nbsp;&nbsp;江苏省科技评估中心是经江苏省科技厅批准成立、具有独立法人资格的江苏省内唯一的专业性省级科技评估机构。
+    中心自2002年成立以来，承担了多项江苏省科技厅委托的科技评估任务，研究起草了江苏省科技评估规范，推动了江苏省科技评估体系的建设；与国家科技评估中心、部分省市科技评估机构保持着良好的合作，多人负责或参加了国家、省市的重要科技评估任务、重大咨询任务。
+	<div class="clear"></div>
+    
+    </div>
+	
+	
+</div>
+<!--科技资源开放服务媒介 start-->
+<!--链接 start-->
+<div class="wrap">
+  <div class="son">
+    	<div class="xxgk_left">
+       	  <div class="link">
+          	<h2><img src="/images/index2010/title_link.gif" /></h2>
+            
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="45" align="left" valign="bottom"><a href="http://www.jspc.org.cn/" target="_blank"><img src="/upfile/2011/10/1924477975.jpg" width="175" height="38" border="0" /></a></td>
+               <td align="left" valign="bottom"><a href="http://www.kjpt.net" target="_blank"><img src="/upfile/2011/10/1317177011.jpg" width="175" height="38" border="0" /></a></td>
+                <td align="left" valign="bottom"><a href="http://www.fortunestart.com/" target="_blank"><img src="/images/index2010/link_6.gif" width="169" height="38" border="0" /></a></td>
+               <td align="left" valign="bottom"><a href="http://www.jittc.org/" target="_blank"><img src="/upfile/2011/10/769325602.gif" width="180" height="38" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="50" align="left"><a href="http://portal.e-library.com.cn/" target="_blank"><img src="/images/index2010/link_2.gif" width="175" height="38" border="0" /></a></td>
+                <td align="left"><a href="http://www.51policy.cn/" target="_blank"><img src="/images/index2010/link_4.gif" width="175" height="38" border="0" /></a></td>
+                <td align="left"><a href="http://www.zjstcc.cc/" target="_blank"><img src="/upfile/2011/10/2032024788.gif" width="169" height="38" border="0" /></a></td>
+                <td align="left"><a href="http://www.jittc.org/Israel/index.asp" target="_blank"><img src="/images/index2010/link_8.gif" width="180" height="38" border="0" /></a></td>
+              </tr>
+            </table>
+       	  </div>
+        </div>
+      <div class="xxgk_right">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="66" valign="top"><a href="http://www.most.gov.cn/" target="_blank"><img src="/images/index2010/link_11.gif" border="0" width="246" height="59" /></a></td>
+          </tr>
+            <tr>
+              <td><a href="http://www.jiangsu.gov.cn/"  target="_blank"><img src="/images/index2010/link_12.gif" width="246" border="0" height="59" /></a></td>
+            </tr>
+        </table>
+    </div>
+        <div class="clear"></div>
+        <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#d9dae0" class="mart8">
+          <tr>
+            <td bgcolor="#f5fafd"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="90" rowspan="2" align="center" valign="top"><h3><img src="/images/index2010/link_icon_1.gif" width="16" height="16" /> 市县科技</h3></td>
+                <td height="22" class="linkgo"><select name="select2" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select2">
+                  <option value="" selected>南京市</option>
+				  <option value="http://www.njkj.gov.cn/" target="_blank">南京市科委</option>
+                  <option value="http://kjj.xwzf.gov.cn/" target="_blank">玄武区科技局</option>
+                  <option value="http://www.njbxkj.gov.cn/" target="_blank">白下区科技局</option>
+				  <option value="http://www.qhkjj.gov.cn/" target="_blank">秦淮区科技局</option>
+                  <option value="http://www.jykj.gov.cn/" target="_blank">建邺区科技局</option>
+                  <option value="http://glkj.njgl.gov.cn/" target="_blank">鼓楼区科技局</option>
+                  <option value="http://www.xgkjj.com/index.html" target="_blank">下关区科技局</option>
+				  <option value="http://www.njyhkj.gov.cn/" target="_blank">雨花台区科技局</option>
+				  <option value="http://www.njqxkj.gov.cn/kjj/index/index.asp" target="_blank">栖霞区科技局</option>
+				  <option value="http://www.jnkjj.gov.cn/" target="_blank">江宁区科技局</option>
+                  <option value="http://222.190.122.89/epw/default.aspx" target="_blank"> 浦口区科技局</option>
+                  <option value="http://www.njlhkj.gov.cn/" target="_blank">六合区科技局</option>
+                  <option value="http://www.lishui-js.gov.cn/" target="_blank">溧水县科技局</option>
+                  <option value="http://www.gckj.net/" target="_blank">高淳县科技局</option>		
+                </select>
+                  <select name="select3" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select3">
+                    <option value="" selected>无锡市</option>
+			        <option value="http://www.wxkjj.gov.cn/" target="_blank">无锡市科技局</option>
+			        <option value="http://www.jyst.cn/jykjj/index.html" target="_blank">江阴市科技局</option>
+                    <option value="http://www.yxs.gov.cn/" target="_blank">宜兴市科技局</option>
+                    <option value="http://kj.jsxishan.gov.cn/zgxscxw/" target="_blank">锡山区科技局</option>
+                    <option value="http://kjj.huishan.gov.cn/" target="_blank">惠山区科技局</option>
+					<option value="http://kjj.wxbh.gov.cn/bhq/index.asp" target="_blank">滨湖区科技局</option>
+					<option value="http://www.cakjj.cn/" target="_blank">崇安区科技局</option>
+					<option value="http://www.btqzf.wuxi.gov.cn/AffairsPublic/PublishList.aspx?depid=1007" target="_blank">北塘区科技局</option>
+                  </select>
+                  <select name="select4" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select4">
+                    <option value="" selected>徐州市</option>
+                    <option value="http://xstb.xsti.net" target="_blank">徐州市科技局</option>
+                    <option value="http://www.pxkjxx.gov.cn/" target="_blank">沛县科技局</option>
+                    <option value="http://www.tskj.gov.cn/" target="_blank">铜山县科技局</option>
+                    <option value="http://www.jssnkj.gov.cn/" target="_blank">睢宁县科技局</option>
+                    <option value="http://www.pzkj.gov.cn" target="_blank">邳州市科技局</option>
+                    <option value="http://www.qsst.gov.cn" target="_blank">泉山区科技局</option>
+                  </select>
+                  <select name="select5" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select5">
+                    <option value="" selected>常州市</option>
+                    <option value="http://www.cticz.com.cn/" target="_blank">常州市科技局</option>
+                    <option value="http://www.jtkj.gov.cn/" target="_blank">金坛市</option>			
+                    <option value="http://www.lyinfo.net.cn/" target="_blank">溧阳市</option>				
+                    <option value="http://www.wjcti.com/" target="_blank">武进区</option>	
+                    <option value="http://www.cztn.gov.cn/node/bm_kxjsj/Index.html" target="_blank">天宁区</option>			
+                    <option value="http://www.zlkjj.gov.cn/zlkjj/index.aspx" target="_blank">钟楼区</option>
+                  </select>
+                  <select name="select6" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select6">
+                    <option value="" selected>苏州市</option>
+                    <option value="http://www.szkj.gov.cn/" target="_blank">苏州市科技局</option>
+                    <option value="http://www.kj.zjg.gov.cn/" target="_blank">张家港市科技局</option>
+                    <option value="http://www.cskj.gov.cn/webs/default.asp" target="_blank">常熟市科技局 </option>
+                    <option value="http://www.ksst.com.cn/" target="_blank">昆山市科技局</option>
+                    <option value="http://www.jstckj.gov.cn/" target="_blank">太仓市科技局</option>
+                    <option value="http://58.211.71.53/mb/zwz2/index.asp?GovID=155">吴江市科技局</option>
+                    <option value="http://www.kj.szwz.gov.cn/" target="_blank">吴中区科技局</option>
+                    <option value="http://www.kjxc.gov.cn/main.asp" target="_blank">相城区科技局</option>
+                    <option value="http://www.szcl.gov.cn/kjj/kjj/index.asp" target="_blank">沧浪区科技局</option>
+                    <option value="http://tech.sipac.gov.cn/webapply_szkj/default/default.aspx" target="_blank">工业园区科技局</option>
+                    <option value="http://www.sndkj.gov.cn/node2/index.html" target="_blank">高新区科技局</option>
+                  </select>
+                  <select name="select7" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select7">
+                    <option value="" selected>南通市</option>
+                    <option value="http://www.ntkj.gov.cn" target="_blank">南通市科技局</option>
+                    <option value="http://www.hast.gov.cn/" target="_blank">海安</option>
+                    <option value="http://www.rgst.gov.cn/CMS/Rgkj/RgkjIndex.aspx" target="_blank">如皋</option>
+                    <option value="http://www.rdkj.gov.cn/" target="_blank">如东</option>
+                    <option value="http://www.tzst.gov.cn/" target="_blank">通州</option>
+                    <option value="http://www.qidonginfo.cn/" target="_blank">启东</option>
+                    <option value="http://kjj.hminfo.net.cn/" target="_blank">海门</option>
+                    <option value="http://www.chongchuan.gov.cn/Department/qzfbm/qzfbm.aspx?colId=a5aa2db2-e07a-49cc-a744-35c6be5da7f6" target="_blank">崇川区</option>
+                    <option value="http://kjj.ntgz.gov.cn/default.php" target="_blank">港闸区</option>
+                  </select>
+                  <select name="select8" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select8">
+                    <option value="" selected>连云港市</option>
+                    <option value="http://www.lygkjj.gov.cn/" target="_blank">连云港市科技局</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td height="22" class="linkgo"><select name="select2" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select2">
+                  <option value="" selected>淮安市</option>
+                  <option value="http://kjj.huaian.gov.cn/" target="_blank">淮安市科技局</option>
+				  <option value="http://www.zghy.gov.cn/bm_01/index.asp?depid=50" target="_blank">淮阴区科技局</option>
+				  <option value="http://www.ha.gov.cn/" target="_blank">楚州区科技局</option>
+				  <option value="http://www.hzkjw.net/" target="_blank">洪泽县科技局</option> 
+                </select>
+                  <select name="select3" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select3">
+                     <option value="" selected>盐城市</option>
+                     <option value="http://www.yckjj.gov.cn" target="_blank">盐城市科技局</option>
+					 <option value="http://www.thkjj.gov.cn/">亭湖区</option>	
+			         <option value="http://xxgk.sheyang.gov.cn/html/je219/">射阳县</option>  			    
+                  </select>
+                  <select name="select4" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select4">
+                    <option value="" selected>扬州市</option>
+                    <option value="http://www.yzinfo.gov.cn" target="_blank">扬州市科技局</option>
+                    <option value="http://www.kjj.jd.cn/ " target="_blank">江都</option>
+                    <option value="http://www.yzkjw.cn/" target="_blank">仪征市</option>
+                    <option value="http://www.gystinfo.gov.cn" target="_blank">高邮市</option>				
+	    			<option value="http://kjcg.baoying.net/" target="_blank">宝应县</option>
+                    <option value="http://kjj.hj.gov.cn/ " target="_blank">邗江区</option>	
+                  </select>
+                  <select name="select5" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select5">
+                    <option value="" selected>镇江市</option>
+                    <option value="http://kjj.zhenjiang.gov.cn/" target="_blank">镇江市科技局</option>
+                    <option value="http://www.dykj.gov.cn/">丹阳市</option>
+					<option value="http://jurong.sti.js.cn/">句容市</option>
+                    <option value="http://kjj.yz.gov.cn/">扬中市</option>
+                    <option value="http://dt.zjst.gov.cn/">丹徒区</option>
+                    <option value="http://www.rzkjj.gov.cn/">润州区</option>
+                  </select>
+                  <select name="select6" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select6">
+                    <option value="http://www.info.gov.cn" selected>泰州市</option>
+                    <option value="http://www.info.gov.cn" target="_blank">泰州市科技局</option>
+                  </select>
+                  <select name="select7" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select7">
+                    <option value="" selected>宿迁市</option>
+                    <option value="http://www.sqinfo.gov.cn/" target="_blank">宿迁市科技局</option>
+                    <option value="http://www.sykjcg.gov.cn/" target="_blank">沭阳县科技局</option>
+                    <option value="http://www.sykj.siyang.gov.cn/" target="_blank">泗阳县科技局</option>
+					<option value="http://www.suyukj.cn/" target="_blank">宿豫区科技局</option>
+                  </select></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="90" align="center" valign="top"><h3><img src="/images/index2010/link_icon_2.gif" width="16" height="16" /> 友情链接</h3></td>
+                <td><select name="select2" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select2">
+                  <option value="">国家部委站点</option>
+					 <option value="http://www.most.gov.cn" target="_blank">国家科技部</option>
+					 <option value="http://www.fmprc.gov.cn/" target="_blank">国家外交部</option>
+					 <option value="http://www.sdpc.gov.cn/" target="_blank">国家计委</option>
+				     <option value="http://www.setc.gov.cn/" target="_blank">国家经贸委</option>
+					 <option value="http://www.moe.edu.cn" target="_blank">教育部</option>
+					 <option value="http://www.mof.gov.cn/index.html" target="_blank">财政部</option>
+			   	     <option value="http://www.cin.gov.cn/" target="_blank">建设部</option>
+					 <option value="http://www.chinamor.cn.net" target="_blank">铁道部</option>
+					 <option value="http://www.mii.gov.cn" target="_blank">信息产业部</option>
+					 <option value="http://www.argi.gov.cn" target="_blank">农业部</option>
+					 <option value="http://www.amic.agri.gov.cn/" target="_blank">中国农机局</option>
+					 <option value="http://www.cte.gov.cn" target="_blank">乡镇企业局</option>
+					 <option value="http://www.mafic.ac.cn" target="_blank">饲料工业中心</option>
+					 <option value="http://www.moftec.gov.cn" target="_blank">外经贸部</option>
+					 <option value="http://www.moh.gov.cn" target="_blank">卫生部</option>
+					 <option value="http://www.drug-ap.gov.cn/" target="_blank">卫生部药政局</option>
+					 <option value="http://www.sda.gov.cn" target="_blank">国家药品监督局</option>
+					 <option value="http://www.sfpc.gov.cn" target="_blank">国家计生委</option>
+					 <option value="http://www.cmic.cn.net" target="_blank">国家内贸局</option>
+					 <option value="http://www.chinacoal.gov.cn" target="_blank">国家煤炭局</option>
+					 <option value="http://www.machineinfo.gov.cn" target="_blank">国家机械局</option>
+					 <option value="http://www.metal.net.cn"target="_blank">国家冶金局</option>
+					 <option value="http://www.cncic.gov.cn/" target="_blank">国家石化局</option>
+					 <option value="http://www.clii.com.cn" target="_blank">国家轻工业局</option>
+					 <option value="http://www.ctei.gov.cn" target="_blank">国家纺织工业局</option>
+					 <option value="http://www.bm.cei.gov.cn/state/" target="_blank">国家建材局</option>
+					 <option value="http://www.tobaccochina.com" target="_blank">烟草专卖局</option>
+					 <option value="http://www.atk.com.cn" target="_blank">有色金属工业局</option>
+					 <option value="http://www.coi.gov.cn/" target="_blank">国家海洋局</option>
+					 <option value="http://www.bm.cei.gov.cn/state/" target="_blank">国家测绘局</option>
+					 <option value="http://www.chinapost.gov.cn" target="_blank">国家邮政局</option>
+					 <option value="http://www.nach.gov.cn" target="_blank">国家文物局</option>
+					 <option value="http://www. ciq.gov.cn" target="_blank">出入境检验局</option>
+					 <option value="http://www.customs.gov.cn/" target="_blank">海关总署</option>
+					 <option value="http://www.nepa.unep.net" target="_blank">国家环保总局</option>
+					 <option value="http://www.caac.cn.net" target="_blank">民用航空总局</option>
+				     <option value="http://www.dns.incmrft.gov.cn" target="_blank">国家广电总局</option>
+					 <option value="http://www.sport.gov.cn/" target="_blank">国家体育总局</option>
+					 <option value="http://www.stats.gov.cn/" target="_blank">国家统计局</option>
+					 <option value="http://www.saic.gov.cn" target="_blank">国家工商局</option>
+					 <option value="http://wwww.cqi.gov.cn/" target="_blank">国家技术监督局</option>
+					 <option value="http://www.cpo.cn.net" target="_blank"> 国家知识产权局</option>
+					 <option value="http://www.cnta.com" target="_blank">国家旅游局</option>
+					 <option value="http://www.xinhua.org" target="_blank">新华通讯社</option>
+					 <option value="http://www.cass.net.cn" target="_blank">中国科学院</option>
+					 <option value="http://www.cashq.ac.cn" target="_blank">中国社会科学院</option>
+					 <option value="http://www.drc.go.cn.net" target="_blank">发展研究中心</option>
+					 <option value="http://www.gt.csdi.ac.cn" target="_blank">国家地震局</option>
+					 <option value="http://www..cma.gov.cn/" target="_blank">中国气象局</option>
+					 <option value="http://www.csrs.gov.cn/" target="_blank">中国证监会</option>
+					 <option value="http://www.sezo.gov.cn/" target="_blank">国务院特区办</option>
+					 <option value="http://www.china.org.cn" target="_blank">国务院新闻办</option> </pre> 
+                </select>
+                  <select name="select3" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select3">
+              <option value="">各省科技厅&nbsp;&nbsp;&nbsp;</option>
+					 <option value="http://www.bestinfo.gov.cn" target="_blank">北京市科委</option>
+					 <option value="http://www.stc.sh.cn" target="_blank">上海市科委</option>
+					 <option value="http://www.gxsti.net.cn" target="_blank">广西省科技厅</option>
+
+
+					 <option value="http://www.ynst.net.cn" target="_blank">云南省科技厅</option>
+					 <option value="http://www.dost.hainan.gov.cn" target="_blank">海南省科技厅</option>
+					 <option value="http://www.heinfo.gov.cn" target="_blank">河北省科技厅</option>
+					 <option value="http://www.sninfo.gov.cn" target="_blank">陕西省科技厅</option>
+					 <option value="http://www.gzkw.gy.gz.gov.cn" target="_blank">贵州科技厅</option>
+					 <option value="http://www.ctin.ac.cn/cqkw/index.asp" target="_blank">重庆市科委</option>
+					 <option value="http://www.ahinfo.gov.cn" target="_blank">安徽省科技厅</option>
+					 <option value="http://www.hninfo.gov.cn" target="_blank">湖南省科技厅</option>
+					 <option value="http://www.gdstc.gov.cn" target="_blank">广东省科技厅</option>
+					 <option value="http://www.nxinfo.gov.cn" target="_blank">宁夏科技厅</option>
+					 <option value="http://www.sdstc.gov.cn" target="_blank">山东省科技厅</option>
+					 <option value="http://www.sti.ha.cn" target="_blank">河南省科技厅</option>
+					 <option value="http://www.sckw.sichuan.net.cn" target="_blank">四川省科技厅</option>
+					 <option value="http://www.tstc.ac.cn" target="_blank">天津市科委</option>
+					 <option value="http://www.zjinfo.gov.cn/kejiting/index.htm" target="_blank">浙江省科技厅</option>
+					 <option value="http://www.xjinfo.gov.cn" target="_blank">新疆科技厅</option>
+					 <option value="http://www.nmkjt.gov.cn/tradelist.asp?ID=212" target="_blank">内蒙古科技厅</option>
+					 <option value="http://www.hljkjt.gov.cn" target="_blank">黑龙江科技厅</option>
+					 <option value="http://www.gsstc.gov.cn" target="_blank">甘肃省科技厅</option>
+                  </select>
+                  <select name="select4" onChange="javascript:window.open(this.options[this.selectedIndex].value)" id="select4">
+                   <option value="">相关站点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+
+				     <option value="http://www.jsyjw.gov.cn/" target="_blank">江苏援疆网</option>
+					 <option value="http://www.cstnet.net.cn/" target="_blank">中国科技网</option>
+					 <option value="http://www.br.gov.cn/" target="_blank">基础研究网</option>
+					 <option value="http://www.xssc.ac.cn/" target="_blank">香山科学会议</option>
+					 <option value="http://www.973.gov.cn/" target="_blank">973计划网</option>
+					 <option value="http://www.863.org.cn/" target="_blank">863计划网</option>
+					 <option value="http://www.gongguan.most.gov.cn/" target="_blank">科技攻关计划</option>
+					 <option value="http://www.cnsp.org.cn/" target="_blank">星火计划</option>
+					 <option value="http://www.chinatorch.gov.cn/" target="_blank">火炬计划</option>
+					 <option value="http://www.innofund.gov.cn/" target="_blank">技术创新基金</option>
+					 <option value="http://www.softscience.net.cn/" target="_blank">中国软科学</option>
+					 <option value="http://www.edu.cn/" target="_blank">中国教育网</option>
+					 <option value="http://www.most.gov.cn/" target="_blank">科技部</option>
+					 <option value="http://www.moe.gov.cn/" target="_blank">教育部</option>
+					 <option value="http://www.cutech.edu.cn/" target="_blank">教育科技中心</option>
+					 <option value="http://www.863.org.cn/" target="_blank">国家"863"</option>
+					 <option value="http://www.nsfc.gov.cn/" target="_blank">自然科学基金</option>
+					 <option value="http://www.unitech.edu.cn/" target="_blank">高校科技网</option>
+					 <option value="http://www.uniranks.edu.cn/" target="_blank">科研评估网</option>
+					 <option value="http://www.npopss-cn.gov.cn/" target="_blank">社科规划办</option>
+					 <option value="http://www.sinoss.net/" target="_blank">社科网管中心</option>
+					 <option value="http://www.cas.ac.cn/" target="_blank">中国科学院</option>
+					 <option value="http://www.patentcabin.com/" target="_blank">专利屋</option>
+					 <option value="http://www.peopledaily.com.cn/" target="_blank">人民日报</option>
+					 <option value="http://www.computerworld.com.cn/" target="_blank">计算机世界</option>
+                  </select></td>
+              </tr>
+            </table></td>
+            <td width="226" bgcolor="#FFFFFF" class="jubao"><span>举报邮箱：</span>zwgk@jstd.gov.cn<br />
+              <span>举报电话：</span>86635677 83350162 57712216<br />
+            <span>24小时举报热线：</span>15951610699</td>
+          </tr>
+        </table>
+  </div>
+</div>
+
+
+<!--链接 end-->
+<!--footer--->
+<div class="footer">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mart10">
+      <tr>
+        <td width="180" align="right" valign="top"><img src="/images/index2010/ga_nv.gif" width="70" height="80" /></td>
+        <td height="100" align="center" valign="top">主办: 江苏省科学技术厅 地址: 江苏省南京市北京东路39号 邮编: 210008 <br />
+          网站维护单位: 省科技厅网管中心  网站联系电话: 025-83610678 网站信箱、意见建议: jstd@jstd.gov.cn <br />
+        苏ICP备05051902号 <span>当前访问：<script language='javascript' src='http://www.jstd.gov.cn/jcms/Count/CountWEBToday.jsp?i=41&m=2&t=8&d=0&s1=1&s2=num&s3=1&dn=0'></script> 总访问量：<script language='javascript' src='http://www.jstd.gov.cn/jcms/Count/CountWEBTotal.jsp?i=41&s1=1&s2=num'></script></span></td>
+        <td width="180" valign="top"><img src="/images/index2010/ga_nan.gif" width="70" height="80" /></td>
+      </tr>
+  </table>
+</div>
+</body>
+</html>
+
+
+

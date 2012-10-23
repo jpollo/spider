@@ -30,3 +30,6 @@ def GetUrl(strPage):
             i = strPage.find(tag, end, len(strPage))
 
     return rtList
+
+def getlink1(data):
+    pass

@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link href="/css/list.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>校庆捐赠</title>
+<link rel="stylesheet" href="/page/main370/css/style.css" type="text/css" />
+<SCRIPT LANGUAGE="JavaScript">   
+function AddFavorite(sURL, sTitle) {   
+    try {   
+        window.external.addFavorite(sURL, sTitle);   
+    } catch (e) {   
+        try {   
+            window.sidebar.addPanel(sTitle, sURL, "");   
+        } catch (e) {   
+            alert("加入收藏失败，请使用Ctrl+D进行添加");   
+        }   
+    }   
+}   
+</SCRIPT>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td background="/page/main370/images/dhbg.gif" height="141">
+<table width="984" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td height="141" width="193"><img src="/page/main370/images/70logo.gif" width="193" height="141" /></td>
+    <td width="791">
+<!--head right start-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="36" align="right" valign="bottom"><a onclick="AddFavorite('http://xq70.njupt.edu.cn',document.title)" href="#"><img src="/page/main370/images/b1.gif" width="78" height="25" /> </a><a href="http://xcb.njupt.edu.cn/search/articleSearch.faces?siteId=132&pageId=0"><img src="/page/main370/images/b2.gif" width="78" height="25" /></a></td>
+  </tr>
+  <tr>
+    <td height="65"><img src="/page/main370/images/headwenzi.gif" width="611" height="65" /></td>
+  </tr>
+  <tr>
+    <td height="25">
+<div id="dh">
+<table border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td height="25" align="left">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td align="center" valign="middle"><script language='javascript'>   function getHttpObj(){       var xmlHttp = false;       try {           xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");       }catch (e) {           try {               xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");           }catch (e2) {               xmlHttp = false;           }       }       if (!xmlHttp && typeof XMLHttpRequest != 'undefined'){           xmlHttp = new XMLHttpRequest();       }       return xmlHttp;   }   function P(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=0;   }   function T(pltId,url){       this.portletId=pltId;       this.url=url;       this.kind=1;   }   function I(pltId, url, fun){       this.portletId=pltId;       this.url=url;       this.kind=2;       this.nextFunc=fun;   }   var PLTS=new Array();   var cur1=0;   var Loader1= getHttpObj();   function loadps(){       if(cur1<PLTS.length){           Loader1.open('GET',PLTS[cur1].url+'?'+new Date().getTime()+(10000+parseInt(Math.random()*10000)));           Loader1.onreadystatechange=endloadps;           Loader1.send(null);       }   };   function endloadps(){       if(Loader1.readyState==4){           if(Loader1.status==200){               var response=Loader1.responseText;               if(PLTS[cur1].kind==2) {                   _listArticleCount =response.replace(/(^\s*)|(\s*$)/g, "");                   try {                       eval(PLTS[cur1].nextFunc);                   }catch(e){                       alert('高效分页初始化失败！');                   }               }               try{                   if(window.execScript){                       document.getElementById(PLTS[cur1].portletId).outerHTML='<body>'+response+'</body>';                   } else{                       document.getElementById(PLTS[cur1].portletId).innerHTML=response;                   }               } catch(e){}               var regx=new RegExp('<scr'+'ipt[^>]*?>([\\s\\S]*?)<\\/scr'+'ipt\\s*>|<scr'+'ipt[^>]*?\\/>','img');               var arr;               while((arr = regx.exec(response)) != null){                   if(arr.length){                       if(arr.length >=2){                           var regx2 = new RegExp("<scr"+"ipt[^>]*?\\bsrc=\\s*('[^>]*'|\"[^>]*\"|[\\S]*)\\s*\\/?>",'im');                           var srcArr=regx2.exec(arr[0]);                           if(srcArr!=null){                               var src= srcArr[1];                               if(src){                                   if((src.charAt(0)=='"') || (src.charAt(0)=="'")){                                       src=src.substr(1,src.length-2);                                   }                                   loadScript(src);                               }                           } else{                               execJavaScript(arr[1]);                           }                       }                   }               }           }           cur1++;           loadps();       }   }   function loadScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.src=s;           document.body.appendChild(sc);       }catch(e){}   }   function execJavaScript(s){       try{           var sc=document.createElement('script');           sc.type='text/javascript';           sc.language='javascript';           sc.text=s;           document.body.appendChild(sc);       }catch(e){}   }   window.onload=loadps;</script><div id='_p_1'></div><script language='javascript'>PLTS[PLTS.length]=new P('_p_1','/s/132/t/370/p/11/p.jspy');</script></td>
+			</tr>
+		</table></td>
+  </tr>
+</table>
+</div>
+    </td>
+  </tr>
+  <tr>
+    <td height="15"></td>
+  </tr>
+</table>
+<!--head right end-->
+    </td>
+  </tr>
+</table>
+    </td>
+  </tr>
+</table>
+
+<table width="984" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#FFFFFF">
+  <tr>
+    <td height="16"></td>
+  </tr>
+</table>
+<table width="984" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#FFFFFF">
+  <tr>
+    <td height="160"> <script>   
+ 	var idx = Math.ceil(Math.random()*4);
+	document.write("<img src='/page/main370/images/bannerlist"+idx+".jpg' />");
+  </script></td>
+  </tr>
+</table>
+<table width="984" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#FFFFFF">
+  <tr>
+    <td height="200" width="260" bgcolor="#D8D6D7" valign="top">
+<div id="lmlist"> 
+ <table width="240" border="0" cellspacing="0" cellpadding="0" align="center"></TABLE>
+</div>
+	</td>
+	<td width="724" valign="top">
+<!--start of right-->  
+ <table width="100%" height="34" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td height="20"><table width="100%" height="25" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+	  	        <td width="153"></td>
+                <td align="left">当前位置: <a href='/s/132/t/370/main.jspy' title='返回首页'>首页</a><span class="posSplit">&nbsp;&nbsp;</span><a href='/s/132/t/370/p/11/c/3096/list.jspy' title='校庆捐赠'>校庆捐赠</a></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table>
+		<br>
+          <table width="95%" height="22" border="0"cellpadding="0" cellspacing="0" align="center">
+            <tr>
+              <td width="45" height="33" align="center" valign="middle"><img src="/page/main370/images/listright1_1.gif"></td>
+              <td nowrap class="biaoti1">校庆捐赠</td>
+            </tr>
+             <tr>
+               <td height="7" colspan="2" background="/page/main370/images/line_1.gif"></td>
+            </tr>
+          </table>
+          <table width="95%" border="0" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+              <td class="content"><div id=newslist>
+                  <p align="center"><strong>倡议书</strong></p>
+<p>社会各界、海内外校友：<br />
+　　长期以来，社会各界、海内外校友对南京邮电大学的发展献计献策、捐资捐物，贡献了巨大力量，学校对此深表感谢！大家的关心、支持和帮助是学校永远受益的宝贵财富，是学校师生员工奋勇前行的强大动力。南邮的历史凝聚着每一个南邮人的心血；学校的辉煌辉映着每一个南邮人的业绩；学校的未来更需要社会各界和校友添砖加瓦，鼎力相助。<br />
+　　在办学历程中，母校经历过筚路蓝缕的岁月，但南邮人百折不挠，艰苦奋斗，在逆境中谋发展，于艰难中创事业，在人才培养、科学研究、服务社会等方面取得了巨大的成绩，这是我们所有南邮人都值得骄傲和自豪的。而今天，在母校克服困难、抢抓机遇谋发展的征途上，她急需得到校友的关注、关心与关爱。<br />
+　　把南邮建成一所高水平、有特色，在通信、电子、计算机等信息学科领域国内一流、国际有影响的多科性的教学研究型大学，是所有南邮人共同的光荣与梦想。百川成海，集腋成裘，让我们携手行动起来，把对母校的爱化作行动，为母校建设与发展贡献自己的一份力量。</p>
+<p align="center"><strong>捐赠鸣谢办法</strong></p>
+<p>　　南京邮电大学热诚欢迎海内外企事业单位、团体、个人为南京邮电大学的教育事业捐资。对每一位关心支持南邮的朋友，我们都表示衷心的感谢： <br />
+　　一、对捐赠金额累计在1万元（人民币，下同）以上的捐赠者，南京邮电大学将分别颁发捐赠纪念牌或纪念证书：<br />
+　　1、捐资金额累计在1000万元及以上者，颁发“南京邮电大学杰出教育贡献奖”，并可聘为南京邮电大学名誉董事；<br />
+　　2、捐资金额累计在100万元及以上者，颁发“南京邮电大学教育贡献奖”，可聘为南京邮电大学教育发展基金会名誉理事；<br />
+　　3、捐资金额累计在50万元及以上者，颁发南京邮电大学捐赠纪念奖牌；<br />
+　　4、捐资金额累计在1万元及以上者，颁发南京邮电大学捐赠纪念证书。<br />
+　　二、凡为南京邮电大学捐资，无论金额大小，教育发展基金会均开具正式财务收据，并可签定书面协议，写明捐资金额、捐资意向以及基金会的承诺，并将捐资者名单列入名册存档。<br />
+　　三、对于部分捐赠项目，如基础设施建设、奖教金、奖助学金等，如捐赠达到一定额度，可以捐赠者或捐赠者指定的名称命名。<br />
+　　四、对提供捐赠的海内外企业、事业单位、机关、团体及个人，在国家法律、法规和学校规章制度准许的范围内，可优先享用学校的教学、科研等优质资源，优先享有开展合作、共建等权利。</p>
+<p align="center"><strong>捐赠方法</strong></p>
+<p>　　南京邮电大学欢迎所有热心教育的有识之士以不同方式支持南京邮电大学，包括设立永久性基金，或以现金、支票、汇票、股票、证券、债券、图书，资料，设备，房产，遗产，财产等形式捐赠。捐款可以指定项目和用途，具体捐赠途径如下：</p>
+<p>　　<strong>银行汇款<br />
+</strong>　　户&nbsp; 名：南京邮电大学教育发展基金会<br />
+　　开户行：交通银行南京分行中央路支行<br />
+　　帐&nbsp; 号：320006603018010026979<br />
+　　（请您在附言中注明捐赠用途以及您的联系方式）</p>
+<p>　　<strong>邮局汇款<br />
+</strong>　　收款人：南京邮电大学教育发展基金会<br />
+　　地&nbsp; 址：南京市新模范马路66号<br />
+　　邮&nbsp; 编：210003<br />
+　　（请您在附言中注明捐赠用途以及您的联系方式）</p>
+<p>　　<strong>网上捐赠<br />
+</strong>　　通过在线捐赠平台，您可以使用大多数人民币信用卡和银行卡进行在线捐赠，捐赠到帐后我们会给您寄送收据及有关资料，所以请务必在附言中写清您的捐赠用途、通讯地址、联系电话等信息。<br />
+　　点击下图进入在线捐赠平台：<br />
+　　<a target="_blank" href="http://shmsc.njupt.edu.cn/s/1/t/13/main.jspy"><img border="0" alt="" src="/picture/article/132/bd/8a/d4302b5249e78d34113ff67ebe43/8fe2aed6-491a-4709-9f29-ecb511956b2f.gif" /></a></p>
+<p>　　<strong>来校捐赠<br />
+</strong>　　接收单位：南京邮电大学“校董会、校友会、教育发展基金会”秘书处办公室<br />
+　　地&nbsp;&nbsp;&nbsp; 址：南京市仙林大学城文苑路9号南京邮电大学行政北楼425室<br />
+　　联 系 人：范老师&nbsp; 季老师<br />
+　　电话传真：025-85866517</p>
+<p>　　<strong>联系我们<br />
+</strong>　　南京邮电大学“校董会、校友会、教育发展基金会”秘书处办公室<br />
+　　地&nbsp;&nbsp;&nbsp; 址：南京市仙林大学城文苑路9号（邮编：210046）<br />
+　　电话传真：025-85866517&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />
+　　Email：<a href="mailto:shmsc@njupt.edu.cn">shmsc@njupt.edu.cn</a></p>
+              </div></td>
+            </tr>
+          </table> 
+ <!--end of right-->      	
+	</td>
+  </tr>
+</table>
+
+<table width="984" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td height="11" bgcolor="#ff650f"></td>
+  </tr>
+  <tr>
+    <td height="50" valign="middle" class="copyright">版权所有 &copy; 南京邮电大学 Nanjing University of Posts and Telecommunications</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>南京邮电大学邮件系统</title>
+<link href="/coremail/common/login/forgetpwd.css" rel="stylesheet" type="text/css" charset="iso-8859-1">
+</head>
+
+<body>
+<div class="container">
+    <div class="head">
+        <div class="logo"></div>
+        <div class="topLink">
+            
+            <a class="MTLinks" href="index.jsp">
+            返回首页</a>
+            |
+            
+            
+            <a target="_blank" href="/coremail/help/index_zh_CN.jsp">
+                帮助
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="main">
+            
+            
+            <form name="validateForm" method="post" action="forgetpwd.jsp?sid=BAqgyqUUZjPLhNRhBdUUILRTyCGRRRmq">
+              <input type="hidden" name="func" value="validate" />
+                <table class="loginTable">
+                   <caption class="title">
+                     找回密码
+                     
+                       
+                       
+                         <span class="titleNote">填写用户名和验证码</span>
+                       
+                     
+                   </caption>
+                    <tfoot>
+                      <tr>
+                        <td></td>
+                        <td>
+                          <button type="submit" class="Button">
+                            下一步
+                          </button>
+                          <button type="button" class="Button" onclick="location.href='index.jsp'">
+                            返回
+                          </button>
+                        </td>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      <tr>
+                        <th>用户名:</th>
+                        <td><input type="text" class="input" maxlength="20"
+                                               name="uid" value=""/></td>
+                      </tr>
+                      <tr>
+                        <th>验证码:</th>
+                        <td>
+                            <input name="verifyCode" type="text" class="input" maxlength="22"/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>
+                            <div>
+                                <img id="img" src="displayVerifyCode.jsp?sid=BAqgyqUUZjPLhNRhBdUUILRTyCGRRRmq&category=forgetpassword&rand=-319670236" alt="CODE"/>
+                            </div>
+                            <div class="code">
+                                
+                                <a href="forgetpwd.jsp?sid=BAqgyqUUZjPLhNRhBdUUILRTyCGRRRmq&uid=" onclick="
+                                 this.href = 'forgetpwd.jsp?sid=BAqgyqUUZjPLhNRhBdUUILRTyCGRRRmq&uid=' + encodeURIComponent(
+                                    document.getElementsByName('uid')[0].value
+                                 );">
+                                看不清楚？ 换一个
+                                </a>
+                              </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+    
+    <div class="footer">
+        南京邮电大学. &copy; Copyright 2011 - 2015.
+    </div>
+</div>
+</body>
+</html>

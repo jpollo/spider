@@ -1,0 +1,448 @@
+<html>
+<head>
+<script src="../js/com.trs.util/Common.js"></script>
+<script label="Import">
+	$import('com.trs.tree.TreeNav');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link id="indexStyle" href="../images/index_images.css" rel="stylesheet" type="text/css">
+<link href="../images/nav.css" rel="stylesheet" type="text/css">
+<link href="../images/index_images.css" rel="stylesheet" type="text/css">
+<link href="../images/detail_images.css" rel="stylesheet" type="text/css">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	var m_pIndexPageName = ["list.htm", "abstract.htm"];
+
+	var m_nCurrStyleValue = 1;
+	function changeStyle(_nValue){
+		if(m_nCurrStyleValue == _nValue){
+			return;
+		}
+		m_nCurrStyleValue = _nValue;
+
+		var sURL = "";
+		var sLocationURL = getFrameWin("DataList").location.href;
+		var nPos = sLocationURL.lastIndexOf("/");
+		if(m_bFromClassClick){
+			sURL = sLocationURL.substring(0, nPos+1) + m_pIndexPageName[m_nCurrStyleValue-1];
+		}		
+		stopEvent();
+		getFrameWin("DataList").location.href = sURL;
+	}
+
+    function getFrameWin(sFrameName){
+        if(document.frames){
+            return document.frames["DataList"];
+        }
+        return $(sFrameName).contentWindow;
+    }
+	
+	var m_bFromClassClick = true;
+	function gotoDataList(_sURL, _bFromClassClick){
+		m_bFromClassClick = _bFromClassClick;
+		var sURL = _sURL;
+		//var ClassInfoName=encodeURI(_sClassInfoName);
+		if(_bFromClassClick){
+			sURL += m_pIndexPageName[ m_nCurrStyleValue - 1 ];
+		}
+		stopEvent();
+		getFrameWin("DataList").location.href = sURL;
+	}
+
+	function gotoClassIndexPage(_sClassPath){
+		stopEvent();
+		getFrameWin("DataList").location.href = _sClassPath + m_pIndexPageName[0];		
+	}
+
+	function gotoDataListnew(_sURL, _bFromClassClick){
+		m_bFromClassClick = _bFromClassClick;
+		var sURL = _sURL;
+		stopEvent();
+		window.open(sURL);
+	}
+
+	//展开树的某个节点
+	function oExpandDefaultNode(){
+        var treeContainer = $("treeContainer");
+
+        //处理传入的ClassInfoId参数,定位到指定的树节点
+        var sClassInfoId = getParameter("ClassInfoId");
+        if(sClassInfoId){
+            expandTreeNodes(sClassInfoId);
+            return;
+        }
+    
+        //没有传入ClassInfoId时的默认处理
+        var treeNodes = treeContainer.childNodes;
+		var index = 0;
+        for (var i = 0; i < treeNodes.length; i++){
+            if(treeNodes[i].nodeType != 1){
+                continue;
+            }
+            if(!treeNodes[i].getAttribute("isRoot")){
+                continue;
+            }
+            index++;            
+            if((index == 1)||(index == 2)){
+                expandTreeNode(treeNodes[i]);
+            }
+        }
+    };
+
+    //展开指定树节点，触发指定树节点的click事件
+    function expandTreeNode(oTreeNode){
+        if(!oTreeNode) return;
+        if(oTreeNode.click){
+            oTreeNode.click();
+        }else{//fix ff, and safari
+            var evt = document.createEvent('MouseEvents');
+            evt.initEvent('click', true, true);
+            oTreeNode.dispatchEvent(evt);
+        }
+    }
+
+    //根据分类法的Id，展开指定节点序列，直到树根
+    function expandTreeNodes(sClassInfoId){
+        var oLinkNode = $('c_' + sClassInfoId);
+        if(!oLinkNode) return;
+        var oTreeNode = oLinkNode.parentNode;
+        while(oTreeNode){
+            expandTreeNode(oTreeNode);
+            if(oTreeNode.getAttribute("isRoot")){
+                break;
+            }
+            oTreeNode = com.trs.tree.TreeNav._getParentElement(oTreeNode);
+        }
+        expandTreeNode(oLinkNode);
+    }
+
+    //页面加载完成之后的初始化
+    function bodyOnLoad(){
+        oExpandDefaultNode();
+    }
+
+    com.trs.tree.TreeNav.observe("onload", bodyOnLoad);
+
+//-->
+</SCRIPT>
+ <SCRIPT LANGUAGE="JavaScript">
+  <!--
+   
+	function stopEvent(){
+            var event = Event.findEvent();
+		if (event.preventDefault) {
+		  event.preventDefault();
+		  event.stopPropagation();
+		} else {
+		  event.returnValue = false;
+		  event.cancelBubble = true;
+		}
+	}
+
+    /**
+    *由相对路径获取绝对路径
+    */
+    function getCanonicalPath(_sPath){
+        //处理掉./的情况
+        _sPath = _sPath.replace(/\/\.\/+/g, "/");
+        if(_sPath.indexOf('../') == -1){
+            return _sPath;
+        }
+        var protocol = "";
+        var colonIndex = _sPath.indexOf("://");
+        if(colonIndex >= 0){
+            protocol = _sPath.substring(0, colonIndex+3);
+            _sPath = _sPath.substring(colonIndex+3);
+        }
+        var aPath = _sPath.split("/");
+        for(var i = 0; i < aPath.length; i++){
+            if(aPath[i] && aPath[i] == ".."){
+                delete aPath[i];
+                //删除前面的一个路径
+                for(var j = i - 1; j >= 0; j--){
+                    if(aPath[j]){
+                        delete aPath[j];
+                        break;
+                    }
+                }
+            }
+        }
+        var result = "";
+        for(var i = 0; i < aPath.length; i++){
+            if(aPath[i]){
+                result += aPath[i] + "/";
+            }
+        }
+        return protocol + result;
+    }
+
+    /**
+    *获取站点的绝对地址
+    */
+    function getPubURL(){
+        var sWebSiteURL = '../';
+        var sCurrPageURL = window.location.href.replace(/\/[^\/]*$/g, "/");
+        return getCanonicalPath(sCurrPageURL + sWebSiteURL);
+    }
+  //-->
+</SCRIPT>
+<title>中国银行总行</title>
+<style type="text/css"></style>
+
+</head>
+<body class="body">
+<table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="14" align="left" valign="top" background="../images/l_bj.gif"><img src="../images/l_up.gif" width="14" height="208"></td>
+    <td width="917" align="right" valign="top" bgcolor="#FFFFFF" class="lr_bx">
+  <script language="JavaScript" src="../images/boc08_func.js">
+</script>
+<link href="../images/boc08.css" rel="stylesheet" type="text/css">
+<table width="915" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="661" align="left" valign="top"><table width="0" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="669"><img src="../images/top.gif" width="661" height="155"></td>
+              </tr>
+              <tr>
+                <td height="23" align="right" valign="middle" background="../images/menu_bj.gif">
+                                <span class="lan12_hover"> | </span>
+                                <a href="http://www.bankofchina.com" class="lan12_hover">首页</a><span class="lan12_hover"> | </span>
+				<a href="http://www.bankofchina.com/cbservice/" title="公司金融服务" class="lan12_hover">公司金融服务</a><span class="lan12_hover"> | </span>
+				<a href="http://www.bankofchina.com/pbservice/" title="个人金融服务" class="lan12_hover">个人金融服务</a><span class="lan12_hover"> | </span>
+				<a href="http://www.bankofchina.com/bcservice/" title="银行卡服务" class="lan12_hover">银行卡服务</a><span class="lan12_hover"> | </span>
+                                <a href="http://www.bankofchina.com/bocinfo/" title="中行信息" class="lan12_hover">中行信息</a><span class="lan12_hover"> | </span>
+				<a href="http://www.bankofchina.com/aboutboc/" title="关于中行" class="lan12_hover">关于中行</a><span class="lan12_hover"> | </span>
+                                <a href="http://www.bankofchina.com/investor/" title="投资者关系" class="lan12_hover">投资者关系</a><span class="lan12_hover"> | </span>
+				<a href="http://www.bankofchina.com/finadata/" title="金融数据" class="lan12_hover">金融数据</a><span class="lan12_hover"> | </span>
+				<a href="http://www.bankofchina.com/custserv/" title="客户服务" class="lan12_hover">客户服务</a><span class="lan12_hover"> |&nbsp;&nbsp;</span></td>
+              </tr>
+            </table></td>
+          <td width="256" align="right" valign="top"><table width="254" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="46" align="center" valign="middle" background="../images/language_bj.gif"><a href="http://www.bankofchina.com/index.html" class="lan12_hover">简体中文</a><span class="lan12_hover">| </span><a href="http://www.bankofchina.com/big5/index.html" class="lan12_hover">繁体中文</a><span class="lan12_hover"> | </span><a href="http://www.bankofchina.com/en/index.html" class="lan12_hover">ENGLISH</a></td>
+              </tr>
+              <tr>
+                <td height="84" align="left" background="../images/search_bj.gif">
+<iframe name="searchframe"  src="http://srh.bankofchina.com/search/sitesearch/siteiframe.jsp" frameborder=0 width="100%" height="24" scrolling="no"></iframe>
+
+</td>
+              </tr>
+              <tr>
+                <td height="45" align="center" valign="middle" background="../images/time_bj.gif"><br/><span class="laugl"><script>Disp_Date();</script></span></td>
+              </tr>			  
+			  <tr>
+				<td bgcolor="#b10a32"><img src="dot.gif" width="2" height="3"></td>
+			  </tr>			  
+			  
+            </table></td>
+        </tr>
+      </table>
+      <table width="915" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="15" colspan="3"></td>
+          <td width="6" background="../images/r_b_bj.gif"></td>
+        </tr>
+        <tr>
+          <td width="15" height="36" align="left" valign="middle" background="../images/dh_bj.gif">&nbsp;</td>
+          <td width="692" align="left" valign="middle" background="../images/dh_bj.gif"><span class="lan12_hover">当前位置：</span><a href="http://www.bankofchina.com" class="hui12_hover">首页</a><span class="hui12_20_hover">&gt;&gt;&gt;</span><span class="hui12_hover">外汇牌价</span></td>
+          <td align="left" valign="bottom" background="../images/dh_bj.gif"><table width="155" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35" align="center" valign="middle" background="../images/bt_bj_l.gif"><span class="lan16c">外汇牌价</span></td>
+              </tr>
+            </table></td>
+          <td background="../images/r_b_bj.gif"></td>
+        </tr>
+      </table>
+      <table width="915" border="0" cellspacing="0" cellpadding="0">
+        
+        <tr>
+          <td colspan="2" align="right" valign="top"><img src="../images/r_b_bj.gif" width="6" height="6"></td>
+        </tr>
+      </table>
+      <table width="912" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="242" valign="top" bgcolor="#FFFFFF">
+<!---------------		--------------------->
+<div class="main">
+        <div class="mainLeft">
+            <div class="separator"></div>
+            <div id="treeContainer" class="TreeView" style="overflow-y:visible;">
+				<div isRoot="true"><a class="hui12_20_hover" href="./1312/" onclick="gotoClassIndexPage(this.href, true);" id="c_1312">外汇牌价名称</a></div>
+				<ul style="overflow-x:auto;width:192;padding-bottom:30px;display:none;">
+						<DIV><A class=hui12_20_hover id=c_1314 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1314/">英镑</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1315 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1315/">港币</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1316 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1316/">美元</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1317 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1317/">瑞士法郎</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1318 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1318/">德国马克</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1319 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1319/">法国法郎</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1320 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1320/">瑞典克朗</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1321 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1321/">丹麦克朗</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1322 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1322/">挪威克朗</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1323 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1323/">日元</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1324 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1324/">加拿大元</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1325 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1325/">澳大利亚元</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1326 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1326/">欧元</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1327 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1327/">澳门元</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1328 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1328/">菲律宾比索</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1329 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1329/">泰国铢</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1330 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1330/">新西兰元</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1331 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1331/">韩国元</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1370 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1370/">西班牙比塞塔</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1371 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1371/">意大利里拉</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1372 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1372/">荷兰盾</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1373 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1373/">比利时法郎</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1374 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1374/">芬兰马克</A></DIV><!--
+						
+                                          -->
+              <DIV><A class=hui12_20_hover id=c_1375 
+              onclick="gotoClassIndexPage(this.href, true);" 
+              href="./1312/1375/">新加坡元</A></DIV>
+				</ul>
+
+			
+			</div>
+        </div>
+<!------------------ -------->
+             
+<!-------     -------------------->
+            </td>
+          <td width="664" align="center" valign="top">
+
+		  <table width="658" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+ <!------   IFRAME ----------->	
+			<tr>
+              <td align="left" valign="top">
+<div class="mainRight" id="advanceSearchContainer">		
+            <script language="javascript">
+            <!--
+                //处理首页跳转的检索，构造iframe地址
+                var sURL = "./1312/list.htm";                  document.write('<iframe name="DataList" id="DataList" src="' + sURL + '"onload="this.height=DataList.document.body.scrollHeight" frameborder="0" width="100%" scrolling="no"></iframe>');
+            //-->
+            </script>
+ </div>
+			  </td>
+            </tr>
+            <tr>
+              <td align="center" valign="top">
+<!-----------------   IFRAME  -------------------->     
+	</td>
+            </tr>
+          </table></td>
+          <td width="6" background="../images/r_b_bj.gif"></td>
+        </tr>
+        <tr>
+          <td colspan="3" align="left" valign="top"><table width="912" border="0" cellspacing="0" cellpadding="0">
+             
+              <tr>
+                <td width="24"><img src="../images/down_l.gif" width="24" height="85"></td>
+                <td width="888" align="center" valign="middle" background="../images/down_bj.gif"><table width="0" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="628" height="30" align="center" valign="top"><a href="http://www.bankofchina.com/custserv/cs1/200812/t20081209_135605.html" class="lan12_hover" target="_blank">网站地图</a><span class="lan12_hover"> | </span><a href="http://www.bankofchina.com/custserv/cs1/200812/t20081209_135606.html" class="lan12_hover" target="_blank">版权声明</a><span class="lan12_hover"> | </span><a href="http://www.bankofchina.com/custserv/cs1/200812/t20081209_135607.html" class="lan12_hover" target="_blank">使用条款</a><span class="lan12_hover"> | </span><a href="http://www.bankofchina.com/custserv/cs1/200812/t20081212_257687.html" class="lan12_hover" target="_blank">联系我们</a><span class="lan12_hover">  </span></td>
+                    </tr>
+                    <tr>
+                      <td align="center" valign="bottom" class="lan12_hover">Copyright © 2008 BANK OF CHINA(BOC) All Rights Reserved.</td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table>
+
+</td>
+        </tr>
+      </table>
+      </td>
+    <td width="19" align="right" valign="top" background="../images/r_bj.gif"><img src="../images/r_up.gif" width="19" height="208"></td>
+  </tr>
+</table>
+</body>
+</html>

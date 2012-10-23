@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="all" />
+<meta name="author" content="kevinxu | www.czyz.com.cn" />
+<meta name="Copyright" content="Copyright (c) 2001-2006 www.czyz.com.cn" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" media="screen" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen" />
+<meta name="Keywords" content="常州市第一中学,网站,教育" />
+<meta name="description" content="常州市第一中学，常州市四星级高中" />
+
+<link rel="stylesheet" rev="stylesheet" href="/css/css_20110225.css" type="text/css" media="screen" />
+<link rel="stylesheet" rev="stylesheet" href="/css/tb_list.css" type="text/css" media="screen" />
+<link rel="stylesheet" rev="stylesheet" href="/css/tb_arc.css" type="text/css" media="screen" />
+<title>常州市第一中学</title>
+
+<script src="/jquery/jquery-1.5.1.min.js" type="text/javascript"></script>
+
+<script src="/jquery/ui.tabs.js" type="text/javascript"></script>
+<link rel="stylesheet" rev="stylesheet" href="/jquery/ui.tabs.css" type="text/css" media="print, projection, screen" />
+
+<script src="/jquery/jquery.history.js" type="text/javascript"></script>
+
+<script src="/jquery/thickbox-all.js" type="text/javascript"></script>
+<link rel="stylesheet" rev="stylesheet" href="/jquery/thickbox.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+<script type="text/javascript" src="/fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.1.css" type="text/css" media="screen" />
+
+<link rel="stylesheet" rev="stylesheet" href="/jquery/suckerfish.css" type="text/css" media="screen" />
+
+<script type="text/javascript">
+	$(function() {
+//$("a#inline").fancybox({
+//  'width':500,
+//  'height':300,
+//  'autoScale':false
+//});
+//$("a#inline").trigger('click');
+
+		$('#tab_pic > ul').tabs({ event: 'mouseover', fxFade:true, fxSpeed: 'fast' }).find('a').click(function() {
+			return false;
+		});
+		
+		$('#tab_pic li').mouseover(function() {
+			stopSwitchTabPic();
+		});
+		
+		$('#tab_pic li').mouseout(function() {
+			stopSwitchTabPic();
+			stp = setTimeout('switchTabPic();', tab_timer);
+		});
+		
+$('#tabBoard > ul').tabs({ event: 'mouseover', fxFade:true, fxSpeed: 'fast' }).find('a').click(function() {
+			return false;
+		});
+	
+		$('#SwitchNav a').each(function(){
+			if(this.href.indexOf("javascript")!=-1){
+				this.href="javascript://";
+				$(this).unbind('click');
+			}			
+		});
+		
+		$("#nav-one li").hover(
+			function(){$('ul', this).fadeIn("fast");},
+			function(){}
+		);
+		if(document.all){
+			$('#nav-one li').hoverClass("sfHover");
+		}
+		
+		
+	});
+	//tab_pic switch
+	var tab_pic_maxnum = 3;
+	var tab_pic_num = 1;
+	var tab_timer = 3000;
+	
+	function switchTabPic() {
+		if(tab_pic_num++ >= tab_pic_maxnum) tab_pic_num = 1;
+		
+		$('#tab_pic > ul').tabsClick(tab_pic_num);
+		
+		stp = setTimeout('switchTabPic();', tab_timer);
+	}
+	
+	var stp = null;
+	stp = setTimeout('switchTabPic();', tab_timer);
+	
+	function stopSwitchTabPic() {
+		clearTimeout(stp);
+	}//tab_pic switch end
+	
+	$.fn.hoverClass = function(c) {
+		return this.each(function(){
+			$(this).hover(
+				function(){$(this).addClass(c);},
+				function(){$(this).removeClass(c)}
+			);
+		});
+	};
+
+
+
+				
+</script>
+
+</head>
+<body>
+<!--图片飘动开始-->
+<div id="ad" style="position:absolute;z-index:999">
+<a href="http://ftp.czyz.com.cn:8080/pe/article/" target="_blank">
+<img src="http://ftp.czyz.com.cn:8080/pe/images/logo.gif" border="0" />
+</a>
+</div>
+<script>
+var x = 50,y = 60
+var xin = true, yin = true
+var step = 1
+var delay = 10
+var obj=document.getElementById("ad")
+function floatAD()
+{
+var L=T=0
+var R= document.body.clientWidth-obj.offsetWidth
+var B = document.body.clientHeight-obj.offsetHeight
+obj.style.left = x + document.body.scrollLeft
+obj.style.top = y + document.body.scrollTop
+x = x + step*(xin?1:-1)
+if (x < L) { xin = true; x = L}
+if (x > R){ xin = false; x = R} 
+y = y + step*(yin?1:-1)
+if (y < T) { yin = true; y = T } 
+if (y > B) { yin = false; y = B }
+}
+var itl= setInterval("floatAD()", delay) 
+obj.onmouseover=function(){clearInterval(itl)} 
+obj.onmouseout=function(){itl=setInterval("floatAD()", delay)}
+</script>
+<!--图片飘动结束-->
+
+
+<!--弹出窗口开始-->
+<!--
+<a id="inline" href="#modalContent" title="2012级高一新生信息采集的有关通知" style="display:none">fancybox</a>
+<div style="display:none">
+<div id="modalContent" style="font-size:14pt;">
+<div style="text-align:center">
+<br/>
+<a href="/www/html/duiwaitongzhigonggao/201208/19-5594.html" style="color:red;font-weight:bold;" target="_blank">2012级高一新生信息采集的有关通知</a><br/><br/>
+</div>
+</div>
+</div>
+-->
+<!--弹出窗口结束-->
+
+<div style="display: block;" class="topLogo" id="topLogo"> <div style="position: relative; display: block;">
+<OBJECT codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0 height=140 width=968 align=left classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000><PARAM NAME="movie" VALUE="img/czyz.swf"><PARAM NAME="quality" VALUE="High"><PARAM NAME="wmode" VALUE="Transparent"><PARAM NAME="_cx" VALUE="19209"><PARAM NAME="_cy" VALUE="2593"><PARAM NAME="FlashVars" VALUE=""><PARAM NAME="Src" VALUE="/img/czyz.swf"><PARAM NAME="Play" VALUE="-1"><PARAM NAME="Loop" VALUE="-1"><PARAM NAME="SAlign" VALUE=""><PARAM NAME="Menu" VALUE="-1"><PARAM NAME="Base" VALUE=""><PARAM NAME="AllowScriptAccess" VALUE="always"><PARAM NAME="Scale" VALUE="ShowAll"><PARAM NAME="DeviceFont" VALUE="0"><PARAM NAME="EmbedMovie" VALUE="0"><PARAM NAME="BGColor" VALUE=""><PARAM NAME="SWRemote" VALUE=""><PARAM NAME="MovieData" VALUE=""><PARAM NAME="SeamlessTabbing" VALUE="1">
+				<embed src="/img/czyz.swf" wmode=transparent quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="968" height="140"></embed>
+			</OBJECT>
+</div></div>
+
+<a id="hiddenHref" href="" class="thickbox" style="display:none"></a>
+
+<div class="topNav">
+	<ul id="nav-one" class="nav">
+<li><a href="/" class="noThickBox">主页</a>
+
+</li>
+<li><a href="/www/html/xiaoyuangaikuang/200810/10-98.html">学校简介</a>
+</li>
+<li><a href="/xscl/">校史长廊</a>
+</li>
+<li><a href="/www/html/xuexiaorongyu/">学校荣誉</a>
+</li>
+<li><a href="/xyfg/">校园风光</a>
+</li>
+<li><a href="/www/html/xiaoyoufengcai/">院士风采</a>
+</li>
+<li><a href="/www/html/jiaoyanchu/mingshizhuanlan/index.html">一中名师</a>
+<!--ul>
+
+<li><a href="/www/html/jiaoyanchu/mingshizhuanlan/jiaoshoujizhongxue/">教授、特级教师</a></li>
+
+<li><a href="/www/html/jiaoyanchu/mingshizhuanlan/tejijiaoshihoubeir/">特级教师后备</a></li>
+
+<li><a href="/www/html/jiaoyanchu/mingshizhuanlan/xueked/">学科带头人</a></li>
+
+</ul-->
+</li>
+<li><a href="/www/html/jiaoyanchu/jiaoshihuojiang/">教师获奖</a>
+</li>
+<li><a href="/www/html/jiaowuchu/xueshenghuojiang/">学生获奖</a>
+</li>
+<li><a href="/www/html/xueshengchu/sanzihuodong/xslx/">学生领袖</a>
+</li>
+<li><a href="mailto:1zrxw@czedu.gov.cn" class="noThickBox">校长信箱</a>
+</li>
+
+<li><a href="/www/html/bangongshi/xiaochangjianghua/" class="noThickBox" style="color:red">校长讲话</a>
+</li>
+<li><a href="http://www.czzhzx.com.cn" class="noThickBox">正衡中学</a>
+</li>
+<!--li><a href="http://ftp.czyz.com.cn:8080/pe/" class="noThickBox" style="color:green" target="_blank">2011军训</a>
+</li-->
+
+</ul>
+
+<div class="showdate">
+<div>
+<SCRIPT language=JavaScript>
+var day="";
+var month="";
+var ampm="";
+var ampmhour="";
+var myweekday="";
+var year="";
+mydate=new Date();
+myweekday=mydate.getDay();
+mymonth=mydate.getMonth()+1;
+myday= mydate.getDate();
+myyear= mydate.getYear();
+year=(myyear > 200) ? myyear : 1900 + myyear;
+
+if(myweekday == 0)
+weekday=" 星期日 ";
+else if(myweekday == 1)
+weekday=" 星期一 ";
+else if(myweekday == 2)
+weekday=" 星期二 ";
+else if(myweekday == 3)
+weekday=" 星期三 ";
+else if(myweekday == 4)
+weekday=" 星期四 ";
+else if(myweekday == 5)
+weekday=" 星期五 ";
+else if(myweekday == 6)
+weekday=" 星期六 ";
+
+document.write(year+"年"+mymonth+"月"+myday+"日"+weekday);
+</SCRIPT>
+</div>
+</div>
+</div>
+
+<div class="ztpanel">
+  <div class="ztimg"><img src="/img/tbtj.gif" /></div>
+  <div class="ztlist">
+    <dl>
+      <dd><a href="/www/html/jiaoyanchu/201102/22-3329.html"><img src="/img/zxjf.jpg" /></a><span><a href="/www/html/jiaoyanchu/201102/22-3329.html">增效减负</a></span></dd>
+      <dd><a href="/www/html/xueshengchu/sanzihuodong/"><img src="/img/szjy.jpg" /></a><span><a href="/www/html/xueshengchu/sanzihuodong/">三自教育</a></span></dd>
+      <dd><a href="/www/html/jiaoyanchu/201103/04-3359.html"><img src="/img/jyzzdfz.jpg" /></a><span><a href="/www/html/jiaoyanchu/201103/04-3359.html">教研组主动发展</a></span></dd>
+      <dd><a href="/www/special/arc-3362.html"><img src="/img/mzgl.jpg" /></a><span><a href="/www/special/arc-3362.html">民主管理</a></span></dd>
+      <dd><a href="/www/special/arc-3364.html"><img src="/img/jcxy.jpg" /></a><span><a href="/www/special/arc-3364.html">杰出校友</a></span></dd>
+      <dd><a href="/www/special/arc-3363.html"><img src="/img/gjjy.jpg" /></a><span><a href="/www/special/arc-3363.html">国际教育</a></span></dd>
+      <dd><a href="/www/html/zhinenjiqiren/"><img src="/img/znjqr.jpg" /></a><span><a href="/www/html/zhinenjiqiren/">智能机器人课程基地</a></span></dd>
+    </ul>
+  </div>
+</div>
+
+<div id="contain">
+	<div class="mainBox">
+		<div class="flashNews">
+<script src="/js/funcs.js" type="text/javascript"></script>			
+<script type="text/javascript">
+linkarr = new Array();
+picarr = new Array();
+titlearr = new Array();
+stitlearr = new Array();
+var flashWidth=320;
+var flashHeight=240;
+
+linkarr[1] = "/www/html/xuexiaoyaowen/201210/22-5813.html";
+picarr[1] = "/www/uploads/allimg/121022/12_121022213732_1-lp.jpg";
+titlearr[1] = " 军训的第二天，充实而快乐 ";
+stitlearr[1] = "";
+linkarr[2] = "/www/html/xuexiaoyaowen/201210/22-5812.html";
+picarr[2] = "/www/uploads/allimg/121022/12_121022191307_1-lp.jpg";
+titlearr[2] = " 第三次军训例会：生活上关心，训练上从严！ ";
+stitlearr[2] = "";
+linkarr[3] = "/www/html/xuexiaoyaowen/201210/22-5811.html";
+picarr[3] = "/www/uploads/allimg/121022/12_121022173311_1-lp.jpg";
+titlearr[3] = " 爸妈：我会叠被子了！（宿舍图片集锦） ";
+stitlearr[3] = "";
+linkarr[4] = "/www/html/xuexiaoyaowen/201210/22-5810.html";
+picarr[4] = "/www/uploads/allimg/121022/12_121022154015_1-lp.jpg";
+titlearr[4] = " 军营来了洋教师 ";
+stitlearr[4] = "";
+linkarr[5] = "/www/html/xuexiaoyaowen/201210/22-5809.html";
+picarr[5] = "/www/uploads/allimg/121022/12_121022124544_1-lp.jpg";
+titlearr[5] = " 军训第二次例会：培养学生“受委屈”的意识 ";
+stitlearr[5] = "";
+linkarr[6] = "/www/html/xuexiaoyaowen/201210/22-5805.html";
+picarr[6] = "/www/uploads/allimg/121022/12_121022093142_1-lp.jpg";
+titlearr[6] = " 军营第一顿早餐“长”得啥模样 ";
+stitlearr[6] = "";
+linkarr[7] = "/www/html/xuexiaoyaowen/201210/21-5802.html";
+picarr[7] = "/www/uploads/allimg/121022/12_121022003045_1-lp.jpg";
+titlearr[7] = " 10月21日各班军训快报：自家儿女是否上镜了？ ";
+stitlearr[7] = "";
+
+
+var MaxScreen = titlearr.length-1;
+var CurScreen = 1;
+
+for(i=1; i<titlearr.length; i++) {
+	if(i==1) {
+		document.write('<div id="Switch_1"><a href="'+linkarr[i]+'"><img src="'+picarr[i]+'" alt="'+titlearr[i]+'" width="'+flashWidth+'" height="'+flashHeight+'" onmouseover="pauseSwitch();" onmouseout="goonSwitch();"></a></div>');
+	}else{
+		document.write('<div style="display: none;" id="Switch_'+i+'"><a href="'+linkarr[i]+'"><img src="'+picarr[i]+'" alt="'+titlearr[i]+'" width="'+flashWidth+'" height="'+flashHeight+'" onmouseover="pauseSwitch();" onmouseout="goonSwitch();"></a></div>');
+	}
+}
+
+document.write('<div id="SwitchTitle" onmouseover="pauseSwitch();" onmouseout="goonSwitch();"><h3><a href="'+linkarr[1]+'">'+titlearr[1]+'</a></h3><p><a href="'+linkarr[1]+'">'+stitlearr[1]+'</a></p></div>');
+
+document.write('<ul id="SwitchNav">');
+for(i=1; i<titlearr.length; i++) {
+	if(i==1) {
+		document.write('<li onmouseover="pauseSwitch();" onmouseout="goonSwitch();"><a href="javascript://" target="_self" class="sel">'+i+'</a></li>');
+	}else{
+		document.write('<li onmouseover="pauseSwitch();" onmouseout="goonSwitch();" onclick="goManSwitch('+i+');"><a href="javascript://" target="_self">'+i+'</a></li>');
+	}
+}
+document.write('</ul>');
+
+</script>
+			<div class="bg" onmouseover="pauseSwitch();" onmouseout="goonSwitch();"></div>
+		</div><!-- flashNews end -->
+		
+		<script type="text/javascript">
+		var Switcher = new Array();
+for(i=1;i<titlearr.length;i++){
+Switcher[i] = Array() ;
+Switcher[i]['title'] = titlearr[i];
+Switcher[i]['stitle'] = stitlearr[i];
+Switcher[i]['link'] = linkarr[i];
+}
+
+		var refreshSwitchTimer = null;
+		switchPic(CurScreen);
+		refreshSwitchTimer = setTimeout('reSwitchPic();', 3000);
+		</script>
+		<div class="firstNews">
+			<h3><span style="float:left;">校园新闻</span><a href="http://www.czyz.com.cn/www/html/xuexiaoyaowen/84-1.html" style="float:right; margin-right:10px;color:#10478C;">更多</a></h3>
+			<ul>
+<li><a href='/www/html/xuexiaoyaowen/201210/22-5813.html' title=" 军训的第二天，充实而快乐 "><strong><font color='#FF0000'>军训的第二天，充实而快乐</font></strong></a><span class="pubdate">(10-22)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/22-5812.html' title=" 第三次军训例会：生活上关心，训练上从严！ "><strong><font color='#006600'> 第三次军训例会：生活上关心，训练上从严！</font></strong></a><span class="pubdate">(10-22)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/22-5811.html' title=" 爸妈：我会叠被子了！（宿舍图片集锦） "><strong><font color='#FF0000'>爸妈：我会叠被子了！（宿舍图片集锦）</font></strong></a><span class="pubdate">(10-22)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/22-5810.html' title=" 军营来了洋教师 "><strong><font color='#006600'> 军营来了洋教师</font></strong></a><span class="pubdate">(10-22)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/22-5809.html' title=" 军训第二次例会：培养学生“受委屈”的意识 "><strong><font color='#FF0000'>军训第二次例会：培养学生“受委屈”的意识</font></strong></a><span class="pubdate">(10-22)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/22-5806.html' title=" 军训专题视频链接（看看孩子穿上军装是不是更英姿飒爽了？） "><strong><font color='#006600'>军训专题视频链接（看看孩子穿上军装是不是更英姿飒爽了？）</font></strong></a><span class="pubdate">(10-22)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/22-5805.html' title=" 军营第一顿早餐“长”得啥模样 "><strong><font color='#006600'>军营第一顿早餐“长”得啥模样</font></strong></a><span class="pubdate">(10-22)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/21-5804.html' title=" 军训首日家长精彩回帖展示（我们会将家长留言印发给孩子，孩子很在乎的） "><strong><font color='#FF0000'>军训首日家长精彩回帖展示（我们会将家长留言印发给孩子，孩子很在乎的）</font></strong></a><span class="pubdate">(10-21)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/21-5803.html' title=" 军训精彩班级网页展示（高一１１）（诙谐幽默，有动画，有设计） "><strong><font color='#FF0000'>军训精彩班级网页展示（高一１１）（诙谐幽默，有动画，有设计）</font></strong></a><span class="pubdate">(10-21)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/21-5802.html' title=" 10月21日各班军训快报：自家儿女是否上镜了？ "><strong><font color='#006600'>10月21日各班军训快报：自家儿女是否上镜了？</font></strong></a><span class="pubdate">(10-21)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/21-5801.html' title=" 军训第一次例会:严格要求,热情关心 "><strong><font color='#006600'>军训第一次例会:严格要求,热情关心</font></strong></a><span class="pubdate">(10-21)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/21-5800.html' title=" 家长们看看：军训孩子吃些啥 "><strong><font color='#FF0000'>家长们看看：军训孩子吃些啥</font></strong></a><span class="pubdate">(10-21)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/21-5799.html' title=" 公告:军训专题网址(请点击链接进入) "><strong><font color='#006600'>公告:军训专题网址(请点击链接进入)</font></strong></a><span class="pubdate">(10-21)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/21-5798.html' title=" 我们90后是不是既娇生又惯养——高一(1)田原同学在开营仪式上发言 "><strong><font color='#FF0000'>我们90后是不是既娇生又惯养——高一(1)田原同学在开营仪式上发言</font></strong></a><span class="pubdate">(10-21)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/21-5797.html' title=" 磨砺意志，展现风采——我校2012高一新生军训顺利开营 "><strong><font color='#006600'>磨砺意志，展现风采——我校2012高一新生军训顺利开营</font></strong></a><span class="pubdate">(10-21)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/21-5796.html' title=" 国防园我来了:是我人生的蜕变还是蜕皮? "><strong><font color='#FF0000'>国防园我来了:是我人生的蜕变还是蜕皮?</font></strong></a><span class="pubdate">(10-21)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/21-5794.html' title=" 家长们来围观:国防园里竟似小桥流水人家 "><strong><font color='#006600'>家长们来围观:国防园里竟似小桥流水人家</font></strong></a><span class="pubdate">(10-21)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/21-5793.html' title=" 一切为了学生的发展——记我校“创新人才培养”沙龙 "><strong><font color='#330099'>一切为了学生的发展——记我校“创新人才培养”沙龙</font></strong></a><span class="pubdate">(10-21)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/20-5792.html' title=" 《一中教育》2012年10月版（ＰＤＦ格式） "><strong><font color='#330099'>《一中教育》2012年10月版（ＰＤＦ格式）</font></strong></a><span class="pubdate">(10-20)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/20-5791.html' title=" 知识的宽度会成为人格的高度——香港大学学子寄语母校学弟学妹 "><strong><font color='#FF0000'>知识的宽度会成为人格的高度——香港大学学子寄语母校学弟学妹</font></strong></a><span class="pubdate">(10-20)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/20-5790.html' title=" 我在清华等你们——清华学子寄语母校学弟学妹 "><strong><font color='#FF0000'>我在清华等你们——清华学子寄语母校学弟学妹</font></strong></a><span class="pubdate">(10-20)</span></li>
+<li><a href='/www/html/xuexiaoyaowen/201210/20-5789.html' title=" 构建高效课堂 培养学生思维——记常州市高中物理有效课堂展示活动之二 "><strong><font color='#0000FF'>构建高效课堂 培养学生思维——记常州市高中物理有效课堂展示活动之二</font></strong></a><span class="pubdate">(10-20)</span></li>
+<li><a href='/www/html/guojichu/guojikecheng/2012/1020/5788.html' title=" 明确目标、携手合作——记高一国际班第一次家长会 "><strong><font color='#0000FF'>明确目标、携手合作——记高一国际班第一次家长会</font></strong></a><span class="pubdate">(10-20)</span></li>
+				
+			</ul>
+		</div><!-- firstNews end -->
+
+
+		<div class="smallBox leftSide" id="tabBoard">
+			<ul>
+				<li><a href="#listBoard1"><span>通知公告</span></a></li>
+				<li><a href="#listBoard2"><span>教育视野</span></a></li>
+			</ul>
+			<div id="listBoard1" class="contentBox">
+<ul>
+<li><span class="content">[<a href='{cmspath}/html/bangongshi'>办公室</a>] <a href='/lan/www/html/bangongshi/tongzhigonggao/201210/18-5777.html' title="关于组织报考华东师范大学软件学院现代教育工程硕士学业学位的通知">关于组织报考华东师范大学软件学院现代教育工程硕士学业学位的通知</a></span><span class="pubdate">(10-18)</span></li>
+<li><span class="content">[<a href='{cmspath}/html/bangongshi'>办公室</a>] <a href='/lan/www/html/bangongshi/tongzhigonggao/201210/08-5756.html' title="关于举办2012年江苏省优秀教师高级研修常州班的通知">关于举办2012年江苏省优秀教师高级研修常州班的通知</a></span><span class="pubdate">(10-08)</span></li>
+<li><span class="content">[<a href='{cmspath}/html/xueshengchu'>学生处</a>] <a href='/www/html/xueshengchu/tongzhigonggao/201209/28-5742.html' title=" 2012年校秋季运动会成绩公告 "><strong><font color='#FF0000'>2012年校秋季运动会成绩公告</font></strong></a></span><span class="pubdate">(09-28)</span></li>
+<li><span class="content">[<a href=''></a><a href='{cmspath}/html/duiwaitongzhigonggao'>对外通知公告</a>] <a href='/www/html/duiwaitongzhigonggao/201209/29-5751.html' title="关于评选第二届常州市基础教育教学成果奖的通知">关于评选第二届常州市基础教育教学成果奖的通知</a></span><span class="pubdate">(09-29)</span></li>
+<li><span class="content">[<a href='{cmspath}/html/bangongshi'>办公室</a>] <a href='/www/plus/view.php?aid=5744' title="关于评选第四批常州市中小学特级教师后备人才的通知">关于评选第四批常州市中小学特级教师后备人才的通知</a></span><span class="pubdate">(09-28)</span></li>
+<li><span class="content">[<a href='{cmspath}/html/bangongshi'>办公室</a>] <a href='/www/plus/view.php?aid=5743' title="关于评选第十批常州市中小学骨干教师和学科带头人的通知">关于评选第十批常州市中小学骨干教师和学科带头人的通知</a></span><span class="pubdate">(09-28)</span></li>
+<li><span class="content">[<a href='{cmspath}/html/bangongshi'>办公室</a>] <a href='/lan/www/html/bangongshi/tongzhigonggao/201209/24-5717.html' title="关于2012年中秋节、国庆节放假的通知">关于2012年中秋节、国庆节放假的通知</a></span><span class="pubdate">(09-24)</span></li>
+<li><span class="content">[<a href='{cmspath}/html/bangongshi'>办公室</a>] <a href='/lan/www/html/bangongshi/tongzhigonggao/201209/21-5705.html' title="常州市第一中学行风建设公开承诺书">常州市第一中学行风建设公开承诺书</a></span><span class="pubdate">(09-21)</span></li>
+<li><span class="content">[<a href=''></a><a href='{cmspath}/html/duiwaitongzhigonggao'>对外通知公告</a>] <a href='/www/html/duiwaitongzhigonggao/201209/19-5700.html' title="关于开展2012年市中青年专业技术拔尖人才候选人推荐工作的通知">关于开展2012年市中青年专业技术拔尖人才候选人推荐工作的通知</a></span><span class="pubdate">(09-19)</span></li>
+<li><span class="content">[<a href=''></a><a href='{cmspath}/html/duiwaitongzhigonggao'>对外通知公告</a>] <a href='/www/html/duiwaitongzhigonggao/201209/17-5698.html' title="2011年的学带、骨干、特后考核情况表及汇总">2011年的学带、骨干、特后考核情况表及汇总</a></span><span class="pubdate">(09-17)</span></li>
+<li><span class="content">[<a href='{cmspath}/html/bangongshi'>办公室</a>] <a href='/lan/www/html/bangongshi/tongzhigonggao/201209/14-5687.html' title="关于公布第三批常州市中小学名教师工作室领衔人名单和招聘工作室成员的通知">关于公布第三批常州市中小学名教师工作室领衔人名单和招聘工作室成员的通知</a></span><span class="pubdate">(09-14)</span></li>
+
+                </ul>
+            </div><!--listboard end -->
+<div id="listBoard2" class="contentBox">
+<ul>
+<li><a href='/www/html/bangongshi/jiaoyushiye/2011/0909/4285.html' title=" 转贴：教师能否累并快乐着 "><strong><font color='#990000'>转贴：教师能否累并快乐着</font></strong></a></li>
+<li><a href='/www/html/bangongshi/xiaoyuanxinwen/201108/25-4198.html' title=" 任校长特别推荐：教养之道 "><strong><font color='#339900'>任校长特别推荐：教养之道</font></strong></a></li>
+<li><a href='/www/html/bangongshi/jiaoyushiye/2011/0617/4063.html' title="打造教育的亲和力">打造教育的亲和力</a></li>
+<li><a href='/www/html/bangongshi/jiaoyushiye/2011/0512/3891.html' title="批判性思维培养的思考">批判性思维培养的思考</a></li>
+<li><a href='/www/html/bangongshi/jiaoyushiye/2011/0428/3846.html' title="哈佛大学图书馆二十条训言">哈佛大学图书馆二十条训言</a></li>
+<li><a href='/www/html/bangongshi/jiaoyushiye/2011/0428/3845.html' title="教师需要具备的五种精神">教师需要具备的五种精神</a></li>
+<li><a href='/www/html/bangongshi/jiaoyushiye/2011/0422/3826.html' title="影响教师一生的100个好习惯">影响教师一生的100个好习惯</a></li>
+<li><a href='/www/html/jiaoyanchu/xiaobenyanxun/201104/21-3811.html' title="投资自己">投资自己</a></li>
+<li><a href='/www/html/jiaoyanchu/xiaobenyanxun/201104/21-3810.html' title="俞敏洪语录">俞敏洪语录</a></li>
+<li><a href='/www/plus/view.php?aid=3782' title="每个学生都是整个学校">每个学生都是整个学校</a></li>
+<li><a href='/www/plus/view.php?aid=3781' title="从民主管理到共同管理">从民主管理到共同管理</a></li>
+
+                </ul>
+            </div><!--listboard end -->
+		</div><!-- smallBox end -->
+
+	</div>
+
+	<div class="sideBar">
+            <!--div class="hotLink">
+	        <a href="mailto:ddgxh@126.com" target="_blank" class="noThickBox"><img src="/jb.jpg" width="192" height="56" /></a>
+	    </div-->
+
+		<div class="yzts" id="tabYzts">
+                        <h3>一中特色</h3>
+			<div id="tabYzts0">
+				<dl>
+				<dd><a href="/www/html/kejijiaoyu/"><img src="/img/yzts/kjjy.jpg" /></a></dd>
+				<dd><a href="/www/html/yangguangtiyu/"><img src="/img/yzts/ygty.jpg" /></a></dd>
+				<dd><a href="/www/html/yishujiaoyu/"><img src="/img/yzts/ysjy.jpg" /></a></dd>
+				<dd><a href="/www/html/xueshengshetuan/"><img src="/img/yzts/xsst.jpg" /></a></dd>
+				</dl>
+                        </div>
+		</div><!-- sideBarPanel end -->
+
+		<div class="search" id="tabSearch">
+                        <h3>站内搜索</h3>
+			<div id="tabSearch0" class="searchBox">
+<form action="/www/plus/search.php" name="formsearch">
+      		<input type="hidden" name="kwtype" value="1" />
+      		<input name="keyword" id="keyword" type="text" class="searchtxt" />
+      		<select name="searchtype" id="searchtype">
+        		<option value="titlekeyword" selected="selected">智能模糊搜索</option>
+        		<option value="title">仅搜索标题</option>
+      		</select>
+      		<button type="button" value="搜索" id="btnSearch" onclick="submit();"><span>搜索</span></button>
+    	</form>
+                        </div>
+		</div><!-- sideBarPanel end -->
+
+		<div class="board">
+			<h3>专题网站</h3>
+			<div id="tabBoard1">
+<select  style="width: 150px" onchange="javascript:window.open(this.value)" size=1 name="select1">
+<option value=""></option>
+<option value="http://www.czyz.com.cn/www/html/lianjiejiaoyu/">廉洁教育</option>
+<option value="http://www.czyz.com.cn/www/html/dangjianwang/">党建品牌</option>
+<option value="http://smjy.czyz.com.cn/">生命教育</option>
+<option value="http://ftp.czyz.com.cn:8080/pe/article/index.asp">军训活动</option>
+<option value="http://ftp.czyz.com.cn:88/rainbow/">教师成长记录</option>
+<option value="http://u.czyz.com.cn">一中家园</option>
+<option value="http://oa.czyz.com.cn/">后勤故障报修</option>
+<option value="http://www.czyz.com.cn/www/html/yuyanwenzi/">语言文字专题网</option>
+<option value="/www/html/jiaoyanchu/yizhongxuekan/">一中学刊</option>
+<option value="http://rs.czyz.com.cn:89">研究性学习</option>
+</select>
+            </div>
+		</div><!-- board end -->
+
+		<div class="board">
+			<h3>友情链接</h3>
+			<div id="tabBoard1">
+<select  style="width: 150px" onchange="javascript:window.open(this.value)" size=1 name="select2">
+<option value=""></option>
+<option value="http://www.czedu.gov.cn/">常州教育</option>
+<option value="http://www.czzhzx.com.cn/">常州市正衡中学</option>
+<option value="http://2007.czedu.gov.cn/knowledge/">常州教育教研室</option>
+<option value="http://czjs.czedu.gov.cn/home/">常州市教师培训中心</option>
+<option value="http://zk.czedu.gov.cn/">常州市招考信息网</option>
+<option value="http://www.cfed.cnki.net/kns50/">中国知网</option>
+<option value="http://czedu.vip.qikan.com/Index.aspx">期刊网</option>
+<option value="http://www.91yuedu.com/login.aspx">91阅读网</option>
+</select>
+            </div>
+		</div><!-- board end -->
+
+		<div class="board yzap">
+			<h3>一周安排</h3>
+			<div id="tabBoard1">
+                <ul>
+<li><a href='/lan/www/html/yizhouanpai/201210/22-5807.html' title="第八周工作安排（2012—2013上半学期）">第八周工作安排（2012—2013上半学期）</a></li>
+<li><a href='/lan/www/html/yizhouanpai/201210/16-5773.html' title="第七周工作安排（2012-2013上半学期）">第七周工作安排（2012-2013上半学期）</a></li>
+<li><a href='/lan/www/html/yizhouanpai/201210/08-5755.html' title="第六周工作安排（2012-2013上半学期）">第六周工作安排（2012-2013上半学期）</a></li>
+<li><a href='/lan/www/html/yizhouanpai/201209/24-5712.html' title="第四周工作安排（2012-2013上半学期）">第四周工作安排（2012-2013上半学期）</a></li>
+<li><a href='/lan/www/html/yizhouanpai/201209/17-5695.html' title="第三周工作安排（2012-2013上半学期）">第三周工作安排（2012-2013上半学期）</a></li>
+
+                </ul>
+            </div>
+		</div><!-- board end -->
+
+	</div><!-- sideBar end -->
+</div><!-- contain end -->
+
+<div id="sitenav">
+  <dl>
+    <dt>站内导航<span>师德及有偿家教举报电话：88128003，举报邮箱：ddgxh@126.com</span></dt>
+    <dd><a href="/www/html/dangtuanzhendi/">党委</a></dd>
+    <dd><a href="/www/html/bangongshi/">办公室</a></dd>
+    <dd><a href="/www/html/jiaowuchu/">教务处</a></dd>
+    <dd><a href="/www/html/jiaoyanchu/">教研处</a></dd>
+    <dd><a href="/www/html/xueshengchu/">学生处</a></dd>
+    <dd><a href="/www/html/houqinzhuangbeifuwuchu/">后勤装备处</a></dd>
+    <dd><a href="/www/html/guojichu/">国际处</a></dd>
+    <dd><a href="/www/html/tuanwei/">团委</a></dd>
+    <dd><a href="/www/html/gonghui/">工会</a></dd>
+    <dd><a href="http://ftp.czyz.com.cn:8080/lib/article/">图书馆</a></dd>
+    <dd><a href="http://ftp.czyz.com.cn:8080/sys/article/">实验室</a></dd>
+    <dd><a href="http://oa.czyz.com.cn/plugins/gzgl/index.php?filename=pay&action=list&typeid=36">财务查询</a></dd>
+    <dd><a href="http://ftp.czyz.com.cn:88">录播系统</a></dd>
+    <dd><a href="ftp://ftp.czyz.com.cn:2121/">FTP网盘</a></dd>
+  </dl>
+</div><!-- sitenav end -->
+
+<div id="footer">
+	<div class="copyright">
+		<p>地址：常州市椿桂坊苏家弄55号(213003)</p>
+		<p>联系电话：(0519)88121926</p>
+		<p><a href="http://www.miibeian.gov.cn" target="_blank">苏ICP备05040155号</a></p>
+	</div>
+</div><!-- footer end -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{
+var pageTracker = _gat._getTracker("UA-4860347-1");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>

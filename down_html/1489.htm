@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>科技部行政许可审批系统</title>
+<meta name="channel" content="科技部行政许可审批系统">
+<style type="text/css">
+<!--
+body { background-color: #663300; margin:0px auto; text-align:center;} 
+body,td,th {font-size: 12px;color: #333333;text-decoration:none;}
+ul,li{ list-style-type:none; margin:0px; padding:0px;}
+
+a{color:#333333; text-decoration:none; font-size:12px;}
+a:link{color:#333333; font-size:12px;}
+a:visited{color:#333333; font-size:12px;}
+a:hover{color:#333333;text-decoration:underline; font-size:12px;}
+a:active{color:#333333;text-decoration:underline; font-size:12px;}
+
+
+.lh18{line-height:18px;}
+.lh20{line-height:20px;}
+.lh22{line-height:22px;}
+.lh24{line-height:24px;}
+.lh28{line-height:28px;}
+.lh40{line-height:40px;}
+
+*{margin:0px;padding:0px;}
+
+#all{overflow:hidden;width:1000px;margin:0px auto;background:#ffffff;}
+#left,#right,#middle{margin-bottom:-10000px;padding-bottom:10000px;}
+#left{float:left;width:20px; background:#017ABF;}
+#middle{float:left;width:962px;background:#ffffff;}
+#right{float:right;width:18px; background:#017ABF;}
+
+.bl{ font-size:12px;color:#006EB9; text-decoration:none;}
+.bl a{ font-size:12px;color:#006EB9; text-decoration:none; }
+.bl a:link{ font-size:12px;color:#006EB9; text-decoration:none;}
+.bl a:visited { font-size:12px;color:#006EB9; text-decoration:none;}
+.bl a:hover{ font-size:12px;color:#006EB9; text-decoration:none;}
+
+.f12{ font-size:12px;color:#606060; text-decoration:none;}
+.f12 a{ font-size:12px;color:#606060; text-decoration:none; }
+.f12 a:link{ font-size:12px;color:#606060; text-decoration:none;}
+.f12 a:visited { font-size:12px;color:#606060; text-decoration:none;}
+.f12 a:hover{ font-size:12px;color:#606060; text-decoration:none;}
+
+.f12b{ font-size:12px;color:#646466; text-decoration:none; font-weight:bold;}
+.f12b a{ font-size:12px;color:#646466; text-decoration:none;  font-weight:bold;}
+.f12b a:link{ font-size:12px;color:#646466; text-decoration:none; font-weight:bold;}
+.f12b a:visited { font-size:12px;color:#646466; text-decoration:none; font-weight:bold;}
+.f12b a:hover{ font-size:12px;color:#646466; text-decoration:none; font-weight:bold;}
+
+.red14{ font-size:14px;color:#C30008; text-decoration:none; font-weight:bold;}
+.red14 a{ font-size:14px;color:#C30008; text-decoration:none; font-weight:bold; }
+.red14 a:link{ font-size:14px;color:#C30008; text-decoration:none; font-weight:bold;}
+.red14 a:visited { font-size:14px;color:#C30008; text-decoration:none; font-weight:bold;}
+.red14 a:hover{ font-size:14px;color:#C30008; text-decoration:none; font-weight:bold;}
+
+.blb{ font-size:12px;color:#0066B0; text-decoration:none; font-weight:bold;}
+.blb a{ font-size:12px;color:#0066B0; text-decoration:none;  font-weight:bold;}
+.blb a:link{ font-size:12px;color:#0066B0; text-decoration:none; font-weight:bold;}
+.blb a:visited { font-size:12px;color:#0066B0; text-decoration:none; font-weight:bold;}
+.blb a:hover{ font-size:12px;color:#00066B0; text-decoration:none; font-weight:bold;}
+
+.blb2{ font-size:12px;color:#003D62; text-decoration:none; font-weight:bold;}
+.blb2 a{ font-size:12px;color:#003D62; text-decoration:none;  font-weight:bold;}
+.blb2 a:link{ font-size:12px;color:#003D62; text-decoration:none; font-weight:bold;}
+.blb2 a:visited { font-size:12px;color:#003D62; text-decoration:none; font-weight:bold;}
+.blb2 a:hover{ font-size:12px;color:#003D62; text-decoration:none; font-weight:bold;}
+
+.jggg { width:163px; margin:0px auto; background-color:#ECEFF4; text-align:left;}
+.jggg li{ border-bottom:1px solid #FFFFFF; padding:6px 0px 5px 3px;}
+
+.ti1{ width:380px; height:250px; background:#ffffff; float:left; border:1px solid #FFFFFF; margin-left:5px; margin-right:3px;}
+
+.lg1 { width:335px; height:38px;  background: url(/kjbxzxkspxmbxt/images/i-right1.jpg) no-repeat; padding-left:38px; text-align:left;}
+.lg2 { width:369px; height:30px; background-color:#DBEDF7; text-align:left; padding-left:10px; border-bottom:1px solid #FFFFFF; margin:0px auto; }
+.lg2 li{  background:url(/kjbxzxkspxmbxt/images/dot1.jpg) no-repeat 3px 3px; padding-left:12px;display:inline;}
+
+.lg3a_1 { width:380px; border-top:1px solid #C5D2F5;border-right:3px solid #F1F1F1; margin:0px auto; }
+.lg3a_2 { width:380px; border-top:1px solid #C5D2F5;margin:0px auto; }
+.lg3b { border-right:1px solid #C5D2F5;  border-bottom:1px solid #C5D2F5; padding:5px; width:70px;}
+.lg3c { border-bottom:1px solid #C5D2F5; padding:5px; text-align:left;}
+
+.lg_b{width:380px; height:7px; margin:0px auto; background:#F1F1F1; text-align:right;}
+--></style>
+</head>
+
+<body>
+<div><img src="/kjbxzxkspxmbxt/images/top-1.jpg" border="0" usemap="#Map" /></div>
+<div id="all">
+<div id="left"><img src="/kjbxzxkspxmbxt/images/i-01.jpg" /></div>
+<div id="middle"><table width="962" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top"><img src="/kjbxzxkspxmbxt/images/i-jggg.jpg" />
+	<div class="jggg lh18 bl">
+	    <ul>
+
+	    <li><a href="../bszn/new/shll/jgcx/201111/t20111107_90724.htm" title="国家科学技术奖励工作办公室公告（第66号）(2011-10-21)"  target="_blank" >国家科学技术奖励工作办公室公告（第66号）</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/201111/t20111107_90723.htm" title="国家科学技术奖励工作办公室公告（第62号）(2011-01-12)"  target="_blank" >国家科学技术奖励工作办公室公告（第62号）</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/200804/t20080428_60998.htm" title="社会力量设立科学技术奖登记审批名单(2010-07-21)"  target="_blank" >社会力量设立科学技术奖登记审批名单</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/201009/t20100916_80589.htm" title="国家科学技术奖励工作办公室公告(第59号)(2010-07-21)"  target="_blank" >国家科学技术奖励工作办公室公告(第59号)</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/201003/t20100322_76366.htm" title="国家科学技术奖励工作办公室公告(第56号)(2010-03-22)"  target="_blank" >国家科学技术奖励工作办公室公告(第56号)</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/200912/t20091229_74998.htm" title="国家科学技术奖励工作办公室公告(第55号)(2009-12-02)"  target="_blank" >国家科学技术奖励工作办公室公告(第55号)</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/200910/t20091009_73562.htm" title="国家科学技术奖励工作办公室公告(第54号)(2009-08-15)"  target="_blank" >国家科学技术奖励工作办公室公告(第54号)</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/200908/t20090803_72179.htm" title="国家科学技术奖励工作办公室公告(第52号)(2009-08-03)"  target="_blank" >国家科学技术奖励工作办公室公告(第52号)</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/200905/t20090531_69967.htm" title="国家科学技术奖励工作办公室公告(第49号)(2009-03-09)"  target="_blank" >国家科学技术奖励工作办公室公告(第49号)</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/200810/t20081030_64668.htm" title="国家科学技术奖励工作办公室公告(第48号)(2008-10-30)"  target="_blank" >国家科学技术奖励工作办公室公告(第48号)</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/200806/t20080619_62542.htm" title="国家科学技术奖励工作办公室公告(第45号)(2008-06-19)"  target="_blank" >国家科学技术奖励工作办公室公告(第45号)</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/200804/t20080428_60997.htm" title="国家科学技术奖励工作办公室公告(第42号)(2008-04-28)"  target="_blank" >国家科学技术奖励工作办公室公告(第42号)</a></li>
+
+	    <li><a href="../bszn/new/shll/jgcx/200708/t20070817_55308.htm" title="国家科学技术奖励工作办公室公告(第37号)(2007-08-17)"  target="_blank" >国家科学技术奖励工作办公室公告(第37号)</a></li>
+
+		</ul>
+	</div>
+	<div class="jggg lh40">&nbsp;&nbsp;<a href="/kjbxzxkspxmbxt/xzxkjggg/">更 多 》 </a></div>
+	<div style=" width:163px; height:40px; margin:0px auto; background:#F8F8F8; border-top:1px #FFFFFF solid;">&nbsp;&nbsp;</a></div>
+	</td>
+    <td width="789" valign="top" style="padding-top:15px;"><div class="ti1">
+	<div class="lg1 red14 lh40"><a href="http://www.most.gov.cn/bszn/new/rlyc/jbxx/">涉及人类遗传资源的国际合作项目审批</a> </div>
+	<div class="lg2 lh28">
+	 <ul>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/rlyc/jbxx/">基本信息</a></li>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/rlyc/jgcx/index.htm">结果查询</a></li>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/rlyc/wjxz/index.htm">文件下载</a></li>
+	 </ul>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="lg3a_1">
+  <tr>
+    <td class="lg3b blb2">办理机构</td>
+    <td class="lg3c">中国人类遗传资源管理办公室</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理地址</td>
+    <td class="lg3c">北京市海淀区西四环中路16号D座（科技部生物中心）</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理时限</td>
+    <td class="lg3c">20 个工作日，特殊情况 30 个工作日</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理程序</td>
+    <td class="lg3c">申报－专家评审－批准</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理依据 </td>
+    <td class="lg3c">1.《行政许可法》 <br />
+2.<a href="http://www.most.gov.cn/bszn/new/rlyc/wjxz/200512/t20051226_55327.htm" target="_blank">《人类遗传资源管理暂行办法》</a></td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">监管制度</td>
+    <td class="lg3c">实行分级管理，统一审批制度</td>
+  </tr>
+</table>
+<div  class="lg_b"></div>
+	</div>
+	
+	
+	
+	<div class="ti1">
+	<div class="lg1 red14 lh40"><a href="http://www.most.gov.cn/bszn/new/shll/jbxx/index.htm">社会力量设立科学技术奖登记</a> </div>
+	<div class="lg2 lh28">
+	 <ul>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/shll/jbxx/index.htm">基本信息</a></li>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/shll/jgcx/index.htm">结果查询</a></li>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/shll/wjxz/index.htm">文件下载</a></li>
+	 </ul>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="lg3a_2">
+  <tr>
+    <td class="lg3b blb2">办理机构</td>
+    <td class="lg3c">国家科学技术奖励工作办公室社会奖励处... </td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理地址</td>
+    <td class="lg3c">北京市西城区三里河路 54 号（科技部国家科技... </td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理时限</td>
+    <td class="lg3c">20 个工作日，特殊情况 30 个工作日</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理程序</td>
+    <td class="lg3c"> 1. 各申请填写 <a href="/bszn/new/shll/wjxz/200512/P020051221521915319702.doc">《社会力量设立科学技术奖登记... </a> </td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理依据 </td>
+    <td class="lg3c">1.《行政许可法》 <br />   
+2.<a href="http://www.most.gov.cn/fggw/xzfg/200601/t20060106_53402.htm" target="_blank">《国家科学技术奖励条例》</a>...
+</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">监管制度</td>
+    <td class="lg3c">1. 年检制度...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.most.gov.cn/bszn/new/shll/jbxx/index.htm">更多》</a></td>
+  </tr>
+</table><div  class="lg_b"><img src="/kjbxzxkspxmbxt/images/dd-1.jpg" /></div>
+	</div>
+	
+	
+<div class="ti1">
+	<div class="lg1 red14 lh40"><a href="http://www.most.gov.cn/bszn/new/xzck/jbxx/">限制出口技术出口技术审查</a> </div>
+	<div class="lg2 lh28">
+	 <ul>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/xzck/jbxx/">基本信息</a></li>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/xzck/wjxz/index.htm">文件下载</a></li>
+	 </ul>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="lg3a_1">
+  <tr>
+    <td class="lg3b blb2">办理机构</td>
+    <td class="lg3c">商务部服务贸易司，科技部发展计划司</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理地址</td>
+    <td class="lg3c">北京市东城区东长安街2 号（商务部服务贸易司）...</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理时限</td>
+    <td class="lg3c">随时申报（技术出口审查共 30 个工作日</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理程序</td>
+    <td class="lg3c">1. 企业向商务部服务贸易司提出申请,并填写《中...</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理依据 </td>
+    <td class="lg3c">1.《行政许可法》 <br />
+2.<a href="http://www.most.gov.cn/bszn/new/xzck/wjxz/200512/t20051226_55330.htm" target="_blank">《中华人民共和国技术进出口管理条例》</a>...</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">监管制度</td>
+    <td class="lg3c">实行分级管理，统一审批制度...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.most.gov.cn/bszn/new/xzck/jbxx/">更多》</a></td>
+  </tr>
+</table>
+<div  class="lg_b"></div>
+	</div>
+
+
+<div class="ti1">
+	<div class="lg1 red14 lh40"><a href="http://www.most.gov.cn/bszn/new/dwjk/jbxx/">实验动物原种进口登记单位资质认定</a></div>
+	<div class="lg2 lh28">
+	 <ul>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/dwjk/jbxx/">基本信息</a></li>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/dwjk/jgcx/index.htm">结果查询</a></li>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/dwjk/wjxz/index.htm">文件下载</a></li>
+	 </ul>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="lg3a_2">
+  <tr>
+    <td class="lg3b blb2">办理机构</td>
+    <td class="lg3c">科技部条件财务司</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理地址</td>
+    <td class="lg3c">北京市海淀区复兴路乙15号（科技部条件财务司）</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理时限</td>
+    <td class="lg3c">20 天（专家评审时间不计算在本节期限内）</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理程序</td>
+    <td class="lg3c">具体办法正在制定中 ...</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理依据 </td>
+    <td class="lg3c">1.《行政许可法》 <br />
+2.<a href="http://www.most.gov.cn/bszn/new/dwjk/wjxz/200512/t20051225_55325.htm" target="_blank">《实验动物管理条例》</a>... </td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">监管制度</td>
+    <td class="lg3c">《实验动物原种进口登记单位资质认定办法》&nbsp;<a href="http://www.most.gov.cn/bszn/new/dwjk/jbxx/">更多》</a> </td>
+  </tr>
+</table><div  class="lg_b"><img src="/kjbxzxkspxmbxt/images/dd-1.jpg" /></div>
+	</div>
+	
+	
+<div class="ti1">
+	<div class="lg1 red14 lh40"><a href="http://www.most.gov.cn/bszn/new/dwxk/jbxx/">实验动物许可证核发</a></div>
+	<div class="lg2 lh28">
+	 <ul>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/dwxk/jbxx/">基本信息</a></li>
+		<li class="blb"><a href="http://xkz.lascn.com/" target="_blank">网上办理</a></li>
+	    <li class="blb"><a href="http://xkz.lascn.com/" target="_blank">结果查询</a></li>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/dwxk/wjxz/index.htm">文件下载</a></li>
+	 </ul>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="lg3a_1">
+  <tr>
+    <td class="lg3b blb2">办理机构</td>
+    <td class="lg3c">省级科技行政部门</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理地址</td>
+    <td class="lg3c">各省级科技行政部门确定的办理地址</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理时限</td>
+    <td class="lg3c">45 天（包括专家评审时间在内） </td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理程序</td>
+    <td class="lg3c">1.申请...</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理依据 </td>
+    <td class="lg3c">1.《行政许可法》 <br />
+2.<a href=http://www.most.gov.cn/bszn/new/dwjk/wjxz/200512/t20051225_55325.htm target="_blank">《实验动物管理条例》</a> ... </td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">监管制度</td>
+    <td class="lg3c">《实验动物许可证管理办法（试行）》&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.most.gov.cn/bszn/new/dwxk/jbxx/index.htm">更多》</a> </td>
+  </tr>
+</table>
+<div  class="lg_b"></div>
+	</div>
+
+
+<div class="ti1">
+	<div class="lg1 red14 lh40"><a href="http://www.most.gov.cn/bszn/new/dwck/jbxx/">实验动物出口审批</a></div>
+	<div class="lg2 lh28">
+	 <ul>
+	    <li class="blb"><a href="http://www.most.gov.cn/bszn/new/dwck/jbxx/">基本信息</a></li>
+	 </ul>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="lg3a_2">
+  <tr>
+    <td class="lg3b blb2">办理机构</td>
+    <td class="lg3c">拟委托省级科技行政部门办理</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理地址</td>
+    <td class="lg3c">北京市海淀区复兴路乙 15 号 （科技部条件财务司）</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理时限</td>
+    <td class="lg3c">20 天</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理程序</td>
+    <td class="lg3c">管理办法正在制定中</td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">办理依据 </td>
+    <td class="lg3c">1.《行政许可法》 <br />
+2.管理办法正在制定中 </td>
+  </tr>
+  <tr>
+    <td class="lg3b blb2">监管制度</td>
+    <td class="lg3c">管理办法正在制定中</td>
+  </tr>
+</table><div  class="lg_b"><img src="/kjbxzxkspxmbxt/images/dd-1.jpg" /></div>
+	</div>
+	
+	
+	</td>
+  </tr>
+</table>
+<table width="962" height="80" border="0" align="center" cellpadding="0" cellspacing="0" style=" border-top:1px #005E9E solid; margin-top:10px;">
+  <tr>
+    <td class="lh28 blb"><div align="center">版权所有:中华人民共和国科学技术部<br/>
+      地址：北京市复兴路乙15号 | 邮编：100862 | <a href="http://www.most.gov.cn/dlwzt/">地理位置图</a> | <a 
+href="http://www.miibeian.gov.cn/" target=_blank>ICP备案序号：京ICP备05022684</a></div></td>
+  </tr>
+</table>
+
+</div>
+<div id="right"><img src="/kjbxzxkspxmbxt/images/i-02.jpg" /></div>
+</div>
+<div style="background:#017ABF; width:1000px; height:50px; margin:0px auto;"></div>
+<map name="Map" id="Map"><area shape="rect" coords="907,39,981,61" href="/index.htm" /></map>
+</body>
+</html>

@@ -1,0 +1,676 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>找回我的密码 </title>
+<script type="text/javascript" src="../js/iss/jquery/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="../js/iss/getBackPassword/getPasswdSteps.js"></script>
+<script type="text/javascript" language="javascript" src="../js/iss/jquery/json2.js"></script>
+<script type="text/javascript" language="javascript" src="../js/iss/common/wiscom/PasswordIntensity.js"></script>
+
+<link type="text/css" href="../css/iss/main.css" rel="stylesheet" />
+<link type="text/css" href="../css/iss/help.css" rel="stylesheet" />
+<link type="text/css" href="../css/iss/slide.css" rel="stylesheet" />
+<script language ="javascript"> 
+function init(){ 
+var ctrl=document.getElementById("myaccount"); 
+ctrl.focus(); 
+} 
+</script>
+</head>
+
+<body style="overflow:hidden;" scroll="no" onload="init();" >
+
+<table style="width:100%;height:100%;"cellpadding="0" cellspacing="0">
+	<tr height="70px;">
+		<td><!-- ***********top栏************* -->
+			﻿
+
+<script type="text/javascript">
+ function loginOut()
+  {
+     top.location = "/imp/pages/loginOut.do";
+  }
+  
+  function gotoHome()
+  {
+     top.location = "/imp/";
+  }
+</script>
+<div style="position:absolute; top:0px; left:0px;width:100%">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:url(../images/iss/main/topbg_02.png) repeat-x;">
+	<tr style="height:70px;">
+		<td valign="top" style="width:40%;">
+		   <img src="../images/iss/main/topbg_01.png" alt=""/>
+		</td>
+		<td>&nbsp;</td>
+		<td style="width:420px; background:url(../images/iss/main/topbg_03.png) no-repeat;" align="right">
+			<div style="height:55px;width:100%;">&nbsp;
+			</div><!--  
+		    <div style="margin-right:20px; color:White;">
+		        	<a href="#" style="color:#CCE9FF;padding-left:8px;" onclick="gotoHome();">返回至登录页</a>
+		    </div> -->
+		</td>
+	</tr>
+ </table>
+ </div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<!-- *************主显示区************* -->
+		<div>
+			<img src="../images/iss/window/spacer.gif" style="float: left;" height="5">
+		</div>
+		<input type="hidden" name="linkFlag" value="">
+		<input type="hidden" name="pwdPolicy" value="">
+		<!-- 第一步 0-->
+		<div id="getBackPassword" style="width:100%;height:100%;">
+		<div id="firstStep" style="display:block; width:100%;">
+			<table style="margin-top: 20px;" cellspacing="0" cellpadding="0" width="80%" align="center">
+		            <tbody>
+		                <tr>
+		                    <td class="help_tleft"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_tmid"><img height="18" src="../images/iss/window/users.gif" width=18 >
+		                        <span class="help_text">找回密码步骤 1 （共4步） : 输入帐号</span>
+		                    </td>
+		                    <td class="help_tright"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		                <tr>
+		                    <td class="help_left_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_repeat" valign="top" align="center">   
+								<div class="item-panel">
+								    <div class="title_gp">
+								        <div class="left">请正确输入您的帐号</div>
+								    </div>
+								    <div class="des_gp">
+								        <div class="center">
+									        <table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">帐号</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">: </td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<input type="text" name="account" id="myaccount" tabindex="1"   class="txtbox_m" style="width:60%;"></td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+								</div>
+								
+								<div class="item-panel">
+								    <div class="title_gp">
+								        <div class="left">请正确输入验证码</div>
+								    </div>
+								    <div class="desc_gp">
+								        <div class="center">
+								        	<table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">验证码</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">: </td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													   <input type="text" name="answer" tabindex="2" class="txtbox_m" style="width:175px;">&nbsp;&nbsp;
+													   <img src="../radomImage" border="1" />
+													</td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+								    <div class="desc_gp">
+								        <div class="center">
+								        	<table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">&nbsp;</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">&nbsp; </td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<input type="button" tabindex="3" class="btn_bg" name="step_next" value="下一步" /></td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+								</div>
+		           
+		                    </td>
+		                    <td class="help_right_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td class="help_bleft"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bmid"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bright"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		            </tbody>
+		        </table>
+		</div>
+		
+		<!-- 第二步 1-->
+		<div id="secondStep" style="display:none; width:100%;">
+		<input type="hidden">
+			<table style="margin-top: 20px;" cellspacing="0" cellpadding="0" width="80%" align="center">
+		            <tbody>
+		                <tr>
+		                    <td class="help_tleft"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_tmid"><img height="18" src="../images/iss/window/users.gif" width=18>
+		                        <span class="help_text">找回密码步骤 2 （共4步） : 选择找回密码方式</span>
+		                    </td>
+		                    <td class="help_tright"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		                <tr>
+		                    <td class="help_left_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_repeat" valign="top" align="center">  
+										
+								<div class="item-panel">
+								    <div class="title_gp">
+								        <div class="left">请选择您要找回密码的具体方式</div>
+								    </div>
+								    <div class="desc_gp">
+								        <div class="center">
+									        <table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;"><input name="manner" type="radio" value="question" checked/></td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">&nbsp; </td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过安全问题找回密码</td>
+												</tr>
+												<tr>
+													<td align="right" style="width:30%;"><input name="manner" type="radio" value="email"/></td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">&nbsp;</td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过已设置的邮箱找回密码</td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+								    <div class="desc_gp">
+								        <div class="center">
+								        	<table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">&nbsp;</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">&nbsp; </td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn_bg_bk" name="step_pre" value="上一步" />
+													&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn_bg" name="step_next" value="下一步" /></td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+								</div>                  
+		                    </td>
+		                    <td class="help_right_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td class="help_bleft"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bmid"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bright"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		            </tbody>
+		        </table>
+		</div>
+		
+		<!-- 第三步 2-->
+		<!-- 根据问题 -->
+		<div id="thirdStep_q" style="display:none; width:100%;">
+			<table style="margin-top: 20px;" cellspacing="0" cellpadding="0" width="80%" align="center">
+		            <tbody>
+		                <tr>
+		                    <td class="help_tleft"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_tmid"><img height="18" src="../images/iss/window/users.gif" width=18>
+		                        <span class="help_text">找回密码步骤 3 （共4步）: 通过安全问题找回密码</span>
+		                    </td>
+		                    <td class="help_tright"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		                <tr>
+		                    <td class="help_left_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_repeat" valign="top" align="center">
+							
+								<div class="item-panel">
+								    <div class="title_gp">
+								        <div class="left">请正确回答您设置的安全问题的答案</div>
+								    </div>
+								    <div class="desc_gp">
+								        <div class="center">
+									        <table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">问题</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">: </td>
+													<td align="left" style="width:65%;" id="secquestion">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		                                            </td>
+												</tr>
+												<tr>
+													<td align="right" style="width:30%;">答案</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">: </td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<input type="text" name="answer" class="txtbox_m" style="width:60%;" id="secanswer"></td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+								    <div class="desc_gp">
+								        <div class="center">
+								        	<table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">&nbsp;</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">&nbsp; </td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn_bg_bk" name="step_pre" value="上一步" />
+													&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn_bg" name="step_next" value="下一步" /></td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+								</div>  		                     
+		                    </td>
+		                    <td class="help_right_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td class="help_bleft"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bmid"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bright"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		            </tbody>
+		        </table>
+		</div>
+		<!-- 根据邮箱 3-->
+		<div id="thirdStep_m" style="display:none; width:100%;">
+			<table style="margin-top: 20px;" cellspacing="0" cellpadding="0" width="80%" align="center">
+		            <tbody>
+		                <tr>
+		                    <td class="help_tleft"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_tmid"><img height="18" src="../images/iss/window/users.gif" width=18>
+		                        <span class="help_text">找回密码步骤 3 （共4步） :  通过已设置的邮箱找回密码</span>
+		                    </td>
+		                    <td class="help_tright"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		                <tr>
+		                    <td class="help_left_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_repeat" valign="top" align="center">
+										
+								 <div class="item-panel">
+								    <div class="title_gp">
+								        <div class="left">请正确输入您已设置的邮箱</div>
+								    </div>
+								    <div class="desc_gp">
+								        <div class="center">
+									        <table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">邮箱</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">: </td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<input type="text" name="answer" class="txtbox_m" style="width:60%;"></td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+								    <div class="desc_gp">
+								        <div class="center">
+								        	<table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">&nbsp;</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">&nbsp; </td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn_bg_bk" name="step_pre" value="上一步" />
+													&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn_bg" name="step_next" value="下一步" /></td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+								</div>
+		                    </td>
+		                    <td class="help_right_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td class="help_bleft"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bmid"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bright"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		            </tbody>
+		        </table> 
+		</div>
+		
+		
+		
+		<!-- 第四步 4-->
+		<!-- 根据问题 -->
+		<div id="forthStep_q" style="display:none; width:100%;">
+			<table style="margin-top: 20px;" cellspacing="0" cellpadding="0" width="80%" align="center">
+		            <tbody>
+		                <tr>
+		                    <td class="help_tleft"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_tmid"><img height="18" src="../images/iss/window/users.gif" width=18>
+		                        <span class="help_text">找回密码步骤 4 （共4步） : 通过安全问题找回密码</span>
+		                    </td>
+		                    <td class="help_tright"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		                <tr>
+		                    <td class="help_left_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_repeat" valign="top" align="center">
+								
+								<div class="item-panel">
+								    <div class="title_gp">
+								        <div class="left">请重新设置您的密码，新密码必须符合以下策略</div>
+								    </div>
+								    <div class="desc_gp">
+								    				<div id="lowPwdPolicy" align="center">
+													   <table style="padding: 5px 5px 10px 0px; width:98%;" cellpadding="0" cellspacing="0">
+												            <tbody>
+												                <tr>
+												                    <td colspan="2" height="10" align="left">
+												                    </td>
+												                </tr>
+												                <tr>
+												                    <td colspan="3" style="padding: 0px;" align="left">
+												                        <ul class="policyList">
+												                            <li>
+												                                &nbsp;&nbsp;<img src="../images/iss/window/bullet.gif">&nbsp;密码的长度至少<label id="lowL1"></label>个字符</li>
+												                            <li>
+												                                &nbsp;&nbsp;<img src="../images/iss/window/bullet.gif">&nbsp;数字、小字母、大字母和符号必须包含<label id="lowK1"></label>种以上</li>
+												                        </ul>
+												                    </td>
+												                </tr>
+												            </tbody>
+												        </table>
+													</div>
+													<div id="middlePwdPolicy" style="display:none;">
+													   <table style="padding: 5px 5px 10px 0px; width:98%;" cellpadding="0" cellspacing="0">
+												            <tbody>
+												                <tr>
+												                    <td colspan="2" height="10" align="left">
+												                    </td>
+												                </tr>
+												                <tr>
+												                    <td colspan="3" style="padding: 0px;" align="left">
+												                        <ul class="policyList">
+												                            <li>
+												                                <img src="../images/iss/window/bullet.gif">&nbsp;密码的长度至少<label id="midL1"></label>个字符</li>
+												                            <li>
+												                                <img src="../images/iss/window/bullet.gif">&nbsp;数字、小字母、大字母和符号必须包含<label id="midK1"></label>种以上</li>
+												                        </ul>
+												                    </td>
+												                </tr>
+												            </tbody>
+												        </table>
+													</div>
+													<div id="strongPwdPolicy" style="display:none;">
+													   <table style="padding: 5px 5px 10px 0px; width:98%;" cellpadding="0" cellspacing="0">
+												            <tbody>
+												                <tr>
+												                    <td colspan="2" height="10" align="left">
+												                    </td>
+												                </tr>
+												                <tr>
+												                    <td colspan="3" style="padding: 0px;" align="left">
+												                        <ul class="policyList">
+												                            <li>
+												                                <img src="../images/iss/window/bullet.gif">&nbsp;密码的长度至少<label id="highL1"></label>个字符</li>
+												                            <li>
+												                                <img src="../images/iss/window/bullet.gif">&nbsp;数字、小字母、大字母和符号必须包含<label id="highK1"></label>种以上</li>
+												                        </ul>
+												                    </td>
+												                </tr>
+												            </tbody>
+												        </table>
+													</div>
+								        <div class="center">
+									        <table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">密码</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">: </td>
+													<td align="left" style="width:50%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<input type="password" name="answer1" class="txtbox_m" style="width:90%;"
+													 onKeyUp="setPasswordIntensity('forthStep_q', this, 'pwdIntensity');"></td>
+													 <td style="width:100%; height:100%; padding-left:2px;" valign="middle">
+	                                        			<table cellpadding="0" cellspacing="0" class="pwdIntensity">
+		                                        			<tr valign="middle">
+		                                            			<td class="normal" style="height: 18px;">&nbsp;</td>
+		                                            			<td class="normal" style="height: 18px;">&nbsp;</td>
+		                                            			<td class="normal" style="height: 18px;">&nbsp;</td>
+		                                        			</tr>
+		                                    			</table>            
+													</td>
+												</tr>
+												<tr>
+													<td align="right" style="width:30%;">确认</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">: </td>
+													<td align="left" style="width:50%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<input type="password" name="answer2" class="txtbox_m" style="width:90%;">
+													<input type="hidden" name="pwdIntensity" /><!-- 保存密码强度值 --></td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+								    <div class="desc_gp">
+								        <div class="center">
+								        	<table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">&nbsp;</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">&nbsp; </td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<input type="button" class="btn_bg" name="step_ok" value="确定" /></td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+							</div> 
+		                    </td>
+		                    <td class="help_right_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td class="help_bleft"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bmid"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bright"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		            </tbody>
+		        </table>
+		</div>
+		<!-- 根据邮箱 -->
+		<div id="forthStep_m" style="display:none; width:100%;">
+			<table style="margin-top: 20px;" cellspacing="0" cellpadding="0" width="80%" align="center">
+		            <tbody>
+		                <tr>
+		                    <td class="help_tleft"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_tmid"><img height="18" src="../images/iss/window/users.gif" width=18 >
+		                        <span class="help_text">成功发送邮件</span>
+		                    </td>
+		                    <td class="help_tright"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		                <tr>
+		                    <td class="help_left_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_repeat" valign="top" align="center">
+		
+		                    	        <table style="margin-top: 20px;" width="50%">
+		                    		        <tr>
+												<td align="left">我们已经给您的邮箱发送了邮件，请按照邮件内容执行后续的操作。</td>
+											</tr>
+											<tr>
+												<td align="left">&nbsp;</td>
+											</tr>
+										</table>  
+		                    </td>
+		                    <td class="help_right_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td class="help_bleft"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bmid"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bright"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		            </tbody>
+		        </table> 
+		</div>
+		<!-- 根据邮箱 5-->
+		<div id="forthStep_m_c" style="display:none; width:100%;">
+			<table style="margin-top: 20px;" cellspacing="0" cellpadding="0" width="80%" align="center">
+		            <tbody>
+		                <tr>
+		                    <td class="help_tleft"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_tmid"><img height="18" src="../images/iss/window/users.gif" width=18>
+		                        <span class="help_text">找回密码步骤 4 （共4步） : 通过邮箱找回密码</span>
+		                    </td>
+		                    <td class="help_tright"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		                <tr>
+		                    <td class="help_left_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_repeat" valign="top" align="center">
+								
+								<div class="item-panel">
+								    <div class="title_gp">
+								        <div class="left">请重新设置您的密码，新密码必须符合以下策略</div>
+								    </div>
+								    <div class="desc_gp">
+								    				<div id="lowPwdPolicy" align="center">
+													   <table style="padding: 5px 5px 10px 0px; width:98%;" cellpadding="0" cellspacing="0">
+												            <tbody>
+												                <tr>
+												                    <td colspan="2" height="10" align="left">
+												                    </td>
+												                </tr>
+												                <tr>
+												                    <td colspan="3" style="padding: 0px;" align="left">
+												                        <ul class="policyList">
+												                            <li>
+												                                &nbsp;&nbsp;<img src="../images/iss/window/bullet.gif">&nbsp;密码的长度至少<label id="lowL2"></label>个字符</li>
+												                            <li>
+												                                &nbsp;&nbsp;<img src="../images/iss/window/bullet.gif">&nbsp;数字、小字母、大字母和符号必须包含<label id="lowK2"></label>种以上</li>
+												                        </ul>
+												                    </td>
+												                </tr>
+												            </tbody>
+												        </table>
+													</div>
+													<div id="middlePwdPolicy" style="display:none;">
+													   <table style="padding: 5px 5px 10px 0px; width:98%;" cellpadding="0" cellspacing="0">
+												            <tbody>
+												                <tr>
+												                    <td colspan="2" height="10" align="left">
+												                    </td>
+												                </tr>
+												                <tr>
+												                    <td colspan="3" style="padding: 0px;" align="left">
+												                        <ul class="policyList">
+												                            <li>
+												                                <img src="../images/iss/window/bullet.gif">&nbsp;密码的长度至少<label id="midL2"></label>个字符</li>
+												                            <li>
+												                                <img src="../images/iss/window/bullet.gif">&nbsp;数字、小字母、大字母和符号必须包含<label id="midK2"></label>种以上</li>
+												                        </ul>
+												                    </td>
+												                </tr>
+												            </tbody>
+												        </table>
+													</div>
+													<div id="strongPwdPolicy" style="display:none;">
+													   <table style="padding: 5px 5px 10px 0px; width:98%;" cellpadding="0" cellspacing="0">
+												            <tbody>
+												                <tr>
+												                    <td colspan="2" height="10" align="left">
+												                    </td>
+												                </tr>
+												                <tr>
+												                    <td colspan="3" style="padding: 0px;" align="left">
+												                        <ul class="policyList">
+												                            <li>
+												                                <img src="../images/iss/window/bullet.gif">&nbsp;密码的长度至少<label id="highL2"></label>个字符</li>
+												                            <li>
+												                                <img src="../images/iss/window/bullet.gif">&nbsp;数字、小字母、大字母和符号必须包含<label id="highK2"></label>种以上</li>
+												                        </ul>
+												                    </td>
+												                </tr>
+												            </tbody>
+												        </table>
+													</div>
+								        <div class="center">
+									        <table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">密码</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">: </td>
+													<td align="left" style="width:50%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<input type="password" name="answer1" id="answer_pwd" class="txtbox_m" style="width:90%;"
+													onKeyUp="setPasswordIntensity('forthStep_m_c', this, 'pwdIntensity');"></td>
+													<td style="width:100%; height:100%; padding-left:2px;" valign="middle">
+	                                        			<table cellpadding="0" cellspacing="0" class="pwdIntensity">
+		                                        			<tr valign="middle">
+		                                            			<td class="normal" style="height: 18px;">&nbsp;</td>
+		                                            			<td class="normal" style="height: 18px;">&nbsp;</td>
+		                                            			<td class="normal" style="height: 18px;">&nbsp;</td>
+		                                        			</tr>
+		                                    			</table>            
+													</td>
+												</tr>
+												<tr>
+													<td align="right" style="width:30%;">确认</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">: </td>
+													<td align="left" style="width:50%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<input type="password" name="answer2" class="txtbox_m" style="width:90%;">
+													<input type="hidden" name="pwdIntensity" /><!-- 保存密码强度值 --></td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+								    <div class="desc_gp">
+								        <div class="center">
+								        	<table style="margin-top: 20px;" width="85%">
+												<tr>
+													<td align="right" style="width:30%;">&nbsp;</td>
+													<td class="textrow" align="center" style="width:5%;" valign="middle">&nbsp; </td>
+													<td align="left" style="width:65%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<input type="button" class="btn_bg" name="modfiyName" value="确定" /></td>
+												</tr>
+											</table>
+										</div>
+								    </div>
+							</div> 
+		                    </td>
+		                    <td class="help_right_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td class="help_bleft"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bmid"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bright"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		            </tbody>
+		        </table>
+		</div>
+		
+		<!-- 第四步 6-->
+		<!-- 修改完成 -->
+		<div id="finish" style="display:none; width:100%;">
+			<table style="margin-top: 20px;" cellspacing="0" cellpadding="0" width="80%" align="center">
+		            <tbody>
+		                <tr>
+		                    <td class="help_tleft"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_tmid"><img height="18" src="../images/iss/window/users.gif" width=18  >
+		                        <span class="help_text">您的密码修改成功</span>
+		                    </td>
+		                    <td class="help_tright"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		                <tr>
+		                    <td class="help_left_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_repeat" valign="top" align="center">
+		
+		                    	        <table style="margin-top: 20px;" width="30%">
+		                    		        <tr>
+												<td align="left">您的密码已经修改完成！</td>
+											</tr>
+											<tr>
+												<td align="left">&nbsp;</td>
+											</tr>
+										</table>  
+		                    </td>
+		                    <td class="help_right_mid"><img height="27" src="../images/iss/window/spacer.gif" width="9">
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td class="help_bleft"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bmid"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                    <td class="help_bright"><img height="12" src="../images/iss/window/spacer.gif" width="9"></td>
+		                </tr>
+		            </tbody>
+		        </table>
+		</div>
+		</div>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>

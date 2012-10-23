@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>江苏省学生资助网</title>
+<link href="/script/page.css" type=text/css rel=stylesheet>
+<meta name="Keywords" content="内容管理、内容管理发布（CMS）系统、信息发布、新闻采编发系统、知识管理、知识门户、政府门户、教育门户、企业门户、竞争情报系统、抓取系统、信息采集、信息雷达系统、电子政务、电子政务解决方案、办公系统、OA、网站办公系统"><meta name='Generator' content='大汉版通'><meta name='Author' content='大汉网络'>
+<meta name='Maketime' content='2012-10-18 10:05:36'>
+<meta name="sitename" content="江苏省学生资助网">
+<meta name="siteurl"  content="http://202.119.175.111/index.html">
+<meta name="guild"    content="">
+<meta name="district"    content="">
+<meta name="sitecatalog"    content="">
+
+<script language="javascript" src="/module/jslib/jquery/jquery.js"></script>
+<script type="text/javascript" src="images/jquery-1.2.6.pack.js"></script>
+<link href="images/css.css" rel="stylesheet" type="text/css" /></head>
+<style type="text/css">
+#container{ width:1010px; margin:0 auto; background-image:url("images/bj.jpg"); background-repeat:repeat-y;}
+.banner1{ width:960px; height:33px; background-image:url("images/bj1.jpg"); background-repeat:no-repeat; margin-bottom:10px;font-size:13px; font-weight:600; color:#FFFFFF; float:left}
+.input2{ width:34px; height:20px; border:0; background-image:url("images/sou.jpg"); cursor:pointer;}
+.part1-2-1{ width:345px; height:24px; background-image:url("images/bj3.jpg"); background-repeat:no-repeat; margin-bottom:5px;}
+.part1-3-1{ width:252px; height:151px; background-image:url("images/bj4.jpg"); background-repeat:no-repeat; margin-bottom:10px; padding-left:10px; padding-top:8px}
+.yname{ width:168px; height:19px; background-image:url("images/bj5.jpg"); border:0}
+.dl{ width:58px; height:25px; background-image: url("images/dl.jpg"); border:0; cursor:pointer}
+.zc{ width:58px; height:25px; background-image: url("images/zc.jpg"); border:0; cursor:pointer}
+.part2-1-1{ width:320px; height:83px; background-image:url("images/gongsl.jpg"); margin-bottom:10px;}
+.part2-3-1{ width:262px; height:30px; background-image:url("images/bj6.jpg"); background-repeat:repeat-x;}
+.part2-3-1 li.curr{ background-image:url("images/bj7.jpg"); background-repeat:no-repeat}
+.part4{ width:960px; background-image:url("images/bj8.jpg"); background-repeat:no-repeat; float:left;}
+
+</style>
+<script language="javascript">
+
+function tabit(btn){
+	var idname = new String(btn.id);
+	var s = idname.indexOf("_");
+	var e = idname.lastIndexOf("_")+1;
+	var tabName = idname.substr(0, s);
+	var id = parseInt(idname.substr(e, 1));
+	var tabNumber = btn.parentNode.getElementsByTagName('li').length;
+	for(i=0;i<tabNumber;i++){
+			document.getElementById(tabName+"_div_"+i).style.display = "none";
+			document.getElementById(tabName+"_btn_"+i).className = "";
+		};
+		document.getElementById(tabName+"_div_"+id).style.display = "block";
+		btn.className = "curr";
+}
+function changeImage(){
+    		var url = "http://202.119.175.107/infomsService/image.jsp";
+    		document.getElementById("codeimage").src = url;
+    		document.getElementById("ym").value = "";
+    		document.getElementById("ym").focus();
+		} 
+function ys_onkeydown(num, event){
+		    if (num == 2 && event.keyCode == 13) {//验证码那里输入回车
+		        dologin();
+		    }
+		}
+function init(){
+	changeImage();
+}
+window.onload=init;
+</script>
+<body>
+<div id="container">
+ <div id="whole">
+<!--导航开始 --> 
+  <div class="banner">
+   <div style= "width:630px; height:195px;">
+     <IMG height=195 src="/picture/1/091113150613850.jpg" width=959 border=0>
+   </div>   
+   <div class="banner1"> 
+      <div class="banner1-1">
+         <UL>
+<LI><A style="COLOR: #f2db29" href="/">首&nbsp;&nbsp;&nbsp;&nbsp;页</A> | 
+<LI><A href="/art/2009/11/17/art_2_112.html" target=_blank>中心介绍</A> | 
+<LI><A href="/col/col3/index.html" target=_blank>工作动态</A> | 
+<LI><A href="/col/col4/index.html" target=_blank>资助政策</A> | 
+<LI><A href="/col/col5/index.html" target=_blank>资助指南</A> | 
+<LI><A href="/art/2009/12/2/art_6_222.html" target=_blank>社会捐赠</A> | 
+<LI><A href="/col/col8/index.html" target=_blank>资助公示</A> | 
+<LI><A href="/col/col7/index.html" target=_blank>学费补偿</A> </LI></UL>
+      </div>
+      <div class="banner1-2">
+        <form name="sitesearch" action="/module/sitesearch/index.jsp?columnid=3,6,7,15,8,12,4,16,42,5" method="POST"><input type="text" name="keyvalue" value="" size="10"> <select name="keyword"><option value="vc_title" >标题</option><option value="vc_keyword" >关键字</option><option value="vc_abs">摘要</option></select> <input type="submit" value="检索" ></form>
+      </div>  
+   </div>
+   </div>
+<!--导航结束 -->  
+<!--第一部分开始-->
+ <div class="part1">
+   <div class="part1-1">
+     <div class="part1-1-2">
+       <script type="text/javascript">
+var _width = 310; 
+var _height = 270;
+var text_height = 25;
+var flash_height = _height + text_height;var pic_arr = new Array();var link_arr = new Array();var text_arr = new Array();var i = 0;pic_arr[i] = "/picture/0/s120428154019768.jpg";link_arr[i] = "/art/2012/4/27/art_18_1863.html";text_arr[i] = "全国生源地信用助学贷款管理工作座谈会在南...";i++;pic_arr[i] = "/picture/0/s110705143219990.jpg";link_arr[i] = "/art/2011/7/5/art_18_1402.html";text_arr[i] = "省教育厅省财政厅召开全省学生资助工作暨先...";i++;pic_arr[i] = "/picture/0/101224152324202.jpg";link_arr[i] = "/art/2010/12/29/art_18_1101.html";text_arr[i] = "省学生资助管理中心评为“全国高校学生资助...";i++;pic_arr[i] = "/picture/0/s0911171808191465.jpg";link_arr[i] = "/art/2009/11/17/art_18_108.html";text_arr[i] = "省中心陈虎主任参加江西召开的资助研讨会";i++;var p = pic_arr.join("|");var l = link_arr.join("|");var t = text_arr.join("|");var f = "/flash/0/slideshow.swf";document.write('<object ID="focus_flash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ _width +'" height="'+ flash_height +'">');document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="'+f+'"><param name="quality" value="high"><param name="bgcolor">');document.write('<param name="menu" value="false"><param name=wmode value="transparent">');document.write('<param name="FlashVars" value="pics='+p+'&links='+l+'&texts='+t+'&borderwidth='+_width+'&borderheight='+_height+'&textheight='+text_height+'">');document.write('<embed ID="focus_flash" src="'+f+'" wmode="opaque" FlashVars="pics='+p+'&links='+l+'&texts='+t+'&borderwidth='+_width+'&borderheight='+_height+'&textheight='+text_height+'" menu="false" quality="high" width="'+ _width +'" height="'+ flash_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');document.write('</object>');</script>
+      </div>  
+   </div>
+   <div class="part1-2">
+    <div class="part1-2-1"><span class="f4a780b">工作动态</span>
+      <a href='/col/col7/index.html' class='bt_link' ><IMG height=13 src="/picture/1/091113155753042.jpg" width=37 border=0></a>
+    </div>
+    <div class="part1-2-2">
+      <P class=f5d9f01 align=center><!--articletitleshort--></P>
+<P>&nbsp;&nbsp; </P>
+<P style="COLOR: #00cc00; FONT-SIZE: 18px"><!--articlebrief--><SPAN><A style="COLOR: #009900" href="http://aid.ec.js.edu.cn/infoms/visitor/dcjyZxsq-listXs.c" target=_blank>&gt;&gt;普通高校毕业生学费补偿在线申请</A></SPAN> </P>
+<P></P>
+    </div>
+    <div class="part1-2-3">
+      <p class="liezi">· <a href="/art/2012/10/9/art_3_2266.html" title='简报-2012-04期 我省采取有效措施确保高校新生顺利入学' target="_blank">简报-2012-04期 我省采...</a>   <span class="ff747474">(2012-10-09)</span></p><p class="liezi">· <a href="/art/2012/7/12/art_3_2163.html" title='简报-2012-03期 徐州市出台市直中职学校国家助学金集中发放办法' target="_blank">简报-2012-03期 徐州市...</a>   <span class="ff747474">(2012-07-12)</span></p><p class="liezi">· <a href="/art/2012/5/24/art_3_2023.html" title='简报-2012-02期 我省加大生源地信用助学贷款回收力度' target="_blank">简报-2012-02期 我省加...</a>   <span class="ff747474">(2012-05-24)</span></p>
+    </div>
+     <div class="part1-2-3">
+      <p class="liezi">· <a href="/art/2012/5/24/art_3_2022.html" title='简报-2012-01期 我省多管齐下做好生源地信用助学贷款工作' target="_blank">简报-2012-01期 我省多...</a>   <span class="ff747474">(2012-05-24)</span></p><p class="liezi">· <a href="/art/2012/4/27/art_3_1861.html" title='全国生源地信用助学贷款管理工作座谈会在南京召开' target="_blank">全国生源地信用助学贷款管理工作...</a>   <span class="ff747474">(2012-04-27)</span></p><p class="liezi">· <a href="/art/2011/11/14/art_3_1582.html" title='简报-2011-10期-我省普通高中学生资助工作采用信息化管理' target="_blank">简报-2011-10期-我省普...</a>   <span class="ff747474">(2011-11-14)</span></p>
+    </div>
+   
+ </div>
+   <div class="part1-3"> 
+     
+     
+     <div class="part1-3-2">
+       <div class="attention"><span class="f71a922" style=" width:100px; float:left"><img src="images/xiaob.jpg" width="14" height="19" /> 通知公告
+
+</span><div class="ymore"><a href='/col/col15/index.html' class='bt_link' ><IMG height=13 src="/picture/1/091113155753042.jpg" width=37 border=0></a></div></div>
+       <div style="margin-left:5px;">
+       <div style="padding-left:5px;">
+<p class="tz"><a href='/art/2012/10/18/art_15_2306.html' title='关于举办全省中等职业学校学生资助管理信息系统市县级管理人员培训班的通知' target=_blank>·关于举办全省中等职业学校学生资助...</a></p></div><div style="padding-left:5px;">
+<p class="tz"><a href='/art/2012/10/9/art_15_2269.html' title='关于召开高校学生资助工作绩效评价指标修订工作会议的通知' target=_blank>·关于召开高校学生资助工作绩效评价...</a></p></div><div style="padding-left:5px;">
+<p class="tz"><a href='/art/2012/10/9/art_15_2268.html' title='关于召开市县学生资助工作绩效评价指标修订工作会议的通知' target=_blank>·关于召开市县学生资助工作绩效评价...</a></p></div><div style="padding-left:5px;">
+<p class="tz"><a href='/art/2012/10/9/art_15_2267.html' title='关于复核部分普通高校毕业生学费补偿申请信息的通知' target=_blank>·关于复核部分普通高校毕业生学费补...</a></p></div>
+     </div>
+	 <div class="part1-3-1">
+        <p class="zizhu">生源地贷款信息查询</p>
+        <p><img src="images/picc4.jpg" /></p>
+        
+        <FORM id=form1 name=form1 action=http://202.119.175.107/infomsService/identity/login method=post>
+<P class=f747474>身份证号：<INPUT id=yh maxLength=18 name=yonghu> </P>
+<P class=f747474>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：<INPUT id=mm name=mima> </P>
+<P class=f747474>验&nbsp;&nbsp;证&nbsp;&nbsp;码：<INPUT id=ym maxLength=4 name=rand></P>
+<P class=f747474>&nbsp;&nbsp;&nbsp;<IMG id=codeimage src="http://202.119.175.107/infomsService/image.jsp" border=0>&nbsp;&nbsp;&nbsp;<IMG style="CURSOR: pointer" onclick=changeImage() height=26 alt=换一个验证码？ src="http://202.119.175.107/infomsService/resources/images/login/change.png" width=76>&nbsp;&nbsp;&nbsp;<INPUT class=dl id=button2 type=submit value=" " name=button2></P></FORM>
+     </div>
+   </div> 
+ </div>
+<!--第一部分结束-->
+<!--第二部分开始-->
+ <div class="part2">
+   <div style="width:320px; float: left;">
+   <div class="part2-1-1">
+     <div class="white">资助公示栏 </div>
+     <div style="margin-top:10px;">
+       <UL>
+<LI><A href="/col/col9/index.html" target=_blank>资助公示榜</A></LI>
+<LI><A href="/col/col10/index.html" target=_blank>诚信公示榜</A></LI>
+<LI><A href="/col/col11/index.html" target=_blank>捐助公示榜</A></LI></UL>
+     </div>
+   </div>
+   <div class="part2-1-2">
+     <div class="zixun"><span class="f71a922">  <img src="images/xiaob.jpg" width="14" height="19" /> 咨询与投诉</span></div>
+     
+     <div style=" width:305px;margin-top:10px; margin-left:10px;">
+<p><span class="fred">问</span>：为什么今年的助学贷款在支付宝上已经显示支出，但是学校的财务处却无法提到款<a href='/art/2010/12/8/art_21_42.html' title='<!--articletitle-->' target=_blank><!--articletitleshort--></a>(2010-12-08)</p>
+<p>答：支付宝付出到学校收款有一个过程，最近，学校都已经收到款项了。<a href='/art/2010/12/8/art_21_42.html' title='<!--articletitle-->' target=_blank><!--articletitleshort--></a>(2010-12-08)</p><p><span class="fred">问</span>：请问江苏2010年助学贷款什么时候发放？<a href='/art/2010/12/7/art_21_41.html' title='<!--articletitle-->' target=_blank><!--articletitleshort--></a>(2010-12-07)</p>
+<p>答：现在已经开始发放。<a href='/art/2010/12/7/art_21_41.html' title='<!--articletitle-->' target=_blank><!--articletitleshort--></a>(2010-12-07)</p></div>
+   </div>
+   </div>
+   <div class="part2-2">
+    <div class="part1-2-1"><span class="f4a780b">资助政策</span>
+      <a href='/col/col4/index.html' class='bt_link' ><IMG height=13 src="/picture/1/091113155753042.jpg" width=37 border=0></a>
+    </div>
+	<div class="part2-2-2"> 
+	  <p>【省厅文件公告】<a href="/art/2012/5/7/art_61_1902.html" target="_blank" title='省政府办公厅关于印发江苏省生源地信用助学贷款工作意见的通知'>省政府办公厅关于印发江苏省生...</a></p><p>【省厅文件公告】<a href="/art/2010/6/18/art_61_804.html" target="_blank" title='江苏省大学生资助政策简介（2010年版）'>江苏省大学生资助政策简介（2...</a></p><p>【省厅文件公告】<a href="/art/2009/12/22/art_61_221.html" target="_blank" title='（之一）省教育厅等部门关于进一步做好生源地信用助学贷款工作意见的通知'>（之一）省教育厅等部门关于进...</a></p><p>【省厅文件公告】<a href="/art/2009/12/22/art_61_262.html" target="_blank" title='（之二）省教育厅等部门关于进一步做好生源地信用助学贷款工作意见的通知'>（之二）省教育厅等部门关于进...</a></p><p>【省厅文件公告】<a href="/art/2009/12/22/art_61_263.html" target="_blank" title='（之三）省教育厅等部门关于进一步做好生源地信用助学贷款工作意见的通知'>（之三）省教育厅等部门关于进...</a></p><p>【省厅文件公告】<a href="/art/2009/12/22/art_61_264.html" target="_blank" title='（之四）省教育厅等部门关于进一步做好生源地信用助学贷款工作意见的通知'>（之四）省教育厅等部门关于进...</a></p><p>【高校教育资助】<a href="/art/2009/12/12/art_42_204.html" target="_blank" title='江苏省教育厅办公室关于举办近期有关工作的通知苏教办研'>江苏省教育厅办公室关于举办近...</a></p><p>【高校教育资助】<a href="/art/2009/12/12/art_42_203.html" target="_blank" title='关于表彰全省高等学校学生教育管理关于表彰全省高等学校学生教育管理苏高教会〔2009〕15号'>关于表彰全省高等学校学生教育...</a></p><p>【高校教育资助】<a href="/art/2009/12/12/art_42_202.html" target="_blank" title='江苏省教育厅办公室关于举办2009年全民终身学习活动周的通知苏教办职〔2009〕7号'>江苏省教育厅办公室关于举办2...</a></p><p>【高校教育资助】<a href="/art/2009/12/12/art_42_201.html" target="_blank" title='关于报送2009年中等职业学校毕业生就业情况的通知苏教办职〔2009〕10号'>关于报送2009年中等职业学...</a></p>
+		</div>
+   </div>
+	<div class="part2-3">
+	   <div class="part2-3-1">
+	      <ul><li class="curr" id="wh_btn_0" onmouseover="tabit(this)"><span class="f71a922">资助指南</span></li><li id="wh_btn_1" onmouseover="tabit(this)"><span class="f71a922">下载中心</span></li></ul>
+	   </div>
+	   <div class="part2-3-2" id="wh_div_0">
+	      <div style="float:left;"><P>1、</P><P>2、</P><P>3、</P><P>4、</P><P>5、</P><P>6、</P><P>7、</P><P>8、</P><P>9、</P><P>10、</P></div>
+<div style="float:left;"><P><a href='/art/2009/12/12/art_25_195.html' title='江苏省教育厅办公室关于举办近期有关工作的通知苏教办研' target=_blank>江苏省教育厅办公室关于举办近期有...</a></P><P><a href='/art/2009/12/12/art_25_194.html' title='关于表彰全省高等学校学生教育管理关于表彰全省高等学校学生教育管理苏高教会〔2009〕15号' target=_blank>关于表彰全省高等学校学生教育管理...</a></P><P><a href='/art/2009/12/12/art_25_193.html' title='江苏省教育厅办公室关于举办2009年全民终身学习活动周的通知苏教办职〔2009〕7号' target=_blank>江苏省教育厅办公室关于举办200...</a></P><P><a href='/art/2009/12/12/art_25_185.html' title='关于报送2009年中等职业学校毕业生就业情况的通知苏教办职〔2009〕10号' target=_blank>关于报送2009年中等职业学校毕...</a></P><P><a href='/art/2009/12/12/art_25_184.html' title='关于做好2010年全国优秀博士学位论文初选、推荐工作的通知苏学位字〔2009〕16号' target=_blank>关于做好2010年全国优秀博士学...</a></P><P><a href='/art/2009/12/12/art_25_183.html' title='关于报送2009年教育审计工作总结的通知苏教审[2009]3号' target=_blank>关于报送2009年教育审计工作总...</a></P><P><a href='/art/2009/12/12/art_25_182.html' title='关于做好生物多样性与生物技术等12个江苏省重点实验室检查验收工作的通知苏教科〔2009〕18号' target=_blank>关于做好生物多样性与生物技术等1...</a></P><P><a href='/art/2009/12/12/art_25_181.html' title='省教育厅办公室关于开展五年制高师管理干部研修工作的通知苏教办师〔2009〕52号' target=_blank>省教育厅办公室关于开展五年制高师...</a></P><P><a href='/art/2009/12/12/art_25_180.html' title='关于组织2009年职业学校实训基地建设专项视导的通知苏教职〔2009〕45 号' target=_blank>关于组织2009年职业学校实训基...</a></P><P><a href='/art/2009/12/12/art_25_179.html' title='关于下达2010年度全省职业学校退役士兵职业技能培训招生计划的通知苏教职〔2009〕46号' target=_blank>关于下达2010年度全省职业学校...</a></P></div>	 
+	   </div>
+	   	   <div class="part2-3-2" id="wh_div_1" style="display:none">
+	         <div style="float:left;"><P>1、</P><P>2、</P><P>3、</P><P>4、</P><P>5、</P><P>6、</P><P>7、</P><P>8、</P><P>9、</P><P>10、</P></div>
+<div style="float:left;"><P><a href='/art/2012/6/7/art_26_2102.html' title='国家助学金申请审批表（2012学年）' target=_blank>国家助学金申请审批表（2012学...</a></P><P><a href='/art/2012/4/20/art_26_1821.html' title='普通高校毕业生学费补偿受理地区一览表' target=_blank>普通高校毕业生学费补偿受理地区一...</a></P><P><a href='/art/2012/4/18/art_26_1808.html' title='普通高校毕业生学费补偿审核流程与注意事项' target=_blank>普通高校毕业生学费补偿审核流程与...</a></P><P><a href='/art/2012/4/18/art_26_1806.html' title='普通高校毕业生实际缴纳学费证明' target=_blank>普通高校毕业生实际缴纳学费证明</a></P><P><a href='/art/2012/4/18/art_26_1804.html' title='江苏省普通高校毕业生学费补偿申请审批表' target=_blank>江苏省普通高校毕业生学费补偿申请...</a></P><P><a href='/art/2012/4/6/art_26_1761.html' title='市县学费补偿工作管理部门与经办人员信息表' target=_blank>市县学费补偿工作管理部门与经办人...</a></P></div>
+	   </div>
+	</div>
+ </div>
+<!--第二部分结束-->
+
+<!--友情链接开始-->
+ <div class="part4">
+  <div class="part4-1">
+   <div class="friendship"><span class="f71a922"> <img src="images/xiaob1.jpg" width="14" height="19" /> 友情链接</span></div>
+    <div class="part4-1-1">
+          <a href="http://www.moe.edu.cn/" target="_blank">中华人民共和国教育部</a>    <a href="http://www.chsi.com.cn/" target="_blank">中国高等教育信息网</a>    <a href="http://www.xszz.cee.edu.cn/" target="_blank">全国学生资助管理中心网</a>    <a href="http://202.119.175.107/" target="_blank">江苏省学生资助系统</a>    <a href="http://www.chinaedu.edu.cn/" target="_blank">中国教育网</a>    <a href="http://www.jschina.com.cn/" target="_blank">中国江苏网</a><br />
+    </div>
+	</div>
+   <div class="part4-2"> 
+     <div class="part4-2-1"><span class="f71a922"> <img src="images/xiaob.jpg" width="14" height="19" /> 站点统计</span></div>
+	 <div class="part4-2-2" >
+	   <P align=center>你是第<SPAN class=fred>
+<SCRIPT language=javascript src="/module/visitcount/visitcount.jsp"></SCRIPT>
+ </SPAN>位访问者</P>
+	 </div>
+   </div>
+   
+ </div>
+<!--友情链接结束-->
+
+<!--footer-->
+ <div class="footer">
+    <div class="copyright">
+      <P>&nbsp;江苏省学生资源管理中心版权所有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：025-83335172 地址：北京西路36号 17楼 </P>
+<P>&nbsp;南京君度科技有限公司技术支持&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;copyright 2009-2012</P>
+    </div> 
+ </div>
+   
+ </div>
+</div>
+
+
+
+        
+    </body>
+</HTML><!-- visitcount Begin --><iframe src='./module/visitcount/visit.jsp?type=1&i_webid=1&i_columnid=1' name="vishidden" id="vishidden" width="0" height="0"></iframe><!-- visitcount End --><script language="javascript" src='/script/pagecontrol.js'></script>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+<meta charset="utf-8">
+<link rel="alternate" type="application/rss+xml" title="NYIT Syndication Feed" href="/Home/nyit_feed/" />
+
+<script type="text/javascript" src="/inc/js/jquery.js"></script>
+<script type="text/javascript" src="/inc/js/application.min.js"></script>
+<script type="text/javascript" src="/inc/js/modules.min.js"></script>
+<script type="text/javascript" src="/inc/js/rotator-module-small.js"></script>
+<script type="text/javascript" src="/inc/js/scroller-module.js"></script>
+<script type="text/javascript" src="/inc/js/accordion-module.js"></script>
+<script type="text/javascript" src="/inc/js/swobject.js"></script>
+
+<script>$(document).ready(function() {new Scroller(".m-vert", Scroller.vertical);});</script>
+
+<script language="javascript" type="text/javascript">
+$(document).ready(function(){
+	
+	$("#qcklnk").click(function(){
+		
+		$( "#subnavfooter" ).animate({
+			  "height": "toggle"
+			}, { duration: "slow" });
+		
+	});	
+	$("#subnavfooterclose").click(function(){
+		
+		$( "#subnavfooter" ).animate({
+			  "height": "toggle"
+			}, { duration: "slow" });
+		
+	});
+});
+</script>
+
+<link rel="stylesheet" type="text/css" href="/inc/css/global.css?random=123" />
+<link rel="stylesheet" type="text/css" href="/inc/css/modules.css" />
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="/inc/css/ie.css" /><![endif]-->
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="/inc/css/ie-modules.css" /><![endif]-->
+
+
+
+
+<title>
+
+
+	Events | NYIT
+
+
+
+</title>
+
+<style type="text/css">
+.mini-cal
+	{
+		background-color:#FFF;
+		/*padding:10px;*/
+	}
+
+table.mini-cal th
+{
+	height: 22px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+table.mini-cal td
+{
+	height: 22px;
+	font-size: 12px;
+}
+
+td.disabled
+{
+	color: #ccc;
+}
+
+table.mini-cal td a
+{
+	font-weight: bold;
+	color:#0066cc;
+	text-decoration:underline;
+}
+
+	
+.eventheader a:link
+	{ font-size:12px; font-weight:bold; text-decoration:none; padding-left:10px; }
+.eventheader a:visited
+	{ font-size:12px; font-weight:bold; text-decoration:none; padding-left:10px; }
+.eventheader a:hover
+	{ font-size:12px; font-weight:bold; text-decoration:underline; padding-left:10px; }
+	
+.eventdate
+	{ font-size:12px; font-weight:bold; padding-left:10px; }
+
+.eventinfo
+	{ font-size:12px; padding-left:10px; }
+
+.eventinfo ul
+	{ font-size:12px; margin-left:20px; }
+
+#filter
+	{ padding:5px 10px; border-bottom:1px solid #000; background-color:#FFC; }
+
+#activefilter
+	{ padding:5px 10px; border-bottom:1px solid #000; background-color:#ccffff; }
+
+.submit
+	{
+			padding:3px;	
+	}
+
+</style>
+
+
+<script language="javascript" type="text/javascript">
+$(document).ready(function(){
+  // Each time search_dpt txt box onkeyup. Run this function.
+  $('#submit').click(function(){
+    //var value = $(this).val();	
+	var campus = document.getElementById("campus").value;
+	var type = document.getElementById("type").value
+	//alert("filter By " + campus + " & " + type);
+	
+	if((campus != '') && (type != ''))
+		{
+			window.location = "/index.php/calendar/events_search/" + campus + "/" + type + "/"	
+		}
+	});
+});
+</script>
+
+</head>
+
+<body>
+
+<div id="bg"></div>
+<div class="wrapper">
+<div id="header">
+<div id="user-tabs-bar">
+<dl id="user-tabs" class="nav"> 
+<dt>User Navigation</dt> 
+<dd class="hm selected"><div><a href="/"><img src="/images/global/home-white.png" border="0" width="12" height="12" style="padding-right: 9px;vertical-align:text-bottom;">Home</a></div></dd> 
+<dd class="ps"><div><a href="/admissions/">Prospective Students</a></div></dd> 
+<dd class="cns"><div><a href="/channels/current-students/">Current Students</a></div></dd> 
+<dd class="paf"><div><a href="/channels/parents/">Parents &amp; Families</a></div></dd> 
+<dd class="aas"><div><a href="/channels/alumni/">Alumni &amp; Supporters</a></div></dd> 
+<dd class="nfas"><div><a href="/channels/faculty-and-staff/">Faculty &amp; Staff</a></div></dd> 
+</dl>  </div>
+
+<div id="logo-bar">
+<div id="logo"><a href="/"><span><img src="/images/global/logo.png" width="490" height="52" alt="New York Institute of Technology"></span></a></div>
+
+
+
+
+
+
+
+
+
+<div id="keyword-search">
+<span>
+<form method="get" action="http://search1.nyit.edu/search">
+<input type="text" name="q" id="search" class="searchfield" value="Keyword Search" onfocus="this.value='';"/>
+<input type="hidden" name="site" value="default_collection"/>
+<input type="hidden" name="client" value="default_frontend"/>
+<input type="hidden" name="proxystylesheet" value="default_frontend"/>
+<input type="hidden" name="output" value="xml_no_dtd"/>
+</form>
+</span>
+</div>
+</div>
+
+<div id="nav-bar">
+        <dl id="global-nav" class="nav">
+            <dt>Global Navigation</dt>
+            <dd style="width:150px; padding-top:7px; text-align:center; font-size:11px; font-weight:bold; color:#333333;">
+                <a href="javascript:void(0);" id="qcklnk">
+                <img src="http://www.nyit.edu/images/global/triangle.jpg" width="17" height="15" border="0" style="float:right; margin-right:20px;">
+                Quick Links
+                </a>
+            </dd>
+        </dl>
+
+<!-- <dl id="primary-nav" class="nav">
+<dt>Primary Navigation</dt>
+<dd class="pn-an first"><a href="/about_nyit/">About</a></dd>
+<dd class="pn-ad"><a href="/admissions/">Admissions</a></dd>
+<dd class="pn-ac"><a href="/academics/">Academics</a></dd>
+<dd class="pn-cl"><a href="/campus_life/">Life @ NYIT</a></dd>
+<dd class="pn-at"><a href="/athletics/">Athletics</a></dd>
+<dd class="pn-cs"><a href="/career_services/">Career Services</a></dd>
+<dd class="pn-gn"><a href="/giving_to_nyit/">Giving</a></dd>
+<dd class="pn-nw"><a href="/nyit_worldwide/">NYIT Worldwide</a></dd>
+<dd class="pn-mn"><a href="http://my.nyit.edu">My NYIT</a></dd>
+</dl> is a global variable that contains the yellow navigation bar content -->
+<dl id="primary-nav" class="nav">
+<dt>Primary Navigation</dt>
+<dd class="pn-an first"><a href="/about_nyit/">About</a></dd>
+<dd class="pn-ad"><a href="/admissions/">Admissions</a></dd>
+<dd class="pn-ac"><a href="/academics/">Academics</a></dd>
+<dd class="pn-cl"><a href="/campus_life/">Life @ NYIT</a></dd>
+<dd class="pn-at"><a href="/athletics/">Athletics</a></dd>
+<dd class="pn-cs"><a href="/career_services/">Career Services</a></dd>
+<dd class="pn-gn"><a href="/giving_to_nyit/">Giving</a></dd>
+<dd class="pn-nw"><a href="/nyit_worldwide/">NYIT Worldwide</a></dd>
+<dd class="pn-mn"><a href="http://my.nyit.edu">My NYIT</a></dd>
+</dl>
+</div>
+</div>
+
+<!-- <div id="subnavfooter" style="z-index:99999;">
+    <a href="javascript:void(0);" id="subnavfooterclose">Close [X]</a>
+    <div class="container"> 
+        <div class="list"> 
+            <dl class="first"> 
+                <dt>Useful Links</dt> 
+                <dd><a href="/directory/">NYIT Directory</a></dd> 
+                <dd><a href="/visit/">Visit Us</a></dd> 
+                <dd><a href="/about_nyit/contact/">Contact Us</a></dd> 
+                <dd><a href="/service_central/">Service Central</a></dd> 
+                <dd><a href="/ssc/">Student Solutions Center</a></dd>
+            </dl> 
+        </div> 
+        <div class="list"> 
+            <dl class="first"> 
+                <dt>Schools and Colleges</dt> 
+                <dd><a href="/architecture/">Architecture and Design</a></dd> 
+                <dd><a href="/arts_and_sciences/">Arts and Sciences</a></dd> 
+                <dd><a href="/education/">Education</a></dd> 
+                <dd><a href="/engineering/">Engineering and Computing Sciences</a></dd> 
+                <dd><a href="/health_professions/">Health Professions</a></dd> 
+                <dd><a href="/management/">Management</a></dd> 
+                <dd><a href="/nycom/">Osteopathic Medicine (NYCOM)</a></dd> 
+            </dl> 
+        </div> 
+        <div class="list"> 
+            <dl class="first"> 
+                <dt>Resources</dt> 
+                <dd><a href="/apply/">Apply to NYIT</a></dd> 
+                <dd><a href="/human_resources/careers/">Work at NYIT</a></dd> 
+                <dd><a href="/giving_to_nyit/">Give to NYIT</a></dd> 
+                <dd><a href="/ask/kb/">Ask NYIT</a></dd> 
+                <dd><a href="/library/">Libraries</a></dd> 
+                <dd><a href="/about_nyit/news/">News</a></dd> 
+                <dd><a href="/calendar/">Events</a></dd> 
+                <dd><a href="/alerts/">Emergency Alerts</a></dd> 
+            </dl> 
+        </div> 
+        <div class="list"> 
+            <dl class="first"> 
+                <dt>NYIT Worldwide</dt> 
+                <dd><a href="/new_york/">New York</a></dd> 
+                <dd><a href="/bahrain/">Bahrain</a></dd> 
+                <dd><a href="/canada/">Canada</a></dd> 
+                <dd><a href="/china/">China</a></dd> 
+                <dd><a href="/jordan/">Jordan</a></dd> 
+                <dd><a href="/united_arab_emirates/">United Arab Emirates</a></dd> 
+                <dd><a href="/nyit_online/">NYIT Online</a></dd> 
+            </dl> 
+        </div> 
+        <div class="list"> 
+            <dl class="first" style="display:inline-block; zoom:1; *display:inline; _height:auto;"> 
+                <dt>Follow Us</dt>                 
+                <dd style="width:100px;"><a href="http://www.facebook.com/mynyit/">
+                    <img src="http://www.nyit.edu/images/global/facebook-18x18.png" width="15" height="15" border="0" style="float:left;"> &nbsp; Facebook</a>
+                </dd> 
+                <dd style="width:100px;"><a href="http://www.youtube.com/user/nyitview">
+                    <img src="http://www.nyit.edu/images/global/youtube-18x18.png" width="15" height="15" border="0" style="float:left;"> &nbsp; YouTube</a>
+                </dd> 
+                <dd style="width:100px;"><a href="http://www.twitter.com/nyit/">
+                    <img src="http://www.nyit.edu/images/global/twitter-18x18.png" width="15" height="15" border="0" style="float:left;"> &nbsp; Twitter</a>
+                </dd>
+                <dd style="width:100px;">&nbsp;</dd>
+            </dl> 
+            <dl style="display:inline-block; zoom:1; *display:inline; _height:auto;">
+                <dd><a href="/profiles/">Profiles</a></dd>
+                <dd><a href="/videos/">Videos</a></dd>
+                <dd><a href="/photos/">Photos</a></dd>
+                <dd><a href="/blogs/">Blogs</a></dd>
+            </dl>
+            <dl> 
+                <dt>Catering and Conference Facilities </dt> 
+                <dd><a href="/deseversky/">NYIT de Seversky Mansion</a></dd> 
+                <dd><a href="/aob/">NYIT Auditorium on Broadway</a></dd> 
+            </dl> 
+        </div> 
+    </div> 
+<br />
+</div> is a global variable that contains the pop-over quick links div layer -->
+<div id="subnavfooter" style="z-index:99999;">
+    <a href="javascript:void(0);" id="subnavfooterclose">Close [X]</a>
+    <div class="container"> 
+        <div class="list"> 
+            <dl class="first"> 
+                <dt>Useful Links</dt> 
+                <dd><a href="/directory/">NYIT Directory</a></dd> 
+                <dd><a href="/visit/">Visit Us</a></dd> 
+                <dd><a href="/about_nyit/contact/">Contact Us</a></dd> 
+                <dd><a href="/service_central/">Service Central</a></dd> 
+                <dd><a href="/ssc/">Student Solutions Center</a></dd>
+            </dl> 
+        </div> 
+        <div class="list"> 
+            <dl class="first"> 
+                <dt>Schools and Colleges</dt> 
+                <dd><a href="/architecture/">Architecture and Design</a></dd> 
+                <dd><a href="/arts_and_sciences/">Arts and Sciences</a></dd> 
+                <dd><a href="/education/">Education</a></dd> 
+                <dd><a href="/engineering/">Engineering and Computing Sciences</a></dd> 
+                <dd><a href="/health_professions/">Health Professions</a></dd> 
+                <dd><a href="/management/">Management</a></dd> 
+                <dd><a href="/nycom/">Osteopathic Medicine (NYCOM)</a></dd> 
+            </dl> 
+        </div> 
+        <div class="list"> 
+            <dl class="first"> 
+                <dt>Resources</dt> 
+                <dd><a href="/apply/">Apply to NYIT</a></dd> 
+                <dd><a href="/human_resources/careers/">Work at NYIT</a></dd> 
+                <dd><a href="/giving_to_nyit/">Give to NYIT</a></dd> 
+                <dd><a href="/ask/kb/">Ask NYIT</a></dd> 
+                <dd><a href="/library/">Libraries</a></dd> 
+                <dd><a href="/about_nyit/news/">News</a></dd> 
+                <dd><a href="/calendar/">Events</a></dd> 
+                <dd><a href="/alerts/">Emergency Alerts</a></dd> 
+            </dl> 
+        </div> 
+        <div class="list"> 
+            <dl class="first"> 
+                <dt>NYIT Worldwide</dt> 
+                <dd><a href="/new_york/">New York</a></dd> 
+                <dd><a href="/bahrain/">Bahrain</a></dd> 
+                <dd><a href="/canada/">Canada</a></dd> 
+                <dd><a href="/china/">China</a></dd> 
+                <dd><a href="/jordan/">Jordan</a></dd> 
+                <dd><a href="/united_arab_emirates/">United Arab Emirates</a></dd> 
+                <dd><a href="/nyit_online/">NYIT Online</a></dd> 
+            </dl> 
+        </div> 
+        <div class="list"> 
+            <dl class="first" style="display:inline-block; zoom:1; *display:inline; _height:auto;"> 
+                <dt>Follow Us</dt>                 
+                <dd style="width:100px;"><a href="http://www.facebook.com/mynyit/">
+                    <img src="http://www.nyit.edu/images/global/facebook-18x18.png" width="15" height="15" border="0" style="float:left;"> &nbsp; Facebook</a>
+                </dd> 
+                <dd style="width:100px;"><a href="http://www.youtube.com/user/nyitview">
+                    <img src="http://www.nyit.edu/images/global/youtube-18x18.png" width="15" height="15" border="0" style="float:left;"> &nbsp; YouTube</a>
+                </dd> 
+                <dd style="width:100px;"><a href="http://www.twitter.com/nyit/">
+                    <img src="http://www.nyit.edu/images/global/twitter-18x18.png" width="15" height="15" border="0" style="float:left;"> &nbsp; Twitter</a>
+                </dd>
+                <dd style="width:100px;">&nbsp;</dd>
+            </dl> 
+            <dl style="display:inline-block; zoom:1; *display:inline; _height:auto;">
+                <dd><a href="/profiles/">Profiles</a></dd>
+                <dd><a href="/videos/">Videos</a></dd>
+                <dd><a href="/photos/">Photos</a></dd>
+                <dd><a href="/blogs/">Blogs</a></dd>
+            </dl>
+            <dl> 
+                <dt>Catering and Conference Facilities </dt> 
+                <dd><a href="/deseversky/">NYIT de Seversky Mansion</a></dd> 
+                <dd><a href="/aob/">NYIT Auditorium on Broadway</a></dd> 
+            </dl> 
+        </div> 
+    </div> 
+<br />
+</div>
+
+
+<div class="content pad"><!-- CONTENT PAD START -->
+
+            <!-- ============================================================================================================================================== -->
+            <!-- =================================================== LEFT ===================================================================================== -->
+            <!-- ============================================================================================================================================== -->
+
+            <div class="col cl"> <!-- left hand sidebar  -->
+                       
+            <!-- navigation module -->
+                    <dl id="left-nav" class="l-nav">
+            <dd>
+            	<a href="/calendar/" class="l-nav-parent-first" >
+                	Calendar                </a>
+            </dd>
+        </dl>
+                <dl id="left-nav" class="l-nav">
+            <dd>
+            	<a href="/calendar/" class="" >
+                	Featured Events                </a>
+            </dd>
+        </dl>
+                <dl id="left-nav" class="l-nav">
+            <dd>
+            	<a href="http://www.nyit.edu/index.php/calendar/events_today/" class="" >
+                	Today's Events                </a>
+            </dd>
+        </dl>
+                <dl id="left-nav" class="l-nav">
+            <dd>
+            	<a href="http://www.nyit.edu/index.php/calendar/events_week/" class="" style="color:#333;">
+                	This Week's Events                </a>
+            </dd>
+        </dl>
+                <dl id="left-nav" class="l-nav">
+            <dd>
+            	<a href="/academics/academic_calendar/" class="" >
+                	Academic Calendar                </a>
+            </dd>
+        </dl>
+                <dl id="left-nav" class="l-nav">
+            <dd>
+            	<a href="/conferences/" class="l-nav-child-last" >
+                	Conferences                </a>
+            </dd>
+        </dl>
+         
+            
+            <br />
+            
+                <div class="mod m-links text-mod text-mod">
+            	<div class="title">All Events</div>
+            	
+				<div style="padding:7px;">
+					<table class="mini-cal" border="0" width="100%" cellspacing="0" cellpadding="0" align="center">
+							<tr align="center" valign="top">
+								<th>
+                                    <a title="previous" href="http://www.nyit.edu/index.php/calendar/events_date/2012/09/">
+                                    <img src="/images/modules/mini-cal/arrow-left-14.png" alt="previous" width="14" height="14" />
+                                    </a>
+                                </th>
+								<th colspan="5"><a href="/index.php/calendar/events_date/2012/10/00/">October 2012</a></th>
+								<th>
+                                    <a title="next" href="http://www.nyit.edu/index.php/calendar/events_date/2012/11/">
+                                    <img src="/images/modules/mini-cal/arrow-right-14.png" alt="next" width="14" height="14" />
+                                    </a>
+                                </th>
+							</tr>
+							<tr>
+
+							
+
+							<td class='calendarBlank'>30</td>
+
+							<td class='calendarCell' align='center'>1</td>
+
+							
+
+							<td class='calendarCell' align='center'>2</td>
+
+							
+
+							<td class='calendarCell' align='center'>3</td>
+
+							
+
+							<td class='calendarCell' align='center'>4</td>
+
+							
+
+							<td class='calendarCell' align='center'>5</td>
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/06/">6</a></td>
+
+							
+
+							</tr><tr><td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/07/">7</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/08/">8</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/09/">9</a></td>
+
+							
+
+							
+
+							<td class='calendarCell' align='center'>10</td>
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/11/">11</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/12/">12</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/13/">13</a></td>
+
+							
+
+							</tr><tr><td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/14/">14</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/15/">15</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/16/">16</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/17/">17</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/18/">18</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/19/">19</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/20/">20</a></td>
+
+							
+
+							</tr><tr><td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/21/">21</a></td>
+
+							
+
+							<td class='calendarToday' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/22/">22</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/23/">23</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/24/">24</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/25/">25</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/26/">26</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/27/">27</a></td>
+
+							
+
+							</tr><tr><td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/28/">28</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/29/">29</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/30/">30</a></td>
+
+							
+
+							<td class='calendarCell' align='center'><a href="http://www.nyit.edu/index.php/calendar/events_date/2012/10/31/">31</a></td>
+
+							
+
+							
+
+							
+
+							<td class='calendarBlank'>1</td>
+
+							
+
+							<td class='calendarBlank'>2</td>
+
+							
+
+							<td class='calendarBlank'>3</td></tr>
+					</table>
+                </div>
+			    
+                <div class="status"></div>
+            </div>
+                       
+            </div> <!-- left hand sidebar  -->
+            
+            <!-- ============================================================================================================================================== -->
+            <!-- =================================================== MIDDLE (WIDE)============================================================================= -->
+            <!-- ============================================================================================================================================== -->
+
+            <div class="col cm-wide"> <!-- middle column (wide) -->
+
+            <div class="mod text-mod m-events">
+                <div class="title">This Week's Events</div>
+                <div id="filter">
+                    <select name="campus" id="campus">
+                        <option value="All">All Locations</option>
+                        
+																						<option value="Manhattan">Manhattan</option>
+							                        
+																						<option value="Old Westbury">Old Westbury</option>
+							                        
+																						<option value="Central Islip">Central Islip</option>
+							                        
+																						<option value="Abu Dhabi">Abu Dhabi</option>
+							                        
+																						<option value="Amman">Amman</option>
+							                        
+																						<option value="Bahrain">Bahrain</option>
+							                        
+																						<option value="Nanjing">Nanjing</option>
+							                        
+																						<option value="NYIT-JUFE">NYIT-JUFE</option>
+							                        
+																						<option value="NYIT-Tongji">NYIT-Tongji</option>
+							                        
+																						<option value="Vancouver">Vancouver</option>
+							                        
+																						<option value="Other">Other</option>
+							                        
+                    </select>
+                    <select name="type" id="type">
+                        <option value="All">All Event Types</option>
+                        
+																						<option value="About NYIT">About NYIT</option>
+							                        
+																						<option value="Academics">Academics</option>
+							                        
+																						<option value="Admissions">Admissions</option>
+							                        
+																						<option value="Alumni">Alumni</option>
+							                        
+																						<option value="Architecture and Interior Design">Architecture and Interior Design</option>
+							                        
+																						<option value="Arts and Sciences">Arts and Sciences</option>
+							                        
+																						<option value="Athletics">Athletics</option>
+							                        
+																						<option value="Baseball">Baseball</option>
+							                        
+																						<option value="Campus Life">Campus Life</option>
+							                        
+																						<option value="Career Services">Career Services</option>
+							                        
+																						<option value="Cross Country">Cross Country</option>
+							                        
+																						<option value="Education">Education</option>
+							                        
+																						<option value="Engineering and Computing Sciences">Engineering and Computing Sciences</option>
+							                        
+																						<option value="Giving to NYIT">Giving to NYIT</option>
+							                        
+																						<option value="Health Professions">Health Professions</option>
+							                        
+																						<option value="Lacrosse">Lacrosse</option>
+							                        
+																						<option value="Management">Management</option>
+							                        
+																						<option value="Men's Basketball">Men's Basketball</option>
+							                        
+																						<option value="Men's Soccer">Men's Soccer</option>
+							                        
+																						<option value="NYIT Worldwide">NYIT Worldwide</option>
+							                        
+																						<option value="Osteopathic Medicine (NYCOM)">Osteopathic Medicine (NYCOM)</option>
+							                        
+																						<option value="Softball">Softball</option>
+							                        
+																						<option value="Volleyball">Volleyball</option>
+							                        
+																						<option value="Women's Basketball">Women's Basketball</option>
+							                        
+																						<option value="Women's Soccer">Women's Soccer</option>
+							                        
+<option value="All"></option>
+<option value="Allied Health and Life Science Organization" >Allied Health and Life Science Organization</option>
+<option value="Alpha Phi Alpha" >Alpha Phi Alpha</option>
+<option value="Alpha Sigma Tau Sorority" >Alpha Sigma Tau Sorority</option>
+<option value="American Institute of Architecture Students" >American Institute of Architecture Students</option>
+<option value="American Medical Student Association" >American Medical Student Association</option>
+<option value="Business Club" >Business Club</option>
+<option value="Community Service Center" >Community Service Center</option>
+<option value="Cultured Couture" >Cultured Couture</option>
+<option value="Dance Club" >Dance Club</option>
+<option value="Freedom By Design" >Freedom By Design</option>
+<option value="Greek Letter Council" >Greek Letter Council</option>
+<option value="International Students Association" >International Students Association</option>
+<option value="National Organization of Minority Architecture Students" >National Organization of Minority Architecture Students</option>
+<option value="National Society of Blacks Engineers" >National Society of Blacks Engineers</option>
+<option value="Performing Arts Club" >Performing Arts Club</option>
+<option value="Phi Iota Alpha" >Phi Iota Alpha</option>
+<option value="Public Relations Club" >Public Relations Club</option>
+<option value="Self Defense Club" >Self Defense Club</option>
+<option value="Sikh Student Association" >Sikh Student Association</option>
+<option value="Society of Hosteurs" >Society of Hosteurs</option>
+<option value="Student Activities Manhattan" >Student Activities Manhattan</option>
+<option value="Student Government Association" >Student Government Association</option>
+<option value="Student Programming Association" >Student Programming Association</option>
+<option value="Students Working to Achieve Greatness" >Students Working to Achieve Greatness</option>
+<option value="Students Working to Advance Technology" >Students Working to Advance Technology</option>
+<option value="Tau Kappa Epsilon" >Tau Kappa Epsilon</option>
+<option value="Veterans Club" >Veterans Club</option>
+                    </select>
+                    <input class="submit" name="submit" id="submit" type="button" value="View Events" />
+                </div>
+                <div id="event_results" style="padding:10px;">
+                    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tr>
+        <td rowspan="3" valign="top" style="width:110px; height:110px; background-color:#FFFFFF;">
+            <a href="http://www.nyit.edu/index.php/calendar/details/conversation_with_budd_burton_moss_his_hollywood_friends">
+                            <img src="http://www.nyit.edu/images/uploads/calendar/budd_2012_film_fest.jpg" width="100" height="100" border="0" />
+                            </a>
+        </td>
+        <td valign="top" style="background-color:#FFFFFF;"><span class="eventheader"><a href="http://www.nyit.edu/index.php/calendar/details/conversation_with_budd_burton_moss_his_hollywood_friends">Conversation with Budd Burton Moss & his Hollywood Friends</a></span><!--&nbsp;<strong>Time: {calendar_time}</strong>--></td>
+    </tr>
+    <tr>
+        <td class="eventdate" style="background-color:#FFFFFF;">Oct 22, 2012 <br />6:30 p.m. </td>
+    </tr>
+    <tr>
+        <td class="eventinfo" style="background-color:#FFFFFF;">
+        From the back stages of Broadway through the end of the old movie studio casting system; all the way up to present-day cutthroat agency deal making and the creation of reality shows, this is a true insider’s view of the entertainment industry and a        <a href="http://www.nyit.edu/index.php/calendar/details/conversation_with_budd_burton_moss_his_hollywood_friends"> ...more</a>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+        <tr>
+        <td rowspan="3" valign="top" style="width:110px; height:110px; background-color:#E7E7E7;">
+            <a href="http://www.nyit.edu/index.php/calendar/details/american_culture_club_meeting3">
+                            <img src="http://www.nyit.edu/images/uploads/calendar/NYIT-NUPT_200x_2.jpg" width="100" height="100" border="0" />
+                            </a>
+        </td>
+        <td valign="top" style="background-color:#E7E7E7;"><span class="eventheader"><a href="http://www.nyit.edu/index.php/calendar/details/american_culture_club_meeting3">American Culture Club Meeting</a></span><!--&nbsp;<strong>Time: {calendar_time}</strong>--></td>
+    </tr>
+    <tr>
+        <td class="eventdate" style="background-color:#E7E7E7;">Oct 22, 2012 <br />6:30-8 p.m.</td>
+    </tr>
+    <tr>
+        <td class="eventinfo" style="background-color:#E7E7E7;">
+        The meeting's theme is dating in America. The guest speaker is Dave Anderson from Southeast University.        <a href="http://www.nyit.edu/index.php/calendar/details/american_culture_club_meeting3"> ...more</a>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+        <tr>
+        <td rowspan="3" valign="top" style="width:110px; height:110px; background-color:#FFFFFF;">
+            <a href="http://www.nyit.edu/index.php/calendar/details/why_should_i_hire_you">
+                            <img src="http://www.nyit.edu/images/uploads/calendar/career-services-200_3_5_142.png" width="100" height="100" border="0" />
+                            </a>
+        </td>
+        <td valign="top" style="background-color:#FFFFFF;"><span class="eventheader"><a href="http://www.nyit.edu/index.php/calendar/details/why_should_i_hire_you">Why Should I Hire You?</a></span><!--&nbsp;<strong>Time: {calendar_time}</strong>--></td>
+    </tr>
+    <tr>
+        <td class="eventdate" style="background-color:#FFFFFF;">Oct 23, 2012 <br />4 - 5 p.m.</td>
+    </tr>
+    <tr>
+        <td class="eventinfo" style="background-color:#FFFFFF;">
+        Perfecting the art of interviewing will be discussed and practiced during this workshop. Every participant will receive a set of interview cards to practice with and keep for future use.        <a href="http://www.nyit.edu/index.php/calendar/details/why_should_i_hire_you"> ...more</a>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+        <tr>
+        <td rowspan="3" valign="top" style="width:110px; height:110px; background-color:#E7E7E7;">
+            <a href="http://www.nyit.edu/index.php/calendar/details/face_aids_meet_todd_murray1">
+                            <img src="http://www.nyit.edu/images/uploads/calendar/111026_Anna_Rubin_Hall_200x200_5.jpg" width="100" height="100" border="0" />
+                            </a>
+        </td>
+        <td valign="top" style="background-color:#E7E7E7;"><span class="eventheader"><a href="http://www.nyit.edu/index.php/calendar/details/face_aids_meet_todd_murray1">FACE AIDS - Meet Todd Murray</a></span><!--&nbsp;<strong>Time: {calendar_time}</strong>--></td>
+    </tr>
+    <tr>
+        <td class="eventdate" style="background-color:#E7E7E7;">Oct 23, 2012 <br />12:45-2:10 p.m.</td>
+    </tr>
+    <tr>
+        <td class="eventinfo" style="background-color:#E7E7E7;">
+        Join NYIT's first-year experience mentors for an event to raise awareness of AIDS. Meet Todd Murray, the founder of Hope's Voice and an AIDS awareness advocate. Food will be served. Seating is limited; reserve your spot ahead of time. <a href="http:/        <a href="http://www.nyit.edu/index.php/calendar/details/face_aids_meet_todd_murray1"> ...more</a>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+        <tr>
+        <td rowspan="3" valign="top" style="width:110px; height:110px; background-color:#FFFFFF;">
+            <a href="http://www.nyit.edu/index.php/calendar/details/alcohol_jeopardy_alcohol_screenings">
+                            <img src="http://www.nyit.edu/images/uploads/calendar/nyit-square-200.png" width="100" height="100" border="0"  />
+                            </a>
+        </td>
+        <td valign="top" style="background-color:#FFFFFF;"><span class="eventheader"><a href="http://www.nyit.edu/index.php/calendar/details/alcohol_jeopardy_alcohol_screenings">Alcohol Jeopardy & Alcohol Screenings</a></span><!--&nbsp;<strong>Time: {calendar_time}</strong>--></td>
+    </tr>
+    <tr>
+        <td class="eventdate" style="background-color:#FFFFFF;">Oct 23, 2012 <br />12:45pm-2:00pm</td>
+    </tr>
+    <tr>
+        <td class="eventinfo" style="background-color:#FFFFFF;">
+        Come play Jeopardy and learn about alcohol use and abuse.  Get screened for your own alcohol consumption.  Free Refreshments.        <a href="http://www.nyit.edu/index.php/calendar/details/alcohol_jeopardy_alcohol_screenings"> ...more</a>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+        <tr>
+        <td rowspan="3" valign="top" style="width:110px; height:110px; background-color:#E7E7E7;">
+            <a href="http://www.nyit.edu/index.php/calendar/details/conflict_resolution_tools_strategies_to_erase_the_tension_from_group_work">
+                            <img src="http://www.nyit.edu/images/uploads/calendar/IzeldeVanJ_-_Copy_2.jpg" width="100" height="100" border="0" />
+                            </a>
+        </td>
+        <td valign="top" style="background-color:#E7E7E7;"><span class="eventheader"><a href="http://www.nyit.edu/index.php/calendar/details/conflict_resolution_tools_strategies_to_erase_the_tension_from_group_work">Conflict Resolution: Tools & Strategies to Erase the Tension from Group Work</a></span><!--&nbsp;<strong>Time: {calendar_time}</strong>--></td>
+    </tr>
+    <tr>
+        <td class="eventdate" style="background-color:#E7E7E7;">Oct 23, 2012 <br />12:30pm-2:30pm</td>
+    </tr>
+    <tr>
+        <td class="eventinfo" style="background-color:#E7E7E7;">
+        Conflict Resolution: Tools & Strategies to Erase the Tension from Group Work        <a href="http://www.nyit.edu/index.php/calendar/details/conflict_resolution_tools_strategies_to_erase_the_tension_from_group_work"> ...more</a>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+        <tr>
+        <td rowspan="3" valign="top" style="width:110px; height:110px; background-color:#FFFFFF;">
+            <a href="http://www.nyit.edu/index.php/calendar/details/volleyball_molloy_02">
+                            <img src="http://www.nyit.edu/images/uploads/calendar/CA-vb-cable-200x200_31.jpg" width="100" height="100" border="0" />
+                            </a>
+        </td>
+        <td valign="top" style="background-color:#FFFFFF;"><span class="eventheader"><a href="http://www.nyit.edu/index.php/calendar/details/volleyball_molloy_02">Volleyball vs. Molloy</a></span><!--&nbsp;<strong>Time: {calendar_time}</strong>--></td>
+    </tr>
+    <tr>
+        <td class="eventdate" style="background-color:#FFFFFF;">Oct 24, 2012 <br />7 p.m.</td>
+    </tr>
+    <tr>
+        <td class="eventinfo" style="background-color:#FFFFFF;">
+        NYIT Volleyball hosts Molloy in East Coast Conference action on Tuesday, Oct. 23. First serve is scheduled for 7 p.m. at Recreation Hall.        <a href="http://www.nyit.edu/index.php/calendar/details/volleyball_molloy_02"> ...more</a>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+        <tr>
+        <td rowspan="3" valign="top" style="width:110px; height:110px; background-color:#E7E7E7;">
+            <a href="http://www.nyit.edu/index.php/calendar/details/career_fair_2012">
+                            <img src="http://www.nyit.edu/images/uploads/calendar/career-services-200_3_5_138.png" width="100" height="100" border="0" />
+                            </a>
+        </td>
+        <td valign="top" style="background-color:#E7E7E7;"><span class="eventheader"><a href="http://www.nyit.edu/index.php/calendar/details/career_fair_2012">Career Fair 2012</a></span><!--&nbsp;<strong>Time: {calendar_time}</strong>--></td>
+    </tr>
+    <tr>
+        <td class="eventdate" style="background-color:#E7E7E7;">Oct 24, 2012 <br />9 a.m. - 3 p.m.</td>
+    </tr>
+    <tr>
+        <td class="eventinfo" style="background-color:#E7E7E7;">
+        From entry-level to experienced, employment opportunities for every level can be found at this job fair. This is an off-campus event taking place at Hofstra University, David. S. Mack Sports & Exhibition Complex. Bring multiple copies of your resume         <a href="http://www.nyit.edu/index.php/calendar/details/career_fair_2012"> ...more</a>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+        <tr>
+        <td rowspan="3" valign="top" style="width:110px; height:110px; background-color:#FFFFFF;">
+            <a href="http://www.nyit.edu/index.php/calendar/details/tea_talks_on_career_development_with_jasjit">
+                            <img src="http://www.nyit.edu/images/uploads/calendar/career_2.png" width="100" height="100" border="0" />
+                            </a>
+        </td>
+        <td valign="top" style="background-color:#FFFFFF;"><span class="eventheader"><a href="http://www.nyit.edu/index.php/calendar/details/tea_talks_on_career_development_with_jasjit">"Tea Talks" on Career Development with Jasjit</a></span><!--&nbsp;<strong>Time: {calendar_time}</strong>--></td>
+    </tr>
+    <tr>
+        <td class="eventdate" style="background-color:#FFFFFF;">Oct 24, 2012 <br />2:00pm-3:00pm</td>
+    </tr>
+    <tr>
+        <td class="eventinfo" style="background-color:#FFFFFF;">
+        This is a time you can drop in at the career Centre to ask questions and have an informal discussion about your career development.        <a href="http://www.nyit.edu/index.php/calendar/details/tea_talks_on_career_development_with_jasjit"> ...more</a>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+        <tr>
+        <td rowspan="3" valign="top" style="width:110px; height:110px; background-color:#E7E7E7;">
+            <a href="http://www.nyit.edu/index.php/calendar/details/microsoft_is_hiring">
+                            <img src="http://www.nyit.edu/images/uploads/calendar/microsoft_small.jpg" width="100" height="100" border="0" />
+                            </a>
+        </td>
+        <td valign="top" style="background-color:#E7E7E7;"><span class="eventheader"><a href="http://www.nyit.edu/index.php/calendar/details/microsoft_is_hiring">Microsoft is Hiring!</a></span><!--&nbsp;<strong>Time: {calendar_time}</strong>--></td>
+    </tr>
+    <tr>
+        <td class="eventdate" style="background-color:#E7E7E7;">Oct 24, 2012 <br />6 - 7 p.m.</td>
+    </tr>
+    <tr>
+        <td class="eventinfo" style="background-color:#E7E7E7;">
+        Microsoft is recruiting at NYIT. They are looking for software developers to fill full-time and internship positions. To attend the event you must <a href="http://surveys.myinterfase.com/TakeSurvey.aspx?SurveyID=885J9786" title="RSVP here">RSVP here<        <a href="http://www.nyit.edu/index.php/calendar/details/microsoft_is_hiring"> ...more</a>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+                        </table>
+                </div>
+            </div>
+            <div class="status">
+            			<span class="normal">
+			<span style="color:#000;">Page 1 of 3</span> &nbsp;  &nbsp; 
+									<strong>
+						<a href="http://www.nyit.edu/index.php/calendar/events_week/1" style="color:#000;">1</a>&nbsp;
+						</strong>
+												<strong>
+						<a href="http://www.nyit.edu/index.php/calendar/events_week/2">2</a>&nbsp;
+						</strong>
+												<strong>
+						<a href="http://www.nyit.edu/index.php/calendar/events_week/3">3</a>&nbsp;
+						</strong>
+						                     &nbsp; <a href="http://www.nyit.edu/index.php/calendar/events_week/3">Last >></a>
+            </span>
+                        </div>
+
+            </div><!-- middle column (wide) -->
+            
+            <!-- ============================================================================================================================================== -->
+            <!-- =================================================== END ====================================================================================== -->
+            <!-- ============================================================================================================================================== -->
+
+</div><!-- CONTENT PAD END -->
+
+			<div id="footer"> 
+				<div class="container"> 
+					<div class="list"> 
+						<dl class="first"> 
+							<dt>Useful Links</dt> 
+							<dd><a href="/directory/">NYIT Directory</a></dd> 
+							<dd><a href="/visit/">Visit Us</a></dd> 
+							<dd><a href="/about_nyit/contact/">Contact Us</a></dd> 
+							<dd><a href="/service_central/">Service Central</a></dd> 
+							<dd><a href="/about_nyit/terms_and_conditions/">Terms and Conditions</a></dd> 
+							<dd><a href="/about_nyit/site_map/">Site Map</a></dd> 
+						</dl> 
+						<div class="copyright">&copy; 2012 <br>New York Institute of Technology </div> 
+					</div> 
+					<div class="list"> 
+						<dl class="first"> 
+							<dt>Schools and Colleges</dt> 
+							<dd><a href="/architecture/">Architecture and Design</a></dd> 
+							<dd><a href="/arts_and_sciences/">Arts and Sciences</a></dd> 
+							<dd><a href="/education/">Education</a></dd> 
+							<dd><a href="/engineering/">Engineering and Computing Sciences</a></dd> 
+							<dd><a href="/health_professions/">Health Professions</a></dd> 
+							<dd><a href="/management/">Management</a></dd> 
+							<dd><a href="/nycom/">Osteopathic Medicine (NYCOM)</a></dd> 
+						</dl> 
+					</div> 
+					<div class="list"> 
+						<dl class="first"> 
+							<dt>Resources</dt> 
+							<dd><a href="/apply/">Apply to NYIT</a></dd> 
+							<dd><a href="/human_resources/careers/">Work at NYIT</a></dd> 
+							<dd><a href="/giving_to_nyit/">Give to NYIT</a></dd> 
+							<dd><a href="/ask/kb/">Ask NYIT</a></dd> 
+							<dd><a href="/library/">Libraries</a></dd> 
+							<dd><a href="/about_nyit/news/">News</a></dd> 
+							<dd><a href="/calendar/">Events</a></dd> 
+							<dd><a href="/alerts/">Emergency Alerts</a></dd> 
+						</dl> 
+					</div> 
+					<div class="list"> 
+						<dl class="first"> 
+							<dt>NYIT Worldwide</dt> 
+							<dd><a href="/new_york/">New York</a></dd> 
+							<dd><a href="/bahrain/">Bahrain</a></dd> 
+							<dd><a href="/canada/">Canada</a></dd> 
+							<dd><a href="/china/">China</a></dd> 
+							<dd><a href="/jordan/">Jordan</a></dd> 
+							<dd><a href="/united_arab_emirates/">United Arab Emirates</a></dd> 
+							<dd><a href="/nyit_online/">NYIT Online</a></dd> 
+						</dl> 
+					</div> 
+					<div class="list"> 
+						<dl class="first"> 
+							<dt>Social Media</dt> 
+							<dd><a href="http://www.facebook.com/mynyit/">Follow NYIT on Facebook</a></dd> 
+							<dd><a href="http://www.youtube.com/user/nyitview">Follow NYIT on YouTube</a></dd> 
+							<dd><a href="http://www.twitter.com/nyit/">Follow NYIT on Twitter</a></dd> 
+						</dl> 
+						<dl> 
+							<dt>Catering and Conference Facilities </dt> 
+							<dd><a href="/deseversky/">NYIT de Seversky Mansion</a></dd> 
+							<dd><a href="/aob/">NYIT Auditorium on Broadway</a></dd> 
+						</dl> 
+					</div> 
+				</div> 
+			</div> 
+</div> <!-- end wrapper (opened in masthead) -->

@@ -1,0 +1,363 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="DESCRIPTION" CONTENT="2010 International Conference on Communication Technology">
+<META NAME="keywords" CONTENT="IEEE,International,Conference,Communication,Technology"> 
+<META HTTP-EQUIV="Window-target" CONTENT="_top">
+<title>icct2010</title>
+<link href="inc/style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style4 {
+	font-size: 16px;
+	font-weight: bold;
+}
+.style6 {font-size: 18px}
+.style7 {font-size: 14px}
+.style16 {
+	font-size: 24px;
+	font-weight: bold;
+	color: #330099;
+}
+.title{
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 25px;
+	COLOR: #2F4792;
+	BORDER-BOTTOM: #ddd 1px dashed;
+	FONT-FAMILY: Arial, Helvetica;
+	line-height:35px;
+}
+.title2{
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 18px;
+	COLOR: #000;
+	BORDER-BOTTOM: #ddd 1px dashed;
+	FONT-FAMILY: Arial, Helvetica;
+	line-height:35px;
+}
+.title3{
+	background-color:#3399FF;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 18px;
+	COLOR: #FFFFCC;
+	BORDER-BOTTOM: #ddd 1px dashed;
+	FONT-FAMILY: Arial, Helvetica;
+	line-height:30px;
+}
+.content{
+PADDING-LEFT:8px;PADDING-RIGHT: 5px;line-height:20px;FONT-SIZE: 12px; PADDING-TOP: 5px; PADDING-BOTTOM: 2px; BORDER-BOTTOM: #ddd 1px dashed;BORDER-LEFT: #ddd 1px dashed
+}
+.reg{
+	line-height:20px;
+	COLOR: #666;
+	BACKGROUND-COLOR: #FFF;
+	border-right-width: 1px;
+	border-right-style: dotted;
+	border-right-color: #EAEAEA;
+	padding: 0px;
+	height:416px;
+}
+.contact{
+line-height:20px;PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; BORDER-LEFT: #0fa000 5px solid; COLOR: #666; PADDING-TOP: 0px; BACKGROUND-COLOR: #ffccff
+}
+.downloads{
+	line-height:20px;
+	BACKGROUND-COLOR: #FFF;
+	border-right-width: 1px;
+	border-right-style: dotted;
+	border-right-color: #EAEAEA;
+	padding: 0px;
+	height:271px;
+}
+#down div {PADDING:1px}
+#down div a{BORDER-BOTTOM: #000666 1px dashed}
+-->
+</style>
+<script language="javascript">
+<!--
+function Validator()
+{
+  var em=document.loginform.email.value;
+  var ps=document.loginform.password.value;
+  if(em=="")
+  {
+     alert("Please input your email.");
+	 return false;
+  }
+  /*
+  if(ps.length<4)
+  {
+    alert("Please check your password.");
+	return false;
+  }*/
+  var re=/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+	if (!em.match(re)) 
+	{
+		alert("Invalid e-mail!");  
+		return false;
+	}
+	return true;
+}
+-->
+</script>
+<SCRIPT language=JavaScript>   
+  <!--   Begin   
+ /* var   xPos   =   20;   
+  var   yPos   =   document.body.clientHeight;   
+  var   step   =   1;   
+  var   delay   =   30;     
+  var   height   =   0;   
+  var   Hoffset   =   0;   
+  var   Woffset   =   0;   
+  var   yon   =   0;   
+  var   xon   =   0;   
+  var   pause   =   true;   
+  var   interval;   
+  img.style.top   =   yPos;   
+  function   changePos()   {   
+  width   =   document.body.clientWidth;   
+  height   =   document.body.clientHeight;   
+  Hoffset   =   img.offsetHeight;   
+  Woffset   =   img.offsetWidth;   
+  img.style.left   =   xPos   +   document.body.scrollLeft;   
+  img.style.top   =   yPos   +   document.body.scrollTop;   
+  if   (yon)   {   
+  yPos   =   yPos   +   step;   
+  }   
+  else   {   
+  yPos   =   yPos   -   step;   
+  }   
+  if   (yPos   <   0)   {   
+  yon   =   1;   
+  yPos   =   0;   
+  }   
+  if   (yPos   >=   (height   -   Hoffset))   {   
+  yon   =   0;   
+  yPos   =   (height   -   Hoffset);   
+  }   
+  if   (xon)   {   
+  xPos   =   xPos   +   step;   
+  }   
+  else   {   
+  xPos   =   xPos   -   step;   
+  }   
+  if   (xPos   <   0)   {   
+  xon   =   1;   
+  xPos   =   0;   
+  }   
+  if   (xPos   >=   (width   -   Woffset))   {   
+  xon   =   0;   
+  xPos   =   (width   -   Woffset);   
+        }   
+  }   
+  function   start()   {   
+  img.visibility   =   "visible";   
+  interval   =   setInterval('changePos()',   delay);   
+  }   
+  function   pause_resume()   {   
+  if(pause)   {   
+  clearInterval(interval);   
+  pause   =   false;   
+  }   
+  else   {   
+  interval   =   setInterval('changePos()',delay);   
+  pause   =   true;   
+        }   
+  }   
+  start();  */ 
+  //     End   -->   
+  </SCRIPT>
+</head>
+<body>
+<!--悬浮图片,重要通知时用!
+<DIV id=img style="POSITION: absolute">
+<A href="#" target=_blank><IMG onclick=pause_resume(); src="images.jpg"></A>
+</DIV>
+-->
+
+<form name="loginform" action="user/deallogin.php" method="post" onSubmit="return Validator()">
+<table width="1024"  border="0" cellspacing="0" cellpadding="0" align="center"> 
+  <tr>
+    <td valign="top"  background="/icct2010/images/logo/logo_right.jpg"><div ><img src="/icct2010/images/logo/logo_800.jpg"></div></td>
+  </tr>
+  <!--<tr bgcolor="#00CCFF">
+    <td height="1" valign="top" bgcolor="#FFBB77"> </td>   
+  </tr>  -->
+</table><table width="1024"  border="0" align="center" cellpadding="0" cellspacing="0"> 
+	<tr>
+	<style type="text/css">
+.navi_wrap {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 0px; PADDING-BOTTOM: 3px; MARGIN-LEFT: 5px; PADDING-TOP: 0px;
+}
+#leftBar .main_navi {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 0px; PADDING-TOP: 0px;
+}
+#leftBar .main_navi A {
+	PADDING-RIGHT: 15px; DISPLAY: block; FONT-WEIGHT: bold; MARGIN: 0 3px 0 3px; COLOR: #FFFFFF; LINE-HEIGHT: 30px; BORDER-BOTTOM: #666666 1px solid; HEIGHT: 30px; TEXT-ALIGN: left; text-indent:1em
+}
+#leftBar .sec_navi A {
+	PADDING-RIGHT: 15px; DISPLAY: block; FONT-WEIGHT: bold; MARGIN: 0px; COLOR: #000; LINE-HEIGHT: 30px; BORDER-BOTTOM: #d9e3ae 1px solid; HEIGHT: 30px; TEXT-ALIGN: right
+}
+#leftBar .hide A {
+	PADDING-RIGHT: 15px; DISPLAY: block; FONT-WEIGHT: bold; MARGIN: 0px; COLOR: #000; LINE-HEIGHT: 30px; BORDER-BOTTOM: #d9e3ae 1px solid; HEIGHT: 30px; TEXT-ALIGN: right
+}
+#leftBar A:hover {
+	COLOR: #ff0000;
+	BACKGROUND-COLOR: #FFFFCC;
+}
+#leftBar .sec_navi A {
+	PADDING-LEFT: 15px; FONT-WEIGHT: normal; MARGIN-LEFT: 0px
+}
+#leftBar .hide A {
+	PADDING-LEFT: 15px; FONT-WEIGHT: normal; MARGIN-LEFT: 0px
+}
+#leftBar .hide {
+	DISPLAY: none
+}
+#leftBar a{
+	font-size: 14px;
+	font-weight: bold;
+}
+</style>
+<td width="214" valign="top" bgcolor="#5594DB">	  
+<DIV id=leftBar>
+<DIV class=navi_wrap>
+<UL class=main_navi>
+  <A class=fir href="/icct2010/index.php">Home</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/news.php">News</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=About ICCT">About ICCT</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Committee">Committee</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Call For Papers">Call For Papers</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Keynote Speakers">Keynote Speakers</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Student Paper Contest">Student Paper Contest</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/user/login.php">Paper Submission</A>
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=reviewing">Paper Review</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Registration">Registration</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Technical Program">Technical Program</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Venue">Venue</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Transportation">Transportation</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Hotel">Hotel</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Exhibition">Exhibition</A> 
+  <UL class=sec_navi></UL>
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Nanjing">Nanjing</A> 
+  <UL class=sec_navi></UL>
+  <A class=fir href="/icct2010/conference/html.php?title=Contact us">Contact us</A> 
+  </LI></UL></DIV></DIV>
+  <DIV align=right style="paddi10g-right:0px">
+  
+  </DIV>
+</td>
+    <td width="1" align="left" valign="top" bgcolor="#cccccc"></td>
+
+
+
+
+		<td align="left" valign="top">
+			<table width="809" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="575" align="center" valign="top">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#E6FFFF" class="left_part">
+							<tr>
+								<td align="center" valign="top" class="title">Welcome</td>
+							</tr>
+							<tr>
+								<td align="center" valign="middle" class="content">
+								<div>
+								<P dir=ltr align=left 0px>&nbsp;&nbsp;&nbsp; <STRONG><FONT color=#0000cc>IEEE ICCT2010</FONT></STRONG> will be held in Nanjing, China on <STRONG><FONT color=#cc0066>November 11-14, 2010</FONT></STRONG>. <STRONG><FONT color=#0000cc #ffffff>IEEE ICCT</FONT></STRONG> is a biennial conference series, focusing on both theory and applications mainly covering the topic of communication technology. In addition to the technical sessions, there will be invited sessions, tutorials and keynote addresses. <BR>&nbsp;&nbsp;&nbsp; The 2010 conference will be Co-sponsored by <U>IEEE Beijing Section</U>,&nbsp; <U>IEEE Nanjing Section</U> and&nbsp; <U>Nanjing University of Posts and Telecommunications</U> and technically co-sponsored by <U>Institution of Engineering and Technology(IET)</U>, <U>Chinese Institute of Electronics (CIE),China Institute of Communications (CIC),</U>&nbsp; <STRONG><FONT color=#ff0066>All papers accepted will be included in IEEE Xplore and indexed by EI Compendex.</FONT></STRONG></P>							  </div></td>
+							</tr>
+							<tr>
+								<td align="center" valign="bottom" class="title">Important Dates</td>
+							</tr>
+							<tr>
+								<td valign="top" class="content">
+								<P><STRONG><FONT color=#ff0066>Paper Submission Deadline:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Extended to 31 August, 2010</FONT></STRONG> <BR><BR>Notification of Review Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=#ff3366><STRONG>Extended to&nbsp;</STRONG>&nbsp;<STRONG>26 September, 2010</STRONG></FONT><FONT color=#cc6666> <BR></FONT><BR>Final Manuscripts Due:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=#ff3366><STRONG>Extended to&nbsp;</STRONG>&nbsp;<STRONG>10 Oct, 2010</STRONG></FONT><FONT color=#cc6666> </FONT></P></td>
+							</tr>
+							<tr>
+								<td align="center" valign="bottom" class="title">Latest News</td>
+							</tr>
+							<tr>
+								<td height="283" valign="top" class="content">
+								<table width=100%><tr><td width=50% height='25'><img src='images/d1.gif'>&nbsp;<a href='conference/news.php?id=26' style='font-size:15px'>ICCT 2010 Program  is available now!</a></td><td width=50% align=right>2010-10-28</td></tr></table><table width=100%><tr><td width=50% height='25'><img src='images/d2.gif'>&nbsp;<a href='conference/news.php?id=25' style='font-size:15px'>ICCT2010 Registration deadline has been extended to Nov.5th</a></td><td width=50% align=right>2010-10-25</td></tr></table><table width=100%><tr><td width=50% height='25'><img src='images/d3.gif'>&nbsp;<a href='conference/news.php?id=24' style='font-size:15px'>ICCT2010 Registration is OPEN</a></td><td width=50% align=right>2010-10-10</td></tr></table><table width=100%><tr><td width=50% height='25'><img src='images/d4.gif'>&nbsp;<a href='conference/news.php?id=23' style='font-size:15px'>Welcome to icct2010!</a></td><td width=50% align=right>2009-12-07</td></tr></table>		<div align="right"><a href="conference/news.php">More News.....</a></div></td>
+							</tr>
+					  </table>				  </td>
+					<td width="4" align="center" bgcolor="#999999"></td>
+					<td width="230" height="281" align="center" valign="top">
+					<div class="reg" style="height:416px;overflow-x:hidden;overflow-y:hidden">
+						<div class="title3">Sponsors</div>
+					  <p><img src="images/logo/ieee54.gif"  class="log_fig"><br>
+					      <br>
+				          <img src="images/logo/iet-logo.gif"><br>
+					    <br>
+					    <img src="images/logo/CIC.bmp"  class="log_fig"><br>
+						<br>
+						<img src="images/logo/CIT.bmp"  class="log_fig">					  </p>
+					</div>
+					  <div class=downloads>
+    <div id=down>
+      <div class='title3'>Downloads</div>
+	<div align='left' style='padding-left:1em;padding-top:10px'>
+	  <div><img src='images/BD14832_.GIF'>Call for Papers&nbsp;(<a href='downloads/call_for_papers_icct2010.pdf'><img src='images/pdf.gif' border='0'></a>)</div> 
+<!--	  <div><img src='images/BD14832_.GIF'>Call for Papers&nbsp;(<img src='images/pdf.gif' border='0'>)</div>
+-->	  <div><img src='images/BD14832_.GIF'>Paper Templates (<a href='downloads/IEEExplore_Compatible_Template.doc'><img src='images/word.gif'  border='0'></a>)</div>
+	  <div><img src='images/BD14832_.GIF'>Paper Samplems (<a href='downloads/IEEExplore_Compatible_Samplems.pdf'><img src='images/pdf.gif' border='0'></a>)</div>
+<!--	  <div><img src='images/BD14832_.GIF'>IEEE PDF creation Guides:<br>
+	  <span style='padding-left:5em'>Simplified</span>&nbsp;(<a href='downloads/Author-PDF-Guide-V32-WIN.pdf'><img src='images/pdf.gif' border='0'></a>)
+	  <br><span style='padding-left:5em'>Detailed</span>&nbsp;(<a href='downloads/IEEE-PDF-SpecV32.pdf'><img src='images/pdf.gif' border='0'></a>)</div>
+-->	  <div><img src='images/BD14832_.GIF'>IEEE Copyright Form (<a href='downloads/IEEE_Copyright_Form.pdf'><img src='images/pdf.gif' border='0'></a> <a href='downloads/IEEE_Copyright_Form.doc'><img src='images/word.gif' border='0'></a>)
+	</div>
+      </div>
+    </div>
+  </div>
+ 
+<!--   
+					<div class=downloads>
+						<div id=down>
+						<div class="title2">Downloads</div>
+						<div>Call for Papers</div>
+						<div><a href="downloads/call_for_papers.pdf"><img src="images/pdf.gif" border="0"></a></div>
+						<div>Paper Templates</div>
+						<div><a href="downloads/IEEExplore_Compatible_Template.doc"><img src="images/doc.gif" width="80" height="15" border="0"></a></div>
+						<div>Paper Samplems</div>
+						<div><a href="downloads/IEEExplore_Compatible_Samplems.pdf"> <img src="images/pdf.gif" border="0"></a></div>
+						<div>Guides on how to create IEEE Xplore® compatible PDF files<br>
+						<a href="downloads/Author-PDF-Guide-V32-WIN.pdf"><img src="images/pdf.gif" border="0">Simplified</a><br><a href="downloads/IEEE-PDF-SpecV32.pdf"><img src="images/pdf.gif" border="0">Detailed</a></div>
+						<div>IEEE Copyright Form</div>
+						<div><a href="downloads/IEEE_Copyright_Form.pdf"><img src="images/pdf.gif" border="0"></a> <a href="downloads/IEEE_Copyright_Form.doc"><img src="images/doc.gif" width="80" height="15" border="0"></a></div>
+						</div>
+					</div>
+-->				  </td>
+				</tr>
+		  </table>
+		</td>
+	</tr>
+</table>
+<table width="1024"  border="0" cellspacing="0" cellpadding="0" align="center"> 
+  <tr bgcolor="#999999">
+    <td height="2" ></td>
+  </tr>
+  <tr bgcolor="#aaaaaa">
+    <td height="2"><img src="images/space.gif" width="200" height="1"></td> 
+  </tr>
+  <tr bgcolor="#003399">
+    <td height="33" bgcolor="#0066FF" class="downwords">&nbsp;&nbsp;&nbsp;&nbsp;<span class="style1">Recommended resolution: 1280*1024</span></td>
+  </tr>
+</table>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,1253 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<title>
+		扬州广陵教育在线</title>
+	<link href="../inc/style.css" rel="stylesheet" type="text/css" />
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link href="index.css" rel="stylesheet" type="text/css" />
+	<!--[if IE 6]><link href="ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+</head>
+
+
+
+
+
+<style type="text/css">
+img{border:0;}
+    .style1
+    {
+        z-index: 5;
+    }
+
+body {
+	cursor: auto;
+}
+</style>
+
+
+
+<!--首页漂浮：开始-->
+
+<SCRIPT type=text/javascript>
+function addEvent(obj,evtType,func,cap){
+    cap=cap||false;
+if(obj.addEventListener){
+     obj.addEventListener(evtType,func,cap);
+   return true;
+}else if(obj.attachEvent){
+        if(cap){
+         obj.setCapture();
+         return true;
+     }else{
+      return obj.attachEvent("on" + evtType,func);
+   }
+}else{
+   return false;
+    }
+}
+function getPageScroll(){
+    var xScroll,yScroll;
+if (self.pageXOffset) {
+   xScroll = self.pageXOffset;
+} else if (document.documentElement && document.documentElement.scrollLeft){
+   xScroll = document.documentElement.scrollLeft;
+} else if (document.body) {
+   xScroll = document.body.scrollLeft;
+}
+if (self.pageYOffset) {
+   yScroll = self.pageYOffset;
+} else if (document.documentElement && document.documentElement.scrollTop){
+   yScroll = document.documentElement.scrollTop;
+} else if (document.body) {
+   yScroll = document.body.scrollTop;
+}
+arrayPageScroll = new Array(xScroll,yScroll);
+return arrayPageScroll;
+}
+function GetPageSize(){
+    var xScroll, yScroll;
+    if (window.innerHeight && window.scrollMaxY) { 
+        xScroll = document.body.scrollWidth;
+        yScroll = window.innerHeight + window.scrollMaxY;
+    } else if (document.body.scrollHeight > document.body.offsetHeight){
+        xScroll = document.body.scrollWidth;
+        yScroll = document.body.scrollHeight;
+    } else {
+        xScroll = document.body.offsetWidth;
+        yScroll = document.body.offsetHeight;
+    }
+    var windowWidth, windowHeight;
+    if (self.innerHeight) {
+        windowWidth = self.innerWidth;
+        windowHeight = self.innerHeight;
+    } else if (document.documentElement && document.documentElement.clientHeight) {
+        windowWidth = document.documentElement.clientWidth;
+        windowHeight = document.documentElement.clientHeight;
+    } else if (document.body) {
+        windowWidth = document.body.clientWidth;
+        windowHeight = document.body.clientHeight;
+    } 
+    if(yScroll < windowHeight){
+        pageHeight = windowHeight;
+    } else { 
+        pageHeight = yScroll;
+    }
+    if(xScroll < windowWidth){ 
+        pageWidth = windowWidth;
+    } else {
+        pageWidth = xScroll;
+    }
+    arrayPageSize = new Array(pageWidth,pageHeight,windowWidth,windowHeight) 
+    return arrayPageSize;
+}
+//广告脚本文件 AdMove.js
+/*
+例子
+<div id="Div2">
+    ***** content ******
+</div>
+var ad=new AdMove("Div2");
+ad.Run();
+*/
+var AdMoveConfig=new Object();
+AdMoveConfig.IsInitialized=false;
+AdMoveConfig.ScrollX=0;
+AdMoveConfig.ScrollY=0;
+AdMoveConfig.MoveWidth=0;
+AdMoveConfig.MoveHeight=0;
+AdMoveConfig.Resize=function(){
+    var winsize=GetPageSize();
+    AdMoveConfig.MoveWidth=winsize[2];
+    AdMoveConfig.MoveHeight=winsize[3];
+    AdMoveConfig.Scroll();
+}
+AdMoveConfig.Scroll=function(){
+    var winscroll=getPageScroll();
+    AdMoveConfig.ScrollX=winscroll[0];
+    AdMoveConfig.ScrollY=winscroll[1];
+}
+addEvent(window,"resize",AdMoveConfig.Resize);
+addEvent(window,"scroll",AdMoveConfig.Scroll);
+function AdMove(id){
+    if(!AdMoveConfig.IsInitialized){
+        AdMoveConfig.Resize();
+        AdMoveConfig.IsInitialized=true;
+    }
+    var obj=document.getElementById(id);
+    obj.style.position="absolute";
+    var W=AdMoveConfig.MoveWidth-obj.offsetWidth;
+    var H=AdMoveConfig.MoveHeight-obj.offsetHeight;
+    var x = W*Math.random(),y = H*Math.random();
+    var rad=(Math.random()+1)*Math.PI/6;
+    var kx=Math.sin(rad),ky=Math.cos(rad);
+    var dirx = (Math.random()<0.5?1:-1), diry = (Math.random()<0.5?1:-1);
+    var step = 1;
+    var interval;
+    this.SetLocation=function(vx,vy){x=vx;y=vy;}
+    this.SetDirection=function(vx,vy){dirx=vx;diry=vy;}
+    obj.CustomMethod=function(){
+        obj.style.left = (x + AdMoveConfig.ScrollX) + "px";
+        obj.style.top = (y + AdMoveConfig.ScrollY) + "px";
+        rad=(Math.random()+1)*Math.PI/6;
+        W=AdMoveConfig.MoveWidth-obj.offsetWidth;
+        H=AdMoveConfig.MoveHeight-obj.offsetHeight;
+        x = x + step*kx*dirx;
+        if (x < 0){dirx = 1;x = 0;kx=Math.sin(rad);ky=Math.cos(rad);} 
+        if (x > W){dirx = -1;x = W;kx=Math.sin(rad);ky=Math.cos(rad);}
+        y = y + step*ky*diry;
+        if (y < 0){diry = 1;y = 0;kx=Math.sin(rad);ky=Math.cos(rad);} 
+        if (y > H){diry = -1;y = H;kx=Math.sin(rad);ky=Math.cos(rad);}
+    }
+    this.Run=function(){
+        var delay = 10;
+        interval=setInterval(obj.CustomMethod,delay);
+        obj.onmouseover=function(){clearInterval(interval);}
+        obj.onmouseout=function(){interval=setInterval(obj.CustomMethod, delay);}
+    }
+}
+</SCRIPT>
+<DIV id=ad1 style="Z-INDEX: 5">
+
+
+
+<A href="http://www.ydfx.com/zysy" target=_blank>
+    <IMG src="http://www.gljy.com.cn/web/images/zn_02.jpg" 
+        title="投票"></A>
+
+</DIV>
+
+<SCRIPT type=text/javascript><!--
+        var ad1=new AdMove("ad1");
+        ad1.Run();
+  //可兼容多组漂浮
+  //var ad1=new AdMove("ad2");
+        //ad2.Run();
+    //-->
+</SCRIPT>
+
+<!--首页漂浮：结束-->
+
+
+
+
+
+
+<body >
+	<script type="text/javascript" src="../inc/jquery.js"></script>
+<script type="text/javascript" src="../inc/float.js"></script>
+<script type="text/javascript" src="../inc/common.js"></script>
+<div id="floatpic" style="display: none;">
+</div>
+<div id="leftstatic">
+</div>
+<div id="rightstatic">
+</div>
+<center>
+
+
+	<div class="pagewidth">
+		<div id="topbar">
+			<div class="left">
+				
+				内部办公登录：用户名 <input type="text" class="edit" id="userid" name="userid" size="12" />&nbsp;&nbsp;
+				密码 <input type="password" class="edit" id="pwd" name="pwd" size="12" />&nbsp;&nbsp;
+				验证码 <input type="password" class="edit" id="code" name="code" size="12" /> <input type="button" class="button" value="  登 录  " />
+				
+			</div>
+			<div class="right">
+				&nbsp;<span id="homepage" class="normal hand">设为首页</span>&nbsp;
+				&nbsp;<span id="favorate" class="normal hand">加为收藏</span>&nbsp;
+				&nbsp;<a href="http://www.gljy.com.cn/web/detail.asp?id=617" target="_blank" class="normal hand">常用电话</a>&nbsp;
+				&nbsp;<a href="http://www.yzjxt.cn" target="_blank" class="normal hand">家校e通</a>&nbsp;
+			&nbsp;
+				&nbsp;&nbsp;
+			</div>
+		</div>
+		<div id="topbanner">
+<div class="flash">
+<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj1" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" width="500" height="96">
+			<param name="movie" value="images/banner.swf">
+			<param name="quality" value="High">
+			<param name="wmode" value="transparent">
+			<embed src="images/banner.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj1" width="500" height="96" quality="High" wmode="transparent"></object>
+</div>
+</div>
+		<div id="mainmenu">
+			<div id="index">首页</div>
+			<div id="8">教育行政</div>
+			<div id="9">教育党建</div>
+			<div id="50">教育督导</div>
+			<div id="49">教育研究</div>
+			<div id="235">教师之窗</div>
+			<div id="11">学生天地</div>
+			<div id="12">公众参与</div>
+		</div>
+	</div>
+</center>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var url = location.href, obj = $("#mainmenu div"), num = 0;
+		url = url.substring(url.lastIndexOf("/") + 1);
+		num = parseInt("")
+		if (url.indexOf("index") >= 0 || url == "")
+			num = 0;
+		obj.click(function () {
+			url = $(this).attr("id");
+			if (url.indexOf("index") < 0 && url != "")
+				url = "home.asp?typeid=" + url;
+			else
+				url += ".asp";
+			location = url;
+		}).eq(num).css("background", "url(images/4.jpg) no-repeat").css("line-height", "42px");
+
+/*		var contentimgs = $("div[id='content'][class='detail'] img");
+		for (var i = 0; i < contentimgs.length; i++) {
+			var imgwidth = contentimgs.eq(i).attr("width");
+			contentimgs.eq(i).attr("width", imgwidth > 700 ? "700" : imgwidth);
+		}
+*/
+		$("div[id='content'][class='detail'] img").load(function(){
+			obj=$(this);
+			var imgwidth=parseInt(obj.attr("width"));
+			obj.attr("width",imgwidth>700?700:imgwidth);
+		});
+		
+		$("#linkbar div").mouseover(function () {
+			obj = $(this);
+			var index = $("#linkbar div").index(obj);
+
+			$("#linkbar div").css("line-height", "35px").css("color", "#FFFFFF").css("background", "url(images/8.jpg) no-repeat");
+			obj.css("color", "#333333").css("line-height", "40px").css("background", "url(images/9.jpg) no-repeat");
+			$("#links").children().css("display", "none").eq(index).css("display", "");
+		}).eq(0).css("color", "#333333").css("line-height", "40px").css("background", "url(images/9.jpg) no-repeat");
+		$("#links").children().eq(0).css("display", "");
+
+		$("#newsleft #title div[class!='right']").mouseover(function () {
+			obj = $(this);
+			$("#newsleft #title div[class!='right']").css("background", "url(images/11.jpg)");
+			obj.css("background", "url(images/12.jpg)");
+			$("#newsleft ul[id='list']").css("display", "none").eq($("#newsleft #title div[class!='right']").index(obj)).css("display", "");
+		}).eq(0).css("background", "url(images/12.jpg)");
+
+		$("#newsleft ul[id='list']").eq(0).css("display", "");
+
+		$("#newsright #title div").mouseover(function () {
+			obj = $(this);
+			$("#newsright #title div").css("background", "url(images/13.jpg)").css("color", "#FFFFFF").css("border", "solid 1px #5bc8f1");
+			obj.css("background", "url(images/14.jpg)").css("color", "#333333").css("border", "solid 1px #F58E01");
+			$("#newsright ul[id='list']").css("display", "none").eq($("#newsright #title div").index(obj)).css("display", "");
+		}).eq(0).css("background", "url(images/14.jpg)").css("border", "solid 1px #F58E01").css("color", "#000000");
+
+		$("#newsright ul[id='list']").eq(0).css("display", "");
+
+		$("#politicsframe div[id='button']").mouseover(function () {
+			obj = $(this);
+			$("#politicsframe div[id='button']").css("background", "url(images/15.jpg) repeat-x").css("border", "solid 1px #5CABD6");
+			obj.css("background", "url(images/14.jpg) repeat-x").css("border", "solid 1px #F58E01");
+
+			var index = $("#politicsframe div[id='button']").index(obj);
+			$("#politicsframe #rightframe #content").children().css("display", "none").eq(index).css("display", "");
+		}).eq(0).css("background", "url(images/14.jpg) repeat-x").css("border", "solid 1px #F58E01");
+
+		$("#publicframe div[id='button']").click(function () {
+			obj = $(this);
+			$("#publicframe div[id='button']").css("background", "url(images/15.jpg) repeat-x").css("border", "solid 1px #5CABD6");
+			obj.css("background", "url(images/14.jpg) repeat-x").css("border", "solid 1px #F58E01");
+
+			var index = $("#publicframe div[id='button']").index(obj);
+			$("#publicframe #listframe").children().css("display", "none").eq(index).css("display", "");
+		}).eq(0).css("background", "url(images/14.jpg) repeat-x").css("border", "solid 1px #F58E01");
+
+
+		obj = $("div[id=''][class*='item']");
+		$.getJSON("catalog.asp", { "id": "", "now": (new Date()).toString() }, function (data) {
+			if (data.length > 0) {
+				var temp = '';
+				for (var i = 0; i < data.length; i++)
+					temp += '<div id="' + data[i]["id"] + '" class="hand"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;&nbsp;' + unescape(data[i]["name"]) + '</div>';
+				obj.removeClass("item").addClass("itemon").next("div[id='sub']").css("border", "solid 1px #f08e2b").css("border-top", "0").html(temp).children("div").click(function () { location = "list.asp?typeid=" + $(this).attr("id"); }).css("display", "");
+			}
+		});
+
+		$("#side #catalog .item").click(function () {
+			obj = $(this);
+			$("#side #catalog .itemon").removeClass("itemon").addClass("item").next("div").html("").css("border", "0");
+			var id = obj.attr("id");
+			if (id == "17")
+				location = "../cms/main.asp";
+
+			if (parseInt(id)) {
+				obj.removeClass("item").addClass("itemon");
+
+				$.getJSON("catalog.asp", { "id": id, "now": (new Date).toString() }, function (data) {
+					if (data.length > 0) {
+						var temp = '';
+						for (var i = 0; i < data.length; i++)
+							temp += '<div id="' + data[i]["id"] + '" class="hand"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;&nbsp;' + unescape(data[i]["name"]) + '</div>';
+						obj.next("div").css("border", "solid 1px #f08e2b").css("border-top", "0").html(temp).children("div").click(function () { location = "list.asp?typeid=" + $(this).attr("id"); });
+					}
+					else
+						location = "list.asp?typeid=" + id;
+				});
+			}
+			else {
+				if (id == "home")
+					location = "home.asp?typeid=";
+				else
+					location = id + ".asp";
+			}
+		});
+
+		$("#close").click(function () {
+			window.opener = null;
+			window.open('', "_self");
+			window.close();
+		});
+
+		$("input[value*='提 交']").click(function () {
+			var obj = $(this), title = $("input[id='title']").val(), username = $("input[id='username']").val(), note = $("textarea[id='note']").val(), category = $("select[id='category'] option:selected").val();
+			obj.attr("disabled", true);
+			if (title != '' && username != '' && note != '') {
+				$.post("submit.asp", { "title": escape(title), "username": escape(username), "note": escape(note), "typeid": category, "now": (new Date()).toString() }, function (data) {
+					if (data == "ok") {
+						alert('您的已建议成功提交，谢谢您的参与！');
+						$("input[id='title']").val("");
+						$("input[id='username']").val("");
+						$("textarea[id='note']").val("");
+					}
+					else
+						alert('出现未知错误，请稍候再试！');
+					obj.attr("disabled", false);
+				});
+			}
+			else {
+				alert('必填项没有填写完整！');
+				obj.attr("disabled", false);
+			}
+		});
+
+		$("input[value*='登 录']").click(function () {
+			obj = $(this).parent();
+			var userid = obj.children("input[id='userid']").val(), pwd = obj.children("input[id='pwd']").val(), code = obj.children("input[id='code']").val();
+			if (userid != '' && pwd != '') {
+				$.post("login.asp", { "userid": escape(userid), "pwd": pwd, "code": code, "now": (new Date()).toString() }, function (data) {
+					if (data == "ok") {
+						var temp = '', now = new Date(), dayofweek = '日,一,二,三,四,五,六'.split(',');
+						temp += '<img alt="" src="../inc/icon.gif" align="absmiddle" />&nbsp;&nbsp;内部办公登录：<hr />';
+						temp += '欢迎您，' + userid + '，今天是' + now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日，星期' + dayofweek[now.getDay()] + '<br /><a href="list.asp?typeid=19" class="orange">点击这里开始办公</a>&nbsp;&nbsp;<a href="quit.asp" class="gray">退出</a>';
+						$("#loginframe").html(temp);
+
+						temp = '欢迎您，' + userid + '，今天是' + now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日，星期' + dayofweek[now.getDay()] + '&nbsp;&nbsp;<a href="quit.asp" class="normal">[退出]</a>';
+						$("#topbar").children("div[class='left']").html(temp);
+
+						var file = location.href;
+						file = file.substring(file.lastIndexOf("/") + 1);
+						if (file.indexOf("detail.asp") >= 0)
+							history.go(0);
+					}
+				});
+			}
+		});
+
+		$("input[value*='搜 索']").click(function () {
+			obj = $(this);
+			var key = obj.prevAll("input[type='text']").val();
+			location = "search.asp?key=" + escape(key);
+		});
+
+		$("span:contains('本记录还未签收，点击这里签收')").click(function () {
+			obj = $(this);
+			$.post("setcheck.asp", { "id": obj.attr("id"), "now": (new Date()).toString() }, function (data) {
+				if (data == "ok")
+					history.go(0);
+			});
+		});
+
+		$("input[id='key']").focus(function () { $(this).val(""); });
+
+
+		$("#homepage").click(function () {
+			document.body.style.behavior = 'url(#default#homepage)';
+			document.body.setHomePage('www.gljy.com.cn');
+		});
+
+		$("#favorate").click(function () {
+			window.external.addFavorite('www.gljy.com.cn', '欢迎光临 扬州广陵区教育局');
+		});
+
+		setvote();
+		showfloat();
+		showstatic();
+	});
+</script>
+
+	<center>
+
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+    
+    <img src="images/dwjszt.gif" alt="广陵区教育系统队伍建设专题" width="1000" height="220" border="0" usemap="#Map0" /></td>
+  </tr>
+</table>
+
+<map name="Map0" id="Map0">
+  <area shape="rect" coords="65, 122, 205, 187" 
+        href="http://www.gljy.com.cn/web/ztjy_home.asp?typeid=264" target="_blank" />
+  <area shape="rect" coords="254, 124, 394, 188" 
+        href="http://blog.sohu.com/people/!MTA3NDM1NjE4OEBxcS5jb20=" 
+        target="_blank" />
+  <area shape="rect" coords="446, 124, 587, 188" 
+        href="http://hi.baidu.com/gljyhbgb/home" target="_blank" />
+</map>
+
+
+
+		<div class="pagewidth">
+			<div class="left">
+				<div id="newsleft">
+					<div id="title">
+						<div>区内要闻</div><div>学校快讯</div><div>科室动态</div><div>各地信息</div>
+						<div class="right">
+							<a href="home.asp?typeid=13" class="small gray">更多 ...&nbsp;</a>
+						</div>
+					</div>
+					
+					<ul id="list" class="clear" style="display: none;">
+						<li><a title="文档标题：广陵区教育局隆重举行首届教科研表彰大会暨程红兵先生教育思想报告会&#10;点击次数：151&#10;更新时间：2012-10-21 下午 03:33:50" href="detail.asp?id=20396" target="_blank" class="normal orange">广陵区教育局隆重举行首届教科研表彰大会暨程红兵...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：广陵区组织开展“政协委员看教育”专题活动&#10;点击次数：166&#10;更新时间：2012-10-19 下午 04:53:46" href="detail.asp?id=20367" target="_blank" class="normal orange">广陵区组织开展“政协委员看教育”专题活动</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：喜   报——我区学生荣获第十届宋庆龄奖学金&#10;点击次数：281&#10;更新时间：2012-10-15 下午 03:23:00" href="detail.asp?id=20220" target="_blank" class="normal orange">喜   报——我区学生荣获第十届宋庆龄奖学金</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：广陵教育接受社会各界评议&#10;点击次数：361&#10;更新时间：2012-10-11 下午 12:19:32" href="detail.asp?id=20087" target="_blank" class="normal orange">广陵教育接受社会各界评议</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：百年正谊书院新颜亮相&#10;点击次数：377&#10;更新时间：2012-10-10 上午 09:48:38" href="detail.asp?id=19989" target="_blank" class="normal orange">百年正谊书院新颜亮相</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：省委宣传部王明珠副主任前来视察正谊书院&#10;点击次数：349&#10;更新时间：2012-10-10 上午 08:59:47" href="detail.asp?id=19984" target="_blank" class="normal orange">省委宣传部王明珠副主任前来视察正谊书院</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：国学校长纪宝成再回正谊书院视察&#10;点击次数：445&#10;更新时间：2012-10-3 下午 09:23:04" href="detail.asp?id=19832" target="_blank" class="normal orange">国学校长纪宝成再回正谊书院视察</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：区教育局机关举行“庆国庆”专题学习活动&#10;点击次数：364&#10;更新时间：2012-9-29 下午 06:20:57" href="detail.asp?id=19798" target="_blank" class="normal orange">区教育局机关举行“庆国庆”专题学习活动</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li>
+					</ul>
+					
+					<ul id="list" class="clear" style="display: none;">
+						<li><span class="gray normal">[商幼]&nbsp;</span><a title="文档标题：商幼开展班级资料检查交流活动&#10;点击次数：17&#10;更新时间：2012-10-22 下午 04:47:44" href="detail.asp?id=20410" target="_blank" class="normal">商幼开展班级资料检查交流活动</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><span class="gray normal">[杭集中学]&nbsp;</span><a title="文档标题：杭集中学成为省三门球教育实验基地&#10;点击次数：12&#10;更新时间：2012-10-22 下午 04:33:34" href="detail.asp?id=20409" target="_blank" class="normal">杭集中学成为省三门球教育实验基地</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><span class="gray normal">[沙口]&nbsp;</span><a title="文档标题：沙口小学聘请专家来校讲学&#10;点击次数：22&#10;更新时间：2012-10-22 下午 03:43:31" href="detail.asp?id=20403" target="_blank" class="normal">沙口小学聘请专家来校讲学</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><span class="gray normal">[李典学校]&nbsp;</span><a title="文档标题：李典学校开展黑板报展评活动&#10;点击次数：33&#10;更新时间：2012-10-22 下午 01:57:57" href="detail.asp?id=20398" target="_blank" class="normal">李典学校开展黑板报展评活动</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><span class="gray normal">[解放桥]&nbsp;</span><a title="文档标题：解放桥小学邀请退休教师开展重阳节活动&#10;点击次数：35&#10;更新时间：2012-10-22 下午 12:02:13" href="detail.asp?id=20394" target="_blank" class="normal">解放桥小学邀请退休教师开展重阳节活动</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><span class="gray normal">[育实幼]&nbsp;</span><a title="文档标题：育才实验幼儿园开展亲子游系列活动&#10;点击次数：37&#10;更新时间：2012-10-22 上午 09:19:16" href="detail.asp?id=20386" target="_blank" class="normal">育才实验幼儿园开展亲子游系列活动</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><span class="gray normal">[红桥小学]&nbsp;</span><a title="文档标题：红桥小学——举行重阳节老教师联谊活动&#10;点击次数：131&#10;更新时间：2012-10-22 上午 09:15:07" href="detail.asp?id=20383" target="_blank" class="normal green">红桥小学——举行重阳节老教师联谊活动</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[霍桥学校]&nbsp;</span><a title="文档标题：广陵区初中常规管理会议在霍桥学校召开&#10;点击次数：19&#10;更新时间：2012-10-22 上午 08:22:18" href="detail.asp?id=20382" target="_blank" class="normal">广陵区初中常规管理会议在霍桥学校召开</a></li>
+					</ul>
+					
+					<ul id="list" class="clear" style="display: none;">
+						<li><span class="gray normal">[基教]&nbsp;</span><a title="文档标题：关于召开初中、一贯制学校常规管理会议的通知&#10;点击次数：59&#10;更新时间：2012-10-16 下午 05:07:49" href="detail.asp?id=20276" target="_blank" class="normal">关于召开初中、一贯制学校常规管理会议的...</a></li><li><span class="gray normal">[基教]&nbsp;</span><a title="文档标题：关于在组织开展“学法律、促和谐，迎接党的十八大”主题宣传教育活动的通知&#10;点击次数：53&#10;更新时间：2012-10-16 下午 05:07:09" href="detail.asp?id=20275" target="_blank" class="normal">关于在组织开展“学法律、促和谐，迎接党...</a></li><li><span class="gray normal">[幼教]&nbsp;</span><a title="文档标题：做一片好的叶子 ——园长读后心得体会&#10;点击次数：134&#10;更新时间：2012-10-16 下午 02:48:24" href="detail.asp?id=20257" target="_blank" class="normal green">做一片好的叶子 ——园长读后心得体会</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[团委]&nbsp;</span><a title="文档标题：广陵区教育局团委举行“喜迎十八大、青年在成长”主题演讲比赛&#10;点击次数：143&#10;更新时间：2012-10-15 下午 05:43:02" href="detail.asp?id=20233" target="_blank" class="normal green">广陵区教育局团委举行“喜迎十八大、...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[基教]&nbsp;</span><a title="文档标题：红桥小学——在全省“读《伟人瞿秋白》 争当四好少年” 活动中荣获优秀组织奖&#10;点击次数：52&#10;更新时间：2012-10-15 下午 03:45:53" href="detail.asp?id=20225" target="_blank" class="normal">红桥小学——在全省“读《伟人瞿秋白》 ...</a></li><li><span class="gray normal">[社教]&nbsp;</span><a title="文档标题：我区举行社区教育教材建设研讨会&#10;点击次数：34&#10;更新时间：2012-10-15 下午 03:25:56" href="detail.asp?id=20221" target="_blank" class="normal">我区举行社区教育教材建设研讨会</a></li><li><span class="gray normal">[基教]&nbsp;</span><a title="文档标题：喜报——育才实验学校华珈同学荣获第十届宋庆龄奖学金&#10;点击次数：41&#10;更新时间：2012-10-15 上午 09:06:14" href="detail.asp?id=20180" target="_blank" class="normal">喜报——育才实验学校华珈同学荣获第十届...</a></li><li><span class="gray normal">[社教]&nbsp;</span><a title="文档标题：我区首次评选农科教结合示范基地&#10;点击次数：42&#10;更新时间：2012-10-12 下午 04:05:56" href="detail.asp?id=20142" target="_blank" class="normal">我区首次评选农科教结合示范基地</a></li>
+					</ul>
+					
+					<ul id="list" class="clear" style="display: none;">
+						<li><a title="文档标题：成都：积极创新教育圈层融合有效方式&#10;点击次数：26&#10;更新时间：2012-10-17 下午 05:23:18" href="detail.asp?id=20309" target="_blank" class="normal orange">成都：积极创新教育圈层融合有效方式</a></li><li><a title="文档标题：中国教育报：坚持以人为本全面推进素质教育&#10;点击次数：85&#10;更新时间：2012-9-25 上午 10:10:09" href="detail.asp?id=19503" target="_blank" class="normal orange">中国教育报：坚持以人为本全面推进素质教育</a></li><li><a title="文档标题：中国教育报社论：教书育人 播种未来&#10;点击次数：104&#10;更新时间：2012-9-11 下午 05:54:58" href="detail.asp?id=19153" target="_blank" class="normal orange">中国教育报社论：教书育人 播种未来</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：中国教育报：“实践育人”应确立为我国教育战略&#10;点击次数：144&#10;更新时间：2012-7-30 上午 09:56:44" href="detail.asp?id=18682" target="_blank" class="normal orange">中国教育报：“实践育人”应确立为我国教育战略</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：中国教育报：幸福中国，让学校先幸福起来&#10;点击次数：143&#10;更新时间：2012-7-30 上午 09:39:45" href="detail.asp?id=18681" target="_blank" class="normal orange">中国教育报：幸福中国，让学校先幸福起来</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：山东推进素质教育：加减得宜，把时间还给学生&#10;点击次数：124&#10;更新时间：2012-7-27 上午 09:30:59" href="detail.asp?id=18672" target="_blank" class="normal orange">山东推进素质教育：加减得宜，把时间还给学生</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：沈晓明呼吁：家长不能为了满足虚荣心而择校&#10;点击次数：119&#10;更新时间：2012-7-27 上午 09:25:22" href="detail.asp?id=18671" target="_blank" class="normal orange">沈晓明呼吁：家长不能为了满足虚荣心而择校</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：中国教育报：师德大爱触动民族灵魂&#10;点击次数：197&#10;更新时间：2012-7-19 上午 09:30:41" href="detail.asp?id=18639" target="_blank" class="normal orange">中国教育报：师德大爱触动民族灵魂</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li>
+					</ul>
+					
+				</div>
+				<div id="searchframe">
+					<img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;站内搜索&nbsp;&nbsp;<input type="text" class="edit" id="key" name="key" size="20" value="请输入搜索关键词" />
+					<input type="button" class="button" value="  搜 索  " />
+				</div>
+			</div>
+			<div id="newscenter">
+				<div id="title">
+					图片新闻</div>
+				<div class="acenter">
+					<!--新闻切换程序开始-->
+<script type="text/javascript">
+	var a = new Array(), b = new Array(), c = new Array();
+</script>
+<SCRIPT>a[0]='detail.asp?id=20396'b[0]='http://www.gljy.com.cn/uploaded/20121022124958153.JPG'c[0]='广陵区教育局隆重举行首届教科研表彰大会暨程红兵先生教育思想报告会'a[1]='detail.asp?id=19984'b[1]='http://www.gljy.com.cn/uploaded/2012101091941237.JPG'c[1]='省委宣传部王明珠副主任前来视察正谊书院'a[2]='detail.asp?id=19832'b[2]='http://www.gljy.com.cn/uploaded/2012103215727980.JPG'c[2]='国学校长纪宝成再回正谊书院视察'a[3]='detail.asp?id=19684'b[3]='http://www.gljy.com.cn/uploaded/201292817315102.JPG'c[3]='全国人大领导视察调研正谊书院'a[4]='detail.asp?id=19627'b[4]='http://www.gljy.com.cn/uploaded/201292717917744.JPG'c[4]='广陵区召开教育系统民主评议政风行风大会'</SCRIPT>
+<script type="text/javascript">
+	var focus_width = 380;
+	var focus_height = 240;
+	var text_height = 24;
+	var swf_height = focus_height + text_height;
+	var pics = b[0] + "|" + b[1] + "|" + b[2] + "|" + b[3] + "|" + b[4];
+	var links = a[0] + "|" + a[1] + "|" + a[2] + "|" + a[3] + "|" + a[4];
+	var texts = c[0] + "|" + c[1] + "|" + c[2] + "|" + c[3] + "|" + c[4];
+
+	document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="' + focus_width + '" height="' + swf_height + '">');
+	document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="../inc/pixviewer.swf"><param name="quality" value="high"><param name="bgcolor" value="#F0F0F0">');
+	document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+	document.write('<param name="FlashVars" value="pics=' + pics + '&links=' + links + '&texts=' + texts + '&borderwidth=' + focus_width + '&borderheight=' + focus_height + '&textheight=' + text_height + '">');
+	document.write('<embed src="../inc/pixviewer.swf" wmode="opaque" FlashVars="pics=' + pics + '&links=' + links + '&texts=' + texts + '&borderwidth=' + focus_width + '&borderheight=' + focus_height + '&textheight=' + text_height + '" menu="false" bgcolor="#F0F0F0" quality="high" width="' + focus_width + '" height="' + focus_height + '" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'); document.write('</object>');
+</script>
+<!--新闻切换程序结束-->
+
+				</div>
+			</div>
+			<div id="newsright">
+				<div id="title">
+					<div>
+						<a href="list.asp?typeid=22">通知公告</a></div>
+					<div>
+						<a href="list.asp?typeid=23">会议安排</a></div>
+				</div>
+				<ul id="list">
+					<li><span class="gray normal">[监察室]&nbsp;</span><a title="文档标题：关于在全区教育系统开展“校园廉洁文化活动月”的通知&#10;点击次数：65&#10;更新时间：2012-10-22 下午 05:22:33" href="detail.asp?id=20412" target="_blank" class="normal">关于在全区教育系统...</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><span class="gray normal">[教研]&nbsp;</span><a title="文档标题：关于八年级数学教研活动的通知&#10;点击次数：94&#10;更新时间：2012-10-22 下午 02:14:29" href="detail.asp?id=20399" target="_blank" class="normal">关于八年级数学教研...</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><span class="gray normal">[办公室]&nbsp;</span><a title="文档标题：关于开展“进学校、察实情、议发展、解难题”调研活动的通知&#10;点击次数：308&#10;更新时间：2012-10-22 上午 11:02:20" href="detail.asp?id=20389" target="_blank" class="normal green">关于开展“进学校、...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[教研]&nbsp;</span><a title="文档标题：关于参加中学音乐教研活动的通知&#10;点击次数：106&#10;更新时间：2012-10-22 上午 10:58:09" href="detail.asp?id=20388" target="_blank" class="normal green">关于参加中学音乐教...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[监察室]&nbsp;</span><a title="文档标题：关于开展关心下一代工作宣传活动的通知&#10;点击次数：222&#10;更新时间：2012-10-22 上午 09:44:10" href="detail.asp?id=20387" target="_blank" class="normal green">关于开展关心下一代...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[人事]&nbsp;</span><a title="文档标题：关于公布广陵区“家访案例”“家访故事”征集评选结果的通知&#10;点击次数：559&#10;更新时间：2012-10-19 下午 03:38:23" href="detail.asp?id=20358" target="_blank" class="normal green">关于公布广陵区“家...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[体卫艺]&nbsp;</span><a title="文档标题：关于2012年广陵区中小学生田径运动会开幕式彩排的通知&#10;点击次数：559&#10;更新时间：2012-10-18 下午 05:22:39" href="detail.asp?id=20341" target="_blank" class="normal green">关于2012年广陵...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[教研]&nbsp;</span><a title="文档标题：关于九年级语文教研活动的通知&#10;点击次数：171&#10;更新时间：2012-10-18 下午 03:40:39" href="detail.asp?id=20336" target="_blank" class="normal green">关于九年级语文教研...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[教研]&nbsp;</span><a title="文档标题：关于组织2012年度综合实践活动课程实施案例评比的通知&#10;点击次数：383&#10;更新时间：2012-10-18 下午 03:13:05" href="detail.asp?id=20335" target="_blank" class="normal green">关于组织2012年...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[教研]&nbsp;</span><a title="文档标题：关于育才组团开展“序列化主题教研活动”展评的通知&#10;点击次数：577&#10;更新时间：2012-10-18 上午 11:46:41" href="detail.asp?id=20333" target="_blank" class="normal green">关于育才组团开展“...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li>
+				</ul>
+				<ul id="list" style="display: none;">
+					<li><span class="gray normal">[工会]&nbsp;</span><a title="文档标题：关于召开工会主席会议的通知&#10;点击次数：218&#10;更新时间：2012-10-16 下午 03:38:26" href="detail.asp?id=20263" target="_blank" class="normal orange">关于召开工会主席会...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[工会]&nbsp;</span><a title="文档标题：关于召开工会主席会议的通知&#10;点击次数：367&#10;更新时间：2012-9-18 下午 05:13:40" href="detail.asp?id=19319" target="_blank" class="normal orange">关于召开工会主席会...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[社教]&nbsp;</span><a title="文档标题：关于举办广陵区社区教育工作者培训班的通知&#10;点击次数：543&#10;更新时间：2012-8-21 上午 11:27:24" href="detail.asp?id=18770" target="_blank" class="normal green">关于举办广陵区社区...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[人事]&nbsp;</span><a title="文档标题：关于召开教育局直属党（总）支部书记会的通知&#10;点击次数：1110&#10;更新时间：2012-6-11 上午 10:11:59" href="detail.asp?id=17998" target="_blank" class="normal green">关于召开教育局直属...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[装备]&nbsp;</span><a title="文档标题：关于举办智能机器人应用培训活动的通知&#10;点击次数：683&#10;更新时间：2012-6-11 上午 10:10:55" href="detail.asp?id=17996" target="_blank" class="normal green">关于举办智能机器人...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[社教]&nbsp;</span><a title="文档标题：关于召开区社教工作城乡协作共同体成立大会的通知&#10;点击次数：390&#10;更新时间：2012-6-6 下午 05:19:18" href="detail.asp?id=17871" target="_blank" class="normal green">关于召开区社教工作...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[装备]&nbsp;</span><a title="文档标题：关于举办我区教育技术装备管理信息系统使用教师培训班的通知&#10;点击次数：757&#10;更新时间：2012-5-21 上午 11:35:11" href="detail.asp?id=17185" target="_blank" class="normal green">关于举办我区教育技...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[工会]&nbsp;</span><a title="文档标题：关于召开工会主席会议的通知&#10;点击次数：552&#10;更新时间：2012-5-8 下午 06:03:27" href="detail.asp?id=16736" target="_blank" class="normal orange">关于召开工会主席会...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[装备]&nbsp;</span><a title="文档标题：关于举办我区新进五镇教育技术装备管理信息系统使用教师培训班的通知&#10;点击次数：766&#10;更新时间：2012-4-23 上午 11:35:04" href="detail.asp?id=16284" target="_blank" class="normal green">关于举办我区新进五...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[体卫艺]&nbsp;</span><a title="文档标题：关于召开2012年广陵区阳光体育小学生足球比赛预备会的通知&#10;点击次数：584&#10;更新时间：2012-4-11 上午 11:30:13" href="detail.asp?id=15901" target="_blank" class="normal green">关于召开2012年...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li>
+				</ul>
+			</div>
+		</div>
+	</center>
+	<center>
+		<div class="pagewidth">
+			<img alt="" src="images/16.jpg" width="1000" height="88" border="0" usemap="#Map">
+			<map name="Map">
+				<area shape="rect" coords="14,7,131,80" href="home.asp?typeid=205" target="_blank">
+				<area shape="rect" coords="298,5,418,81" href="detail.asp?id=126" target="_blank">
+				<area shape="rect" coords="158,7,276,81" href="list.asp?typeid=122" target="_blank">
+				<area shape="rect" coords="584,7,702,81" href="http://sq.gljy.com.cn">
+				<area shape="rect" coords="723,7,843,82" href="home.asp?typeid=132" target="_blank">
+				<area shape="rect" coords="867,5,987,81" href="http://218.106.98.108" target="_blank">
+				<area shape="rect" coords="441,8,560,82" href="home.asp?typeid=55" target="_blank">
+			</map>
+		</div>
+	</center>
+	<center>
+		<div class="pagewidth">
+			<div id="eduframe">
+				<div id="edusubframe">
+					<div id="title1">
+					</div>
+					<ul>
+						<li><a title="文档标题：全区综合实践活动课堂指导专题教研报道&#10;点击次数：152&#10;更新时间：2012-10-8 下午 02:12:51" href="detail.asp?id=19871" target="_blank" class="normal green">全区综合实践活动课堂指...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于我区小学英语教师参加市考题研究成果征集评比获奖的通知&#10;点击次数：872&#10;更新时间：2012-6-27 下午 04:37:00" href="detail.asp?id=18370" target="_blank" class="normal green">关于我区小学英语教师参...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：区教育局召开九年级中考二模考试质量分析会&#10;点击次数：576&#10;更新时间：2012-5-29 下午 12:46:06" href="detail.asp?id=17509" target="_blank" class="normal green">区教育局召开九年级中考...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：区部分学校三年级学业质量监测分析会成功召开&#10;点击次数：723&#10;更新时间：2012-5-22 下午 03:10:03" href="detail.asp?id=17245" target="_blank" class="normal orange">区部分学校三年级学业质...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：全区“教学副校长生本课堂展评暨序列化主题教研汇报”活动成功举办&#10;点击次数：879&#10;更新时间：2012-4-28 下午 05:20:38" href="detail.asp?id=16494" target="_blank" class="normal green">全区“教学副校长生本课...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年广陵区综合实践活动青年教师基本功比赛掠影&#10;点击次数：713&#10;更新时间：2012-4-28 下午 05:06:30" href="detail.asp?id=16493" target="_blank" class="normal green">2012年广陵区综合实...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：小学科学教研活动在扬大附小举行&#10;点击次数：397&#10;更新时间：2012-4-25 下午 05:25:11" href="detail.asp?id=16371" target="_blank" class="normal green">小学科学教研活动在扬大...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：我区初中语文在“2012年扬州市中考语文复习研讨会”上精彩亮相&#10;点击次数：531&#10;更新时间：2012-4-11 下午 03:44:50" href="detail.asp?id=15953" target="_blank" class="normal green">我区初中语文在“201...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：八年级数学同课异构教研活动情况反馈&#10;点击次数：550&#10;更新时间：2012-3-23 上午 10:16:12" href="detail.asp?id=15327" target="_blank" class="normal green">八年级数学同课异构教研...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：综合实践活动广陵组团展示与研讨活动报道&#10;点击次数：457&#10;更新时间：2012-3-21 下午 08:42:46" href="detail.asp?id=15236" target="_blank" class="normal green">综合实践活动广陵组团展...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li>
+					</ul>
+				</div>
+				<div id="edusubframe">
+					<a href="../web/home.asp?typeid=235"><div id="title2">
+					</div></a>
+					<ul>
+						<li><a title="文档标题：关于公开征集教师海外培训活动图片和文字资料的通知&#10;点击次数：100&#10;更新时间：2012-10-10 下午 02:57:04" href="detail.asp?id=20020" target="_blank" class="normal orange">关于公开征集教师海外培训活...</a></li><li><a title="文档标题：广陵区骨干教师“我的教学研究”展示评比活动&#10;点击次数：517&#10;更新时间：2012-9-26 下午 07:49:42" href="detail.asp?id=19594" target="_blank" class="normal green">广陵区骨干教师“我的教...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：汶河组团、北洲组团成功举行生本课堂教学研讨活动&#10;点击次数：227&#10;更新时间：2012-9-24 上午 10:47:51" href="detail.asp?id=19452" target="_blank" class="normal green">汶河组团、北洲组团成功...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：我的农村支教随笔&#10;点击次数：315&#10;更新时间：2012-9-20 上午 10:31:08" href="detail.asp?id=19380" target="_blank" class="normal green">我的农村支教随笔</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于举行广陵区“百千万”工程“我的教学研究”展示评比活动的通知&#10;点击次数：187&#10;更新时间：2012-9-19 上午 08:23:24" href="detail.asp?id=19328" target="_blank" class="normal green">关于举行广陵区“百千万...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于举办小学语文课程标准解读报告会的通知&#10;点击次数：99&#10;更新时间：2012-9-19 上午 08:20:45" href="detail.asp?id=19327" target="_blank" class="normal">关于举办小学语文课程标准解...</a></li><li><a title="文档标题：关于汶河组团、北洲组团联合举行生本课堂教学研讨活动的通知&#10;点击次数：136&#10;更新时间：2012-9-19 上午 08:18:43" href="detail.asp?id=19326" target="_blank" class="normal green">关于汶河组团、北洲组团...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于参加市、区“运河杯”中小学教师教科研论文大赛评选结果的公示&#10;点击次数：156&#10;更新时间：2012-9-18 下午 05:36:46" href="detail.asp?id=19322" target="_blank" class="normal green">关于参加市、区“运河杯...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：广陵区校长、园长“我的教学主张”展示评比活动&#10;点击次数：377&#10;更新时间：2012-9-13 上午 11:31:48" href="detail.asp?id=19189" target="_blank" class="normal green">广陵区校长、园长“我的...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：喜　　 报&#10;点击次数：447&#10;更新时间：2012-9-7 下午 05:23:08" href="detail.asp?id=19028" target="_blank" class="normal green">喜　　 报</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li>
+					</ul>
+				</div>
+				<div id="edusubframe">
+					<div id="title3">
+					</div>
+					<ul>
+						<li><a title="文档标题：红桥小学——举行重阳节老教师联谊活动&#10;点击次数：131&#10;更新时间：2012-10-22 上午 09:15:07" href="detail.asp?id=20383" target="_blank" class="normal green">红桥小学——举行重阳节...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：沙口小学——广陵区关工委管爷爷举行“向雷锋同志学习”专题讲座&#10;点击次数：27&#10;更新时间：2012-10-19 下午 05:38:45" href="detail.asp?id=20369" target="_blank" class="normal">沙口小学——广陵区关工委管...</a></li><li><a title="文档标题：李典学校——“重温入队誓词，做阳光少年”——建队日活动&#10;点击次数：25&#10;更新时间：2012-10-19 下午 04:50:24" href="detail.asp?id=20366" target="_blank" class="normal">李典学校——“重温入队誓词...</a></li><li><a title="文档标题：湾头小学——小记者专场活动——制作电子钟表&#10;点击次数：11&#10;更新时间：2012-10-19 下午 04:13:00" href="detail.asp?id=20364" target="_blank" class="normal">湾头小学——小记者专场活动...</a></li><li><a title="文档标题：红桥小学——举行少先队大队委竞选活动&#10;点击次数：79&#10;更新时间：2012-10-19 下午 03:51:21" href="detail.asp?id=20360" target="_blank" class="normal">红桥小学——举行少先队大队...</a></li><li><a title="文档标题：泰安学校——开展安全教育微型德育课赛课活动&#10;点击次数：46&#10;更新时间：2012-10-18 上午 08:25:54" href="detail.asp?id=20323" target="_blank" class="normal">泰安学校——开展安全教育微...</a></li><li><a title="文档标题：扬大附小——红领巾飘起来！&#10;点击次数：30&#10;更新时间：2012-10-17 下午 07:50:01" href="detail.asp?id=20316" target="_blank" class="normal">扬大附小——红领巾飘起来！</a></li><li><a title="文档标题：扬大附小——爱惜粮食 从我做起&#10;点击次数：30&#10;更新时间：2012-10-17 下午 07:34:01" href="detail.asp?id=20312" target="_blank" class="normal">扬大附小——爱惜粮食 从我...</a></li><li><a title="文档标题：文峰小学——发扬雷锋精神 做助人为乐的好少年&#10;点击次数：18&#10;更新时间：2012-10-17 下午 05:06:06" href="detail.asp?id=20308" target="_blank" class="normal">文峰小学——发扬雷锋精神 ...</a></li><li><a title="文档标题：头桥小学——进行大队委竞选&#10;点击次数：35&#10;更新时间：2012-10-17 下午 04:43:17" href="detail.asp?id=20304" target="_blank" class="normal">头桥小学——进行大队委竞选</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="appframe">
+				<a href="input.asp?typeid=41">
+					<img alt="寄语局长" src="images/20.jpg" border="0" /></a> <a href="detail.asp?id=109">
+						<img alt="规范办学监督电话" src="images/21.jpg" border="0" /></a> <a href="list.asp?typeid=24">
+							<img alt="近期重点工作" src="images/22.jpg" border="0" /></a> <a href="detail.asp?id=108">
+								<img alt="区属学校" src="images/23.jpg" border="0" /></a> <a href="http://www.gljy.com.cn/cms" target="_blank">
+									<img alt="自动办公系统" src="images/24.jpg" border="0" /></a> <a href="http://120.44.125.67/zy/" target="_blank">
+										<img alt="资源中心" src="images/25.jpg" border="0" /></a> <a href="http://120.44.125.67/read/" target="_blank">
+											<img alt="网上图书" src="images/26.jpg" border="0" /></a> <a href="http://218.106.98.102/ftp/" target="_blank">
+												<img alt="FTP管理平台" src="images/27.jpg" border="0" /></a>
+				<div class="clear">
+				</div>
+			</div>
+		</div>
+	</center>
+	<center>
+		<div class="pagewidth seperate">
+			<div id="politicsframe">
+				<div>
+					<div id="logo">
+					</div>
+					<div class="right">
+						<div id="button">
+							<a href="home.asp?typeid=13">教育动态</a></div>
+						<div id="button">
+							<a href="list.asp?typeid=14">网上政务</a></div>
+						<div id="button">
+							<a href="list.asp?typeid=15">信息公开</a></div>
+						<div id="button">
+							<a href="list.asp?typeid=16">服务中心</a></div>
+						<div id="button">
+							<a>内部办公</a></div>
+					</div>
+				</div>
+				<div class="clear">
+					<div id="leftframe">
+						<div id="bigbutton">
+							&nbsp;&nbsp;<img alt="" src="images/3.gif" align="absmiddle" />&nbsp;&nbsp;<a href="detail.asp?id=95">领导分工</a></div>
+						<div id="bigbutton">
+							&nbsp;&nbsp;<img alt="" src="images/4.gif" align="absmiddle" />&nbsp;&nbsp;<a href="list.asp?typeid=26">机构职能</a></div>
+						<div id="bigbutton">
+							&nbsp;&nbsp;<img alt="" src="images/6.gif" align="absmiddle" />&nbsp;&nbsp;<a href="list.asp?typeid=106">信访工作</a></div>
+						<div id="bigbutton">
+							&nbsp;&nbsp;<img alt="" src="images/2.gif" align="absmiddle" />&nbsp;&nbsp;<a href="list.asp?typeid=28">局发文件</a></div>
+						<div id="bigbutton">
+							&nbsp;&nbsp;<img alt="" src="images/5.gif" align="absmiddle" />&nbsp;&nbsp;<a href="list.asp?typeid=15">信息公开</a></div>
+						<div id="bigbutton">
+							&nbsp;&nbsp;<img alt="" src="images/7.gif" align="absmiddle" />&nbsp;&nbsp;<a href="list.asp?typeid=29">人事任免</a></div>
+					</div>
+					<div id="rightframe">
+						<div id="top">
+						</div>
+						<div id="content">
+							<ul>
+								<li><span class="gray normal">[商幼]&nbsp;</span><a title="文档标题：商幼开展班级资料检查交流活动&#10;点击次数：17&#10;更新时间：2012-10-22 下午 04:47:44" href="detail.asp?id=20410" target="_blank" class="normal">商幼开展班级资料检查交流活动</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><span class="gray normal">[杭集中学]&nbsp;</span><a title="文档标题：杭集中学成为省三门球教育实验基地&#10;点击次数：12&#10;更新时间：2012-10-22 下午 04:33:34" href="detail.asp?id=20409" target="_blank" class="normal">杭集中学成为省三门球教育实验基地</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><span class="gray normal">[沙口]&nbsp;</span><a title="文档标题：沙口小学聘请专家来校讲学&#10;点击次数：22&#10;更新时间：2012-10-22 下午 03:43:31" href="detail.asp?id=20403" target="_blank" class="normal">沙口小学聘请专家来校讲学</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><span class="gray normal">[李典学校]&nbsp;</span><a title="文档标题：李典学校开展黑板报展评活动&#10;点击次数：33&#10;更新时间：2012-10-22 下午 01:57:57" href="detail.asp?id=20398" target="_blank" class="normal">李典学校开展黑板报展评活动</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li>
+							</ul>
+							<ul style="display: none;">
+								<li><span class="gray normal">[办公室]&nbsp;</span><a title="文档标题： 局重点工作、科室主要工作安排表（201210） &#10;点击次数：81&#10;更新时间：2012-10-8 下午 04:36:20" href="detail.asp?id=19886" target="_blank" class="normal orange"> 局重点工作、科室主要工作安排表（201210） </a></li><li><span class="gray normal">[办公室]&nbsp;</span><a title="文档标题：局重点工作、科室主要工作安排表（201209）  &#10;点击次数：19&#10;更新时间：2012-9-8 下午 04:59:05" href="detail.asp?id=19895" target="_blank" class="normal orange">局重点工作、科室主要工作安排表（201209）  </a></li><li><span class="gray normal">[办公室]&nbsp;</span><a title="文档标题：局重点工作科室主要工作安排表（201207-08） &#10;点击次数：264&#10;更新时间：2012-7-9 下午 12:47:13" href="detail.asp?id=18578" target="_blank" class="normal green">局重点工作科室主要工作安排表（201207-...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[办公室]&nbsp;</span><a title="文档标题：局重点工作科室主要工作安排表（201206） &#10;点击次数：76&#10;更新时间：2012-7-9 下午 12:46:26" href="detail.asp?id=18577" target="_blank" class="normal">局重点工作科室主要工作安排表（201206） </a></li>
+							</ul>
+							<ul style="display: none;">
+								<li><span class="gray normal">[办公室]&nbsp;</span><a title="文档标题：中小学安全工作指南&#10;点击次数：247&#10;更新时间：2012-3-26 下午 05:30:47" href="detail.asp?id=15425" target="_blank" class="normal green">中小学安全工作指南</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[系统管理员]&nbsp;</span><a title="文档标题：关于广陵区教育局领导分工的通知&#10;点击次数：8621&#10;更新时间：2012-2-7 上午 11:12:19" href="detail.asp?id=95" target="_blank" class="normal green">关于广陵区教育局领导分工的通知</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[装备]&nbsp;</span><a title="文档标题：校舍安全工程办公室工作职责&#10;点击次数：336&#10;更新时间：2012-2-4 下午 04:02:23" href="detail.asp?id=13242" target="_blank" class="normal green">校舍安全工程办公室工作职责</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><span class="gray normal">[系统管理员]&nbsp;</span><a title="文档标题：广陵区校园安全“四方联席会议”工作联系簿 &#10;点击次数：1039&#10;更新时间：2010-7-1 下午 01:48:29" href="detail.asp?id=79" target="_blank" class="normal green">广陵区校园安全“四方联席会议”工作联系簿 </a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li>
+							</ul>
+							<ul style="display: none;">
+								
+							</ul>
+							<div id="loginframe" style="display: none;">
+								<img alt="" src="../inc/icon.gif" align="absmiddle" />&nbsp;&nbsp;内部办公登录：
+								<hr />
+								
+								用户名：
+								<input type="text" class="edit" id="userid" name="userid" size="20" /><br />
+								密　码：
+								<input type="password" class="edit" id="pwd" name="pwd" size="20" /><br />
+								验证码：
+								<input type="password" class="edit" id="code" name="code" size="20" />
+								<input type="button" class="button" value="  登 录  " />
+								
+							</div>
+						</div>
+						<div id="bottom">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="topicsframe">
+				<div id="title">
+					教育专题</div>
+				<div id="list">
+					<div><img alt="" src="images/8.gif" align="absmiddle" />&nbsp;&nbsp;<a href="http://www.gljy.com.cn/web/ztjy_home.asp?typeid=264" target="_blank">讲良心、负责任、有本领</a></div><div><img alt="" src="images/8.gif" align="absmiddle" />&nbsp;&nbsp;<a href="http://blog.sohu.com/people/!MTA3NDM1NjE4OEBxcS5jb20=" target="_blank">广陵区校级干部专题博客</a></div><div><img alt="" src="images/8.gif" align="absmiddle" />&nbsp;&nbsp;<a href="http://hi.baidu.com/gljyhbgb" target="_blank">广陵教育后备干部博客</a></div>
+				</div>
+				<div class="aright">
+					<a href="list.asp?typeid=141&all=yes" class="small gray">更多...</a>&nbsp;&nbsp;</div>
+			</div>
+		</div>
+	</center>
+	<center>
+		<div class="pagewidth seperate">
+			<div id="stuffframe">
+				<div id="teacher">
+					<div id="corner">
+					</div>
+					<div>
+						<div class="aright">
+							<a href="pic.asp?typeid=133" class="small gray">更多...</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+						
+						<div id="frame">
+							<div id="photo" class="left">
+								<a href="detail.asp?id=17311" target="_blank">
+									<img alt="为了那双清澈的眼睛——记湾小师德演讲区级特等奖获得者张玲老师" src="http://www.gljy.com.cn/uploaded/201252311732418.JPG" border="0" width="70" /></a></div>
+							<div id="brief" class="right">
+								<div>
+									<a href="detail.asp?id=17311" class="green" target="_blank">为了那双清澈的眼睛——记湾小师...</a>
+								</div>
+								<div class="normal seperate">
+									为了那双清澈的眼睛——记湾小师德演讲区级特等奖获得者张玲老师2012年5月15日，广陵区教育系统工会举办的“讲良心、负...
+								</div>
+							</div>
+						</div>
+						
+						<div id="frame">
+							<div id="photo" class="left">
+								<a href="detail.asp?id=7670" target="_blank">
+									<img alt="洒向学生都是爱——优秀班主任广陵小学雎为华老师事迹" src="http://www.gljy.com.cn/uploaded/201142883337509.BMP" border="0" width="70" /></a></div>
+							<div id="brief" class="right">
+								<div>
+									<a href="detail.asp?id=7670" class="green" target="_blank">洒向学生都是爱——优秀班主任广...</a>
+								</div>
+								<div class="normal seperate">
+									她——雎为华老师，23年来就像那不起眼的叶，在平凡的岗位上用爱心滋润着每一个孩子……
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div id="student">
+					<div id="corner">
+					</div>
+					<div>
+						<div class="aright">
+							<a href="pic.asp?typeid=36" class="small gray">更多...</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+						
+						<div id="frame">
+							<div id="brief" class="left">
+								<div class="aright">
+									<a href="detail.asp?id=20097" class="green" target="_blank">东关小学——区阳光四好少年——...</a>
+								</div>
+								<div class="normal seperate">
+									张庭萱，是东关小学三（8）班一名勤奋守纪、踏实进取的女孩。世界因为爱，才变得这么温馨；人间因为爱，才变得如此美好。在爱...
+								</div>
+							</div>
+							<div id="photo" class="right">
+								<a href="detail.asp?id=20097" target="_blank">
+									<img alt="东关小学——区阳光四好少年——张庭萱" src="http://www.yzdgxx.cn/new/uploaded/20121011123158684.JPG" border="0" width="70" /></a></div>
+						</div>
+						
+						<div id="frame">
+							<div id="brief" class="left">
+								<div class="aright">
+									<a href="detail.asp?id=20096" class="green" target="_blank">东关小学——区阳光四好少年——...</a>
+								</div>
+								<div class="normal seperate">
+									Hello，大家好！我来自东关小学五（1）班，是个阳光开朗、成绩优秀、宽宏大量、富有爱心的小女孩。我爱好读书、绘画、朗...
+								</div>
+							</div>
+							<div id="photo" class="right">
+								<a href="detail.asp?id=20096" target="_blank">
+									<img alt="东关小学——区阳光四好少年——费思诗" src="http://www.yzdgxx.cn/new/uploaded/20121011154156486.JPG" border="0" width="70" /></a></div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<div id="publicframe">
+				<div>
+					<div id="button">
+						寄语局长</div>
+					<div id="button">
+						监督投诉</div>
+					<div id="button">
+						献计献策</div>
+					<div id="button">
+						教育调查</div>
+				</div>
+				<div id="listframe">
+					<div>
+						<ul>
+							<li><a title="文档标题：我的教学改进征文评比&#10;点击次数：331&#10;更新时间：2012-10-9 下午 10:36:25" href="detail.asp?id=19975" target="_blank" class="normal green">我的教学改进征文评比</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：怎么搞的&#10;点击次数：373&#10;更新时间：2012-10-7 下午 07:58:02" href="detail.asp?id=19847" target="_blank" class="normal green">怎么搞的</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：幼儿园又开兴趣班&#10;点击次数：281&#10;更新时间：2012-9-21 下午 01:49:07" href="detail.asp?id=19408" target="_blank" class="normal green">幼儿园又开兴趣班</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：育才小学入学问题咨询&#10;点击次数：245&#10;更新时间：2012-9-19 下午 05:23:48" href="detail.asp?id=19361" target="_blank" class="normal green">育才小学入学问题咨询</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：招商引资该找谁&#10;点击次数：289&#10;更新时间：2012-9-9 下午 08:32:24" href="detail.asp?id=19047" target="_blank" class="normal green">招商引资该找谁</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：外地户口长期居住扬州小孩上中学如何上&#10;点击次数：201&#10;更新时间：2012-9-5 下午 03:13:31" href="detail.asp?id=18971" target="_blank" class="normal green">外地户口长期居住扬州小...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li>
+						</ul>
+						<div class="aright">
+							<a href="input.asp?typeid=41" class="normal gray">[我要留言]</a><a href="list.asp?typeid=41" class="normal gray">[更多]</a></div>
+					</div>
+					<div style="display: none;">
+						<ul>
+							<li><a title="文档标题：难开的幼儿园&#10;点击次数：331&#10;更新时间：2012-6-15 上午 07:28:58" href="detail.asp?id=18116" target="_blank" class="normal green">难开的幼儿园</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：汤汪中学八年级英语教师雍志梅严重占用学生休息时间上课&#10;点击次数：510&#10;更新时间：2012-4-21 下午 04:57:23" href="detail.asp?id=16266" target="_blank" class="normal green">汤汪中学八年级英语教师...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：汶和幼儿园的收费&#10;点击次数：875&#10;更新时间：2011-9-1 上午 10:58:01" href="detail.asp?id=9499" target="_blank" class="normal green">汶和幼儿园的收费</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：扬州教育系统的悲哀&#10;点击次数：1565&#10;更新时间：2011-7-4 下午 08:36:01" href="detail.asp?id=9213" target="_blank" class="normal green">扬州教育系统的悲哀</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：愤怒的家长&#10;点击次数：1801&#10;更新时间：2011-4-21 上午 09:55:17" href="detail.asp?id=7433" target="_blank" class="normal green">愤怒的家长</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：机关一幼兴趣班&#10;点击次数：1964&#10;更新时间：2011-2-22 下午 09:18:21" href="detail.asp?id=5617" target="_blank" class="normal green">机关一幼兴趣班</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li>
+						</ul>
+						<div class="aright">
+							<a href="input.asp?typeid=42" class="normal gray">[我要留言]</a><a href="list.asp?typeid=42" class="normal gray">[更多]</a></div>
+					</div>
+					<div style="display: none;">
+						<ul>
+							
+						</ul>
+						<div class="aright">
+							<a href="input.asp?typeid=43" class="normal gray">[我要留言]</a><a href="list.asp?typeid=43" class="normal gray">[更多]</a></div>
+					</div>
+					<div style="display: none;">
+						<div class="seperate">* 你对教师实行绩效工资的意见</div><div id="subvote" class="seperate"><div class="normal orange">* 已有投票443票</div><div class="options normal"><input type="radio" id="voteoption_16" name="voteoption_16" checked="checked" value="4" /> 老师们应该有更好的待遇&nbsp;&nbsp;<span class="gray small">364票，82.17%</span></div><div class="options normal"><input type="radio" id="voteoption_16" name="voteoption_16" value="5" /> 老师们得到应该有的待遇&nbsp;&nbsp;<span class="gray small">25票，5.64%</span></div><div class="options normal"><input type="radio" id="voteoption_16" name="voteoption_16" value="6" /> 一般,还待改进&nbsp;&nbsp;<span class="gray small">16票，3.61%</span></div><div class="options normal"><input type="radio" id="voteoption_16" name="voteoption_16" value="7" /> 不好,老师们的辛劳是不对等的&nbsp;&nbsp;<span class="gray small">38票，8.58%</span></div></div><div class="acenter"><input type="button" class="button" value="  投 票  " /></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</center>
+	<center>
+		<div class="pagewidth seperate">
+			<img id="banner2" alt="" src="../web/images/33.jpg" />
+		</div>
+	</center>
+	<center>
+		<div id="bg" class="pagewidth seperate">
+			<table width="1000" border="0" cellspacing="0" cellpadding="0">
+				<tr><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								办公室</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=54" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=16890" target="_blank">
+									<img alt="我局荣获“2011年度建议、提案办理工作先进单位称号”" src="http://www.gljy.com.cn/uploaded/2012511183214988.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=16890" title="我局荣获“2011年度建议、提案办理工作先进单位称号”" class="green" target="_blank">
+										我局荣获“2011...</a></div>
+								<div class="normal">
+									我局荣获“2011年度建议、提案办理工作...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=19887" title="2012年10月份办公室（安保科）主要工作安排" class="normal green" target="_blank">2012年10月份办公室...</a></li><li><a title="文档标题：2012年第九期2012年10月份行政办公会议纪要&#10;点击次数：64&#10;更新时间：2012-10-9 下午 04:24:30" href="detail.asp?id=19946" target="_blank" class="normal orange">2012年第九期2012年1...</a></li><li><a title="文档标题：广陵教育动态2012年第20期 &#10;点击次数：55&#10;更新时间：2012-10-9 上午 09:38:35" href="detail.asp?id=19914" target="_blank" class="normal orange">广陵教育动态2012年第20...</a></li><li><a title="文档标题：广陵教育动态2012年第19期&#10;点击次数：93&#10;更新时间：2012-9-18 下午 04:21:41" href="detail.asp?id=19315" target="_blank" class="normal orange">广陵教育动态2012年第19期</a></li><li><a title="文档标题：广陵教育动态2012年第18期&#10;点击次数：67&#10;更新时间：2012-9-18 下午 04:17:33" href="detail.asp?id=19314" target="_blank" class="normal orange">广陵教育动态2012年第18期</a></li><li><a title="文档标题：广陵教育动态2012年第17期&#10;点击次数：103&#10;更新时间：2012-9-2 下午 05:10:10" href="detail.asp?id=18927" target="_blank" class="normal orange">广陵教育动态2012年第17期</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年第七期2012年9月份行政办公会议纪要&#10;点击次数：89&#10;更新时间：2012-9-1 下午 09:48:02" href="detail.asp?id=18902" target="_blank" class="normal orange">2012年第七期2012年9...</a></li><li><a title="文档标题：广陵教育动态2012年第16期&#10;点击次数：66&#10;更新时间：2012-8-29 下午 06:17:56" href="detail.asp?id=18848" target="_blank" class="normal orange">广陵教育动态2012年第16期</a></li><li><a title="文档标题：市档案局实地指导红桥小学档案创星升级工作&#10;点击次数：166&#10;更新时间：2012-8-10 上午 10:31:09" href="detail.asp?id=18731" target="_blank" class="normal green">市档案局实地指导红桥小学...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								组织人事</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=45" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=1576" target="_blank">
+									<img alt="扬州市优秀教师先进事迹报告会在我区举行" src="http://www.gljy.com.cn/uploaded/201011593748284.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=1576" title="扬州市优秀教师先进事迹报告会在我区举行" class="green" target="_blank">
+										扬州市优秀教师先进...</a></div>
+								<div class="normal">
+									9月12日，在鲜花和掌声中，扬州市优秀教...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=19909" title="2012年10月份组织人事科工作安排" class="normal green" target="_blank">2012年10月份组织人...</a></li><li><a title="文档标题：关于开展机构编制核查工作的通知&#10;点击次数：237&#10;更新时间：2012-9-25 下午 05:28:12" href="detail.asp?id=19542" target="_blank" class="normal green">关于开展机构编制核查工作的通知</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年江苏省中小学、幼儿园职称评审条件（试行）及职称制度改革试点方案&#10;点击次数：693&#10;更新时间：2012-8-24 上午 09:53:26" href="detail.asp?id=18785" target="_blank" class="normal green">2012年江苏省中小学、...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年广陵区职称评审相关材料下载&#10;点击次数：4517&#10;更新时间：2012-8-17 上午 09:16:42" href="detail.asp?id=18757" target="_blank" class="normal orange">2012年广陵区职称评审...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年新教师转正定级工作所需材料&#10;点击次数：618&#10;更新时间：2012-8-17 上午 09:02:31" href="detail.asp?id=18756" target="_blank" class="normal green">2012年新教师转正定级...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于做好专业技术人员继续教育的通知&#10;点击次数：2230&#10;更新时间：2012-7-20 上午 11:08:50" href="detail.asp?id=18649" target="_blank" class="normal orange">关于做好专业技术人员继续...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年扬州市广陵区招聘事业单位工作人员拟聘用人员公示&#10;点击次数：2257&#10;更新时间：2012-7-5 下午 05:00:14" href="detail.asp?id=18535" target="_blank" class="normal orange">2012年扬州市广陵区招...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于表彰广陵区教育系统先进基层党组织、优秀共产党员和优秀党务工作者的决定&#10;点击次数：306&#10;更新时间：2012-7-2 上午 10:35:46" href="detail.asp?id=18447" target="_blank" class="normal green">关于表彰广陵区教育系统先...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：广陵区教育系统关工委召开常态化建设合格单位创建工作推进会&#10;点击次数：157&#10;更新时间：2012-6-28 下午 03:58:01" href="detail.asp?id=18384" target="_blank" class="normal orange">广陵区教育系统关工委召开...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								师资培训</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=235" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=18329" target="_blank">
+									<img alt="广陵区教育局承办全市数学学术报告会" src="http://www.gljy.com.cn/uploaded/201262514032107.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=18329" title="广陵区教育局承办全市数学学术报告会" class="green" target="_blank">
+										广陵区教育局承办全...</a></div>
+								<div class="normal">
+									6月21日下午，全国著名数学教育专家吴正...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><a title="文档标题：关于公开征集教师海外培训活动图片和文字资料的通知&#10;点击次数：100&#10;更新时间：2012-10-10 下午 02:57:04" href="detail.asp?id=20020" target="_blank" class="normal orange">关于公开征集教师海外培训活动...</a></li><li><a title="文档标题：师培科十月份工作安排&#10;点击次数：109&#10;更新时间：2012-10-10 上午 10:14:45" href="detail.asp?id=19993" target="_blank" class="normal green">师培科十月份工作安排</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：广陵区骨干教师“我的教学研究”展示评比活动&#10;点击次数：517&#10;更新时间：2012-9-26 下午 07:49:42" href="detail.asp?id=19594" target="_blank" class="normal green">广陵区骨干教师“我的教学...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：汶河组团、北洲组团成功举行生本课堂教学研讨活动&#10;点击次数：227&#10;更新时间：2012-9-24 上午 10:47:51" href="detail.asp?id=19452" target="_blank" class="normal green">汶河组团、北洲组团成功举...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：我的农村支教随笔&#10;点击次数：315&#10;更新时间：2012-9-20 上午 10:31:08" href="detail.asp?id=19380" target="_blank" class="normal green">我的农村支教随笔</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于举行广陵区“百千万”工程“我的教学研究”展示评比活动的通知&#10;点击次数：187&#10;更新时间：2012-9-19 上午 08:23:24" href="detail.asp?id=19328" target="_blank" class="normal green">关于举行广陵区“百千万”...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于举办小学语文课程标准解读报告会的通知&#10;点击次数：99&#10;更新时间：2012-9-19 上午 08:20:45" href="detail.asp?id=19327" target="_blank" class="normal">关于举办小学语文课程标准解读...</a></li><li><a title="文档标题：关于汶河组团、北洲组团联合举行生本课堂教学研讨活动的通知&#10;点击次数：136&#10;更新时间：2012-9-19 上午 08:18:43" href="detail.asp?id=19326" target="_blank" class="normal green">关于汶河组团、北洲组团联...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								财务审计</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=47" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=3224" target="_blank">
+									<img alt="2011年广陵区部门预算布置会在育才小学成功召开" src="http://www.gljy.com.cn/uploaded/2010114102323263.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=3224" title="2011年广陵区部门预算布置会在育才小学成功召开" class="green" target="_blank">
+										2011年广陵区部...</a></div>
+								<div class="normal">
+									11月2日，广陵区2011年部门预算布置...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=19899" title="财务审计科十月工作安排" class="normal green" target="_blank">财务审计科十月工作安排</a></li><li><a title="文档标题：关于2012年秋学期中小学收费有关事项的通知 &#10;点击次数：173&#10;更新时间：2012-8-29 下午 03:35:24" href="detail.asp?id=18823" target="_blank" class="normal green">关于2012年秋学期中小...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：学前教育政府资助各类表格下载&#10;点击次数：230&#10;更新时间：2012-6-12 下午 04:57:37" href="detail.asp?id=18070" target="_blank" class="normal green">学前教育政府资助各类表格下载</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于做好2012年春季家庭经济困难学生资助和寄宿生生活补助等工作的通知&#10;点击次数：202&#10;更新时间：2012-5-17 下午 04:01:17" href="detail.asp?id=17092" target="_blank" class="normal green">关于做好2012年春季家...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于对基层单位项目资金使用进行申报管理的通知&#10;点击次数：198&#10;更新时间：2012-5-10 下午 06:14:39" href="detail.asp?id=16815" target="_blank" class="normal green">关于对基层单位项目资金使...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：机关人员在校食堂用餐登记表&#10;点击次数：749&#10;更新时间：2012-3-30 下午 05:06:57" href="detail.asp?id=15610" target="_blank" class="normal green">机关人员在校食堂用餐登记表</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年广陵区教育局科室资金支出预算表&#10;点击次数：394&#10;更新时间：2012-2-13 上午 09:05:14" href="detail.asp?id=13513" target="_blank" class="normal green">2012年广陵区教育局科...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：民办学校及幼儿园2011年教育经费统计表&#10;点击次数：598&#10;更新时间：2012-1-4 下午 02:13:44" href="detail.asp?id=12884" target="_blank" class="normal green">民办学校及幼儿园2011...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2011年春季贫困生助学金表格下载&#10;点击次数：835&#10;更新时间：2011-5-27 下午 03:56:20" href="detail.asp?id=8492" target="_blank" class="normal green">2011年春季贫困生助学...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td></tr><tr><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								发展规划</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=48" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=20063" target="_blank">
+									<img alt="育才小学东区校开门办学" src="http://www.gljy.com.cn/uploaded/201291161928612.jpg" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=20063" title="育才小学东区校开门办学" class="green" target="_blank">
+										育才小学东区校开门...</a></div>
+								<div class="normal">
+									9月1日，育才东区校正式开门办学。一纸画...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=19883" title="发展规划科2012年度10月份工作安排" class="normal green" target="_blank">发展规划科2012年度1...</a></li><li><a title="文档标题：关于新划入学校填报机构代码信息表的通知&#10;点击次数：242&#10;更新时间：2012-8-17 下午 04:21:36" href="detail.asp?id=18761" target="_blank" class="normal green">关于新划入学校填报机构代...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于下达2012年暑期维修、装修及小型基建项目实施计划的通知&#10;点击次数：181&#10;更新时间：2012-7-17 下午 03:21:39" href="detail.asp?id=18633" target="_blank" class="normal green">关于下达2012年暑期维...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于做好学校教育技术装备及运动场地调查的通知&#10;点击次数：191&#10;更新时间：2012-5-14 下午 05:08:49" href="detail.asp?id=16965" target="_blank" class="normal green">关于做好学校教育技术装备...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于申报2012年暑期维修项目的通知&#10;点击次数：181&#10;更新时间：2012-5-9 上午 11:59:34" href="detail.asp?id=16757" target="_blank" class="normal green">关于申报2012年暑期维...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于开展民办学校幼儿园办学许可证年检工作的通知&#10;点击次数：527&#10;更新时间：2012-4-20 下午 03:00:21" href="detail.asp?id=16248" target="_blank" class="normal green">关于开展民办学校幼儿园办...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于对国有、集体资金建设工程进行滚动排查的会议通知&#10;点击次数：223&#10;更新时间：2012-2-16 下午 03:41:25" href="detail.asp?id=13696" target="_blank" class="normal green">关于对国有、集体资金建设...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：市校安办来我区进行校安工程检查&#10;点击次数：411&#10;更新时间：2011-12-12 下午 01:57:15" href="detail.asp?id=12175" target="_blank" class="normal green">市校安办来我区进行校安工程检查</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：市校安工程领导小组来我区检查校安工程进展情况&#10;点击次数：458&#10;更新时间：2011-10-10 上午 11:46:33" href="detail.asp?id=10564" target="_blank" class="normal green">市校安工程领导小组来我区...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								校舍办</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=259" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=18847" target="_blank">
+									<img alt="2012年广陵区校安加固工程预检" src="http://www.gljy.com.cn/uploaded/2012831175430592.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=18847" title="2012年广陵区校安加固工程预检" class="green" target="_blank">
+										2012年广陵区校...</a></div>
+								<div class="normal">
+									2012年广陵教育校安加固工程自7月1日...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=20405" title="2012年11月校舍办月度工作计划" class="normal green" target="_blank">2012年11月校舍办月...</a></li><li><a title="文档标题：2012年暑期维修工程竣工验收&#10;点击次数：183&#10;更新时间：2012-9-5 上午 12:14:21" href="detail.asp?id=18943" target="_blank" class="normal orange">2012年暑期维修工程竣工验收</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：市教育局重点项目工程检查组检查指导我区校安工程&#10;点击次数：189&#10;更新时间：2012-8-22 下午 04:38:38" href="detail.asp?id=18776" target="_blank" class="normal orange">市教育局重点项目工程检查...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：市质检站领导检查指导校安加固工程&#10;点击次数：189&#10;更新时间：2012-8-9 上午 09:01:31" href="detail.asp?id=18722" target="_blank" class="normal orange">市质检站领导检查指导校安...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：校安办会同工程总监巡查加固工程工地&#10;点击次数：180&#10;更新时间：2012-8-7 上午 09:08:54" href="detail.asp?id=18713" target="_blank" class="normal orange">校安办会同工程总监巡查加...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：校安办现场查看学校暑期维修工程&#10;点击次数：277&#10;更新时间：2012-7-31 下午 05:59:03" href="detail.asp?id=18695" target="_blank" class="normal orange">校安办现场查看学校暑期维修工程</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：校安加固工程培训会&#10;点击次数：248&#10;更新时间：2012-7-9 下午 03:14:36" href="detail.asp?id=18581" target="_blank" class="normal orange">校安加固工程培训会</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年广陵区校安加固工程监理招标开标会&#10;点击次数：248&#10;更新时间：2012-6-8 下午 02:37:40" href="detail.asp?id=17945" target="_blank" class="normal orange">2012年广陵区校安加固...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：校安办进行校安加固工程标底编制招标&#10;点击次数：215&#10;更新时间：2012-5-14 上午 09:44:05" href="detail.asp?id=16917" target="_blank" class="normal orange">校安办进行校安加固工程标...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								基础教育</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=46" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=18676" target="_blank">
+									<img alt="基教科组织暑期班主任培训" src="http://www.gljy.com.cn/uploaded/20127311705988.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=18676" title="基教科组织暑期班主任培训" class="green" target="_blank">
+										基教科组织暑期班主...</a></div>
+								<div class="normal">
+									7月26日上午，广陵区暑期班主任培训班在...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=19477" title="基教科10月份工作安排" class="normal green" target="_blank">基教科10月份工作安排</a></li><li><a title="文档标题：关于召开初中、一贯制学校常规管理会议的通知&#10;点击次数：59&#10;更新时间：2012-10-16 下午 05:07:49" href="detail.asp?id=20276" target="_blank" class="normal">关于召开初中、一贯制学校常规...</a></li><li><a title="文档标题：关于在组织开展“学法律、促和谐，迎接党的十八大”主题宣传教育活动的通知&#10;点击次数：53&#10;更新时间：2012-10-16 下午 05:07:09" href="detail.asp?id=20275" target="_blank" class="normal">关于在组织开展“学法律、促和...</a></li><li><a title="文档标题：红桥小学——在全省“读《伟人瞿秋白》 争当四好少年” 活动中荣获优秀组织奖&#10;点击次数：52&#10;更新时间：2012-10-15 下午 03:45:53" href="detail.asp?id=20225" target="_blank" class="normal">红桥小学——在全省“读《伟人...</a></li><li><a title="文档标题：喜报——育才实验学校华珈同学荣获第十届宋庆龄奖学金&#10;点击次数：41&#10;更新时间：2012-10-15 上午 09:06:14" href="detail.asp?id=20180" target="_blank" class="normal">喜报——育才实验学校华珈同学...</a></li><li><a title="文档标题：我区有6名学生喜获“小院士”称号&#10;点击次数：62&#10;更新时间：2012-10-8 下午 04:01:35" href="detail.asp?id=19877" target="_blank" class="normal">我区有6名学生喜获“小院士”...</a></li><li><a title="文档标题：关于在10.13建队纪念日开展主题队日活动的通知&#10;点击次数：69&#10;更新时间：2012-9-28 上午 11:10:33" href="detail.asp?id=19642" target="_blank" class="normal">关于在10.13建队纪念日开...</a></li><li><a title="文档标题：关于开展“向国旗敬礼，网上签名寄语活动”的通知&#10;点击次数：129&#10;更新时间：2012-9-25 上午 08:50:07" href="detail.asp?id=19496" target="_blank" class="normal green">关于开展“向国旗敬礼，网...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于评选扬州市少年科学院首届小院士评选活动的通知&#10;点击次数：125&#10;更新时间：2012-9-21 上午 08:30:14" href="detail.asp?id=19394" target="_blank" class="normal green">关于评选扬州市少年科学院...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								社会教育</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=52" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=18105" target="_blank">
+									<img alt="广陵区召开社区教育工作城乡协作共同体成立暨表彰大会" src="http://www.gljy.com.cn/uploaded/201261216720376.jpg" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=18105" title="广陵区召开社区教育工作城乡协作共同体成立暨表彰大会" class="green" target="_blank">
+										广陵区召开社区教育...</a></div>
+								<div class="normal">
+									广陵区召开社区教育工作城乡协作共同体成立...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=19772" title="2012年10月职社科工作安排" class="normal green" target="_blank">2012年10月职社科工...</a></li><li><a title="文档标题：我区举行社区教育教材建设研讨会&#10;点击次数：34&#10;更新时间：2012-10-15 下午 03:25:56" href="detail.asp?id=20221" target="_blank" class="normal">我区举行社区教育教材建设研讨会</a></li><li><a title="文档标题：我区首次评选农科教结合示范基地&#10;点击次数：42&#10;更新时间：2012-10-12 下午 04:05:56" href="detail.asp?id=20142" target="_blank" class="normal">我区首次评选农科教结合示范基地</a></li><li><a title="文档标题：广陵区2012年全民终身学习周活动方案&#10;点击次数：13&#10;更新时间：2012-10-12 下午 03:36:57" href="detail.asp?id=20134" target="_blank" class="normal">广陵区2012年全民终身学习...</a></li><li><a title="文档标题：我区社区教育再获表彰&#10;点击次数：91&#10;更新时间：2012-9-29 下午 03:58:09" href="detail.asp?id=19771" target="_blank" class="normal">我区社区教育再获表彰</a></li><li><a title="文档标题：我区社教在市成人教育服务新农村建设“五项行动”表彰会上获奖&#10;点击次数：69&#10;更新时间：2012-9-21 下午 03:09:28" href="detail.asp?id=19411" target="_blank" class="normal">我区社教在市成人教育服务新农...</a></li><li><a title="文档标题：“阳光学堂”带来七彩暑假&#10;点击次数：122&#10;更新时间：2012-8-28 下午 03:47:51" href="detail.asp?id=18805" target="_blank" class="normal green">“阳光学堂”带来七彩暑假</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：我区举办社区教育工作者暑期培训班暨省级立项课题集体开题论证会&#10;点击次数：111&#10;更新时间：2012-8-28 下午 12:29:00" href="detail.asp?id=18800" target="_blank" class="normal green">我区举办社区教育工作者暑...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：区委赵长松副书记在社教城乡协作共同体成立大会上的讲话&#10;点击次数：185&#10;更新时间：2012-7-4 上午 10:50:20" href="detail.asp?id=18488" target="_blank" class="normal green">区委赵长松副书记在社教城...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td></tr><tr><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								体卫艺教育科</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=56" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=16688" target="_blank">
+									<img alt="2012广陵区阳光体育小学生足球比赛圆满结束" src="http://www.gljy.com.cn/uploaded/201257164446951.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=16688" title="2012广陵区阳光体育小学生足球比赛圆满结束" class="green" target="_blank">
+										2012广陵区阳光...</a></div>
+								<div class="normal">
+									2012广陵区阳光体育小学生足球比赛圆满...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=19968" title="十月份工作" class="normal green" target="_blank">十月份工作</a></li><li><a title="文档标题：关于转发《举办2012年羽毛球（二级）等级裁判员培训的补充通知》&#10;点击次数：7&#10;更新时间：2012-10-22 下午 03:58:59" href="detail.asp?id=20407" target="_blank" class="normal">关于转发《举办2012年...</a>&nbsp;<img alt="" src="../inc/new.gif" align="absmiddle" /></li><li><a title="文档标题：2012年广陵区中小学生田径运动会报名单&#10;点击次数：220&#10;更新时间：2012-9-29 上午 11:18:12" href="detail.asp?id=19743" target="_blank" class="normal green">2012年广陵区中小学生...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于组织重新申报省、市级体育传统项目学校的通知&#10;点击次数：80&#10;更新时间：2012-9-29 上午 09:44:17" href="detail.asp?id=19728" target="_blank" class="normal">关于组织重新申报省、市级体育...</a></li><li><a title="文档标题：关于转发《扬州市中小学体育教师专业技能比武活动》的通知&#10;点击次数：210&#10;更新时间：2012-9-24 上午 11:24:48" href="detail.asp?id=19463" target="_blank" class="normal green">关于转发《扬州市中小学体...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年广陵区 “金钥匙”科技竞赛活动方案&#10;点击次数：187&#10;更新时间：2012-9-13 下午 03:14:42" href="detail.asp?id=19191" target="_blank" class="normal green">2012年广陵区 “金钥...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：广陵区中小学学生心理健康档案  表格&#10;点击次数：125&#10;更新时间：2012-7-26 下午 04:22:08" href="detail.asp?id=18668" target="_blank" class="normal green">广陵区中小学学生心理健康...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：学校心理访谈室的相关制度、表格&#10;点击次数：113&#10;更新时间：2012-7-25 下午 08:45:46" href="detail.asp?id=18662" target="_blank" class="normal green">学校心理访谈室的相关制度、表格</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于公布2012年广陵区中小学生空气动力车比赛结果的通知&#10;点击次数：231&#10;更新时间：2012-6-14 下午 03:50:09" href="detail.asp?id=18107" target="_blank" class="normal green">关于公布2012年广陵区...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								幼教中心</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=158" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=13016" target="_blank">
+									<img alt="教育局举行全区教育办幼儿园年度工作考评" src="http://www.gljy.com.cn/uploaded/201211017656591.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=13016" title="教育局举行全区教育办幼儿园年度工作考评" class="green" target="_blank">
+										教育局举行全区教育...</a></div>
+								<div class="normal">
+									按照局2011年基层单位年度考核有关要求...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=20051" title="2012年幼教中心10月份主要工作计划安排" class="normal green" target="_blank">2012年幼教中心10月...</a></li><li><a title="文档标题：做一片好的叶子 ——园长读后心得体会&#10;点击次数：134&#10;更新时间：2012-10-16 下午 02:48:24" href="detail.asp?id=20257" target="_blank" class="normal green">做一片好的叶子 ——园长...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于扬州市示范幼儿园的申报通知&#10;点击次数：131&#10;更新时间：2012-9-27 下午 03:45:51" href="detail.asp?id=19615" target="_blank" class="normal green">关于扬州市示范幼儿园的申报通知</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：幼儿园岗位责任制度&#10;点击次数：137&#10;更新时间：2012-9-27 上午 09:55:58" href="detail.asp?id=19605" target="_blank" class="normal green">幼儿园岗位责任制度</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：广陵区幼儿园管理规范&#10;点击次数：97&#10;更新时间：2012-9-27 上午 09:22:14" href="detail.asp?id=19601" target="_blank" class="normal">广陵区幼儿园管理规范</a></li><li><a title="文档标题：江苏省幼儿园课改情况调查表&#10;点击次数：189&#10;更新时间：2012-9-24 下午 06:56:27" href="detail.asp?id=19488" target="_blank" class="normal green">江苏省幼儿园课改情况调查表</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：江苏省幼儿园基本情况调查表（下半年）&#10;点击次数：156&#10;更新时间：2012-9-24 下午 06:53:18" href="detail.asp?id=19487" target="_blank" class="normal green">江苏省幼儿园基本情况调查...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：幼儿园公办、民办职工情况一览表&#10;点击次数：163&#10;更新时间：2012-9-24 下午 06:52:49" href="detail.asp?id=19486" target="_blank" class="normal green">幼儿园公办、民办职工情况一览表</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：幼儿园（公办、民办）收入情况统计表&#10;点击次数：125&#10;更新时间：2012-9-24 下午 06:52:03" href="detail.asp?id=19485" target="_blank" class="normal green">幼儿园（公办、民办）收入...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								监察室</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=51" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=13401" target="_blank">
+									<img alt="2012年春学期开学收费检查" src="http://www.gljy.com.cn/uploaded/201228173534107.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=13401" title="2012年春学期开学收费检查" class="green" target="_blank">
+										2012年春学期开...</a></div>
+								<div class="normal">
+									2月6日上午，扬州市物价检查分局、市教育...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=19893" title="10月份工作计划" class="normal green" target="_blank">10月份工作计划</a></li><li><a title="文档标题：廉洁之爱&#10;点击次数：134&#10;更新时间：2012-10-9 下午 05:04:48" href="detail.asp?id=19959" target="_blank" class="normal green">廉洁之爱</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：广陵区中小学幼儿园行风建设公开承诺书&#10;点击次数：294&#10;更新时间：2012-9-7 下午 05:01:16" href="detail.asp?id=19026" target="_blank" class="normal green">广陵区中小学幼儿园行风建...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：为面子触法律高压线&#10;点击次数：243&#10;更新时间：2012-7-12 下午 04:11:33" href="detail.asp?id=18598" target="_blank" class="normal green">为面子触法律高压线</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：突击检查教辅资料、报刊杂志征订情况&#10;点击次数：369&#10;更新时间：2012-6-25 下午 05:58:54" href="detail.asp?id=18349" target="_blank" class="normal green">突击检查教辅资料、报刊杂...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：党员干部要根治自己“借口症”&#10;点击次数：260&#10;更新时间：2012-6-5 下午 03:01:51" href="detail.asp?id=17808" target="_blank" class="normal green">党员干部要根治自己“借口症”</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年春学期第二十二周廉政警句&#10;点击次数：153&#10;更新时间：2012-4-5 下午 04:17:35" href="detail.asp?id=15780" target="_blank" class="normal green">2012年春学期第二十二...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年春学期第二十一周廉政警句&#10;点击次数：194&#10;更新时间：2012-4-5 下午 04:15:11" href="detail.asp?id=15778" target="_blank" class="normal green">2012年春学期第二十一...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年春学期第二十周廉政警句&#10;点击次数：196&#10;更新时间：2012-4-5 下午 04:12:52" href="detail.asp?id=15775" target="_blank" class="normal green">2012年春学期第二十周...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								督导室</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=50" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=19885" title="督导科10月份工作安排" class="normal green" target="_blank">督导科10月份工作安排</a></li><li><a title="文档标题：宦桥小学督导整改情况汇报&#10;点击次数：56&#10;更新时间：2012-10-12 下午 05:00:26" href="detail.asp?id=20154" target="_blank" class="normal">宦桥小学督导整改情况汇报</a></li><li><a title="文档标题：江苏省申报“全国义务教育发展基本均衡县（市、区）”督导评估材料&#10;点击次数：41&#10;更新时间：2012-10-11 下午 04:37:31" href="detail.asp?id=20099" target="_blank" class="normal">江苏省申报“全国义务教育发展...</a></li><li><a title="文档标题：关于开展对乡镇政府（街道）学前教育工作督导的通知&#10;点击次数：62&#10;更新时间：2012-9-24 上午 09:32:50" href="detail.asp?id=19437" target="_blank" class="normal">关于开展对乡镇政府（街道）学...</a></li><li><a title="文档标题：关于对扬州市东方名城幼儿园进行综合督导评估的通知&#10;点击次数：109&#10;更新时间：2012-9-18 下午 04:29:37" href="detail.asp?id=19318" target="_blank" class="normal green">关于对扬州市东方名城幼儿...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：扬州市人民政府教育督导团扬州市教育局文件&#10;点击次数：88&#10;更新时间：2012-9-14 下午 04:50:10" href="detail.asp?id=19205" target="_blank" class="normal">扬州市人民政府教育督导团扬州...</a></li><li><a title="文档标题：关于对广陵区韩文苑书画培训中心综合督导评估的意见&#10;点击次数：67&#10;更新时间：2012-9-7 上午 09:57:07" href="detail.asp?id=19008" target="_blank" class="normal">关于对广陵区韩文苑书画培训中...</a></li><li><a title="文档标题：扬州市汶河小学三年发展规划督导报告&#10;点击次数：65&#10;更新时间：2012-9-7 上午 09:45:25" href="detail.asp?id=19007" target="_blank" class="normal">扬州市汶河小学三年发展规划督...</a></li><li><a title="文档标题：关于做好各中小学校素质教育督导考核工作的通知&#10;点击次数：89&#10;更新时间：2012-9-5 上午 11:10:47" href="detail.asp?id=18960" target="_blank" class="normal">关于做好各中小学校素质教育督...</a></li></ul>
+					</div>
+				</div>
+				</td></tr><tr><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								教师工会</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=132" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=19558" target="_blank">
+									<img alt="与爱相随——育才实验幼儿园工会活动报道" src="http://www.gljy.com.cn/uploaded/201292691957212.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=19558" title="与爱相随——育才实验幼儿园工会活动报道" class="green" target="_blank">
+										与爱相随——育才实...</a></div>
+								<div class="normal">
+									近日，育才实验幼儿园工会组织教师认真学习...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=19924" title="2012年10月份工作计划" class="normal green" target="_blank">2012年10月份工作计...</a></li><li><a title="文档标题：沙口小学加强办公室文化建设&#10;点击次数：75&#10;更新时间：2012-9-25 上午 10:22:42" href="detail.asp?id=19506" target="_blank" class="normal">沙口小学加强办公室文化建设</a></li><li><a title="文档标题：夯实教学基本功 展示教师风采——育才实验学校举办教师钢笔字、毛笔字比赛&#10;点击次数：69&#10;更新时间：2012-9-25 上午 08:15:38" href="detail.asp?id=19491" target="_blank" class="normal">夯实教学基本功 展示教师风采...</a></li><li><a title="文档标题：广陵组团举行“青蓝工程”师徒结对签字仪式&#10;点击次数：79&#10;更新时间：2012-9-24 下午 02:01:59" href="detail.asp?id=19468" target="_blank" class="normal">广陵组团举行“青蓝工程”师徒...</a></li><li><a title="文档标题：扬州育才幼儿园第二届三次教职工代表大会顺利召开&#10;点击次数：78&#10;更新时间：2012-9-16 下午 06:54:29" href="detail.asp?id=19211" target="_blank" class="normal">扬州育才幼儿园第二届三次教职...</a></li><li><a title="文档标题：杭集中学举行教师节表彰&#10;点击次数：61&#10;更新时间：2012-9-11 上午 11:11:44" href="detail.asp?id=19140" target="_blank" class="normal">杭集中学举行教师节表彰</a></li><li><a title="文档标题：喜迎教师节   倍感关爱情&#10;点击次数：38&#10;更新时间：2012-9-10 下午 03:10:21" href="detail.asp?id=19081" target="_blank" class="normal">喜迎教师节   倍感关爱情</a></li><li><a title="文档标题：经典诵读迎端午&#10;点击次数：146&#10;更新时间：2012-6-20 下午 04:16:56" href="detail.asp?id=18250" target="_blank" class="normal green">经典诵读迎端午</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：湾头中心小学召开退休教师欢送会&#10;点击次数：230&#10;更新时间：2012-6-15 下午 08:27:59" href="detail.asp?id=18159" target="_blank" class="normal green">湾头中心小学召开退休教师欢送会</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								团委</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=205" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=20233" target="_blank">
+									<img alt="广陵区教育局团委举行“喜迎十八大、青年在成长”主题演讲比赛" src="http://www.gljy.com.cn/uploaded/20121015174559907.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=20233" title="广陵区教育局团委举行“喜迎十八大、青年在成长”主题演讲比赛" class="green" target="_blank">
+										广陵区教育局团委举...</a></div>
+								<div class="normal">
+									10月12日下午，由广陵区教育局团委举行...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=13742" title="广陵区教育局2012年工作计划" class="normal green" target="_blank">广陵区教育局2012年工...</a></li><li><a title="文档标题：工人新村小学举行青年教师即兴演讲稿写作比赛&#10;点击次数：153&#10;更新时间：2012-10-10 上午 09:53:35" href="detail.asp?id=19990" target="_blank" class="normal green">工人新村小学举行青年教师...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：育才幼儿园开展“爱祖国、爱家乡、爱学校”演讲比赛&#10;点击次数：106&#10;更新时间：2012-10-9 下午 04:10:26" href="detail.asp?id=19944" target="_blank" class="normal green">育才幼儿园开展“爱祖国、...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：东关小学开展青年教师备课笔记展评活动&#10;点击次数：111&#10;更新时间：2012-10-9 下午 04:07:49" href="detail.asp?id=19943" target="_blank" class="normal green">东关小学开展青年教师备课...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：湾中团委举行庆中秋美文朗诵比赛活动&#10;点击次数：67&#10;更新时间：2012-10-9 下午 04:05:39" href="detail.asp?id=19942" target="_blank" class="normal">湾中团委举行庆中秋美文朗诵比...</a></li><li><a title="文档标题：沙口小学召开青年教师座谈会&#10;点击次数：159&#10;更新时间：2012-9-27 下午 04:23:35" href="detail.asp?id=19620" target="_blank" class="normal green">沙口小学召开青年教师座谈会</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：泰安学校团委开展“我们的节日”手抄报展示活动&#10;点击次数：136&#10;更新时间：2012-9-26 上午 11:08:34" href="detail.asp?id=19570" target="_blank" class="normal green">泰安学校团委开展“我们的...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：工人新村小学举行青年教师读书活动&#10;点击次数：107&#10;更新时间：2012-9-26 上午 11:04:30" href="detail.asp?id=19569" target="_blank" class="normal green">工人新村小学举行青年教师...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：北洲中学举行爱国主义演讲比赛&#10;点击次数：110&#10;更新时间：2012-9-25 上午 11:13:37" href="detail.asp?id=19512" target="_blank" class="normal green">北洲中学举行爱国主义演讲比赛</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								教研室</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=49" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=19849" title="广陵区教育局教研室2012年10月份主要工作安排" class="normal green" target="_blank">广陵区教育局教研室201...</a></li><li><a title="文档标题：全区综合实践活动课堂指导专题教研报道&#10;点击次数：152&#10;更新时间：2012-10-8 下午 02:12:51" href="detail.asp?id=19871" target="_blank" class="normal green">全区综合实践活动课堂指导...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于我区小学英语教师参加市考题研究成果征集评比获奖的通知&#10;点击次数：872&#10;更新时间：2012-6-27 下午 04:37:00" href="detail.asp?id=18370" target="_blank" class="normal green">关于我区小学英语教师参加...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：区教育局召开九年级中考二模考试质量分析会&#10;点击次数：576&#10;更新时间：2012-5-29 下午 12:46:06" href="detail.asp?id=17509" target="_blank" class="normal green">区教育局召开九年级中考二...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：区部分学校三年级学业质量监测分析会成功召开&#10;点击次数：723&#10;更新时间：2012-5-22 下午 03:10:03" href="detail.asp?id=17245" target="_blank" class="normal orange">区部分学校三年级学业质量...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：全区“教学副校长生本课堂展评暨序列化主题教研汇报”活动成功举办&#10;点击次数：879&#10;更新时间：2012-4-28 下午 05:20:38" href="detail.asp?id=16494" target="_blank" class="normal green">全区“教学副校长生本课堂...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012年广陵区综合实践活动青年教师基本功比赛掠影&#10;点击次数：713&#10;更新时间：2012-4-28 下午 05:06:30" href="detail.asp?id=16493" target="_blank" class="normal green">2012年广陵区综合实践...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：小学科学教研活动在扬大附小举行&#10;点击次数：397&#10;更新时间：2012-4-25 下午 05:25:11" href="detail.asp?id=16371" target="_blank" class="normal green">小学科学教研活动在扬大附小举行</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：我区初中语文在“2012年扬州市中考语文复习研讨会”上精彩亮相&#10;点击次数：531&#10;更新时间：2012-4-11 下午 03:44:50" href="detail.asp?id=15953" target="_blank" class="normal green">我区初中语文在“2012...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td><td width="14">&nbsp;</td><td width="238" valign="top">
+				<div id="cataloglist" class="aleft">
+					<div id="title">
+						<div class="left">
+							<span>
+								信息装备</span></div>
+						<div class="right">
+							<a href="home.asp?typeid=53" class="normal white">更多...</a></div>
+					</div>
+					<div id="list">
+						
+						<div>
+							<div id="pic">
+								<a href="detail.asp?id=17175" target="_blank">
+									<img alt="答疑解惑，推进数字化校园建设" src="http://www.gljy.com.cn/uploaded/201252184655492.JPG" border="0" width="80"  height="53"/></a></div>
+							<div id="content">
+								<div>
+									<a href="detail.asp?id=17175" title="答疑解惑，推进数字化校园建设" class="green" target="_blank">
+										答疑解惑，推进数字...</a></div>
+								<div class="normal">
+									5月17日上午，扬州市数字化校园创建交流...</div>
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+						<ul><li><span class="gray normal">[月度计划]</span> <a href="detail.asp?id=20045" title="装备中心2012年十月份工作计划安排  " class="normal green" target="_blank">装备中心2012年十月份...</a></li><li><a title="文档标题：我区校园网站在“省中小学优秀校园网站评比”活动中取得佳绩&#10;点击次数：138&#10;更新时间：2012-9-13 下午 03:07:59" href="detail.asp?id=19190" target="_blank" class="normal green">我区校园网站在“省中小学...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于报送初中理科实验教学教师信息的通知&#10;点击次数：205&#10;更新时间：2012-9-12 上午 11:14:34" href="detail.asp?id=19163" target="_blank" class="normal green">关于报送初中理科实验教学...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于组织我区中小学校参加江苏省第五届中小学网络读书活动的通知&#10;点击次数：1843&#10;更新时间：2012-6-5 上午 10:06:47" href="detail.asp?id=17800" target="_blank" class="normal green">关于组织我区中小学校参加...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于上报暑期学校器材设备添置计划的通知&#10;点击次数：470&#10;更新时间：2012-5-29 上午 10:02:48" href="detail.asp?id=17503" target="_blank" class="normal green">关于上报暑期学校器材设备...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：2012“校讯通杯”电脑制作大赛我区多人获奖&#10;点击次数：487&#10;更新时间：2012-4-27 上午 10:47:29" href="detail.asp?id=16421" target="_blank" class="normal green">2012“校讯通杯”电脑...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：关于举办我区新进五镇教育技术装备管理信息系统使用教师培训班的通知&#10;点击次数：766&#10;更新时间：2012-4-23 上午 11:35:04" href="detail.asp?id=16284" target="_blank" class="normal green">关于举办我区新进五镇教育...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：我区沙口小学接待新疆新源县校长干部挂职学习 &#10;点击次数：371&#10;更新时间：2012-3-22 下午 04:10:10" href="detail.asp?id=15287" target="_blank" class="normal green">我区沙口小学接待新疆新源...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li><li><a title="文档标题：市教育局赴我区调研城乡学校网上结对工作&#10;点击次数：358&#10;更新时间：2012-2-29 下午 01:58:15" href="detail.asp?id=14188" target="_blank" class="normal green">市教育局赴我区调研城乡学...</a><img alt="" src="../inc/hot.gif" align="absmiddle" /></li></ul>
+					</div>
+				</div>
+				</td></tr>
+			</table>
+		</div>
+	</center>
+	<center>
+	<div class="pagewidth">
+		<div id="linkbar">
+			<div>各科室</div>
+			<div>区属幼儿园</div>
+			<div>区属中小学</div>
+			<div>民办学校</div>
+			<div>区相关单位</div>
+			<div>市相关单位</div>
+			<div>教育相关</div>
+			<div>教育门户网站</div>
+			<div>广陵社区教育</div>
+		</div>
+		<div id="links">
+			<div style="display: none;"><div title="办公室"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=54" target="_blank" class="normal">办公室</a></div><div title="组织人事"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=45" target="_blank" class="normal">组织人事</a></div><div title="基础教育"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=46" target="_blank" class="normal">基础教育</a></div><div title="财务审计"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=47" target="_blank" class="normal">财务审计</a></div><div title="社会教育"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=52" target="_blank" class="normal">社会教育</a></div><div title="发展规划"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=48" target="_blank" class="normal">发展规划</a></div><div title="教研室"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=49" target="_blank" class="normal">教研室</a></div><div title="督导室"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=50" target="_blank" class="normal">督导室</a></div><div title="监察室"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=51" target="_blank" class="normal">监察室</a></div><div title="信息装备"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=53" target="_blank" class="normal">信息装备</a></div><div title="体卫艺科"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=56" target="_blank" class="normal">体卫艺科</a></div><div title="幼教中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="home.asp?typeid=158" target="_blank" class="normal">幼教中心</a></div><div title="校舍办"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.gljy.com.cn/web/home.asp?typeid=259" target="_blank" class="normal">校舍办</a></div></div><div style="display: none;"><div title="扬州汶河幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.whbaby.cn/" target="_blank" class="normal">扬州汶河幼儿园</a></div><div title="扬州育才幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://ycyey.gljy.com.cn/" target="_blank" class="normal">扬州育才幼儿园</a></div><div title="扬州新城花园幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://sy.gljy.com.cn/" target="_blank" class="normal">扬州新城花园幼儿园</a></div><div title="扬州机关第一幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzjgyy.com/" target="_blank" class="normal">扬州机关第一幼儿园</a></div><div title="扬州汶河沙口幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.whbaby.cn/new/" target="_blank" class="normal">扬州汶河沙口幼儿园</a></div><div title="扬州商业职工幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglsy.com.cn" target="_blank" class="normal">扬州商业职工幼儿园</a></div><div title="扬州东花园幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.dhyyey.cn/" target="_blank" class="normal">扬州东花园幼儿园</a></div><div title="扬州伊斯兰幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yslyey.com/" target="_blank" class="normal">扬州伊斯兰幼儿园</a></div><div title="扬州汶河贝贝幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.whbaby.cn" target="_blank" class="normal">扬州汶河贝贝幼儿园</a></div><div title="扬州扬农化工幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzynjtyey.51yey.com/" target="_blank" class="normal">扬州扬农化工幼儿园</a></div><div title="扬州霍桥幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.huoqiaoyey.com/" target="_blank" class="normal">扬州霍桥幼儿园</a></div><div title="扬州红桥幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzhqyey.com/" target="_blank" class="normal">扬州红桥幼儿园</a></div><div title="扬州育才实验幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://ycsy.gljy.com.cn/" target="_blank" class="normal">扬州育才实验幼儿园</a></div><div title="扬州大地连运幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://yzly.dadikid.net/" target="_blank" class="normal">扬州大地连运幼儿园</a></div><div title="扬州骏和大地幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://yzjh.dadikid.net/" target="_blank" class="normal">扬州骏和大地幼儿园</a></div><div title="扬州金苹果鸿泰艺术幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzjpg.cn" target="_blank" class="normal">扬州金苹果鸿泰艺术幼儿园</a></div><div title="扬州湾头幼儿园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://wtzx.zgyey.com/Default.aspx" target="_blank" class="normal">扬州湾头幼儿园</a></div></div><div style="display: none;"><div title="扬州育才小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.ycxx.net/" target="_blank" class="normal">扬州育才小学</a></div><div title="扬州工人新村小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzgrxc.org" target="_blank" class="normal">扬州工人新村小学</a></div><div title="扬州广陵小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://gl.gljy.com.cn/" target="_blank" class="normal">扬州广陵小学</a></div><div title="扬州东花园小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.dhyxx.com/" target="_blank" class="normal">扬州东花园小学</a></div><div title="扬州东关小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzdgxx.cn/new/web/ " target="_blank" class="normal">扬州东关小学</a></div><div title="扬州解放桥小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://jfq.gljy.com.cn/" target="_blank" class="normal">扬州解放桥小学</a></div><div title="扬州汶河小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.ydfx.com/" target="_blank" class="normal">扬州汶河小学</a></div><div title="扬州汶河小学正谊书院"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.ydfx.com/zysy/" target="_blank" class="normal">扬州汶河小学正谊书院</a></div><div title="扬州沙口小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.skxx.com" target="_blank" class="normal">扬州沙口小学</a></div><div title="扬州市文峰小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://wfxx.gljy.com.cn/" target="_blank" class="normal">扬州市文峰小学</a></div><div title="扬州新星小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://xxxx.gljy.com.cn/" target="_blank" class="normal">扬州新星小学</a></div><div title="扬州汤汪小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yztwxx.com/" target="_blank" class="normal">扬州汤汪小学</a></div><div title="扬州宦桥小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://hqxx.gljy.com.cn/" target="_blank" class="normal">扬州宦桥小学</a></div><div title="扬州湾头小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://wtxx.gljy.com.cn/" target="_blank" class="normal">扬州湾头小学</a></div><div title="扬州湾头实验学校"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://wtsy.gljy.com.cn/" target="_blank" class="normal">扬州湾头实验学校</a></div><div title="扬州头桥小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yztqxx.com/" target="_blank" class="normal">扬州头桥小学</a></div><div title="扬州红桥小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzhqxx.com/" target="_blank" class="normal">扬州红桥小学</a></div><div title="扬州新坝小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzxbxx.com/" target="_blank" class="normal">扬州新坝小学</a></div><div title="扬州沙头小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzstxx.net/" target="_blank" class="normal">扬州沙头小学</a></div><div title="扬州杭集小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzhjsx.cn" target="_blank" class="normal">扬州杭集小学</a></div><div title="扬州汤汪中学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://218.106.97.146/eschool/" target="_blank" class="normal">扬州汤汪中学</a></div><div title="扬州湾头中学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://wtzx.gljy.com.cn/" target="_blank" class="normal">扬州湾头中学</a></div><div title="扬州头桥中学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yztqzx.net/" target="_blank" class="normal">扬州头桥中学</a></div><div title="扬州新坝中学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.xinba.org/web/" target="_blank" class="normal">扬州新坝中学</a></div><div title="扬州北洲中学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.hjbzzx.net/" target="_blank" class="normal">扬州北洲中学</a></div><div title="扬州杭集中学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzhjzx.com/" target="_blank" class="normal">扬州杭集中学</a></div><div title="扬州霍桥学校"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.huoqs.com/" target="_blank" class="normal">扬州霍桥学校</a></div><div title="扬州李典学校"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzldxx.com/" target="_blank" class="normal">扬州李典学校</a></div><div title="扬州泰安学校"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.taxx.cn/" target="_blank" class="normal">扬州泰安学校</a></div><div title="扬州红桥高级中学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzhgz.net/" target="_blank" class="normal">扬州红桥高级中学</a></div><div title="扬州市少年宫"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzsng.com" target="_blank" class="normal">扬州市少年宫</a></div><div title="扬州培智学校"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzpzxx.com/" target="_blank" class="normal">扬州培智学校</a></div></div><div style="display: none;"><div title="扬州育才实验学校"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.ycsyxx.cn/" target="_blank" class="normal">扬州育才实验学校</a></div><div title="新东方扬州外国语学校"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.neworiental-k12.org/index.asp" target="_blank" class="normal">新东方扬州外国语学校</a></div><div title="扬州艺蕾小学"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzylxx.com/" target="_blank" class="normal">扬州艺蕾小学</a></div></div><div style="display: none;"><div title="广陵党建"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.glqdj.gov.cn/index.asp" target="_blank" class="normal">广陵党建</a></div><div title="广陵区政府"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglq.gov.cn/" target="_blank" class="normal">广陵区政府</a></div><div title="广陵区人大"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzrd.gov.cn/guangling/" target="_blank" class="normal">广陵区人大</a></div><div title="广陵区政协"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.glqzx.gov.cn/" target="_blank" class="normal">广陵区政协</a></div><div title="纪检委"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzgljj.gov.cn/" target="_blank" class="normal">纪检委</a></div><div title="团委"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.glyouth.cn/" target="_blank" class="normal">团委</a></div><div title="发经委"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://yangzhou.jsdpc.gov.cn/gqxzz/glq/" target="_blank" class="normal">发经委</a></div><div title="安监局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.glsafety.gov.cn/" target="_blank" class="normal">安监局</a></div><div title="统计局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzgltj.gov.cn/" target="_blank" class="normal">统计局</a></div><div title="外经局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglwj.gov.cn/" target="_blank" class="normal">外经局</a></div><div title="产业园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzgip.gov.cn/" target="_blank" class="normal">产业园</a></div><div title="科技局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglkj.gov.cn/" target="_blank" class="normal">科技局</a></div><div title="劳动局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglldbz.gov.cn/" target="_blank" class="normal">劳动局</a></div><div title="人事局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.glrcrs.gov.cn/" target="_blank" class="normal">人事局</a></div><div title="审计局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglaudit.gov.cn/" target="_blank" class="normal">审计局</a></div><div title="财政局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglcz.gov.cn/" target="_blank" class="normal">财政局</a></div><div title="商贸局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglsm.gov.cn/" target="_blank" class="normal">商贸局</a></div><div title="农水局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglnsj.gov.cn/" target="_blank" class="normal">农水局</a></div><div title="招商局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.glzsw.gov.cn/" target="_blank" class="normal">招商局</a></div><div title="建设局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzgljs.gov.cn/" target="_blank" class="normal">建设局</a></div><div title="环保局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglhb.gov.cn/" target="_blank" class="normal">环保局</a></div><div title="民政局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.glmz.gov.cn/" target="_blank" class="normal">民政局</a></div><div title="双拥办"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglq.gov.cn/glsy/index.asp" target="_blank" class="normal">双拥办</a></div><div title="教育局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.gljy.com.cn/" target="_blank" class="normal">教育局</a></div><div title="卫生局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglws.gov.cn/" target="_blank" class="normal">卫生局</a></div><div title="计生委"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzgljsw.gov.cn/" target="_blank" class="normal">计生委</a></div><div title="司法局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglsf.gov.cn/" target="_blank" class="normal">司法局</a></div><div title="汤汪乡"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yztw.gov.cn/index.asp" target="_blank" class="normal">汤汪乡</a></div><div title="文峰街道"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzwfjd.com/" target="_blank" class="normal">文峰街道</a></div><div title="工商联"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglgsl.gov.cn/" target="_blank" class="normal">工商联</a></div><div title="国土分局"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.glgt.gov.cn/" target="_blank" class="normal">国土分局</a></div><div title="食品工业园"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzfp.gov.cn/" target="_blank" class="normal">食品工业园</a></div><div title="残联"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglcl.org.cn/" target="_blank" class="normal">残联</a></div><div title="信息产业基地"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.cnccdc.com/" target="_blank" class="normal">信息产业基地</a></div></div><div style="display: none;"><div title="扬州市委"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yangzhou.gov.cn/template/yzzw/more/more.htm" target="_blank" class="normal">扬州市委</a></div><div title="扬州市人大"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzrd.gov.cn/" target="_blank" class="normal">扬州市人大</a></div><div title="扬州市政府 "><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yangzhou.gov.cn/" target="_blank" class="normal">扬州市政府 </a></div><div title="扬州市政协"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzzx.gov.cn/" target="_blank" class="normal">扬州市政协</a></div><div title="扬州市中级法院"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzfy.gov.cn/" target="_blank" class="normal">扬州市中级法院</a></div><div title="扬州市检察院"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yangzhou.jcy.gov.cn/" target="_blank" class="normal">扬州市检察院</a></div></div><div style="display: none;"><div title="扬州教育"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzjy.com.cn/" target="_blank" class="normal">扬州教育</a></div><div title="维扬教育"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.wyjy.cn/Article/" target="_blank" class="normal">维扬教育</a></div><div title="扬州开发区教育"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzjy.com/" target="_blank" class="normal">扬州开发区教育</a></div><div title="宝应教育"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.byjy.org/" target="_blank" class="normal">宝应教育</a></div><div title="邗江教育"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.hjjy.cn/" target="_blank" class="normal">邗江教育</a></div><div title="高邮教育"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.gyedu.net/jwt/" target="_blank" class="normal">高邮教育</a></div><div title="江都教育"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.jdjy.cc/cms" target="_blank" class="normal">江都教育</a></div></div><div style="display: none;"><div title="中国教育部"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.moe.edu.cn/" target="_blank" class="normal">中国教育部</a></div><div title="中国教育和科研计算机网"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.edu.cn/" target="_blank" class="normal">中国教育和科研计算机网</a></div><div title="中国政府网"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.gov.cn/" target="_blank" class="normal">中国政府网</a></div></div><div style="display: none;"><div title="杭集镇社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzhjcx.com/index2.asp" target="_blank" class="normal">杭集镇社区教育中心</a></div><div title="泰安镇社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.ta.gov.cn/" target="_blank" class="normal">泰安镇社区教育中心</a></div><div title="李典镇社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzec.cn/ldzf/" target="_blank" class="normal">李典镇社区教育中心</a></div><div title="沙头镇社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzstzf.com/do/list.php?fid=47" target="_blank" class="normal">沙头镇社区教育中心</a></div><div title="头桥镇社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.zgtq.gov.cn/show.asp?id=1259" target="_blank" class="normal">头桥镇社区教育中心</a></div><div title="汤汪乡社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yztw.gov.cn/yztw/News_More.asp?lm=95" target="_blank" class="normal">汤汪乡社区教育中心</a></div><div title="汶河街道社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglq.gov.cn/Html/xiangzhenjiedaofengcai/2011123113520.html" target="_blank" class="normal">汶河街道社区教育中心</a></div><div title="东关街道社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglq.gov.cn/Html/xiangzhenjiedaofengcai/2011123111700.html" target="_blank" class="normal">东关街道社区教育中心</a></div><div title="文峰街道社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzwfjd.com/" target="_blank" class="normal">文峰街道社区教育中心</a></div><div title="曲江街道社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzglqj.gov.cn/" target="_blank" class="normal">曲江街道社区教育中心</a></div><div title="湾头镇社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzwt.gov.cn/" target="_blank" class="normal">湾头镇社区教育中心</a></div><div title="广陵产业园区社区教育中心"><img alt="" src="images/icon.gif" align="absmiddle" />&nbsp;<a href="http://www.yzgip.gov.cn/" target="_blank" class="normal">广陵产业园区社区教育中心</a></div></div><div style="display: none;"></div>
+		</div>
+		<div id="buttombar">
+			扬州广陵教育在线&nbsp;&nbsp;苏ICP备<span class="tiny gray">08104142&nbsp;&nbsp;Copyright&copy;gljy.com.cn&nbsp;&nbsp;All Right Reserved.</span><br />
+			技术支持 扬州电信分公司增值业务部&nbsp;&nbsp;<a href="http://www.aoe3.com" target="_blank" class="tiny green">AOE3 Studio</a> <span class="tiny gray">&amp;</span> <a href="http://www.meit.cn" target="_blank" class="tiny green">Meit Technology</a>
+		</div>
+	</div>
+</center>
+
+</body>
+</html>
