@@ -1,0 +1,4 @@
+src/log/*
+src/down/*
+src/down_html/*
+*.pyc
